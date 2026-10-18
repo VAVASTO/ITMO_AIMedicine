@@ -1,0 +1,13 @@
+
+> itmo-aimedicine-ui@0.1.0 build
+> vite build
+
+vite v7.3.7 building client environment for production...
+transforming...
+✓ 10 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                  0.35 kB │ gzip:  0.26 kB
+dist/assets/index-CzDm5Jjy.css   1.36 kB │ gzip:  0.65 kB
+dist/assets/index-DpQUpd-g.js   67.68 kB │ gzip: 26.92 kB
+✓ built in 237ms

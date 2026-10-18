@@ -1,0 +1,13 @@
+{
+  "success": true,
+  "result": {
+    "status": "ok",
+    "message": "Локальный тестовый ответ. Mistral не вызывался."
+  },
+  "provider": "mock",
+  "model": "fixture-v1",
+  "mode": "mock",
+  "attempts": 0,
+  "latency_ms": 0,
+  "usage": {}
+}

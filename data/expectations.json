@@ -1,0 +1,72 @@
+[
+  {
+    "case_id": "case-01",
+    "family": "baseline-01",
+    "title": "Контроль в пределах выбранных полей",
+    "expected_codes": [],
+    "label_status": "engineering_only_not_clinician_reviewed"
+  },
+  {
+    "case_id": "case-02",
+    "family": "baseline-01",
+    "title": "Не указан результат пульсоксиметрии",
+    "expected_codes": [
+      "spo2_not_documented"
+    ],
+    "label_status": "engineering_only_not_clinician_reviewed"
+  },
+  {
+    "case_id": "case-03",
+    "family": "baseline-01",
+    "title": "Аллергологический анамнез неизвестен",
+    "expected_codes": [
+      "allergy_unknown"
+    ],
+    "label_status": "engineering_only_not_clinician_reviewed"
+  },
+  {
+    "case_id": "case-04",
+    "family": "baseline-01",
+    "title": "Назначение исследования без результата",
+    "expected_codes": [
+      "imaging_result_not_available"
+    ],
+    "label_status": "engineering_only_not_clinician_reviewed"
+  },
+  {
+    "case_id": "case-05",
+    "family": "baseline-01",
+    "title": "Результат доступен после момента проверки",
+    "expected_codes": [
+      "imaging_result_not_available"
+    ],
+    "label_status": "engineering_only_not_clinician_reviewed"
+  },
+  {
+    "case_id": "case-06",
+    "family": "baseline-01",
+    "title": "Два значения одного показателя в один момент",
+    "expected_codes": [
+      "spo2_conflict"
+    ],
+    "label_status": "engineering_only_not_clinician_reviewed"
+  },
+  {
+    "case_id": "case-07",
+    "family": "baseline-01",
+    "title": "Возраст за пределами первой версии",
+    "expected_codes": [
+      "out_of_scope"
+    ],
+    "label_status": "engineering_only_not_clinician_reviewed"
+  },
+  {
+    "case_id": "case-08",
+    "family": "baseline-01",
+    "title": "Тяжёлое течение за пределами первой версии",
+    "expected_codes": [
+      "out_of_scope"
+    ],
+    "label_status": "engineering_only_not_clinician_reviewed"
+  }
+]

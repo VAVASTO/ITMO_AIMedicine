@@ -1,0 +1,426 @@
+[
+  {
+    "id": "case-01",
+    "synthetic": true,
+    "age": 46,
+    "diagnosis": "Внебольничная пневмония, диагноз задан в учебном сценарии",
+    "encounter": "inpatient",
+    "review_at": "2026-10-01T12:00:00+03:00",
+    "severe": false,
+    "allergy_status": "denied",
+    "observations": [
+      {
+        "id": "obs-1",
+        "kind": "temperature",
+        "status": "available",
+        "value": "38.2",
+        "unit": "C",
+        "available_at": "2026-10-01T10:00:00+03:00"
+      },
+      {
+        "id": "obs-2",
+        "kind": "spo2",
+        "status": "available",
+        "value": "96",
+        "unit": "%",
+        "available_at": "2026-10-01T10:00:00+03:00"
+      },
+      {
+        "id": "obs-3",
+        "kind": "respiratory_rate",
+        "status": "available",
+        "value": "20",
+        "unit": "/min",
+        "available_at": "2026-10-01T10:00:00+03:00"
+      },
+      {
+        "id": "obs-4",
+        "kind": "blood_pressure",
+        "status": "available",
+        "value": "125/80",
+        "unit": "mmHg",
+        "available_at": "2026-10-01T10:00:00+03:00"
+      },
+      {
+        "id": "obs-5",
+        "kind": "chest_imaging",
+        "status": "available",
+        "value": "Описание исследования приложено к учебной записи.",
+        "unit": null,
+        "available_at": "2026-10-01T11:00:00+03:00"
+      }
+    ],
+    "note": "Полностью вымышленный пример. Проверяется только заданный набор сведений."
+  },
+  {
+    "id": "case-02",
+    "synthetic": true,
+    "age": 46,
+    "diagnosis": "Внебольничная пневмония, диагноз задан в учебном сценарии",
+    "encounter": "inpatient",
+    "review_at": "2026-10-01T12:00:00+03:00",
+    "severe": false,
+    "allergy_status": "denied",
+    "observations": [
+      {
+        "id": "obs-1",
+        "kind": "temperature",
+        "status": "available",
+        "value": "38.2",
+        "unit": "C",
+        "available_at": "2026-10-01T10:00:00+03:00"
+      },
+      {
+        "id": "obs-3",
+        "kind": "respiratory_rate",
+        "status": "available",
+        "value": "20",
+        "unit": "/min",
+        "available_at": "2026-10-01T10:00:00+03:00"
+      },
+      {
+        "id": "obs-4",
+        "kind": "blood_pressure",
+        "status": "available",
+        "value": "125/80",
+        "unit": "mmHg",
+        "available_at": "2026-10-01T10:00:00+03:00"
+      },
+      {
+        "id": "obs-5",
+        "kind": "chest_imaging",
+        "status": "available",
+        "value": "Описание исследования приложено к учебной записи.",
+        "unit": null,
+        "available_at": "2026-10-01T11:00:00+03:00"
+      }
+    ],
+    "note": "Полностью вымышленный пример. Проверяется только заданный набор сведений."
+  },
+  {
+    "id": "case-03",
+    "synthetic": true,
+    "age": 46,
+    "diagnosis": "Внебольничная пневмония, диагноз задан в учебном сценарии",
+    "encounter": "inpatient",
+    "review_at": "2026-10-01T12:00:00+03:00",
+    "severe": false,
+    "allergy_status": "unknown",
+    "observations": [
+      {
+        "id": "obs-1",
+        "kind": "temperature",
+        "status": "available",
+        "value": "38.2",
+        "unit": "C",
+        "available_at": "2026-10-01T10:00:00+03:00"
+      },
+      {
+        "id": "obs-2",
+        "kind": "spo2",
+        "status": "available",
+        "value": "96",
+        "unit": "%",
+        "available_at": "2026-10-01T10:00:00+03:00"
+      },
+      {
+        "id": "obs-3",
+        "kind": "respiratory_rate",
+        "status": "available",
+        "value": "20",
+        "unit": "/min",
+        "available_at": "2026-10-01T10:00:00+03:00"
+      },
+      {
+        "id": "obs-4",
+        "kind": "blood_pressure",
+        "status": "available",
+        "value": "125/80",
+        "unit": "mmHg",
+        "available_at": "2026-10-01T10:00:00+03:00"
+      },
+      {
+        "id": "obs-5",
+        "kind": "chest_imaging",
+        "status": "available",
+        "value": "Описание исследования приложено к учебной записи.",
+        "unit": null,
+        "available_at": "2026-10-01T11:00:00+03:00"
+      }
+    ],
+    "note": "Полностью вымышленный пример. Проверяется только заданный набор сведений."
+  },
+  {
+    "id": "case-04",
+    "synthetic": true,
+    "age": 46,
+    "diagnosis": "Внебольничная пневмония, диагноз задан в учебном сценарии",
+    "encounter": "inpatient",
+    "review_at": "2026-10-01T12:00:00+03:00",
+    "severe": false,
+    "allergy_status": "denied",
+    "observations": [
+      {
+        "id": "obs-1",
+        "kind": "temperature",
+        "status": "available",
+        "value": "38.2",
+        "unit": "C",
+        "available_at": "2026-10-01T10:00:00+03:00"
+      },
+      {
+        "id": "obs-2",
+        "kind": "spo2",
+        "status": "available",
+        "value": "96",
+        "unit": "%",
+        "available_at": "2026-10-01T10:00:00+03:00"
+      },
+      {
+        "id": "obs-3",
+        "kind": "respiratory_rate",
+        "status": "available",
+        "value": "20",
+        "unit": "/min",
+        "available_at": "2026-10-01T10:00:00+03:00"
+      },
+      {
+        "id": "obs-4",
+        "kind": "blood_pressure",
+        "status": "available",
+        "value": "125/80",
+        "unit": "mmHg",
+        "available_at": "2026-10-01T10:00:00+03:00"
+      },
+      {
+        "id": "obs-5",
+        "kind": "chest_imaging",
+        "status": "ordered",
+        "value": null,
+        "unit": null,
+        "available_at": null
+      }
+    ],
+    "note": "Полностью вымышленный пример. Проверяется только заданный набор сведений."
+  },
+  {
+    "id": "case-05",
+    "synthetic": true,
+    "age": 46,
+    "diagnosis": "Внебольничная пневмония, диагноз задан в учебном сценарии",
+    "encounter": "inpatient",
+    "review_at": "2026-10-01T12:00:00+03:00",
+    "severe": false,
+    "allergy_status": "denied",
+    "observations": [
+      {
+        "id": "obs-1",
+        "kind": "temperature",
+        "status": "available",
+        "value": "38.2",
+        "unit": "C",
+        "available_at": "2026-10-01T10:00:00+03:00"
+      },
+      {
+        "id": "obs-2",
+        "kind": "spo2",
+        "status": "available",
+        "value": "96",
+        "unit": "%",
+        "available_at": "2026-10-01T10:00:00+03:00"
+      },
+      {
+        "id": "obs-3",
+        "kind": "respiratory_rate",
+        "status": "available",
+        "value": "20",
+        "unit": "/min",
+        "available_at": "2026-10-01T10:00:00+03:00"
+      },
+      {
+        "id": "obs-4",
+        "kind": "blood_pressure",
+        "status": "available",
+        "value": "125/80",
+        "unit": "mmHg",
+        "available_at": "2026-10-01T10:00:00+03:00"
+      },
+      {
+        "id": "obs-5",
+        "kind": "chest_imaging",
+        "status": "available",
+        "value": "Описание исследования приложено к учебной записи.",
+        "unit": null,
+        "available_at": "2026-10-01T15:00:00+03:00"
+      }
+    ],
+    "note": "Полностью вымышленный пример. Проверяется только заданный набор сведений."
+  },
+  {
+    "id": "case-06",
+    "synthetic": true,
+    "age": 46,
+    "diagnosis": "Внебольничная пневмония, диагноз задан в учебном сценарии",
+    "encounter": "inpatient",
+    "review_at": "2026-10-01T12:00:00+03:00",
+    "severe": false,
+    "allergy_status": "denied",
+    "observations": [
+      {
+        "id": "obs-1",
+        "kind": "temperature",
+        "status": "available",
+        "value": "38.2",
+        "unit": "C",
+        "available_at": "2026-10-01T10:00:00+03:00"
+      },
+      {
+        "id": "obs-2",
+        "kind": "spo2",
+        "status": "available",
+        "value": "96",
+        "unit": "%",
+        "available_at": "2026-10-01T10:00:00+03:00"
+      },
+      {
+        "id": "obs-3",
+        "kind": "respiratory_rate",
+        "status": "available",
+        "value": "20",
+        "unit": "/min",
+        "available_at": "2026-10-01T10:00:00+03:00"
+      },
+      {
+        "id": "obs-4",
+        "kind": "blood_pressure",
+        "status": "available",
+        "value": "125/80",
+        "unit": "mmHg",
+        "available_at": "2026-10-01T10:00:00+03:00"
+      },
+      {
+        "id": "obs-5",
+        "kind": "chest_imaging",
+        "status": "available",
+        "value": "Описание исследования приложено к учебной записи.",
+        "unit": null,
+        "available_at": "2026-10-01T11:00:00+03:00"
+      },
+      {
+        "id": "obs-6",
+        "kind": "spo2",
+        "status": "available",
+        "value": "92",
+        "unit": "%",
+        "available_at": "2026-10-01T10:00:00+03:00"
+      }
+    ],
+    "note": "Полностью вымышленный пример. Проверяется только заданный набор сведений."
+  },
+  {
+    "id": "case-07",
+    "synthetic": true,
+    "age": 16,
+    "diagnosis": "Внебольничная пневмония, диагноз задан в учебном сценарии",
+    "encounter": "inpatient",
+    "review_at": "2026-10-01T12:00:00+03:00",
+    "severe": false,
+    "allergy_status": "denied",
+    "observations": [
+      {
+        "id": "obs-1",
+        "kind": "temperature",
+        "status": "available",
+        "value": "38.2",
+        "unit": "C",
+        "available_at": "2026-10-01T10:00:00+03:00"
+      },
+      {
+        "id": "obs-2",
+        "kind": "spo2",
+        "status": "available",
+        "value": "96",
+        "unit": "%",
+        "available_at": "2026-10-01T10:00:00+03:00"
+      },
+      {
+        "id": "obs-3",
+        "kind": "respiratory_rate",
+        "status": "available",
+        "value": "20",
+        "unit": "/min",
+        "available_at": "2026-10-01T10:00:00+03:00"
+      },
+      {
+        "id": "obs-4",
+        "kind": "blood_pressure",
+        "status": "available",
+        "value": "125/80",
+        "unit": "mmHg",
+        "available_at": "2026-10-01T10:00:00+03:00"
+      },
+      {
+        "id": "obs-5",
+        "kind": "chest_imaging",
+        "status": "available",
+        "value": "Описание исследования приложено к учебной записи.",
+        "unit": null,
+        "available_at": "2026-10-01T11:00:00+03:00"
+      }
+    ],
+    "note": "Полностью вымышленный пример. Проверяется только заданный набор сведений."
+  },
+  {
+    "id": "case-08",
+    "synthetic": true,
+    "age": 46,
+    "diagnosis": "Внебольничная пневмония, диагноз задан в учебном сценарии",
+    "encounter": "inpatient",
+    "review_at": "2026-10-01T12:00:00+03:00",
+    "severe": true,
+    "allergy_status": "denied",
+    "observations": [
+      {
+        "id": "obs-1",
+        "kind": "temperature",
+        "status": "available",
+        "value": "38.2",
+        "unit": "C",
+        "available_at": "2026-10-01T10:00:00+03:00"
+      },
+      {
+        "id": "obs-2",
+        "kind": "spo2",
+        "status": "available",
+        "value": "96",
+        "unit": "%",
+        "available_at": "2026-10-01T10:00:00+03:00"
+      },
+      {
+        "id": "obs-3",
+        "kind": "respiratory_rate",
+        "status": "available",
+        "value": "20",
+        "unit": "/min",
+        "available_at": "2026-10-01T10:00:00+03:00"
+      },
+      {
+        "id": "obs-4",
+        "kind": "blood_pressure",
+        "status": "available",
+        "value": "125/80",
+        "unit": "mmHg",
+        "available_at": "2026-10-01T10:00:00+03:00"
+      },
+      {
+        "id": "obs-5",
+        "kind": "chest_imaging",
+        "status": "available",
+        "value": "Описание исследования приложено к учебной записи.",
+        "unit": null,
+        "available_at": "2026-10-01T11:00:00+03:00"
+      }
+    ],
+    "note": "Полностью вымышленный пример. Проверяется только заданный набор сведений."
+  }
+]
