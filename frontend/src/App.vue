@@ -26,17 +26,17 @@ async function check() {
   <main>
     <header><span class="eyebrow">ИТМО · ЭТАП 01</span><span class="badge">Подготовка</span></header>
     <h1>Основа для проверки<br>медицинской документации</h1>
-    <p class="intro">Первая функция будет находить недостающие сведения в синтетической истории болезни и показывать основания из клинических рекомендаций. Сейчас подготовлены спецификация и окружение.</p>
+    <p class="intro">Первая функция будет находить недостающие сведения в синтетической истории болезни и показывать основания из клинических рекомендаций. Пока я подготовил спецификацию и окружение.</p>
     <section aria-labelledby="connection">
       <h2 id="connection">Подключение модели</h2>
       <dl v-if="config"><div><dt>Провайдер</dt><dd>{{ config.provider }}</dd></div><div><dt>Модель</dt><dd>{{ config.model }}</dd></div><div><dt>Режим</dt><dd>{{ config.mode === 'mock' ? 'Локальная имитация' : 'Реальный API' }}</dd></div></dl>
       <p v-if="config?.mode === 'mock'">Тест проверяет работу приложения без ключа и обращения к Mistral. Он не подтверждает доступ к модели.</p>
       <p v-else-if="config">Проверка отправит один технический запрос в Mistral. Медицинские данные в нём отсутствуют.</p>
-      <button :disabled="busy || !config" @click="check">{{ busy ? 'Проверяем…' : config?.mode === 'live' ? 'Проверить Mistral API' : 'Проверить локальный режим' }}</button>
+      <button :disabled="busy || !config" @click="check">{{ busy ? 'Проверка…' : config?.mode === 'live' ? 'Проверить Mistral API' : 'Проверить локальный режим' }}</button>
       <p role="alert" class="error" v-if="error">{{ error }}</p>
       <div v-if="result" class="result" role="status"><strong>{{ result.mode === 'mock' ? 'Локальная проверка пройдена' : 'Ответ Mistral получен' }}</strong><p>{{ result.result.message }}</p><small>Режим: {{ result.mode }} · запросов к API: {{ result.attempts }}</small></div>
     </section>
-    <aside><h2>Почему пока Mistral</h2><p>Google AI Studio перенаправлял на страницу доступных регионов. Ключ Gemini получить не удалось. Вернёмся к подключению Gemini/Gemma позже и сравним модели на одинаковых примерах.</p></aside>
+    <aside><h2>Почему пока Mistral</h2><p>Google AI Studio перенаправлял на страницу доступных регионов. Ключ Gemini получить не удалось. К подключению Gemini/Gemma вернусь позже и сравню модели на одинаковых примерах.</p></aside>
     <footer>Учебный проект · Клиническая функция ещё не реализована · Только синтетические данные</footer>
   </main>
 </template>
