@@ -1,0 +1,23 @@
+{
+  "success": true,
+  "provider": "mistral",
+  "model": "ministral-8b-2512",
+  "mode": "live",
+  "attempts": 1,
+  "latency_ms": 763,
+  "usage": {
+    "prompt_tokens": 49,
+    "completion_tokens": 24,
+    "total_tokens": 73
+  },
+  "checked_on": "2026-10-18",
+  "result": {
+    "status": "ok"
+  },
+  "input_contains_patient_data": false,
+  "subscription_observed": {
+    "plan": "Free",
+    "api_pay_as_you_go_enabled": false,
+    "included_api_allowance_usd_per_month": 10
+  }
+}

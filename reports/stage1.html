@@ -3,8 +3,8 @@
     :root{color:#203d38;background:#f4f5f1;font-family:system-ui,-apple-system,sans-serif;font-size:16px;line-height:1.65}*{box-sizing:border-box}body{margin:0}a{color:#146a58;text-underline-offset:3px;overflow-wrap:anywhere}header{background:#123f36;color:white;padding:52px max(24px,calc((100vw - 1120px)/2)) 44px}.eyebrow{font-size:12px;letter-spacing:2px;opacity:.7}h1{font-size:clamp(32px,5vw,54px);line-height:1.1;max-width:820px;letter-spacing:-1.5px;margin:25px 0 20px}header p{max-width:750px;color:#d8e8e0}header a{color:#d8e8e0}.meta{font-size:13px}.container{max-width:1170px;margin:auto;padding:34px 25px}h2{font-size:28px;line-height:1.25;margin:12px 0 24px;letter-spacing:-.5px}h3{font-size:20px;margin:30px 0 14px}p{margin:12px 0 18px}section{scroll-margin-top:24px}.chapter{padding:40px 0;border-top:1px solid #cddbd2}.chapter-number{font-size:12px;letter-spacing:2px;color:#598271}nav{display:grid;grid-template-columns:1fr 1fr;gap:9px 25px;background:#e8eee6;border-radius:12px;padding:24px;margin:28px 0}nav a{text-decoration:none;font-size:14px}.table-wrap{overflow-x:auto;margin:20px 0 26px}table{width:100%;border-collapse:collapse;font-size:14px;text-align:left}th{background:#dfebe3;padding:14px;vertical-align:top}td{padding:14px;vertical-align:top;border-bottom:1px solid #d6dfd7;min-width:150px}tbody tr:nth-child(even){background:#eef2eb}code{font-size:.9em;background:#e5ede7;padding:2px 4px;border-radius:3px;overflow-wrap:anywhere}pre{background:#e7eee8;padding:20px;white-space:pre-wrap;overflow-wrap:anywhere;border-radius:10px;font-size:13px;line-height:1.6}pre code{padding:0;background:none}li{margin:6px 0}.note{border-left:4px solid #b58b34;background:#fff6dc;padding:17px 20px;margin:20px 0 28px}.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:25px 0}.flow div{border:1px solid #c3d8cc;background:white;border-radius:10px;padding:18px}.flow small{display:block;color:#5c786c;margin-bottom:7px}details{border:1px solid #d4dfd5;border-radius:10px;padding:12px 18px;margin:10px 0}summary{cursor:pointer;font-weight:600}footer{border-top:1px solid #cddbd2;padding:24px 0 40px;font-size:13px;color:#597568}@media(max-width:700px){.container{padding:22px 18px}header{padding:36px 20px}nav,.flow{grid-template-columns:1fr}h2{font-size:25px}td{min-width:200px}}@media print{header{background:white;color:#163e32;padding:0}header p,header a{color:#163e32}.container{max-width:none;padding:0}body{background:white;font-size:11pt}nav{display:none}h1{font-size:28pt}.table-wrap{overflow:visible}td{min-width:0;padding:7px}th{padding:7px}.chapter{break-before:page}tr,pre{break-inside:avoid}}
     </style></head>
 <body><header><div class="eyebrow">ИТМО · PERFORMANCE ENGINEERING · ЭТАП 01</div><h1>Проверка медицинской документации</h1><p>Исследование, архитектура и подготовка окружения. Начинаем с Mistral; проверку Gemini и Gemma переносим до решения проблемы доступа.</p><div class="meta">18 октября 2026 · Учебный проект · <a href="https://github.com/VAVASTO/ITMO_AIMedicine">ITMO_AIMedicine</a></div></header>
-<main class="container"><h2>Что сделано на первом этапе</h2><div class="table-wrap"><table><thead><tr><th>Что делали</th><th>Результат</th><th>Вывод</th><th>Статус</th></tr></thead><tbody><tr><td>Определили первую задачу</td><td>Полнота записи при внебольничной пневмонии у взрослых</td><td>Объём ограничен; нужен врач-эксперт</td><td>Подготовлено</td></tr><tr><td>Изучили аналоги</td><td>Сравнение шести решений со ссылками</td><td>Нужны источники и отдельная проверка фактов</td><td>Подготовлено</td></tr><tr><td>Спроектировали систему и RAG</td><td>Модули, данные, хранение и порядок поиска</td><td>Реализация клинического процесса впереди</td><td>Спроектировано</td></tr><tr><td>Подготовили данные</td><td>Восемь синтетических примеров и схема</td><td>Это инженерная семья случаев без экспертной разметки</td><td>Частично</td></tr><tr><td>Подключили окружение</td><td>Python + Vue; 29 локальных тестов</td><td>Mistral-клиент проверен на имитации HTTP</td><td>Без live</td></tr><tr><td>Проверили отборочный проект</td><td>34 теста Mistral-клиента, коммит e2f4877</td><td>Полный набор и реальные запросы не повторялись</td><td>Выбранный модуль</td></tr><tr><td>Попробовали Google AI Studio</td><td>Редирект на доступные регионы; ключ не создан</td><td>Продолжаем на Mistral; Gemini/Gemma отложены</td><td>Не завершено</td></tr><tr><td>Описали первую функцию и оценку</td><td>Входы, выходы, ошибки, критерии, план сравнения</td><td>Клиническое качество ещё не измерено</td><td>Подготовлено</td></tr></tbody></table></div>
-<div class="note"><strong>Границы результата.</strong> Реальные запросы к Mistral пока не выполнялись по просьбе владельца. Локальная имитация проверяет приложение и не доказывает доступ к модели. Клиническая функция описана, но ещё не реализована.</div>
+<main class="container"><h2>Что сделано на первом этапе</h2><div class="table-wrap"><table><thead><tr><th>Что делали</th><th>Результат</th><th>Вывод</th><th>Статус</th></tr></thead><tbody><tr><td>Определили первую задачу</td><td>Полнота записи при внебольничной пневмонии у взрослых</td><td>Объём ограничен; нужен врач-эксперт</td><td>Подготовлено</td></tr><tr><td>Изучили аналоги</td><td>Сравнение шести решений со ссылками</td><td>Нужны источники и отдельная проверка фактов</td><td>Подготовлено</td></tr><tr><td>Спроектировали систему и RAG</td><td>Модули, данные, хранение и порядок поиска</td><td>Реализация клинического процесса впереди</td><td>Спроектировано</td></tr><tr><td>Подготовили данные</td><td>Восемь синтетических примеров и схема</td><td>Это инженерная семья случаев без экспертной разметки</td><td>Частично</td></tr><tr><td>Подключили окружение</td><td>Python + Vue; 29 локальных тестов</td><td>Mistral-клиент проверен на имитации HTTP</td><td>Проверено локально</td></tr><tr><td>Подключили Mistral</td><td>ministral-8b-2512; 73 токена; 1 запрос</td><td>Технический JSON принят; Free активен, платный перерасход выключен</td><td>Соединение проверено</td></tr><tr><td>Проверили отборочный проект</td><td>34 теста Mistral-клиента, коммит e2f4877</td><td>Полный набор и реальные запросы не повторялись</td><td>Выбранный модуль</td></tr><tr><td>Попробовали Google AI Studio</td><td>Редирект на доступные регионы; ключ не создан</td><td>Продолжаем на Mistral; Gemini/Gemma отложены</td><td>Не завершено</td></tr><tr><td>Описали первую функцию и оценку</td><td>Входы, выходы, ошибки, критерии, план сравнения</td><td>Клиническое качество ещё не измерено</td><td>Подготовлено</td></tr></tbody></table></div>
+<div class="note"><strong>Границы результата.</strong> Доступ к Mistral подтверждён одним техническим запросом без медицинских данных. Клиническая функция описана, но ещё не реализована; качество медицинских ответов не оценивалось. Gemini и Gemma пока не подключены.</div>
 <nav aria-label="Содержание"><a href="#chapter-1">01 · Проблема и границы первой версии</a><a href="#chapter-2">02 · Сравнение существующих решений</a><a href="#chapter-3">03 · Данные и источники</a><a href="#chapter-4">04 · Архитектура и поиск по документам</a><a href="#chapter-5">05 · Первая функция: проверка полноты истории болезни</a><a href="#chapter-6">06 · План оценки качества</a><a href="#chapter-7">07 · Mistral сейчас, Gemini позже</a><a href="#chapter-8">08 · Результаты проверки</a><a href="#appendix">09 · Примеры и подтверждения</a></nav>
 <div class="flow" aria-label="План клинической проверки"><div><small>01 · ВХОД</small>Запись и время доступности фактов</div><div><small>02 · ОСНОВАНИЯ</small>Поиск по зафиксированной версии документа</div><div><small>03 · РЕЗУЛЬТАТ</small>Замечания со ссылками и решение врача</div></div>
 <section id="chapter-1" class="chapter"><span class="chapter-number">01</span><h2>Проблема и границы первой версии</h2>
@@ -396,7 +396,7 @@ Mistral: проект замечаний в JSON
 </tbody>
 </table></div>
 <p>Технические критерии можно проверять автоматически. Перечень клинически обязательных полей, правильность замечаний и полезность формулировок должен подтвердить врач. Текущие инженерные метки не заменяют эту проверку.</p></section><section id="chapter-6" class="chapter"><span class="chapter-number">06</span><h2>План оценки качества</h2>
-<p>Сейчас проверены подключение на имитированных HTTP-ответах, режим без сети, формат синтетических примеров и сборка интерфейса. Клинические метрики нового проекта ещё не измерены.</p>
+<p>Сейчас проверены клиент на имитированных HTTP-ответах, режим без сети, формат синтетических примеров и сборка интерфейса. Подключение к Mistral подтверждено одним реальным техническим запросом. Клинические метрики нового проекта ещё не измерены.</p>
 <h3>Эксперименты следующего этапа</h3>
 <div class="table-wrap"><table>
 <thead>
@@ -456,7 +456,7 @@ Mistral: проект замечаний в JSON
 <p>Врач размечает замечания и точные основания, второй проверяющий рассматривает спорные случаи. Сначала измеряем согласие экспертов, затем качество модели. Разногласие нельзя скрывать заменой эталона под полученный ответ.</p>
 <h3>Что сохранять</h3>
 <p>Идентификаторы и версии случаев, хеш корпуса, выбранные фрагменты поиска, версию промпта, модель из ответа сервера, настройки, расход токенов, задержку и исход проверки. Для первого технического вызова используется фиксированный текст без пациентов. В публичные отчёты попадают только синтетические данные и агрегированные результаты.</p></section><section id="chapter-7" class="chapter"><span class="chapter-number">07</span><h2>Mistral сейчас, Gemini позже</h2>
-<p>18 октября 2026 года принято решение продолжить на Mistral. Пользователь предоставил <a href="https://github.com/VAVASTO/AIMedicine/tree/e2f4877">отборочный проект AIMedicine</a> с примером подключения и отдельно попросил пока обойтись без живого запроса.</p>
+<p>18 октября 2026 года Mistral подключён и проверен одним техническим запросом без медицинских данных. За основу взят клиент из <a href="https://github.com/VAVASTO/AIMedicine/tree/e2f4877">отборочного проекта AIMedicine</a>.</p>
 <h3>Что произошло с Google</h3>
 <p>После входа Google AI Studio перенаправлял на <a href="https://aistudio.google.com/docs/available-regions">страницу доступных регионов</a>; ранее появлялась ошибка получения списка моделей. Создать ключ не удалось. Региональная доступность выглядит вероятной причиной, но условия аккаунта отдельно не проверены. Gemini и Gemma не вызывались.</p>
 <p>Попытка подключения отражена как незавершённая. Она не считается выполненной проверкой моделей из задания. Когда появятся время и доступ, нужно вернуться к Google AI Studio, получить ключ обычным способом и проверить модели на том же наборе примеров.</p>
@@ -474,8 +474,8 @@ Mistral: проект замечаний в JSON
 <tbody>
 <tr>
 <td>Проверка соединения</td>
-<td><code>ministral-8b-latest</code>, технический JSON</td>
-<td>Проверить ключ и фактическую модель из ответа</td>
+<td><code>ministral-8b-2512</code>, успешный технический JSON</td>
+<td>Доступ подтверждён; клиническое качество ещё не проверено</td>
 </tr>
 <tr>
 <td>Подготовка замечаний</td>
@@ -494,7 +494,9 @@ Mistral: проект замечаний в JSON
 </tr>
 </tbody>
 </table></div>
-<p>Доступность алиаса модели, бесплатный лимит и пропускная способность конкретного аккаунта пока неизвестны. В <code>.env.example</code> нет обещания бесплатного безлимитного использования.</p>
+<p>В ответе API подтверждена модель <code>ministral-8b-2512</code>: 49 входных и 24 выходных токена, всего 73; одна попытка, 763 мс. Формат JSON прошёл проверку схемы. Это проверка соединения, а не оценка качества медицинских ответов.</p>
+<p>В Subscription активен Free с включённым объёмом API/Studio на $10 в месяц. Платный перерасход API pay-as-you-go выключен; подписка не менялась. Эти условия зафиксированы при подключении 18 октября 2026 года. Пределы частоты запросов зависят от модели, нагрузочный тест не проводился.</p>
+<p>По просьбе владельца ключ создан без срока действия. Он привязан к <code>Default Workspace</code>, права на подключения ограничены <code>Shared only</code>. Клиент отправляет запросы только в <code>/chat/completions</code> и не использует подключения к внешним сервисам. Локальная настройка ограничивает проверку одной попыткой и 128 токенами ответа. Приложение не управляет тарифом, поэтому API pay-as-you-go нужно оставлять выключенным в аккаунте.</p>
 <h3>Основания реализации</h3>
 <ul>
 <li><a href="https://docs.mistral.ai/api">Mistral Chat API</a>: формат сообщений и endpoint.</li>
@@ -510,7 +512,7 @@ Mistral: проект замечаний в JSON
 <li>Запустить техническую проверку, затем сравнение на синтетических примерах.</li>
 <li>Сменить <code>LLM_PROVIDER</code> после проверок. Код клинического процесса менять не потребуется.</li>
 </ol></section><section id="chapter-8" class="chapter"><span class="chapter-number">08</span><h2>Результаты проверки</h2>
-<p>Проверки выполнены 18 октября 2026 года. Реальные запросы к Mistral, Gemini и Gemma в новом проекте не выполнялись. Ключ не требовался.</p>
+<p>Проверки выполнены 18 октября 2026 года. После локальных тестов выполнен один реальный технический запрос к Mistral. Gemini и Gemma не вызывались.</p>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -542,8 +544,8 @@ Mistral: проект замечаний в JSON
 </tr>
 <tr>
 <td>Живой Mistral</td>
-<td>Не выполнялся по просьбе владельца</td>
-<td>Доступ и квота пока не подтверждены</td>
+<td><code>ministral-8b-2512</code>, JSON <code>status=ok</code>, 1 попытка, 73 токена, 763 мс</td>
+<td>Ключ работает, ответ модели прошёл проверку схемы</td>
 </tr>
 <tr>
 <td>Gemini/Gemma</td>
@@ -557,14 +559,15 @@ Mistral: проект замечаний в JSON
 </tr>
 </tbody>
 </table></div>
-<p>Машинные результаты: <code>reports/checks/pytest.xml</code>, <code>reports/checks/mock-smoke.json</code>, <code>reports/checks/reference-mistral.xml</code>. Последний запуск новых тестов занял 0,16 с, выбранные тесты старого проекта 0,11 с на этой машине. Это длительность локальных тестов, не задержка модели. В тестовом клиенте FastAPI получено предупреждение об устаревающем способе подключения HTTPX; на результат оно не повлияло.</p>
+<p>Машинные результаты: <code>reports/checks/pytest.xml</code>, <code>reports/checks/mock-smoke.json</code>, <code>reports/checks/reference-mistral.xml</code>, <code>reports/checks/mistral-live.json</code>. В тестовом клиенте FastAPI получено предупреждение об устаревающем способе подключения HTTPX; на результат оно не повлияло.</p>
+<p>Технический запрос содержит только проверочную фразу, без медицинских данных. Использовано 49 входных и 24 выходных токена. Перед запросом проверен тариф Free; API pay-as-you-go выключен. Ключ сохранён в локальном <code>.env</code> с правами доступа <code>0600</code>, файл исключён из Git. В публичном результате нет ключа и данных аккаунта.</p>
 <p>HTML-отчёт открыт и проверен в браузере. Все девять ссылок содержания ведут к существующим разделам. Внешних скриптов, стилей и изображений нет; для чтения самого отчёта сеть не нужна. При ширине окна 1280 px горизонтального переполнения страницы нет.</p>
 <h3>Отборочный проект</h3>
 <p>По подтверждению владельца, <a href="https://github.com/VAVASTO/AIMedicine">VAVASTO/AIMedicine</a> использовался при отборе на программу. Проверен коммит <code>e2f4877</code>. Запущен только <code>tests/test_llm.py</code>, без правки исходников и без сети. Файл содержит 34 проверки, включая кеш, бюджет запросов, квоты, задержки повторов, JSON Schema, неверные ответы и отсутствие утечки ключа.</p>
 <p>Полный набор из 262 тестов и прежние live-результаты описаны в README старого проекта. В этой работе полный набор не запускался, а сохранённые ответы модели не засчитываются как новые результаты.</p>
 <p>Чтобы воспроизвести выбранные проверки, клонируйте отборочный репозиторий, перейдите на коммит <code>e2f4877</code>, установите его зависимости и выполните <code>python -m pytest tests/test_llm.py -q</code>. Наш повтор использовал Python 3.12.14 и зависимости, перечисленные в <code>requirements.lock.txt</code> нового проекта.</p>
 <h3>Что осталось</h3>
-<p>Добавить ключ Mistral локально и выполнить один технический запрос; проверить актуальную редакцию рекомендаций; согласовать клинические поля и разметку с врачом; реализовать поиск и первую функцию; вернуться к Gemini/Gemma. Публикация материалов в GitHub и сдача отчёта на учебный сайт считаются отдельными действиями и не подтверждены локальными тестами.</p></section>
+<p>Проверить актуальную редакцию рекомендаций; согласовать клинические поля и разметку с врачом; реализовать поиск и первую функцию; вернуться к Gemini/Gemma. Сдача отчёта на учебный сайт пока не выполнена.</p></section>
 <section class="chapter" id="appendix"><span class="chapter-number">09</span><h2>Примеры и подтверждения</h2><p>Встроенные данные позволяют читать отчёт без доступа к репозиторию. Раскройте пример, чтобы увидеть вход будущей функции. Ожидаемые метки хранятся отдельно и модели не передаются.</p><details><summary>case-01</summary><pre>{
   &quot;id&quot;: &quot;case-01&quot;,
   &quot;synthetic&quot;: true,
@@ -994,7 +997,7 @@ Mistral: проект замечаний в JSON
     &quot;errors&quot;: 0,
     &quot;skipped&quot;: 0
   },
-  &quot;smoke&quot;: {
+  &quot;mock_smoke&quot;: {
     &quot;success&quot;: true,
     &quot;result&quot;: {
       &quot;status&quot;: &quot;ok&quot;,
@@ -1006,6 +1009,29 @@ Mistral: проект замечаний в JSON
     &quot;attempts&quot;: 0,
     &quot;latency_ms&quot;: 0,
     &quot;usage&quot;: {}
+  },
+  &quot;mistral_live&quot;: {
+    &quot;success&quot;: true,
+    &quot;provider&quot;: &quot;mistral&quot;,
+    &quot;model&quot;: &quot;ministral-8b-2512&quot;,
+    &quot;mode&quot;: &quot;live&quot;,
+    &quot;attempts&quot;: 1,
+    &quot;latency_ms&quot;: 763,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 49,
+      &quot;completion_tokens&quot;: 24,
+      &quot;total_tokens&quot;: 73
+    },
+    &quot;checked_on&quot;: &quot;2026-10-18&quot;,
+    &quot;result&quot;: {
+      &quot;status&quot;: &quot;ok&quot;
+    },
+    &quot;input_contains_patient_data&quot;: false,
+    &quot;subscription_observed&quot;: {
+      &quot;plan&quot;: &quot;Free&quot;,
+      &quot;api_pay_as_you_go_enabled&quot;: false,
+      &quot;included_api_allowance_usd_per_month&quot;: 10
+    }
   }
 }</pre><p>Все внешние источники приведены рядом с соответствующими утверждениями. Исторические результаты отборочного проекта не включены в число новых проверок модели.</p></section>
 <footer>Отчёт подготовлен для первого этапа практики. Выполненные проверки, планы и нерешённые вопросы указаны отдельно. Документ не содержит реальных медицинских карт и ключей API.</footer></main></body></html>
