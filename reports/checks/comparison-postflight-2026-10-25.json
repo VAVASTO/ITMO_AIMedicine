@@ -1,0 +1,13 @@
+{
+  "checked_at": "2026-10-25T18:48:56.773672+00:00",
+  "source": "https://freetheai.org/dashboard/free-usage",
+  "observed_from": "reloaded account page",
+  "requests_counted": 40,
+  "requests_limit": 50,
+  "requests_running": 0,
+  "requests_failed": 0,
+  "requests_remaining": 10,
+  "new_glm_attempts": 24,
+  "new_mistral_attempts": 12,
+  "paid_settings_changed": false
+}

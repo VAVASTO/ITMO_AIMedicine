@@ -1,0 +1,730 @@
+[
+  {
+    "id": "feature-v1-01",
+    "family_id": "research-03",
+    "synthetic": true,
+    "expert_reviewed": false,
+    "split": "development_specification",
+    "stratum": "respiratory",
+    "age": 66,
+    "sex": "male",
+    "diagnosis": {
+      "code": "J18.9",
+      "text": "Внебольничная пневмония"
+    },
+    "review_at": "2026-10-06T12:00:00+03:00",
+    "documents": [
+      {
+        "id": "admission",
+        "kind": "admission_note",
+        "event_at": "2026-10-01T10:00:00+03:00",
+        "available_at": "2026-10-01T11:00:00+03:00",
+        "text": "Лихорадка и кашель четыре дня, слабость. Сахарный диабет 2 типа в анамнезе. Температура 38,3 °C, ЧДД 24 в минуту, SpO2 93% на воздухе."
+      },
+      {
+        "id": "result",
+        "kind": "result_or_consultation",
+        "event_at": "2026-10-02T10:00:00+03:00",
+        "available_at": "2026-10-03T10:00:00+03:00",
+        "text": "Рентгенография органов грудной клетки выполнена в передней прямой и боковой проекциях. В нижней доле правого лёгкого описана инфильтрация."
+      },
+      {
+        "id": "discharge",
+        "kind": "discharge_draft",
+        "event_at": "2026-10-06T10:00:00+03:00",
+        "available_at": "2026-10-06T11:00:00+03:00",
+        "text": "Температура 36,8 °C, SpO2 96% на воздухе. Сохраняется умеренный кашель.",
+        "diagnosis_code": "J18.9"
+      }
+    ],
+    "claim_draft": {
+      "principal_diagnosis_code": "J18.9",
+      "synthetic": true,
+      "region": null,
+      "amount": null
+    },
+    "care_setting": "general_inpatient",
+    "source_context": {
+      "source_id": "CAP",
+      "version": "2024",
+      "guideline_id": "654_2",
+      "use": "frozen_research_reference",
+      "valid_for_case_date": null
+    }
+  },
+  {
+    "id": "feature-v1-02",
+    "family_id": "research-03",
+    "synthetic": true,
+    "expert_reviewed": false,
+    "split": "development_specification",
+    "stratum": "respiratory",
+    "age": 66,
+    "sex": "male",
+    "diagnosis": {
+      "code": "J18.9",
+      "text": "Внебольничная пневмония"
+    },
+    "review_at": "2026-10-06T12:00:00+03:00",
+    "documents": [
+      {
+        "id": "admission",
+        "kind": "admission_note",
+        "event_at": "2026-10-01T10:00:00+03:00",
+        "available_at": "2026-10-01T11:00:00+03:00",
+        "text": "Лихорадка и кашель четыре дня, слабость. Сахарный диабет 2 типа в анамнезе. Температура 38,3 °C, ЧДД 24 в минуту, SpO2 93% на воздухе."
+      },
+      {
+        "id": "discharge",
+        "kind": "discharge_draft",
+        "event_at": "2026-10-06T10:00:00+03:00",
+        "available_at": "2026-10-06T11:00:00+03:00",
+        "text": "Температура 36,8 °C, SpO2 96% на воздухе. Сохраняется умеренный кашель.",
+        "diagnosis_code": "J18.9"
+      }
+    ],
+    "claim_draft": {
+      "principal_diagnosis_code": "J18.9",
+      "synthetic": true,
+      "region": null,
+      "amount": null
+    },
+    "care_setting": "general_inpatient",
+    "source_context": {
+      "source_id": "CAP",
+      "version": "2024",
+      "guideline_id": "654_2",
+      "use": "frozen_research_reference",
+      "valid_for_case_date": null
+    }
+  },
+  {
+    "id": "feature-v1-03",
+    "family_id": "research-03",
+    "synthetic": true,
+    "expert_reviewed": false,
+    "split": "development_specification",
+    "stratum": "respiratory",
+    "age": 66,
+    "sex": "male",
+    "diagnosis": {
+      "code": "J18.9",
+      "text": "Внебольничная пневмония"
+    },
+    "review_at": "2026-10-06T12:00:00+03:00",
+    "documents": [
+      {
+        "id": "admission",
+        "kind": "admission_note",
+        "event_at": "2026-10-01T10:00:00+03:00",
+        "available_at": "2026-10-01T11:00:00+03:00",
+        "text": "Лихорадка и кашель четыре дня, слабость. Сахарный диабет 2 типа в анамнезе. Температура 38,3 °C, ЧДД 24 в минуту, SpO2 93% на воздухе."
+      },
+      {
+        "id": "result",
+        "kind": "result_or_consultation",
+        "event_at": "2026-10-02T10:00:00+03:00",
+        "available_at": "2026-10-07T10:00:00+03:00",
+        "text": "Рентгенография органов грудной клетки выполнена в передней прямой и боковой проекциях. В нижней доле правого лёгкого описана инфильтрация."
+      },
+      {
+        "id": "discharge",
+        "kind": "discharge_draft",
+        "event_at": "2026-10-06T10:00:00+03:00",
+        "available_at": "2026-10-06T11:00:00+03:00",
+        "text": "Температура 36,8 °C, SpO2 96% на воздухе. Сохраняется умеренный кашель.",
+        "diagnosis_code": "J18.9"
+      }
+    ],
+    "claim_draft": {
+      "principal_diagnosis_code": "J18.9",
+      "synthetic": true,
+      "region": null,
+      "amount": null
+    },
+    "care_setting": "general_inpatient",
+    "source_context": {
+      "source_id": "CAP",
+      "version": "2024",
+      "guideline_id": "654_2",
+      "use": "frozen_research_reference",
+      "valid_for_case_date": null
+    }
+  },
+  {
+    "id": "feature-v1-04",
+    "family_id": "research-03",
+    "synthetic": true,
+    "expert_reviewed": false,
+    "split": "development_specification",
+    "stratum": "respiratory",
+    "age": 66,
+    "sex": "male",
+    "diagnosis": {
+      "code": "J18.9",
+      "text": "Внебольничная пневмония"
+    },
+    "review_at": "2026-10-06T12:00:00+03:00",
+    "documents": [
+      {
+        "id": "admission",
+        "kind": "admission_note",
+        "event_at": "2026-10-01T10:00:00+03:00",
+        "available_at": "2026-10-01T11:00:00+03:00",
+        "text": "Лихорадка и кашель четыре дня, слабость. Сахарный диабет 2 типа в анамнезе. Температура 38,3 °C, ЧДД 24 в минуту, SpO2 93% на воздухе."
+      },
+      {
+        "id": "result",
+        "kind": "result_or_consultation",
+        "event_at": "2026-10-02T10:00:00+03:00",
+        "available_at": "2026-10-03T10:00:00+03:00",
+        "text": "Рентгенография: инфильтрация в нижней доле правого лёгкого."
+      },
+      {
+        "id": "discharge",
+        "kind": "discharge_draft",
+        "event_at": "2026-10-06T10:00:00+03:00",
+        "available_at": "2026-10-06T11:00:00+03:00",
+        "text": "Температура 36,8 °C, SpO2 96% на воздухе. Сохраняется умеренный кашель.",
+        "diagnosis_code": "J18.9"
+      }
+    ],
+    "claim_draft": {
+      "principal_diagnosis_code": "J18.9",
+      "synthetic": true,
+      "region": null,
+      "amount": null
+    },
+    "care_setting": "general_inpatient",
+    "source_context": {
+      "source_id": "CAP",
+      "version": "2024",
+      "guideline_id": "654_2",
+      "use": "frozen_research_reference",
+      "valid_for_case_date": null
+    }
+  },
+  {
+    "id": "feature-v1-05",
+    "family_id": "research-03",
+    "synthetic": true,
+    "expert_reviewed": false,
+    "split": "development_specification",
+    "stratum": "respiratory",
+    "age": 66,
+    "sex": "male",
+    "diagnosis": {
+      "code": "J18.9",
+      "text": "Внебольничная пневмония"
+    },
+    "review_at": "2026-10-06T12:00:00+03:00",
+    "documents": [
+      {
+        "id": "admission",
+        "kind": "admission_note",
+        "event_at": "2026-10-01T10:00:00+03:00",
+        "available_at": "2026-10-01T11:00:00+03:00",
+        "text": "Лихорадка и кашель четыре дня, слабость. Сахарный диабет 2 типа в анамнезе. Температура 38,3 °C, ЧДД 24 в минуту, SpO2 93% на воздухе."
+      },
+      {
+        "id": "discharge",
+        "kind": "discharge_draft",
+        "event_at": "2026-10-06T10:00:00+03:00",
+        "available_at": "2026-10-06T11:00:00+03:00",
+        "text": "Температура 36,8 °C, SpO2 96% на воздухе. Сохраняется умеренный кашель.",
+        "diagnosis_code": "J18.9"
+      },
+      {
+        "id": "order",
+        "kind": "order",
+        "event_at": "2026-10-02T09:00:00+03:00",
+        "available_at": "2026-10-02T09:05:00+03:00",
+        "text": "Назначена рентгенография органов грудной клетки. Отметки о выполнении нет."
+      }
+    ],
+    "claim_draft": {
+      "principal_diagnosis_code": "J18.9",
+      "synthetic": true,
+      "region": null,
+      "amount": null
+    },
+    "care_setting": "general_inpatient",
+    "source_context": {
+      "source_id": "CAP",
+      "version": "2024",
+      "guideline_id": "654_2",
+      "use": "frozen_research_reference",
+      "valid_for_case_date": null
+    }
+  },
+  {
+    "id": "feature-v1-06",
+    "family_id": "research-03",
+    "synthetic": true,
+    "expert_reviewed": false,
+    "split": "development_specification",
+    "stratum": "respiratory",
+    "age": 66,
+    "sex": "male",
+    "diagnosis": {
+      "code": "J18.9",
+      "text": "Внебольничная пневмония"
+    },
+    "review_at": "2026-10-06T12:00:00+03:00",
+    "documents": [
+      {
+        "id": "admission",
+        "kind": "admission_note",
+        "event_at": "2026-10-01T10:00:00+03:00",
+        "available_at": "2026-10-01T11:00:00+03:00",
+        "text": "Лихорадка и кашель четыре дня, слабость. Сахарный диабет 2 типа в анамнезе. Температура 38,3 °C, ЧДД 24 в минуту, SpO2 93% на воздухе."
+      },
+      {
+        "id": "discharge",
+        "kind": "discharge_draft",
+        "event_at": "2026-10-06T10:00:00+03:00",
+        "available_at": "2026-10-06T11:00:00+03:00",
+        "text": "Температура 36,8 °C, SpO2 96% на воздухе. Сохраняется умеренный кашель.",
+        "diagnosis_code": "J18.9"
+      },
+      {
+        "id": "exception",
+        "kind": "exception_note",
+        "event_at": "2026-10-02T09:00:00+03:00",
+        "available_at": "2026-10-02T09:05:00+03:00",
+        "text": "Пациент отказался от рентгенографии. Запись об отказе сохранена; требуется оценка специалиста."
+      }
+    ],
+    "claim_draft": {
+      "principal_diagnosis_code": "J18.9",
+      "synthetic": true,
+      "region": null,
+      "amount": null
+    },
+    "care_setting": "general_inpatient",
+    "source_context": {
+      "source_id": "CAP",
+      "version": "2024",
+      "guideline_id": "654_2",
+      "use": "frozen_research_reference",
+      "valid_for_case_date": null
+    }
+  },
+  {
+    "id": "feature-v1-07",
+    "family_id": "research-03",
+    "synthetic": true,
+    "expert_reviewed": false,
+    "split": "development_specification",
+    "stratum": "respiratory",
+    "age": 66,
+    "sex": "male",
+    "diagnosis": {
+      "code": "J18.9",
+      "text": "Внебольничная пневмония"
+    },
+    "review_at": "2026-10-06T12:00:00+03:00",
+    "documents": [
+      {
+        "id": "admission",
+        "kind": "admission_note",
+        "event_at": "2026-10-01T10:00:00+03:00",
+        "available_at": "2026-10-01T11:00:00+03:00",
+        "text": "Лихорадка и кашель четыре дня, слабость. Сахарный диабет 2 типа в анамнезе. Температура 38,3 °C, ЧДД 24 в минуту, SpO2 93% на воздухе."
+      },
+      {
+        "id": "discharge",
+        "kind": "discharge_draft",
+        "event_at": "2026-10-06T10:00:00+03:00",
+        "available_at": "2026-10-06T11:00:00+03:00",
+        "text": "Температура 36,8 °C, SpO2 96% на воздухе. Сохраняется умеренный кашель.",
+        "diagnosis_code": "J18.9"
+      },
+      {
+        "id": "exception",
+        "kind": "exception_note",
+        "event_at": "2026-10-02T09:00:00+03:00",
+        "available_at": "2026-10-02T09:05:00+03:00",
+        "text": "Врач отметил ограничение к исследованию. Причина ограничения и решение о дальнейших действиях в выгрузке отсутствуют."
+      }
+    ],
+    "claim_draft": {
+      "principal_diagnosis_code": "J18.9",
+      "synthetic": true,
+      "region": null,
+      "amount": null
+    },
+    "care_setting": "general_inpatient",
+    "source_context": {
+      "source_id": "CAP",
+      "version": "2024",
+      "guideline_id": "654_2",
+      "use": "frozen_research_reference",
+      "valid_for_case_date": null
+    }
+  },
+  {
+    "id": "feature-v1-08",
+    "family_id": "research-03",
+    "synthetic": true,
+    "expert_reviewed": false,
+    "split": "development_specification",
+    "stratum": "respiratory",
+    "age": 17,
+    "sex": "male",
+    "diagnosis": {
+      "code": "J18.9",
+      "text": "Внебольничная пневмония"
+    },
+    "review_at": "2026-10-06T12:00:00+03:00",
+    "documents": [
+      {
+        "id": "admission",
+        "kind": "admission_note",
+        "event_at": "2026-10-01T10:00:00+03:00",
+        "available_at": "2026-10-01T11:00:00+03:00",
+        "text": "Лихорадка и кашель четыре дня, слабость. Сахарный диабет 2 типа в анамнезе. Температура 38,3 °C, ЧДД 24 в минуту, SpO2 93% на воздухе."
+      },
+      {
+        "id": "result",
+        "kind": "result_or_consultation",
+        "event_at": "2026-10-02T10:00:00+03:00",
+        "available_at": "2026-10-03T10:00:00+03:00",
+        "text": "Рентгенография органов грудной клетки выполнена в передней прямой и боковой проекциях. В нижней доле правого лёгкого описана инфильтрация."
+      },
+      {
+        "id": "discharge",
+        "kind": "discharge_draft",
+        "event_at": "2026-10-06T10:00:00+03:00",
+        "available_at": "2026-10-06T11:00:00+03:00",
+        "text": "Температура 36,8 °C, SpO2 96% на воздухе. Сохраняется умеренный кашель.",
+        "diagnosis_code": "J18.9"
+      }
+    ],
+    "claim_draft": {
+      "principal_diagnosis_code": "J18.9",
+      "synthetic": true,
+      "region": null,
+      "amount": null
+    },
+    "care_setting": "general_inpatient",
+    "source_context": {
+      "source_id": "CAP",
+      "version": "2024",
+      "guideline_id": "654_2",
+      "use": "frozen_research_reference",
+      "valid_for_case_date": null
+    }
+  },
+  {
+    "id": "feature-v1-09",
+    "family_id": "research-03",
+    "synthetic": true,
+    "expert_reviewed": false,
+    "split": "development_specification",
+    "stratum": "respiratory",
+    "age": 66,
+    "sex": "male",
+    "diagnosis": {
+      "code": "J18.9",
+      "text": "Внебольничная пневмония"
+    },
+    "review_at": "2026-10-06T12:00:00+03:00",
+    "documents": [
+      {
+        "id": "admission",
+        "kind": "admission_note",
+        "event_at": "2026-10-01T10:00:00+03:00",
+        "available_at": "2026-10-01T11:00:00+03:00",
+        "text": "Лихорадка и кашель четыре дня, слабость. Сахарный диабет 2 типа в анамнезе. Температура 38,3 °C, ЧДД 24 в минуту, SpO2 93% на воздухе."
+      },
+      {
+        "id": "result",
+        "kind": "result_or_consultation",
+        "event_at": "2026-10-02T10:00:00+03:00",
+        "available_at": "2026-10-03T10:00:00+03:00",
+        "text": "Рентгенография органов грудной клетки выполнена в передней прямой и боковой проекциях. В нижней доле правого лёгкого описана инфильтрация."
+      },
+      {
+        "id": "transfer",
+        "kind": "transfer_note",
+        "event_at": "2026-10-04T10:00:00+03:00",
+        "available_at": "2026-10-04T10:05:00+03:00",
+        "text": "Переведён в ОРИТ; на момент проверки находится в ОРИТ."
+      }
+    ],
+    "claim_draft": {
+      "principal_diagnosis_code": "J18.9",
+      "synthetic": true,
+      "region": null,
+      "amount": null
+    },
+    "care_setting": "intensive_care",
+    "source_context": {
+      "source_id": "CAP",
+      "version": "2024",
+      "guideline_id": "654_2",
+      "use": "frozen_research_reference",
+      "valid_for_case_date": null
+    }
+  },
+  {
+    "id": "feature-v1-10",
+    "family_id": "research-03",
+    "synthetic": true,
+    "expert_reviewed": false,
+    "split": "development_specification",
+    "stratum": "circulatory",
+    "age": 66,
+    "sex": "male",
+    "diagnosis": {
+      "code": "I50.9",
+      "text": "Хроническая сердечная недостаточность"
+    },
+    "review_at": "2026-10-06T12:00:00+03:00",
+    "documents": [
+      {
+        "id": "admission",
+        "kind": "admission_note",
+        "event_at": "2026-10-01T10:00:00+03:00",
+        "available_at": "2026-10-01T11:00:00+03:00",
+        "text": "В карте указана ХСН. Жалобы на одышку и отёки. Диагноз пневмонии не установлен."
+      },
+      {
+        "id": "result",
+        "kind": "result_or_consultation",
+        "event_at": "2026-10-02T10:00:00+03:00",
+        "available_at": "2026-10-03T10:00:00+03:00",
+        "text": "Консультация кардиолога: требуется уточнение состояния по поводу ХСН."
+      },
+      {
+        "id": "discharge",
+        "kind": "discharge_draft",
+        "event_at": "2026-10-06T10:00:00+03:00",
+        "available_at": "2026-10-06T11:00:00+03:00",
+        "text": "Учебный проект выписки по поводу ХСН. Пневмония не указана.",
+        "diagnosis_code": "I50.9"
+      }
+    ],
+    "claim_draft": {
+      "principal_diagnosis_code": "I50.9",
+      "synthetic": true,
+      "region": null,
+      "amount": null
+    },
+    "care_setting": "general_inpatient",
+    "source_context": {
+      "source_id": "CAP",
+      "version": "2024",
+      "guideline_id": "654_2",
+      "use": "frozen_research_reference",
+      "valid_for_case_date": null
+    }
+  },
+  {
+    "id": "feature-v1-11",
+    "family_id": "research-03",
+    "synthetic": true,
+    "expert_reviewed": false,
+    "split": "development_specification",
+    "stratum": "respiratory",
+    "age": 66,
+    "sex": "male",
+    "diagnosis": {
+      "code": "J18.9",
+      "text": "Внебольничная пневмония"
+    },
+    "review_at": "2026-10-06T12:00:00+03:00",
+    "documents": [
+      {
+        "id": "admission",
+        "kind": "admission_note",
+        "event_at": "2026-10-01T10:00:00+03:00",
+        "available_at": "2026-10-01T11:00:00+03:00",
+        "text": "Лихорадка и кашель четыре дня, слабость. Сахарный диабет 2 типа в анамнезе. Температура 38,3 °C, ЧДД 24 в минуту, SpO2 93% на воздухе."
+      },
+      {
+        "id": "result",
+        "kind": "result_or_consultation",
+        "event_at": "2026-10-02T10:00:00+03:00",
+        "available_at": "2026-10-03T10:00:00+03:00",
+        "text": "Рентгенография органов грудной клетки выполнена в передней прямой и боковой проекциях. В нижней доле правого лёгкого описана инфильтрация."
+      },
+      {
+        "id": "discharge",
+        "kind": "discharge_draft",
+        "event_at": "2026-10-06T10:00:00+03:00",
+        "available_at": "2026-10-06T11:00:00+03:00",
+        "text": "Температура 36,8 °C, SpO2 96% на воздухе. Сохраняется умеренный кашель.",
+        "diagnosis_code": "J18.9"
+      }
+    ],
+    "claim_draft": {
+      "principal_diagnosis_code": "I50.9",
+      "synthetic": true,
+      "region": null,
+      "amount": null
+    },
+    "care_setting": "general_inpatient",
+    "source_context": {
+      "source_id": "CAP",
+      "version": "2024",
+      "guideline_id": "654_2",
+      "use": "frozen_research_reference",
+      "valid_for_case_date": null
+    }
+  },
+  {
+    "id": "feature-v1-12",
+    "family_id": "research-03",
+    "synthetic": true,
+    "expert_reviewed": false,
+    "split": "development_specification",
+    "stratum": "respiratory",
+    "age": 66,
+    "sex": "male",
+    "diagnosis": {
+      "code": "J18.9",
+      "text": "Внебольничная пневмония"
+    },
+    "review_at": "2026-10-06T12:00:00+03:00",
+    "documents": [
+      {
+        "id": "admission",
+        "kind": "admission_note",
+        "event_at": "2026-10-01T10:00:00+03:00",
+        "available_at": "2026-10-01T11:00:00+03:00",
+        "text": "Лихорадка и кашель четыре дня, слабость. Сахарный диабет 2 типа в анамнезе. Температура 38,3 °C, ЧДД 24 в минуту, SpO2 93% на воздухе."
+      },
+      {
+        "id": "result",
+        "kind": "result_or_consultation",
+        "event_at": "2026-10-02T10:00:00+03:00",
+        "available_at": "2026-10-03T10:00:00+03:00",
+        "text": "Рентгенография органов грудной клетки выполнена в передней прямой и боковой проекциях. В нижней доле правого лёгкого описана инфильтрация."
+      },
+      {
+        "id": "discharge",
+        "kind": "discharge_draft",
+        "event_at": "2026-10-06T10:00:00+03:00",
+        "available_at": "2026-10-06T11:00:00+03:00",
+        "text": "Температура 36,8 °C, SpO2 96% на воздухе. Сохраняется умеренный кашель.",
+        "diagnosis_code": "J18.9"
+      }
+    ],
+    "claim_draft": {
+      "principal_diagnosis_code": "J18.9",
+      "synthetic": true,
+      "region": null,
+      "amount": null
+    },
+    "care_setting": "general_inpatient",
+    "source_context": null
+  },
+  {
+    "id": "feature-v1-13",
+    "family_id": "research-03",
+    "synthetic": true,
+    "expert_reviewed": false,
+    "split": "development_specification",
+    "stratum": "respiratory",
+    "age": null,
+    "sex": "male",
+    "diagnosis": {
+      "code": "J18.9",
+      "text": "Внебольничная пневмония"
+    },
+    "review_at": "2026-10-06T12:00:00+03:00",
+    "documents": [
+      {
+        "id": "admission",
+        "kind": "admission_note",
+        "event_at": "2026-10-01T10:00:00+03:00",
+        "available_at": "2026-10-01T11:00:00+03:00",
+        "text": "Лихорадка и кашель четыре дня, слабость. Сахарный диабет 2 типа в анамнезе. Температура 38,3 °C, ЧДД 24 в минуту, SpO2 93% на воздухе."
+      },
+      {
+        "id": "result",
+        "kind": "result_or_consultation",
+        "event_at": "2026-10-02T10:00:00+03:00",
+        "available_at": "2026-10-03T10:00:00+03:00",
+        "text": "Рентгенография органов грудной клетки выполнена в передней прямой и боковой проекциях. В нижней доле правого лёгкого описана инфильтрация."
+      },
+      {
+        "id": "discharge",
+        "kind": "discharge_draft",
+        "event_at": "2026-10-06T10:00:00+03:00",
+        "available_at": "2026-10-06T11:00:00+03:00",
+        "text": "Температура 36,8 °C, SpO2 96% на воздухе. Сохраняется умеренный кашель.",
+        "diagnosis_code": "J18.9"
+      }
+    ],
+    "claim_draft": {
+      "principal_diagnosis_code": "J18.9",
+      "synthetic": true,
+      "region": null,
+      "amount": null
+    },
+    "care_setting": "general_inpatient",
+    "source_context": {
+      "source_id": "CAP",
+      "version": "2024",
+      "guideline_id": "654_2",
+      "use": "frozen_research_reference",
+      "valid_for_case_date": null
+    }
+  },
+  {
+    "id": "feature-v1-14",
+    "family_id": "research-03",
+    "synthetic": true,
+    "expert_reviewed": false,
+    "split": "development_specification",
+    "stratum": "respiratory",
+    "age": 66,
+    "sex": "male",
+    "diagnosis": {
+      "code": "J18.9",
+      "text": "Внебольничная пневмония"
+    },
+    "review_at": "2026-10-06T12:00:00+03:00",
+    "documents": [
+      {
+        "id": "admission",
+        "kind": "admission_note",
+        "event_at": "2026-10-01T10:00:00+03:00",
+        "available_at": "2026-10-01T11:00:00+03:00",
+        "text": "Лихорадка и кашель четыре дня, слабость. Сахарный диабет 2 типа в анамнезе. Температура 38,3 °C, ЧДД 24 в минуту, SpO2 93% на воздухе."
+      },
+      {
+        "id": "result",
+        "kind": "result_or_consultation",
+        "event_at": "2026-10-02T10:00:00+03:00",
+        "available_at": "2026-10-06T12:00:00+03:00",
+        "text": "Рентгенография органов грудной клетки выполнена в передней прямой и боковой проекциях. В нижней доле правого лёгкого описана инфильтрация."
+      },
+      {
+        "id": "discharge",
+        "kind": "discharge_draft",
+        "event_at": "2026-10-06T10:00:00+03:00",
+        "available_at": "2026-10-06T11:00:00+03:00",
+        "text": "Температура 36,8 °C, SpO2 96% на воздухе. Сохраняется умеренный кашель.",
+        "diagnosis_code": "J18.9"
+      }
+    ],
+    "claim_draft": {
+      "principal_diagnosis_code": "J18.9",
+      "synthetic": true,
+      "region": null,
+      "amount": null
+    },
+    "care_setting": "general_inpatient",
+    "source_context": {
+      "source_id": "CAP",
+      "version": "2024",
+      "guideline_id": "654_2",
+      "use": "frozen_research_reference",
+      "valid_for_case_date": null
+    }
+  }
+]

@@ -1,0 +1,136 @@
+[
+  {
+    "case_id": "comparison-v1-01",
+    "criterion_id": "C03",
+    "expected_status": "confirmed",
+    "required_evidence_ids": [
+      "result"
+    ],
+    "forbidden_future_markers": [],
+    "required_explanation_terms": [],
+    "purpose": "Полный доступный протокол с двумя проекциями"
+  },
+  {
+    "case_id": "comparison-v1-02",
+    "criterion_id": "C03",
+    "expected_status": "insufficient_evidence",
+    "required_evidence_ids": [
+      "order"
+    ],
+    "forbidden_future_markers": [],
+    "required_explanation_terms": [],
+    "purpose": "Назначение без протокола не подтверждает выполнение"
+  },
+  {
+    "case_id": "comparison-v1-03",
+    "criterion_id": "C02",
+    "expected_status": "insufficient_evidence",
+    "required_evidence_ids": [],
+    "forbidden_future_markers": [
+      "27 мм",
+      "S6",
+      "округлое затемнение",
+      "слева"
+    ],
+    "required_explanation_terms": [],
+    "purpose": "Будущий результат с отдельными фактами для проверки объяснения"
+  },
+  {
+    "case_id": "comparison-v1-04",
+    "criterion_id": "C03",
+    "expected_status": "insufficient_evidence",
+    "required_evidence_ids": [
+      "order"
+    ],
+    "forbidden_future_markers": [
+      "43 мм",
+      "пластинчатый ателектаз"
+    ],
+    "required_explanation_terms": [],
+    "purpose": "Будущий полный протокол не закрывает текущий пропуск"
+  },
+  {
+    "case_id": "comparison-v1-05",
+    "criterion_id": "C05",
+    "expected_status": "insufficient_evidence",
+    "required_evidence_ids": [],
+    "forbidden_future_markers": [
+      "J15.1",
+      "синегной"
+    ],
+    "required_explanation_terms": [],
+    "purpose": "Код будущей выписки нельзя сравнивать с текущим счётом"
+  },
+  {
+    "case_id": "comparison-v1-06",
+    "criterion_id": "C04",
+    "expected_status": "requires_expert",
+    "required_evidence_ids": [
+      "discussion"
+    ],
+    "forbidden_future_markers": [],
+    "required_explanation_terms": [],
+    "purpose": "Отказ требует эксперта, достаточность обоснования неизвестна"
+  },
+  {
+    "case_id": "comparison-v1-07",
+    "criterion_id": "C01",
+    "expected_status": "not_applicable",
+    "required_evidence_ids": [],
+    "forbidden_future_markers": [],
+    "required_explanation_terms": [],
+    "purpose": "Возраст за пределами взрослого прототипа"
+  },
+  {
+    "case_id": "comparison-v1-08",
+    "criterion_id": "C01",
+    "expected_status": "insufficient_evidence",
+    "required_evidence_ids": [],
+    "forbidden_future_markers": [],
+    "required_explanation_terms": [],
+    "purpose": "Неизвестный возраст нельзя восстанавливать по косвенным признакам"
+  },
+  {
+    "case_id": "comparison-v1-09",
+    "criterion_id": "C02",
+    "expected_status": "confirmed",
+    "required_evidence_ids": [
+      "result"
+    ],
+    "forbidden_future_markers": [],
+    "required_explanation_terms": [],
+    "purpose": "Доступность ровно на временной границе"
+  },
+  {
+    "case_id": "comparison-v1-10",
+    "criterion_id": "C01",
+    "expected_status": "not_applicable",
+    "required_evidence_ids": [],
+    "forbidden_future_markers": [],
+    "required_explanation_terms": [],
+    "purpose": "Другая нозология вне границ набора"
+  },
+  {
+    "case_id": "comparison-v1-11",
+    "criterion_id": "C05",
+    "expected_status": "contradiction",
+    "required_evidence_ids": [
+      "discharge"
+    ],
+    "forbidden_future_markers": [],
+    "required_explanation_terms": [
+      "J18.9",
+      "J15.9"
+    ],
+    "purpose": "Различные коды должны быть показаны без автоматической замены"
+  },
+  {
+    "case_id": "comparison-v1-12",
+    "criterion_id": "C06",
+    "expected_status": "requires_expert",
+    "required_evidence_ids": [],
+    "forbidden_future_markers": [],
+    "required_explanation_terms": [],
+    "purpose": "Отсутствует источник требования"
+  }
+]

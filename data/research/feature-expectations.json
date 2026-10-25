@@ -1,0 +1,192 @@
+[
+  {
+    "case_id": "feature-v1-01",
+    "family_id": "research-03",
+    "scenario": "Полный протокол",
+    "criterion_id": "C03",
+    "expected_status": "confirmed",
+    "reason": "В протоколе явно названы обе проекции; по этому признаку замечания нет.",
+    "evidence_document_ids": [
+      "result"
+    ],
+    "clinical_ground_truth": false,
+    "is_model_output": false,
+    "scope": "one_target_criterion_only"
+  },
+  {
+    "case_id": "feature-v1-02",
+    "family_id": "research-03",
+    "scenario": "Результат отсутствует",
+    "criterion_id": "C03",
+    "expected_status": "insufficient_evidence",
+    "reason": "Запросить протокол; отсутствие файла не доказывает невыполнение исследования.",
+    "evidence_document_ids": [],
+    "clinical_ground_truth": false,
+    "is_model_output": false,
+    "scope": "one_target_criterion_only"
+  },
+  {
+    "case_id": "feature-v1-03",
+    "family_id": "research-03",
+    "scenario": "Поздний результат",
+    "criterion_id": "C02",
+    "expected_status": "insufficient_evidence",
+    "reason": "Исключить result из доступных оснований; запросить документ на момент проверки.",
+    "evidence_document_ids": [],
+    "clinical_ground_truth": false,
+    "is_model_output": false,
+    "scope": "one_target_criterion_only"
+  },
+  {
+    "case_id": "feature-v1-04",
+    "family_id": "research-03",
+    "scenario": "Не указаны проекции",
+    "criterion_id": "C03",
+    "expected_status": "insufficient_evidence",
+    "reason": "Результат есть, сведений о проекциях недостаточно.",
+    "evidence_document_ids": [
+      "result"
+    ],
+    "clinical_ground_truth": false,
+    "is_model_output": false,
+    "scope": "one_target_criterion_only"
+  },
+  {
+    "case_id": "feature-v1-05",
+    "family_id": "research-03",
+    "scenario": "Только назначение",
+    "criterion_id": "C03",
+    "expected_status": "insufficient_evidence",
+    "reason": "Назначение не подтверждает выполнение; запросить протокол.",
+    "evidence_document_ids": [
+      "order"
+    ],
+    "clinical_ground_truth": false,
+    "is_model_output": false,
+    "scope": "one_target_criterion_only"
+  },
+  {
+    "case_id": "feature-v1-06",
+    "family_id": "research-03",
+    "scenario": "Документирован отказ",
+    "criterion_id": "C04",
+    "expected_status": "requires_expert",
+    "reason": "Показать отказ специалисту; не превращать его в автоматически подтверждённое исключение.",
+    "evidence_document_ids": [
+      "exception"
+    ],
+    "clinical_ground_truth": false,
+    "is_model_output": false,
+    "scope": "one_target_criterion_only"
+  },
+  {
+    "case_id": "feature-v1-07",
+    "family_id": "research-03",
+    "scenario": "Отметка об ограничении без причины",
+    "criterion_id": "C04",
+    "expected_status": "requires_expert",
+    "reason": "Запросить основание ограничения; противопоказание не считать установленным.",
+    "evidence_document_ids": [
+      "exception"
+    ],
+    "clinical_ground_truth": false,
+    "is_model_output": false,
+    "scope": "one_target_criterion_only"
+  },
+  {
+    "case_id": "feature-v1-08",
+    "family_id": "research-03",
+    "scenario": "Возраст вне границ",
+    "criterion_id": "C01",
+    "expected_status": "not_applicable",
+    "reason": "Возраст 17 лет: взрослый набор критериев не применять.",
+    "evidence_document_ids": [
+      "admission"
+    ],
+    "clinical_ground_truth": false,
+    "is_model_output": false,
+    "scope": "one_target_criterion_only"
+  },
+  {
+    "case_id": "feature-v1-09",
+    "family_id": "research-03",
+    "scenario": "Случай в реанимации",
+    "criterion_id": "C01",
+    "expected_status": "not_applicable",
+    "reason": "Случай за границами первой версии; передать специалисту.",
+    "evidence_document_ids": [
+      "transfer"
+    ],
+    "clinical_ground_truth": false,
+    "is_model_output": false,
+    "scope": "one_target_criterion_only"
+  },
+  {
+    "case_id": "feature-v1-10",
+    "family_id": "research-03",
+    "scenario": "Другая нозология",
+    "criterion_id": "C01",
+    "expected_status": "not_applicable",
+    "reason": "В карте указана ХСН без установленной пневмонии; критерий пневмонии не применять.",
+    "evidence_document_ids": [
+      "admission"
+    ],
+    "clinical_ground_truth": false,
+    "is_model_output": false,
+    "scope": "one_target_criterion_only"
+  },
+  {
+    "case_id": "feature-v1-11",
+    "family_id": "research-03",
+    "scenario": "Расхождение кодов",
+    "criterion_id": "C05",
+    "expected_status": "contradiction",
+    "reason": "Показать J18.9 в выписке и I50.9 в счёте; запросить проверку кодирования.",
+    "evidence_document_ids": [
+      "discharge"
+    ],
+    "clinical_ground_truth": false,
+    "is_model_output": false,
+    "scope": "one_target_criterion_only"
+  },
+  {
+    "case_id": "feature-v1-12",
+    "family_id": "research-03",
+    "scenario": "Не задан источник",
+    "criterion_id": "C06",
+    "expected_status": "requires_expert",
+    "reason": "Отсутствует версия требования; нормативный вывод заблокирован.",
+    "evidence_document_ids": [],
+    "clinical_ground_truth": false,
+    "is_model_output": false,
+    "scope": "one_target_criterion_only"
+  },
+  {
+    "case_id": "feature-v1-13",
+    "family_id": "research-03",
+    "scenario": "Неизвестен возраст",
+    "criterion_id": "C01",
+    "expected_status": "insufficient_evidence",
+    "reason": "Запросить возраст; неизвестность не заменять взрослым возрастом.",
+    "evidence_document_ids": [
+      "admission"
+    ],
+    "clinical_ground_truth": false,
+    "is_model_output": false,
+    "scope": "one_target_criterion_only"
+  },
+  {
+    "case_id": "feature-v1-14",
+    "family_id": "research-03",
+    "scenario": "Результат ровно в момент проверки",
+    "criterion_id": "C02",
+    "expected_status": "confirmed",
+    "reason": "Доступность равна моменту проверки: документ включается по правилу <=.",
+    "evidence_document_ids": [
+      "result"
+    ],
+    "clinical_ground_truth": false,
+    "is_model_output": false,
+    "scope": "one_target_criterion_only"
+  }
+]

@@ -1,0 +1,445 @@
+[
+  {
+    "id": "comparison-v1-01",
+    "family_id": "comparison-family-01",
+    "synthetic": true,
+    "expert_reviewed": false,
+    "split": "frozen_engineering_pilot",
+    "age": 44,
+    "sex": "female",
+    "diagnosis": {
+      "code": "J18.9",
+      "text": "Внебольничная пневмония"
+    },
+    "care_setting": "general_inpatient",
+    "review_at": "2026-10-14T12:00:00+03:00",
+    "documents": [
+      {
+        "id": "admission",
+        "text": "После трёх дней кашля обратилась из-за лихорадки. В карте указана внебольничная пневмония.",
+        "available_at": "2026-10-11T09:00:00+03:00"
+      },
+      {
+        "id": "result",
+        "text": "Рентгенография грудной клетки: выполнены передняя прямая и боковая проекции. Описано затемнение справа в нижнем отделе.",
+        "available_at": "2026-10-12T09:15:00+03:00"
+      }
+    ],
+    "claim_draft": {
+      "principal_diagnosis_code": "J18.9",
+      "synthetic": true
+    },
+    "source_context": {
+      "source_id": "CAP",
+      "version": "2024",
+      "guideline_id": "654_2",
+      "valid_for_case_date": null,
+      "use": "frozen_research_reference"
+    }
+  },
+  {
+    "id": "comparison-v1-02",
+    "family_id": "comparison-family-02",
+    "synthetic": true,
+    "expert_reviewed": false,
+    "split": "frozen_engineering_pilot",
+    "age": 71,
+    "sex": "male",
+    "diagnosis": {
+      "code": "J18.9",
+      "text": "Внебольничная пневмония"
+    },
+    "care_setting": "general_inpatient",
+    "review_at": "2026-10-14T12:00:00+03:00",
+    "documents": [
+      {
+        "id": "admission",
+        "text": "Госпитализирован с кашлем и слабостью. Врач записал диагноз внебольничной пневмонии.",
+        "available_at": "2026-10-11T09:00:00+03:00"
+      },
+      {
+        "id": "order",
+        "text": "Назначена рентгенография грудной клетки. Протокол в выгрузке отсутствует.",
+        "available_at": "2026-10-11T10:10:00+03:00"
+      }
+    ],
+    "claim_draft": {
+      "principal_diagnosis_code": "J18.9",
+      "synthetic": true
+    },
+    "source_context": {
+      "source_id": "CAP",
+      "version": "2024",
+      "guideline_id": "654_2",
+      "valid_for_case_date": null,
+      "use": "frozen_research_reference"
+    }
+  },
+  {
+    "id": "comparison-v1-03",
+    "family_id": "comparison-family-03",
+    "synthetic": true,
+    "expert_reviewed": false,
+    "split": "frozen_engineering_pilot",
+    "age": 58,
+    "sex": "female",
+    "diagnosis": {
+      "code": "J18.9",
+      "text": "Внебольничная пневмония"
+    },
+    "care_setting": "general_inpatient",
+    "review_at": "2026-10-14T12:00:00+03:00",
+    "documents": [
+      {
+        "id": "admission",
+        "text": "В направлении указана пневмония. При поступлении жалобы на кашель и боль при глубоком вдохе.",
+        "available_at": "2026-10-11T09:00:00+03:00"
+      },
+      {
+        "id": "result",
+        "text": "Рентгенография: округлое затемнение диаметром 27 мм в сегменте S6 слева.",
+        "available_at": "2026-10-15T08:00:00+03:00",
+        "event_at": "2026-10-12T08:00:00+03:00"
+      }
+    ],
+    "claim_draft": {
+      "principal_diagnosis_code": "J18.9",
+      "synthetic": true
+    },
+    "source_context": {
+      "source_id": "CAP",
+      "version": "2024",
+      "guideline_id": "654_2",
+      "valid_for_case_date": null,
+      "use": "frozen_research_reference"
+    }
+  },
+  {
+    "id": "comparison-v1-04",
+    "family_id": "comparison-family-04",
+    "synthetic": true,
+    "expert_reviewed": false,
+    "split": "frozen_engineering_pilot",
+    "age": 39,
+    "sex": "male",
+    "diagnosis": {
+      "code": "J18.9",
+      "text": "Внебольничная пневмония"
+    },
+    "care_setting": "general_inpatient",
+    "review_at": "2026-10-14T12:00:00+03:00",
+    "documents": [
+      {
+        "id": "admission",
+        "text": "В карте зафиксирована внебольничная пневмония. Сохраняется кашель после нескольких дней болезни.",
+        "available_at": "2026-10-11T09:00:00+03:00"
+      },
+      {
+        "id": "order",
+        "text": "Направлен на рентгенографию; результата в текущем комплекте ещё нет.",
+        "available_at": "2026-10-11T13:00:00+03:00"
+      },
+      {
+        "id": "result",
+        "text": "Исследование выполнено в передней прямой и боковой проекциях. В описании: пластинчатый ателектаз справа длиной 43 мм.",
+        "available_at": "2026-10-14T12:01:00+03:00"
+      }
+    ],
+    "claim_draft": {
+      "principal_diagnosis_code": "J18.9",
+      "synthetic": true
+    },
+    "source_context": {
+      "source_id": "CAP",
+      "version": "2024",
+      "guideline_id": "654_2",
+      "valid_for_case_date": null,
+      "use": "frozen_research_reference"
+    }
+  },
+  {
+    "id": "comparison-v1-05",
+    "family_id": "comparison-family-05",
+    "synthetic": true,
+    "expert_reviewed": false,
+    "split": "frozen_engineering_pilot",
+    "age": 63,
+    "sex": "female",
+    "diagnosis": {
+      "code": "J18.9",
+      "text": "Внебольничная пневмония"
+    },
+    "care_setting": "general_inpatient",
+    "review_at": "2026-10-14T12:00:00+03:00",
+    "documents": [
+      {
+        "id": "admission",
+        "text": "Лечится по поводу пневмонии. На момент проверки доступна только запись поступления.",
+        "available_at": "2026-10-11T09:00:00+03:00"
+      },
+      {
+        "id": "discharge",
+        "text": "Проект выписки: основной код J15.1, указана синегнойная палочка.",
+        "available_at": "2026-10-16T11:00:00+03:00",
+        "diagnosis_code": "J15.1"
+      }
+    ],
+    "claim_draft": {
+      "principal_diagnosis_code": "J18.9",
+      "synthetic": true
+    },
+    "source_context": {
+      "source_id": "CAP",
+      "version": "2024",
+      "guideline_id": "654_2",
+      "valid_for_case_date": null,
+      "use": "frozen_research_reference"
+    }
+  },
+  {
+    "id": "comparison-v1-06",
+    "family_id": "comparison-family-06",
+    "synthetic": true,
+    "expert_reviewed": false,
+    "split": "frozen_engineering_pilot",
+    "age": 54,
+    "sex": "male",
+    "diagnosis": {
+      "code": "J18.9",
+      "text": "Внебольничная пневмония"
+    },
+    "care_setting": "general_inpatient",
+    "review_at": "2026-10-14T12:00:00+03:00",
+    "documents": [
+      {
+        "id": "admission",
+        "text": "Поступил с лихорадкой и кашлем. Врач указал внебольничную пневмонию.",
+        "available_at": "2026-10-11T09:00:00+03:00"
+      },
+      {
+        "id": "discussion",
+        "text": "Пациент отказался от рентгенографии. В записи нет описания обсуждённых последствий отказа.",
+        "available_at": "2026-10-12T14:20:00+03:00"
+      }
+    ],
+    "claim_draft": {
+      "principal_diagnosis_code": "J18.9",
+      "synthetic": true
+    },
+    "source_context": {
+      "source_id": "CAP",
+      "version": "2024",
+      "guideline_id": "654_2",
+      "valid_for_case_date": null,
+      "use": "frozen_research_reference"
+    }
+  },
+  {
+    "id": "comparison-v1-07",
+    "family_id": "comparison-family-07",
+    "synthetic": true,
+    "expert_reviewed": false,
+    "split": "frozen_engineering_pilot",
+    "age": 17,
+    "sex": "female",
+    "diagnosis": {
+      "code": "J18.9",
+      "text": "Внебольничная пневмония"
+    },
+    "care_setting": "general_inpatient",
+    "review_at": "2026-10-14T12:00:00+03:00",
+    "documents": [
+      {
+        "id": "admission",
+        "text": "Пациентке 17 лет. В направлении указана пневмония; история включена для проверки возрастной границы.",
+        "available_at": "2026-10-11T09:00:00+03:00"
+      }
+    ],
+    "claim_draft": {
+      "principal_diagnosis_code": "J18.9",
+      "synthetic": true
+    },
+    "source_context": {
+      "source_id": "CAP",
+      "version": "2024",
+      "guideline_id": "654_2",
+      "valid_for_case_date": null,
+      "use": "frozen_research_reference"
+    }
+  },
+  {
+    "id": "comparison-v1-08",
+    "family_id": "comparison-family-08",
+    "synthetic": true,
+    "expert_reviewed": false,
+    "split": "frozen_engineering_pilot",
+    "age": null,
+    "sex": "male",
+    "diagnosis": {
+      "code": "J18.9",
+      "text": "Внебольничная пневмония"
+    },
+    "care_setting": "general_inpatient",
+    "review_at": "2026-10-14T12:00:00+03:00",
+    "documents": [
+      {
+        "id": "admission",
+        "text": "В выгрузке отсутствуют возраст и дата рождения. Диагноз записан как внебольничная пневмония.",
+        "available_at": "2026-10-11T09:00:00+03:00"
+      }
+    ],
+    "claim_draft": {
+      "principal_diagnosis_code": "J18.9",
+      "synthetic": true
+    },
+    "source_context": {
+      "source_id": "CAP",
+      "version": "2024",
+      "guideline_id": "654_2",
+      "valid_for_case_date": null,
+      "use": "frozen_research_reference"
+    }
+  },
+  {
+    "id": "comparison-v1-09",
+    "family_id": "comparison-family-09",
+    "synthetic": true,
+    "expert_reviewed": false,
+    "split": "frozen_engineering_pilot",
+    "age": 80,
+    "sex": "female",
+    "diagnosis": {
+      "code": "J18.9",
+      "text": "Внебольничная пневмония"
+    },
+    "care_setting": "general_inpatient",
+    "review_at": "2026-10-14T12:00:00+03:00",
+    "documents": [
+      {
+        "id": "admission",
+        "text": "В карте указана пневмония. Отдельный протокол поступает в момент проверки.",
+        "available_at": "2026-10-11T09:00:00+03:00"
+      },
+      {
+        "id": "result",
+        "text": "Рентгенография: протокол зарегистрирован, проекции описаны в приложении, которое в выгрузку не входит.",
+        "available_at": "2026-10-14T12:00:00+03:00"
+      }
+    ],
+    "claim_draft": {
+      "principal_diagnosis_code": "J18.9",
+      "synthetic": true
+    },
+    "source_context": {
+      "source_id": "CAP",
+      "version": "2024",
+      "guideline_id": "654_2",
+      "valid_for_case_date": null,
+      "use": "frozen_research_reference"
+    }
+  },
+  {
+    "id": "comparison-v1-10",
+    "family_id": "comparison-family-10",
+    "synthetic": true,
+    "expert_reviewed": false,
+    "split": "frozen_engineering_pilot",
+    "age": 47,
+    "sex": "male",
+    "diagnosis": {
+      "code": "J20.9",
+      "text": "Острый бронхит"
+    },
+    "care_setting": "general_inpatient",
+    "review_at": "2026-10-14T12:00:00+03:00",
+    "documents": [
+      {
+        "id": "admission",
+        "text": "В текущем диагнозе указан острый бронхит. Диагноз пневмонии в этой истории не установлен.",
+        "available_at": "2026-10-11T09:00:00+03:00"
+      }
+    ],
+    "claim_draft": {
+      "principal_diagnosis_code": "J20.9",
+      "synthetic": true
+    },
+    "source_context": {
+      "source_id": "CAP",
+      "version": "2024",
+      "guideline_id": "654_2",
+      "valid_for_case_date": null,
+      "use": "frozen_research_reference"
+    }
+  },
+  {
+    "id": "comparison-v1-11",
+    "family_id": "comparison-family-11",
+    "synthetic": true,
+    "expert_reviewed": false,
+    "split": "frozen_engineering_pilot",
+    "age": 68,
+    "sex": "female",
+    "diagnosis": {
+      "code": "J18.9",
+      "text": "Внебольничная пневмония"
+    },
+    "care_setting": "general_inpatient",
+    "review_at": "2026-10-14T12:00:00+03:00",
+    "documents": [
+      {
+        "id": "admission",
+        "text": "Врач записал пневмонию. Подготовлены проект выписки и учебная строка счёта.",
+        "available_at": "2026-10-11T09:00:00+03:00"
+      },
+      {
+        "id": "discharge",
+        "text": "В проекте выписки основной диагноз имеет код J18.9.",
+        "available_at": "2026-10-14T10:30:00+03:00",
+        "diagnosis_code": "J18.9"
+      }
+    ],
+    "claim_draft": {
+      "principal_diagnosis_code": "J15.9",
+      "synthetic": true
+    },
+    "source_context": {
+      "source_id": "CAP",
+      "version": "2024",
+      "guideline_id": "654_2",
+      "valid_for_case_date": null,
+      "use": "frozen_research_reference"
+    }
+  },
+  {
+    "id": "comparison-v1-12",
+    "family_id": "comparison-family-12",
+    "synthetic": true,
+    "expert_reviewed": false,
+    "split": "frozen_engineering_pilot",
+    "age": 36,
+    "sex": "male",
+    "diagnosis": {
+      "code": "J18.9",
+      "text": "Внебольничная пневмония"
+    },
+    "care_setting": "general_inpatient",
+    "review_at": "2026-10-14T12:00:00+03:00",
+    "documents": [
+      {
+        "id": "admission",
+        "text": "В карте записана пневмония. Файл требований и сведения о его версии к проверке не приложены.",
+        "available_at": "2026-10-11T09:00:00+03:00"
+      },
+      {
+        "id": "result",
+        "text": "Сохранён протокол рентгенографии в передней прямой и боковой проекциях.",
+        "available_at": "2026-10-13T16:40:00+03:00"
+      }
+    ],
+    "claim_draft": {
+      "principal_diagnosis_code": "J18.9",
+      "synthetic": true
+    },
+    "source_context": null
+  }
+]

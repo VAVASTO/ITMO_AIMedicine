@@ -19,7 +19,7 @@ PAYLOAD = {"task": "connectivity_test", "text": "ITMO AIMedicine test; no patien
 def run_smoke(settings: Settings, *, transport=None) -> Completion:
     if settings.mode == "mock":
         # Explicit fixture: it is never presented as a model response or live success.
-        return Completion(SmokeReply(status="ok", message="Локальный тестовый ответ. Mistral не вызывался."),
+        return Completion(SmokeReply(status="ok", message="Локальный тестовый ответ. Модели не вызывались."),
                           "mock", "fixture-v1", "mock", 0, 0, {})
     if settings.mode != "live":
         raise LLMError("LLM_MODE должен быть mock или live.")

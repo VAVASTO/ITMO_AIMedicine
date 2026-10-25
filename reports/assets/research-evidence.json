@@ -12,6 +12,3795 @@
     "errors": 0,
     "skipped": 0
   },
+  "strengthening_tests": {
+    "tests": 39,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "feature_packet": {
+    "purpose": "specification fixtures; not an independent clinical sample",
+    "new_cases": 14,
+    "parent_family_ids": [
+      "research-03"
+    ],
+    "independent_family_count_added": 0,
+    "feature_executed": false,
+    "files": {
+      "feature-cases.json": "da7aab3aacf35b7ce8bc4d4efd54da01dfd3c0e5096ff391133653274313f21a",
+      "feature-expectations.json": "c3f7c36dd6471be29c4bcf6db9dec64b97a1f6fa12c0972e389d2cc2f123c032"
+    }
+  },
+  "glm_tests": {
+    "tests": 59,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "glm_trial_2026_10_25": {
+    "date": "2026-10-25",
+    "provider": "FreeTheAI",
+    "requested_model": "fta/zai/glm-5.3",
+    "smoke": {
+      "success": true,
+      "result": {
+        "status": "ok",
+        "message": "Connectivity test received successfully. ITMO AIMedicine test acknowledged, no patient data present."
+      },
+      "provider": "freetheai",
+      "model": "fta/zai/glm-5.3",
+      "mode": "live",
+      "attempts": 1,
+      "latency_ms": 7519,
+      "usage": {
+        "prompt_tokens": 149,
+        "completion_tokens": 94,
+        "total_tokens": 306
+      }
+    },
+    "development_trial": {
+      "started_at": "2026-10-25T17:41:25.810208+00:00",
+      "prompt_version": "glm-development-v1",
+      "purpose": "development_specification_only_not_clinical_validation",
+      "independent_families": 1,
+      "max_requests": 14,
+      "automatic_retries": 0,
+      "mode": "live",
+      "inputs_sha256": "da7aab3aacf35b7ce8bc4d4efd54da01dfd3c0e5096ff391133653274313f21a",
+      "expectations_sha256": "c3f7c36dd6471be29c4bcf6db9dec64b97a1f6fa12c0972e389d2cc2f123c032",
+      "prompt_sha256": "2565f902d632d6933dab84f83a259f4e7c37498ade350159ca9d8781cc56502b",
+      "schema": {
+        "additionalProperties": false,
+        "properties": {
+          "criterion_id": {
+            "enum": [
+              "C01",
+              "C02",
+              "C03",
+              "C04",
+              "C05",
+              "C06"
+            ],
+            "title": "Criterion Id",
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "confirmed",
+              "contradiction",
+              "insufficient_evidence",
+              "not_applicable",
+              "requires_expert"
+            ],
+            "title": "Status",
+            "type": "string"
+          },
+          "explanation": {
+            "maxLength": 1200,
+            "minLength": 1,
+            "title": "Explanation",
+            "type": "string"
+          },
+          "available_document_ids": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 10,
+            "title": "Available Document Ids",
+            "type": "array"
+          },
+          "evidence_document_ids": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 10,
+            "title": "Evidence Document Ids",
+            "type": "array"
+          },
+          "normative_conclusion_allowed": {
+            "const": false,
+            "title": "Normative Conclusion Allowed",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "criterion_id",
+          "status",
+          "explanation",
+          "available_document_ids",
+          "evidence_document_ids",
+          "normative_conclusion_allowed"
+        ],
+        "title": "ReviewReply",
+        "type": "object"
+      },
+      "finished_at": "2026-10-25T17:43:22.876569+00:00",
+      "attempted_requests": 14,
+      "completed_requests": 14,
+      "status_matches": 14,
+      "all_automatic_checks_passed": 14,
+      "total_tokens_reported": 27990,
+      "results": [
+        {
+          "case_id": "feature-v1-01",
+          "started_at": "2026-10-25T17:41:25.813511+00:00",
+          "attempts": 1,
+          "state": "completed",
+          "result": {
+            "criterion_id": "C03",
+            "status": "confirmed",
+            "explanation": "Документ result доступен на момент review_at (available_at 2026-10-03T10:00:00+03:00 раньше 2026-10-06T12:00:00+03:00). В его тексте явно указано, что рентгенография органов грудной клетки выполнена в передней прямой и боковой проекциях, с описанием инфильтрации в нижней доле правого лёгкого. Обе проекции указаны явно, учебный критерий C03 выполнен. Проверка C03 проведена в учебном режиме независимо от C06; вывод не является нормативным заключением.",
+            "available_document_ids": [
+              "admission",
+              "result",
+              "discharge"
+            ],
+            "evidence_document_ids": [
+              "result"
+            ],
+            "normative_conclusion_allowed": false
+          },
+          "provider": "freetheai",
+          "model": "fta/zai/glm-5.3",
+          "mode": "live",
+          "latency_ms": 10446,
+          "usage": {
+            "prompt_tokens": 1257,
+            "completion_tokens": 632,
+            "total_tokens": 2328
+          },
+          "checks": {
+            "status_match": true,
+            "criterion_match": true,
+            "availability_match": true,
+            "references_valid": true,
+            "normative_conclusion_blocked": true,
+            "all_automatic_checks": true,
+            "expected_status": "confirmed"
+          }
+        },
+        {
+          "case_id": "feature-v1-02",
+          "started_at": "2026-10-25T17:41:36.261141+00:00",
+          "attempts": 1,
+          "state": "completed",
+          "result": {
+            "criterion_id": "C03",
+            "status": "insufficient_evidence",
+            "explanation": "Среди доступных на 2026-10-06T12:00+03:00 документов (admission_note и discharge_draft) протокол рентгенографии грудной клетки отсутствует: передняя прямая и боковая проекции нигде явно не указаны, назначения также не зафиксировано. Отсутствие документа не доказывает, что исследование не проводилось, поэтому критерий не подтверждён — недостаточно данных.",
+            "available_document_ids": [
+              "admission",
+              "discharge"
+            ],
+            "evidence_document_ids": [],
+            "normative_conclusion_allowed": false
+          },
+          "provider": "freetheai",
+          "model": "fta/zai/glm-5.3",
+          "mode": "live",
+          "latency_ms": 14892,
+          "usage": {
+            "prompt_tokens": 1154,
+            "completion_tokens": 631,
+            "total_tokens": 2271
+          },
+          "checks": {
+            "status_match": true,
+            "criterion_match": true,
+            "availability_match": true,
+            "references_valid": true,
+            "normative_conclusion_blocked": true,
+            "all_automatic_checks": true,
+            "expected_status": "insufficient_evidence"
+          }
+        },
+        {
+          "case_id": "feature-v1-03",
+          "started_at": "2026-10-25T17:41:51.155249+00:00",
+          "attempts": 1,
+          "state": "completed",
+          "result": {
+            "criterion_id": "C02",
+            "status": "insufficient_evidence",
+            "explanation": "Документ result (рентгенография с описанием инфильтрации) доступен только с 2026-10-07T10:00:00+03:00, что позже момента проверки review_at=2026-10-06T12:00:00+03:00. На момент проверки доступны только admission и discharge, поэтому результат считается недоступным и не может использоваться как основание. Критерий C02 не подтверждён.",
+            "available_document_ids": [
+              "admission",
+              "discharge"
+            ],
+            "evidence_document_ids": [],
+            "normative_conclusion_allowed": false
+          },
+          "provider": "freetheai",
+          "model": "fta/zai/glm-5.3",
+          "mode": "live",
+          "latency_ms": 8678,
+          "usage": {
+            "prompt_tokens": 1257,
+            "completion_tokens": 435,
+            "total_tokens": 1978
+          },
+          "checks": {
+            "status_match": true,
+            "criterion_match": true,
+            "availability_match": true,
+            "references_valid": true,
+            "normative_conclusion_blocked": true,
+            "all_automatic_checks": true,
+            "expected_status": "insufficient_evidence"
+          }
+        },
+        {
+          "case_id": "feature-v1-04",
+          "started_at": "2026-10-25T17:41:59.838764+00:00",
+          "attempts": 1,
+          "state": "completed",
+          "result": {
+            "criterion_id": "C03",
+            "status": "insufficient_evidence",
+            "explanation": "На момент review_at доступны все три документа. В доступном результате (result) упомянута рентгенография с инфильтрацией в нижней доле правого лёгкого, однако проекции исследования (передняя прямая и боковая) явно не указаны ни в одном доступном документе. По правилу C03 отсутствие указания проекций не позволяет подтвердить критерий, при этом это не доказывает, что исследование в нужных проекциях не было проведено. Учебная проверка C03 выполнена независимо от C06.",
+            "available_document_ids": [
+              "admission",
+              "result",
+              "discharge"
+            ],
+            "evidence_document_ids": [
+              "result"
+            ],
+            "normative_conclusion_allowed": false
+          },
+          "provider": "freetheai",
+          "model": "fta/zai/glm-5.3",
+          "mode": "live",
+          "latency_ms": 6648,
+          "usage": {
+            "prompt_tokens": 1240,
+            "completion_tokens": 400,
+            "total_tokens": 1864
+          },
+          "checks": {
+            "status_match": true,
+            "criterion_match": true,
+            "availability_match": true,
+            "references_valid": true,
+            "normative_conclusion_blocked": true,
+            "all_automatic_checks": true,
+            "expected_status": "insufficient_evidence"
+          }
+        },
+        {
+          "case_id": "feature-v1-05",
+          "started_at": "2026-10-25T17:42:06.490400+00:00",
+          "attempts": 1,
+          "state": "completed",
+          "result": {
+            "criterion_id": "C03",
+            "status": "insufficient_evidence",
+            "explanation": "Среди доступных на момент review_at документов (admission, discharge, order) отсутствует протокол рентгенографии органов грудной клетки. Документ order содержит только назначение рентгенографии без отметки о выполнении, проекции (передняя прямая и боковая) в нём не указаны. По правилу C03 наличие только назначения без протокола даёт insufficient_evidence: отсутствие документа не доказывает, что исследование не проведено. Проверка C03 выполнена в учебном режиме независимо от статуса source_context.",
+            "available_document_ids": [
+              "admission",
+              "discharge",
+              "order"
+            ],
+            "evidence_document_ids": [
+              "order"
+            ],
+            "normative_conclusion_allowed": false
+          },
+          "provider": "freetheai",
+          "model": "fta/zai/glm-5.3",
+          "mode": "live",
+          "latency_ms": 9379,
+          "usage": {
+            "prompt_tokens": 1234,
+            "completion_tokens": 557,
+            "total_tokens": 2174
+          },
+          "checks": {
+            "status_match": true,
+            "criterion_match": true,
+            "availability_match": true,
+            "references_valid": true,
+            "normative_conclusion_blocked": true,
+            "all_automatic_checks": true,
+            "expected_status": "insufficient_evidence"
+          }
+        },
+        {
+          "case_id": "feature-v1-06",
+          "started_at": "2026-10-25T17:42:15.871064+00:00",
+          "attempts": 1,
+          "state": "completed",
+          "result": {
+            "criterion_id": "C04",
+            "status": "requires_expert",
+            "explanation": "В доступной на момент review_at записи exception_note зафиксирован отказ пациента от рентгенографии с указанием, что требуется оценка специалиста. По правилу C04 документированный отказ или ограничение требует экспертной оценки; исключение не подтверждается автоматически. Учебная проверка, нормативного вывода нет.",
+            "available_document_ids": [
+              "admission",
+              "discharge",
+              "exception"
+            ],
+            "evidence_document_ids": [
+              "exception"
+            ],
+            "normative_conclusion_allowed": false
+          },
+          "provider": "freetheai",
+          "model": "fta/zai/glm-5.3",
+          "mode": "live",
+          "latency_ms": 8831,
+          "usage": {
+            "prompt_tokens": 1239,
+            "completion_tokens": 423,
+            "total_tokens": 1957
+          },
+          "checks": {
+            "status_match": true,
+            "criterion_match": true,
+            "availability_match": true,
+            "references_valid": true,
+            "normative_conclusion_blocked": true,
+            "all_automatic_checks": true,
+            "expected_status": "requires_expert"
+          }
+        },
+        {
+          "case_id": "feature-v1-07",
+          "started_at": "2026-10-25T17:42:24.711908+00:00",
+          "attempts": 1,
+          "state": "completed",
+          "result": {
+            "criterion_id": "C04",
+            "status": "requires_expert",
+            "explanation": "В доступной на дату проверки заметке-исключении (exception, доступна 2026-10-02T09:05+03:00) врач зафиксировал ограничение к исследованию. Причина ограничения и решение о дальнейших действиях в выгрузке отсутствуют. По правилу C04 наличие отказа или записи об ограничении требует экспертной оценки; исключение автоматически не подтверждается.",
+            "available_document_ids": [
+              "admission",
+              "discharge",
+              "exception"
+            ],
+            "evidence_document_ids": [
+              "exception"
+            ],
+            "normative_conclusion_allowed": false
+          },
+          "provider": "freetheai",
+          "model": "fta/zai/glm-5.3",
+          "mode": "live",
+          "latency_ms": 5802,
+          "usage": {
+            "prompt_tokens": 1244,
+            "completion_tokens": 315,
+            "total_tokens": 1724
+          },
+          "checks": {
+            "status_match": true,
+            "criterion_match": true,
+            "availability_match": true,
+            "references_valid": true,
+            "normative_conclusion_blocked": true,
+            "all_automatic_checks": true,
+            "expected_status": "requires_expert"
+          }
+        },
+        {
+          "case_id": "feature-v1-08",
+          "started_at": "2026-10-25T17:42:30.516839+00:00",
+          "attempts": 1,
+          "state": "completed",
+          "result": {
+            "criterion_id": "C01",
+            "status": "not_applicable",
+            "explanation": "Возраст пациента 17 лет, что ниже границы прототипа (18 лет), поэтому случай выходит за рамки заданных границ применения (несовершеннолетний). Диагноз пневмонии (J18.9) и care_setting=general_inpatient соответствуют прототипу, однако возрастной критерий не выполнен: статус not_applicable по C01 независимо от остальных условий.",
+            "available_document_ids": [
+              "admission",
+              "result",
+              "discharge"
+            ],
+            "evidence_document_ids": [],
+            "normative_conclusion_allowed": false
+          },
+          "provider": "freetheai",
+          "model": "fta/zai/glm-5.3",
+          "mode": "live",
+          "latency_ms": 5643,
+          "usage": {
+            "prompt_tokens": 1257,
+            "completion_tokens": 337,
+            "total_tokens": 1793
+          },
+          "checks": {
+            "status_match": true,
+            "criterion_match": true,
+            "availability_match": true,
+            "references_valid": true,
+            "normative_conclusion_blocked": true,
+            "all_automatic_checks": true,
+            "expected_status": "not_applicable"
+          }
+        },
+        {
+          "case_id": "feature-v1-09",
+          "started_at": "2026-10-25T17:42:36.161034+00:00",
+          "attempts": 1,
+          "state": "completed",
+          "result": {
+            "criterion_id": "C01",
+            "status": "not_applicable",
+            "explanation": "Критерий C01 проверяет границы прототипа: возраст >= 18 лет, пневмония в поле diagnosis и care_setting = general_inpatient. Возраст пациента 66 лет и диагноз J18.9 (внебольничная пневмония) соответствуют границам, однако care_setting указан как intensive_care: пациент переведён в ОРИТ (что подтверждается документом transfer). По правилу C01 нахождение в ОРИТ делает случай неприменимым для прототипа, поэтому статус not_applicable.",
+            "available_document_ids": [
+              "admission",
+              "result",
+              "transfer"
+            ],
+            "evidence_document_ids": [
+              "transfer"
+            ],
+            "normative_conclusion_allowed": false
+          },
+          "provider": "freetheai",
+          "model": "fta/zai/glm-5.3",
+          "mode": "live",
+          "latency_ms": 7864,
+          "usage": {
+            "prompt_tokens": 1234,
+            "completion_tokens": 451,
+            "total_tokens": 1960
+          },
+          "checks": {
+            "status_match": true,
+            "criterion_match": true,
+            "availability_match": true,
+            "references_valid": true,
+            "normative_conclusion_blocked": true,
+            "all_automatic_checks": true,
+            "expected_status": "not_applicable"
+          }
+        },
+        {
+          "case_id": "feature-v1-10",
+          "started_at": "2026-10-25T17:42:44.029974+00:00",
+          "attempts": 1,
+          "state": "completed",
+          "result": {
+            "criterion_id": "C01",
+            "status": "not_applicable",
+            "explanation": "Возраст пациента 66 лет (>=18) и care_setting=general_inpatient соответствуют условиям, однако в поле diagnosis указана другая нозология: хроническая сердечная недостаточность (I50.9). Пневмония не установлена: в поступлении отмечено 'Диагноз пневмонии не установлен', в выписке 'Пневмония не указана'. Наличие другой нозологии выводит кейс за границы прототипа, поэтому статус not_applicable.",
+            "available_document_ids": [
+              "admission",
+              "result",
+              "discharge"
+            ],
+            "evidence_document_ids": [
+              "admission",
+              "discharge"
+            ],
+            "normative_conclusion_allowed": false
+          },
+          "provider": "freetheai",
+          "model": "fta/zai/glm-5.3",
+          "mode": "live",
+          "latency_ms": 8826,
+          "usage": {
+            "prompt_tokens": 1200,
+            "completion_tokens": 541,
+            "total_tokens": 2110
+          },
+          "checks": {
+            "status_match": true,
+            "criterion_match": true,
+            "availability_match": true,
+            "references_valid": true,
+            "normative_conclusion_blocked": true,
+            "all_automatic_checks": true,
+            "expected_status": "not_applicable"
+          }
+        },
+        {
+          "case_id": "feature-v1-11",
+          "started_at": "2026-10-25T17:42:52.857161+00:00",
+          "attempts": 1,
+          "state": "completed",
+          "result": {
+            "criterion_id": "C05",
+            "status": "contradiction",
+            "explanation": "Выписка discharge доступна на момент проверки (available_at 2026-10-06T11:00:00+03:00 <= review_at 2026-10-06T12:00:00+03:00). В доступной выписке diagnosis_code = J18.9 (внебольничная пневмония), тогда как в claim_draft principal_diagnosis_code = I50.9. Значения не совпадают — противоречие. Диагноз не изменялся, критерий фиксирует расхождение между выпиской и черновиком счёта.",
+            "available_document_ids": [
+              "admission",
+              "result",
+              "discharge"
+            ],
+            "evidence_document_ids": [
+              "discharge"
+            ],
+            "normative_conclusion_allowed": false
+          },
+          "provider": "freetheai",
+          "model": "fta/zai/glm-5.3",
+          "mode": "live",
+          "latency_ms": 8373,
+          "usage": {
+            "prompt_tokens": 1257,
+            "completion_tokens": 568,
+            "total_tokens": 2205
+          },
+          "checks": {
+            "status_match": true,
+            "criterion_match": true,
+            "availability_match": true,
+            "references_valid": true,
+            "normative_conclusion_blocked": true,
+            "all_automatic_checks": true,
+            "expected_status": "contradiction"
+          }
+        },
+        {
+          "case_id": "feature-v1-12",
+          "started_at": "2026-10-25T17:43:01.232023+00:00",
+          "attempts": 1,
+          "state": "completed",
+          "result": {
+            "criterion_id": "C06",
+            "status": "requires_expert",
+            "explanation": "В карточке случая отсутствует source_context (поле равно null). По правилу C06 отсутствие source_context требует направления к эксперту, так как невозможно установить применимость исходных материалов к дате случая (valid_for_case_date не подтверждена). Все материалы носят исследовательский характер, нормативный вывод не допускается. Статус относится только к критерию C06.",
+            "available_document_ids": [
+              "admission",
+              "result",
+              "discharge"
+            ],
+            "evidence_document_ids": [],
+            "normative_conclusion_allowed": false
+          },
+          "provider": "freetheai",
+          "model": "fta/zai/glm-5.3",
+          "mode": "live",
+          "latency_ms": 6375,
+          "usage": {
+            "prompt_tokens": 1216,
+            "completion_tokens": 349,
+            "total_tokens": 1776
+          },
+          "checks": {
+            "status_match": true,
+            "criterion_match": true,
+            "availability_match": true,
+            "references_valid": true,
+            "normative_conclusion_blocked": true,
+            "all_automatic_checks": true,
+            "expected_status": "requires_expert"
+          }
+        },
+        {
+          "case_id": "feature-v1-13",
+          "started_at": "2026-10-25T17:43:07.612551+00:00",
+          "attempts": 1,
+          "state": "completed",
+          "result": {
+            "criterion_id": "C01",
+            "status": "insufficient_evidence",
+            "explanation": "Проверка границ прототипа: диагноз в поле diagnosis — пневмония (J18.9), care_setting=general_inpatient, что соответствует прототипу. Однако возраст пациента не указан (age=null), ни один доступный документ также не содержит сведений о возрасте. По правилу C01 неизвестный возраст не позволяет подтвердить соответствие границам прототипа (>=18 лет), поэтому статус — insufficient_evidence.",
+            "available_document_ids": [
+              "admission",
+              "result",
+              "discharge"
+            ],
+            "evidence_document_ids": [],
+            "normative_conclusion_allowed": false
+          },
+          "provider": "freetheai",
+          "model": "fta/zai/glm-5.3",
+          "mode": "live",
+          "latency_ms": 9919,
+          "usage": {
+            "prompt_tokens": 1256,
+            "completion_tokens": 565,
+            "total_tokens": 2237
+          },
+          "checks": {
+            "status_match": true,
+            "criterion_match": true,
+            "availability_match": true,
+            "references_valid": true,
+            "normative_conclusion_blocked": true,
+            "all_automatic_checks": true,
+            "expected_status": "insufficient_evidence"
+          }
+        },
+        {
+          "case_id": "feature-v1-14",
+          "started_at": "2026-10-25T17:43:17.534057+00:00",
+          "attempts": 1,
+          "state": "completed",
+          "result": {
+            "criterion_id": "C02",
+            "status": "confirmed",
+            "explanation": "Документ result доступен: его available_at (2026-10-06T12:00:00+03:00) равен review_at (2026-10-06T12:00:00+03:00), а равенство допустимо. Возраст 66, диагноз — пневмония, care_setting=general_inpatient, поэтому случай в границах прототипа. Критерий C02 подтверждён на основе доступного документа result.",
+            "available_document_ids": [
+              "admission",
+              "result",
+              "discharge"
+            ],
+            "evidence_document_ids": [
+              "result"
+            ],
+            "normative_conclusion_allowed": false
+          },
+          "provider": "freetheai",
+          "model": "fta/zai/glm-5.3",
+          "mode": "live",
+          "latency_ms": 5341,
+          "usage": {
+            "prompt_tokens": 1257,
+            "completion_tokens": 256,
+            "total_tokens": 1613
+          },
+          "checks": {
+            "status_match": true,
+            "criterion_match": true,
+            "availability_match": true,
+            "references_valid": true,
+            "normative_conclusion_blocked": true,
+            "all_automatic_checks": true,
+            "expected_status": "confirmed"
+          }
+        }
+      ]
+    },
+    "total_attempted_requests": 15,
+    "total_tokens_reported": 28296,
+    "initial_remaining_requests_user_reported": 49,
+    "estimated_remaining_if_no_other_usage": 34,
+    "quota_balance_verified_from_account": false,
+    "billing_settings_changed": false,
+    "free_model_listing": "https://freetheai.org/models",
+    "api_reference": "https://freetheai.org/docs",
+    "latency_ms": {
+      "min": 5341,
+      "max": 14892,
+      "median": 8525.5
+    },
+    "manual_observations": [
+      {
+        "case_id": "feature-v1-03",
+        "type": "future_content_mentioned_in_explanation",
+        "status_correct": true,
+        "future_document_used_in_evidence_ids": false,
+        "observation": "В объяснении названы рентгенография и инфильтрация из недоступного на момент проверки result. Статус недостаточности сведений верен, evidence_document_ids пуст. Автоматические проверки не выявляют упоминание содержимого будущего документа в свободном тексте.",
+        "next_step": "До вызова модели исключать документы с available_at > review_at; сравнить исходный и отфильтрованный вход на том же сценарии."
+      }
+    ],
+    "limits": [
+      "14 вариантов одной семьи, набор разработки, не независимая выборка.",
+      "Модель получила общие правила C01–C06 и ID целевого критерия; ожидаемые ответы не передавались.",
+      "Проверены статусы, список доступных документов и существование/доступность ссылок. Смысловая полнота объяснений и цитаты автоматически не оценивались.",
+      "normative_conclusion_allowed=false задано схемой, это ограничение вывода, а не независимое открытие модели.",
+      "RAG, OCR, полный клинический аудит, экспертная разметка и сравнение с Mistral в этом запуске не выполнены.",
+      "Идентификатор модели записан из ответа шлюза; скрытый маршрут внутри провайдера не проверялся.",
+      "Сохранены значения usage провайдера. total_tokens не всегда равен сумме prompt_tokens и completion_tokens; семантика дополнительных токенов не подтверждена."
+    ]
+  },
+  "comparison_tests": {
+    "tests": 69,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "comparison_trial_2026_10_25": {
+    "manifest": {
+      "experiment_id": "comparison-v1-2026-10-25",
+      "created_at": "2026-10-25T18:39:23.242828+00:00",
+      "purpose": "frozen_engineering_pilot_not_clinical_validation",
+      "request_limits": {
+        "glm": 24,
+        "mistral": 12
+      },
+      "automatic_retries": 0,
+      "temperature": 0,
+      "max_tokens": 1024,
+      "models": {
+        "glm": "fta/zai/glm-5.3",
+        "mistral": "ministral-8b-2512"
+      },
+      "cases_sha256": "5648800f38559a7910397d7ee3155fa983a4f97a25d0fd65c8442d51e7d491e1",
+      "expectations_sha256": "000f77a272de7d4136dd6a96bc8a7bc0273fdfeb56e2ea0e9879760d3d284d9f",
+      "system_sha256": "cbaae27dc21798515b8540aa2a40e0d764842a79e949ed341e8c80ed0be4dbd2",
+      "schema": {
+        "$defs": {
+          "EvidenceQuote": {
+            "additionalProperties": false,
+            "properties": {
+              "document_id": {
+                "maxLength": 60,
+                "minLength": 1,
+                "title": "Document Id",
+                "type": "string"
+              },
+              "quote": {
+                "maxLength": 500,
+                "minLength": 1,
+                "title": "Quote",
+                "type": "string"
+              }
+            },
+            "required": [
+              "document_id",
+              "quote"
+            ],
+            "title": "EvidenceQuote",
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "properties": {
+          "criterion_id": {
+            "enum": [
+              "C01",
+              "C02",
+              "C03",
+              "C04",
+              "C05",
+              "C06"
+            ],
+            "title": "Criterion Id",
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "confirmed",
+              "contradiction",
+              "insufficient_evidence",
+              "not_applicable",
+              "requires_expert"
+            ],
+            "title": "Status",
+            "type": "string"
+          },
+          "explanation": {
+            "maxLength": 1200,
+            "minLength": 1,
+            "title": "Explanation",
+            "type": "string"
+          },
+          "available_document_ids": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 10,
+            "title": "Available Document Ids",
+            "type": "array"
+          },
+          "evidence_document_ids": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 10,
+            "title": "Evidence Document Ids",
+            "type": "array"
+          },
+          "normative_conclusion_allowed": {
+            "const": false,
+            "title": "Normative Conclusion Allowed",
+            "type": "boolean"
+          },
+          "evidence_quotes": {
+            "items": {
+              "$ref": "#/$defs/EvidenceQuote"
+            },
+            "maxItems": 6,
+            "title": "Evidence Quotes",
+            "type": "array"
+          }
+        },
+        "required": [
+          "criterion_id",
+          "status",
+          "explanation",
+          "available_document_ids",
+          "evidence_document_ids",
+          "normative_conclusion_allowed",
+          "evidence_quotes"
+        ],
+        "title": "ComparisonReply",
+        "type": "object"
+      },
+      "metric_priority": [
+        "status_and_grounding_errors",
+        "latency",
+        "provider_reported_tokens"
+      ],
+      "limitations": [
+        "12 authored histories, no independent clinical labels or repeated model runs.",
+        "GLM uses prompt JSON; Mistral additionally enforces provider JSON Schema. Comparison concerns configured pipelines.",
+        "Exact future markers are a lower-bound detector; every explanation also needs manual review.",
+        "No hybrid retrieval, OCR, end-to-end audit or clinical quality validation."
+      ]
+    },
+    "finished_at": "2026-10-25T18:44:25.671601+00:00",
+    "records": [
+      {
+        "case_id": "comparison-v1-01",
+        "condition": "glm_full",
+        "provider": "freetheai",
+        "state": "completed",
+        "started_at": "2026-10-25T18:39:52.102277+00:00",
+        "attempts": 1,
+        "input_sha256": "bb0655be556a5cfe36c5ca4dbfec27113a070af08ea4a8755abc6dca5e18daca",
+        "result": {
+          "criterion_id": "C03",
+          "status": "confirmed",
+          "explanation": "Оба документа (admission и result) доступны на момент review_at. В доступном протоколе result явно указано, что выполнены передняя прямая и боковая проекции рентгенографии грудной клетки, что соответствует учебной проверке C03.",
+          "available_document_ids": [
+            "admission",
+            "result"
+          ],
+          "evidence_document_ids": [
+            "result"
+          ],
+          "normative_conclusion_allowed": false,
+          "evidence_quotes": [
+            {
+              "document_id": "result",
+              "quote": "Рентгенография грудной клетки: выполнены передняя прямая и боковая проекции."
+            }
+          ]
+        },
+        "model": "fta/zai/glm-5.3",
+        "mode": "live",
+        "latency_ms": 9826,
+        "usage": {
+          "prompt_tokens": 1359,
+          "completion_tokens": 525,
+          "total_tokens": 2264
+        },
+        "checks": {
+          "criterion_match": true,
+          "status_match": true,
+          "availability_match": true,
+          "references_valid": true,
+          "required_evidence_present": true,
+          "quotes_valid": true,
+          "required_terms_present": true,
+          "no_flagged_future_markers": true,
+          "normative_conclusion_blocked": true,
+          "all_automatic_checks": true,
+          "flagged_future_markers": []
+        },
+        "finished_at": "2026-10-25T18:40:01.929229+00:00"
+      },
+      {
+        "case_id": "comparison-v1-01",
+        "condition": "glm_filtered",
+        "provider": "freetheai",
+        "state": "completed",
+        "started_at": "2026-10-25T18:40:01.931655+00:00",
+        "attempts": 1,
+        "input_sha256": "bb0655be556a5cfe36c5ca4dbfec27113a070af08ea4a8755abc6dca5e18daca",
+        "result": {
+          "criterion_id": "C03",
+          "status": "confirmed",
+          "explanation": "Документ result доступен на момент review_at (available_at 2026-10-12T09:15:00+03:00 <= 2026-10-14T12:00:00+03:00). В протоколе рентгенографии грудной клетки явно указано выполнение обеих проекций: передней прямой и боковой. Критерий C03 выполнен.",
+          "available_document_ids": [
+            "admission",
+            "result"
+          ],
+          "evidence_document_ids": [
+            "result"
+          ],
+          "normative_conclusion_allowed": false,
+          "evidence_quotes": [
+            {
+              "document_id": "result",
+              "quote": "Рентгенография грудной клетки: выполнены передняя прямая и боковая проекции."
+            }
+          ]
+        },
+        "model": "fta/zai/glm-5.3",
+        "mode": "live",
+        "latency_ms": 9065,
+        "usage": {
+          "prompt_tokens": 1359,
+          "completion_tokens": 537,
+          "total_tokens": 2260
+        },
+        "checks": {
+          "criterion_match": true,
+          "status_match": true,
+          "availability_match": true,
+          "references_valid": true,
+          "required_evidence_present": true,
+          "quotes_valid": true,
+          "required_terms_present": true,
+          "no_flagged_future_markers": true,
+          "normative_conclusion_blocked": true,
+          "all_automatic_checks": true,
+          "flagged_future_markers": []
+        },
+        "finished_at": "2026-10-25T18:40:10.998001+00:00"
+      },
+      {
+        "case_id": "comparison-v1-01",
+        "condition": "mistral_filtered",
+        "provider": "mistral",
+        "state": "completed",
+        "started_at": "2026-10-25T18:40:11.004332+00:00",
+        "attempts": 1,
+        "input_sha256": "bb0655be556a5cfe36c5ca4dbfec27113a070af08ea4a8755abc6dca5e18daca",
+        "result": {
+          "criterion_id": "C03",
+          "status": "confirmed",
+          "explanation": "В доступном протоколе рентгенографии грудной клетки (документ result) явно указаны обе необходимые проекции: передняя прямая и боковая.",
+          "available_document_ids": [
+            "admission",
+            "result"
+          ],
+          "evidence_document_ids": [
+            "result"
+          ],
+          "normative_conclusion_allowed": false,
+          "evidence_quotes": [
+            {
+              "document_id": "result",
+              "quote": "Рентгенография грудной клетки: выполнены передняя прямая и боковая проекции. Описано затемнение справа в нижнем отделе."
+            }
+          ]
+        },
+        "model": "ministral-8b-2512",
+        "mode": "live",
+        "latency_ms": 2681,
+        "usage": {
+          "prompt_tokens": 1500,
+          "completion_tokens": 165,
+          "total_tokens": 1665
+        },
+        "checks": {
+          "criterion_match": true,
+          "status_match": true,
+          "availability_match": true,
+          "references_valid": true,
+          "required_evidence_present": true,
+          "quotes_valid": true,
+          "required_terms_present": true,
+          "no_flagged_future_markers": true,
+          "normative_conclusion_blocked": true,
+          "all_automatic_checks": true,
+          "flagged_future_markers": []
+        },
+        "finished_at": "2026-10-25T18:40:13.687634+00:00"
+      },
+      {
+        "case_id": "comparison-v1-02",
+        "condition": "mistral_filtered",
+        "provider": "mistral",
+        "state": "completed",
+        "started_at": "2026-10-25T18:40:13.691793+00:00",
+        "attempts": 1,
+        "input_sha256": "33a01fab4ab54ab7929e8c70d4704b6bb3188e77d8c32c26bfd73bcda8bbe7da",
+        "result": {
+          "criterion_id": "C03",
+          "status": "insufficient_evidence",
+          "explanation": "В доступных документах отсутствует протокол рентгенографии с явно указанными передней прямой и боковой проекциями. Назначение рентгенографии без указания проекций не подтверждает выполнение исследования.",
+          "available_document_ids": [
+            "admission",
+            "order"
+          ],
+          "evidence_document_ids": [
+            "order"
+          ],
+          "normative_conclusion_allowed": false,
+          "evidence_quotes": [
+            {
+              "document_id": "order",
+              "quote": "Назначена рентгенография грудной клетки. Протокол в выгрузке отсутствует."
+            }
+          ]
+        },
+        "model": "ministral-8b-2512",
+        "mode": "live",
+        "latency_ms": 2568,
+        "usage": {
+          "prompt_tokens": 1486,
+          "completion_tokens": 163,
+          "total_tokens": 1649
+        },
+        "checks": {
+          "criterion_match": true,
+          "status_match": true,
+          "availability_match": true,
+          "references_valid": true,
+          "required_evidence_present": true,
+          "quotes_valid": true,
+          "required_terms_present": true,
+          "no_flagged_future_markers": true,
+          "normative_conclusion_blocked": true,
+          "all_automatic_checks": true,
+          "flagged_future_markers": []
+        },
+        "finished_at": "2026-10-25T18:40:16.262688+00:00"
+      },
+      {
+        "case_id": "comparison-v1-02",
+        "condition": "glm_filtered",
+        "provider": "freetheai",
+        "state": "completed",
+        "started_at": "2026-10-25T18:40:16.266857+00:00",
+        "attempts": 1,
+        "input_sha256": "33a01fab4ab54ab7929e8c70d4704b6bb3188e77d8c32c26bfd73bcda8bbe7da",
+        "result": {
+          "criterion_id": "C03",
+          "status": "insufficient_evidence",
+          "explanation": "Пациент входит в границы прототипа (71 год, пневмония J18.9, general_inpatient), проверка C03 выполнена независимо от C06. Среди доступных на review_at документов протокол рентгенографии отсутствует: документ order содержит только назначение рентгенографии грудной клетки без указания передней прямой и боковой проекций. По правилу C03 наличие лишь назначения без протокола с явным указанием обеих проекций даёт insufficient_evidence; отсутствие протокола не доказывает, что исследование не было проведено.",
+          "available_document_ids": [
+            "admission",
+            "order"
+          ],
+          "evidence_document_ids": [
+            "order"
+          ],
+          "normative_conclusion_allowed": false,
+          "evidence_quotes": [
+            {
+              "document_id": "order",
+              "quote": "Назначена рентгенография грудной клетки. Протокол в выгрузке отсутствует."
+            }
+          ]
+        },
+        "model": "fta/zai/glm-5.3",
+        "mode": "live",
+        "latency_ms": 16596,
+        "usage": {
+          "prompt_tokens": 1344,
+          "completion_tokens": 685,
+          "total_tokens": 2500
+        },
+        "checks": {
+          "criterion_match": true,
+          "status_match": true,
+          "availability_match": true,
+          "references_valid": true,
+          "required_evidence_present": true,
+          "quotes_valid": true,
+          "required_terms_present": true,
+          "no_flagged_future_markers": true,
+          "normative_conclusion_blocked": true,
+          "all_automatic_checks": true,
+          "flagged_future_markers": []
+        },
+        "finished_at": "2026-10-25T18:40:32.868696+00:00"
+      },
+      {
+        "case_id": "comparison-v1-02",
+        "condition": "glm_full",
+        "provider": "freetheai",
+        "state": "completed",
+        "started_at": "2026-10-25T18:40:32.873401+00:00",
+        "attempts": 1,
+        "input_sha256": "33a01fab4ab54ab7929e8c70d4704b6bb3188e77d8c32c26bfd73bcda8bbe7da",
+        "result": {
+          "criterion_id": "C03",
+          "status": "insufficient_evidence",
+          "explanation": "Проверяется только наличие в доступном протоколе рентгенографии передней прямой и боковой проекций. На момент review_at доступны документы admission и order; протокол рентгенографии в выгрузке отсутствует. В документе order есть лишь назначение рентгенографии грудной клетки без указания проекций. Поскольку обе проекции явно не указаны и доступен только приказ на исследование, статус — insufficient_evidence; отсутствие протокола не доказывает, что исследование не было проведено.",
+          "available_document_ids": [
+            "admission",
+            "order"
+          ],
+          "evidence_document_ids": [
+            "order"
+          ],
+          "normative_conclusion_allowed": false,
+          "evidence_quotes": [
+            {
+              "document_id": "order",
+              "quote": "Назначена рентгенография грудной клетки. Протокол в выгрузке отсутствует."
+            }
+          ]
+        },
+        "model": "fta/zai/glm-5.3",
+        "mode": "live",
+        "latency_ms": 14377,
+        "usage": {
+          "prompt_tokens": 1344,
+          "completion_tokens": 617,
+          "total_tokens": 2378
+        },
+        "checks": {
+          "criterion_match": true,
+          "status_match": true,
+          "availability_match": true,
+          "references_valid": true,
+          "required_evidence_present": true,
+          "quotes_valid": true,
+          "required_terms_present": true,
+          "no_flagged_future_markers": true,
+          "normative_conclusion_blocked": true,
+          "all_automatic_checks": true,
+          "flagged_future_markers": []
+        },
+        "finished_at": "2026-10-25T18:40:47.253673+00:00"
+      },
+      {
+        "case_id": "comparison-v1-03",
+        "condition": "glm_full",
+        "provider": "freetheai",
+        "state": "completed",
+        "started_at": "2026-10-25T18:40:47.258871+00:00",
+        "attempts": 1,
+        "input_sha256": "ffbbf27f334c0579e08ec494a0999171f9b194a9651dcbe42042aba553abe7f7",
+        "result": {
+          "criterion_id": "C02",
+          "status": "insufficient_evidence",
+          "explanation": "На момент review_at (2026-10-14T12:00+03:00) документ result ещё не доступен: его дата доступности позже времени проверки, поэтому он не входит в доступные документы. Доступен только документ admission. Поскольку result не доступен на момент проверки, оснований для confirmed нет; будущий документ не использовался как основание и его содержание не учитывалось.",
+          "available_document_ids": [
+            "admission"
+          ],
+          "evidence_document_ids": [],
+          "normative_conclusion_allowed": false,
+          "evidence_quotes": []
+        },
+        "model": "fta/zai/glm-5.3",
+        "mode": "live",
+        "latency_ms": 13201,
+        "usage": {
+          "prompt_tokens": 1367,
+          "completion_tokens": 872,
+          "total_tokens": 2970
+        },
+        "checks": {
+          "criterion_match": true,
+          "status_match": true,
+          "availability_match": true,
+          "references_valid": true,
+          "required_evidence_present": true,
+          "quotes_valid": true,
+          "required_terms_present": true,
+          "no_flagged_future_markers": true,
+          "normative_conclusion_blocked": true,
+          "all_automatic_checks": true,
+          "flagged_future_markers": []
+        },
+        "finished_at": "2026-10-25T18:41:00.466232+00:00"
+      },
+      {
+        "case_id": "comparison-v1-03",
+        "condition": "glm_filtered",
+        "provider": "freetheai",
+        "state": "completed",
+        "started_at": "2026-10-25T18:41:00.469981+00:00",
+        "attempts": 1,
+        "input_sha256": "0c25ef26b16f8109e7a08795538abf6c50420b81b1de4f445d64175858a1d9d4",
+        "result": {
+          "criterion_id": "C02",
+          "status": "insufficient_evidence",
+          "explanation": "Для критерия C02 нужен документ 'result', доступный на момент review_at (2026-10-14T12:00:00+03:00). Единственный доступный документ — 'admission' с available_at 2026-10-11T09:00:00+03:00 (до review_at), но он не является 'result'. Документа 'result' среди доступных нет, поэтому по правилу C02 статус insufficient_evidence: вывод основан на отсутствии документа, а не на каком-либо доступном документе.",
+          "available_document_ids": [
+            "admission"
+          ],
+          "evidence_document_ids": [],
+          "normative_conclusion_allowed": false,
+          "evidence_quotes": []
+        },
+        "model": "fta/zai/glm-5.3",
+        "mode": "live",
+        "latency_ms": 11846,
+        "usage": {
+          "prompt_tokens": 1289,
+          "completion_tokens": 856,
+          "total_tokens": 2828
+        },
+        "checks": {
+          "criterion_match": true,
+          "status_match": true,
+          "availability_match": true,
+          "references_valid": true,
+          "required_evidence_present": true,
+          "quotes_valid": true,
+          "required_terms_present": true,
+          "no_flagged_future_markers": true,
+          "normative_conclusion_blocked": true,
+          "all_automatic_checks": true,
+          "flagged_future_markers": []
+        },
+        "finished_at": "2026-10-25T18:41:12.318616+00:00"
+      },
+      {
+        "case_id": "comparison-v1-03",
+        "condition": "mistral_filtered",
+        "provider": "mistral",
+        "state": "completed",
+        "started_at": "2026-10-25T18:41:12.325858+00:00",
+        "attempts": 1,
+        "input_sha256": "0c25ef26b16f8109e7a08795538abf6c50420b81b1de4f445d64175858a1d9d4",
+        "result": {
+          "criterion_id": "C02",
+          "status": "insufficient_evidence",
+          "explanation": "Отсутствует доступный документ с результатами исследований (result), доступный на дату обзора (2026-10-14). Единственный доступный документ — направление и анамнез, не содержащий результатов.",
+          "available_document_ids": [
+            "admission"
+          ],
+          "evidence_document_ids": [],
+          "normative_conclusion_allowed": false,
+          "evidence_quotes": []
+        },
+        "model": "ministral-8b-2512",
+        "mode": "live",
+        "latency_ms": 1509,
+        "usage": {
+          "prompt_tokens": 1419,
+          "completion_tokens": 124,
+          "total_tokens": 1543
+        },
+        "checks": {
+          "criterion_match": true,
+          "status_match": true,
+          "availability_match": true,
+          "references_valid": true,
+          "required_evidence_present": true,
+          "quotes_valid": true,
+          "required_terms_present": true,
+          "no_flagged_future_markers": true,
+          "normative_conclusion_blocked": true,
+          "all_automatic_checks": true,
+          "flagged_future_markers": []
+        },
+        "finished_at": "2026-10-25T18:41:13.837773+00:00"
+      },
+      {
+        "case_id": "comparison-v1-04",
+        "condition": "mistral_filtered",
+        "provider": "mistral",
+        "state": "completed",
+        "started_at": "2026-10-25T18:41:13.842322+00:00",
+        "attempts": 1,
+        "input_sha256": "cfc3c0373654dcd2e9405c8c28e9b65d34b083510e7edcf2f5f37cd9d3c58d41",
+        "result": {
+          "criterion_id": "C03",
+          "status": "insufficient_evidence",
+          "explanation": "В доступных документах нет явного упоминания о проведении рентгенографии в передней и боковой проекциях. Есть только назначение на исследование без подтверждения его выполнения.",
+          "available_document_ids": [
+            "admission",
+            "order"
+          ],
+          "evidence_document_ids": [],
+          "normative_conclusion_allowed": false,
+          "evidence_quotes": []
+        },
+        "model": "ministral-8b-2512",
+        "mode": "live",
+        "latency_ms": 1770,
+        "usage": {
+          "prompt_tokens": 1482,
+          "completion_tokens": 113,
+          "total_tokens": 1595
+        },
+        "checks": {
+          "criterion_match": true,
+          "status_match": true,
+          "availability_match": true,
+          "references_valid": true,
+          "required_evidence_present": false,
+          "quotes_valid": true,
+          "required_terms_present": true,
+          "no_flagged_future_markers": true,
+          "normative_conclusion_blocked": true,
+          "all_automatic_checks": false,
+          "flagged_future_markers": []
+        },
+        "finished_at": "2026-10-25T18:41:15.614750+00:00"
+      },
+      {
+        "case_id": "comparison-v1-04",
+        "condition": "glm_filtered",
+        "provider": "freetheai",
+        "state": "completed",
+        "started_at": "2026-10-25T18:41:15.621572+00:00",
+        "attempts": 1,
+        "input_sha256": "cfc3c0373654dcd2e9405c8c28e9b65d34b083510e7edcf2f5f37cd9d3c58d41",
+        "result": {
+          "criterion_id": "C03",
+          "status": "insufficient_evidence",
+          "explanation": "Проверяется наличие в доступном протоколе рентгенографии прямой передней и боковой проекций. На момент review_at доступны только документы admission и order. Протокол (результат) рентгенографии в комплекте отсутствует: документ order содержит лишь назначение (направление) на рентгенографию без указания проекций и результата. По правилу C03 наличие только назначения даёт insufficient_evidence; отсутствие протокола не доказывает, что исследование не проведено.",
+          "available_document_ids": [
+            "admission",
+            "order"
+          ],
+          "evidence_document_ids": [
+            "order"
+          ],
+          "normative_conclusion_allowed": false,
+          "evidence_quotes": [
+            {
+              "document_id": "order",
+              "quote": "Направлен на рентгенографию; результата в текущем комплекте ещё нет."
+            }
+          ]
+        },
+        "model": "fta/zai/glm-5.3",
+        "mode": "live",
+        "latency_ms": 7496,
+        "usage": {
+          "prompt_tokens": 1340,
+          "completion_tokens": 495,
+          "total_tokens": 2133
+        },
+        "checks": {
+          "criterion_match": true,
+          "status_match": true,
+          "availability_match": true,
+          "references_valid": true,
+          "required_evidence_present": true,
+          "quotes_valid": true,
+          "required_terms_present": true,
+          "no_flagged_future_markers": true,
+          "normative_conclusion_blocked": true,
+          "all_automatic_checks": true,
+          "flagged_future_markers": []
+        },
+        "finished_at": "2026-10-25T18:41:23.119419+00:00"
+      },
+      {
+        "case_id": "comparison-v1-04",
+        "condition": "glm_full",
+        "provider": "freetheai",
+        "state": "completed",
+        "started_at": "2026-10-25T18:41:23.128287+00:00",
+        "attempts": 1,
+        "input_sha256": "9167381d45362c738c659becdbd5379a3e9035e6937773d7e480d4103bf573f8",
+        "result": {
+          "criterion_id": "C03",
+          "status": "insufficient_evidence",
+          "explanation": "На момент review_at (2026-10-14T12:00:00+03:00) доступны только документы admission и order. Документ result имеет available_at 2026-10-14T12:01:00+03:00, то есть позже момента проверки, и по правилу доступности не может быть использован ни как основание, ни в объяснении. Среди доступных документов протокол рентгенографии отсутствует: имеется лишь направление (order) без указания проекций. Наличие только назначения и отсутствие протокола дают insufficient_evidence; отсутствие документа не доказывает, что исследование не проведено. C03 оценивается в учебном режиме независимо от C06.",
+          "available_document_ids": [
+            "admission",
+            "order"
+          ],
+          "evidence_document_ids": [
+            "order"
+          ],
+          "normative_conclusion_allowed": false,
+          "evidence_quotes": [
+            {
+              "document_id": "order",
+              "quote": "Направлен на рентгенографию; результата в текущем комплекте ещё нет."
+            }
+          ]
+        },
+        "model": "fta/zai/glm-5.3",
+        "mode": "live",
+        "latency_ms": 15017,
+        "usage": {
+          "prompt_tokens": 1406,
+          "completion_tokens": 897,
+          "total_tokens": 2963
+        },
+        "checks": {
+          "criterion_match": true,
+          "status_match": true,
+          "availability_match": true,
+          "references_valid": true,
+          "required_evidence_present": true,
+          "quotes_valid": true,
+          "required_terms_present": true,
+          "no_flagged_future_markers": true,
+          "normative_conclusion_blocked": true,
+          "all_automatic_checks": true,
+          "flagged_future_markers": []
+        },
+        "finished_at": "2026-10-25T18:41:38.148047+00:00"
+      },
+      {
+        "case_id": "comparison-v1-05",
+        "condition": "glm_full",
+        "provider": "freetheai",
+        "state": "completed",
+        "started_at": "2026-10-25T18:41:38.150808+00:00",
+        "attempts": 1,
+        "input_sha256": "b15f42819fd865b038161cc3154ded227be98cbd9ee5a5429997b4a075eade53",
+        "result": {
+          "criterion_id": "C05",
+          "status": "insufficient_evidence",
+          "explanation": "На момент review_at (2026-10-14) доступна только запись поступления, в которой нет кода основного диагноза выписки. Доступной выписки с полем diagnosis_code на момент проверки нет, поэтому сравнение с principal_diagnosis_code из claim_draft (J18.9) невозможно. По дополнительному условию эксперимента при отсутствии доступной выписки возвращается insufficient_evidence; сведения из документов, датированных после review_at, не используются.",
+          "available_document_ids": [
+            "admission"
+          ],
+          "evidence_document_ids": [],
+          "normative_conclusion_allowed": false,
+          "evidence_quotes": []
+        },
+        "model": "fta/zai/glm-5.3",
+        "mode": "live",
+        "latency_ms": 9700,
+        "usage": {
+          "prompt_tokens": 1350,
+          "completion_tokens": 624,
+          "total_tokens": 2439
+        },
+        "checks": {
+          "criterion_match": true,
+          "status_match": true,
+          "availability_match": true,
+          "references_valid": true,
+          "required_evidence_present": true,
+          "quotes_valid": true,
+          "required_terms_present": true,
+          "no_flagged_future_markers": true,
+          "normative_conclusion_blocked": true,
+          "all_automatic_checks": true,
+          "flagged_future_markers": []
+        },
+        "finished_at": "2026-10-25T18:41:47.851911+00:00"
+      },
+      {
+        "case_id": "comparison-v1-05",
+        "condition": "glm_filtered",
+        "provider": "freetheai",
+        "state": "completed",
+        "started_at": "2026-10-25T18:41:47.855561+00:00",
+        "attempts": 1,
+        "input_sha256": "cfc2b7c37de6deecc8b21bbfad37e435b0d58353e0a0ade00934b05116dc8c39",
+        "result": {
+          "criterion_id": "C05",
+          "status": "insufficient_evidence",
+          "explanation": "Для сравнения по C05 нужен diagnosis_code из доступной выписки и principal_diagnosis_code счёта. Код в claim_draft есть (J18.9), однако выписка на момент review_at отсутствует: единственный доступный документ — запись поступления, где прямо указано, что доступна только она. Сравнить код выписки с кодом счёта невозможно, поэтому по дополнительному условию контракта возвращается insufficient_evidence. Совпадение кода счёта с диагнозом карты не является основанием для confirmed.",
+          "available_document_ids": [
+            "admission"
+          ],
+          "evidence_document_ids": [
+            "admission"
+          ],
+          "normative_conclusion_allowed": false,
+          "evidence_quotes": [
+            {
+              "document_id": "admission",
+              "quote": "На момент проверки доступна только запись поступления."
+            }
+          ]
+        },
+        "model": "fta/zai/glm-5.3",
+        "mode": "live",
+        "latency_ms": 12998,
+        "usage": {
+          "prompt_tokens": 1284,
+          "completion_tokens": 857,
+          "total_tokens": 2799
+        },
+        "checks": {
+          "criterion_match": true,
+          "status_match": true,
+          "availability_match": true,
+          "references_valid": true,
+          "required_evidence_present": true,
+          "quotes_valid": true,
+          "required_terms_present": true,
+          "no_flagged_future_markers": true,
+          "normative_conclusion_blocked": true,
+          "all_automatic_checks": true,
+          "flagged_future_markers": []
+        },
+        "finished_at": "2026-10-25T18:42:00.859210+00:00"
+      },
+      {
+        "case_id": "comparison-v1-05",
+        "condition": "mistral_filtered",
+        "provider": "mistral",
+        "state": "completed",
+        "started_at": "2026-10-25T18:42:00.862753+00:00",
+        "attempts": 1,
+        "input_sha256": "cfc2b7c37de6deecc8b21bbfad37e435b0d58353e0a0ade00934b05116dc8c39",
+        "result": {
+          "criterion_id": "C05",
+          "status": "confirmed",
+          "explanation": "В доступной выписке (admission) диагноз указан как J18.9, что совпадает с principal_diagnosis_code в claim_draft (J18.9).",
+          "available_document_ids": [
+            "admission"
+          ],
+          "evidence_document_ids": [
+            "admission"
+          ],
+          "normative_conclusion_allowed": false,
+          "evidence_quotes": [
+            {
+              "document_id": "admission",
+              "quote": "Лечится по поводу пневмонии."
+            }
+          ]
+        },
+        "model": "ministral-8b-2512",
+        "mode": "live",
+        "latency_ms": 4029,
+        "usage": {
+          "prompt_tokens": 1415,
+          "completion_tokens": 144,
+          "total_tokens": 1559
+        },
+        "checks": {
+          "criterion_match": true,
+          "status_match": false,
+          "availability_match": true,
+          "references_valid": true,
+          "required_evidence_present": true,
+          "quotes_valid": true,
+          "required_terms_present": true,
+          "no_flagged_future_markers": true,
+          "normative_conclusion_blocked": true,
+          "all_automatic_checks": false,
+          "flagged_future_markers": []
+        },
+        "finished_at": "2026-10-25T18:42:04.893460+00:00"
+      },
+      {
+        "case_id": "comparison-v1-06",
+        "condition": "mistral_filtered",
+        "provider": "mistral",
+        "state": "completed",
+        "started_at": "2026-10-25T18:42:04.898009+00:00",
+        "attempts": 1,
+        "input_sha256": "91764ee9d8bbfdbdbdd12571a8bec9d3ac95b01b1f9de0c9fbc7c21fedd04898",
+        "result": {
+          "criterion_id": "C04",
+          "status": "requires_expert",
+          "explanation": "В документе discussion содержится запись об отказе пациента от рентгенографии без дополнительных разъяснений или обсуждения последствий. Требуется экспертная оценка для оценки обоснованности отказа и его влияния на диагностику и лечение.",
+          "available_document_ids": [
+            "admission",
+            "discussion"
+          ],
+          "evidence_document_ids": [
+            "discussion"
+          ],
+          "normative_conclusion_allowed": false,
+          "evidence_quotes": [
+            {
+              "document_id": "discussion",
+              "quote": "Пациент отказался от рентгенографии. В записи нет описания обсуждённых последствий отказа."
+            }
+          ]
+        },
+        "model": "ministral-8b-2512",
+        "mode": "live",
+        "latency_ms": 2921,
+        "usage": {
+          "prompt_tokens": 1484,
+          "completion_tokens": 183,
+          "total_tokens": 1667
+        },
+        "checks": {
+          "criterion_match": true,
+          "status_match": true,
+          "availability_match": true,
+          "references_valid": true,
+          "required_evidence_present": true,
+          "quotes_valid": true,
+          "required_terms_present": true,
+          "no_flagged_future_markers": true,
+          "normative_conclusion_blocked": true,
+          "all_automatic_checks": true,
+          "flagged_future_markers": []
+        },
+        "finished_at": "2026-10-25T18:42:07.823576+00:00"
+      },
+      {
+        "case_id": "comparison-v1-06",
+        "condition": "glm_filtered",
+        "provider": "freetheai",
+        "state": "completed",
+        "started_at": "2026-10-25T18:42:07.831156+00:00",
+        "attempts": 1,
+        "input_sha256": "91764ee9d8bbfdbdbdd12571a8bec9d3ac95b01b1f9de0c9fbc7c21fedd04898",
+        "result": {
+          "criterion_id": "C04",
+          "status": "requires_expert",
+          "explanation": "В доступной на момент проверки записи discussion зафиксирован отказ пациента от рентгенографии, при этом последствия отказа не описаны. По правилу C04 наличие отказа или записи об ограничении требует экспертной оценки; исключение из проверки не подтверждается автоматически.",
+          "available_document_ids": [
+            "admission",
+            "discussion"
+          ],
+          "evidence_document_ids": [
+            "discussion"
+          ],
+          "normative_conclusion_allowed": false,
+          "evidence_quotes": [
+            {
+              "document_id": "discussion",
+              "quote": "Пациент отказался от рентгенографии."
+            }
+          ]
+        },
+        "model": "fta/zai/glm-5.3",
+        "mode": "live",
+        "latency_ms": 7162,
+        "usage": {
+          "prompt_tokens": 1346,
+          "completion_tokens": 434,
+          "total_tokens": 2074
+        },
+        "checks": {
+          "criterion_match": true,
+          "status_match": true,
+          "availability_match": true,
+          "references_valid": true,
+          "required_evidence_present": true,
+          "quotes_valid": true,
+          "required_terms_present": true,
+          "no_flagged_future_markers": true,
+          "normative_conclusion_blocked": true,
+          "all_automatic_checks": true,
+          "flagged_future_markers": []
+        },
+        "finished_at": "2026-10-25T18:42:14.997215+00:00"
+      },
+      {
+        "case_id": "comparison-v1-06",
+        "condition": "glm_full",
+        "provider": "freetheai",
+        "state": "completed",
+        "started_at": "2026-10-25T18:42:14.999248+00:00",
+        "attempts": 1,
+        "input_sha256": "91764ee9d8bbfdbdbdd12571a8bec9d3ac95b01b1f9de0c9fbc7c21fedd04898",
+        "result": {
+          "criterion_id": "C04",
+          "status": "requires_expert",
+          "explanation": "В доступной на дату review_at записи с идентификатором discussion зафиксирован отказ пациента от рентгенографии. По правилу C04 документированный отказ требует экспертной оценки; исключение требования из протокола не подтверждается автоматически. Оценка касается только критерия C04 и не является заключением о правильности помощи.",
+          "available_document_ids": [
+            "admission",
+            "discussion"
+          ],
+          "evidence_document_ids": [
+            "discussion"
+          ],
+          "normative_conclusion_allowed": false,
+          "evidence_quotes": [
+            {
+              "document_id": "discussion",
+              "quote": "Пациент отказался от рентгенографии."
+            }
+          ]
+        },
+        "model": "fta/zai/glm-5.3",
+        "mode": "live",
+        "latency_ms": 7553,
+        "usage": {
+          "prompt_tokens": 1346,
+          "completion_tokens": 489,
+          "total_tokens": 2167
+        },
+        "checks": {
+          "criterion_match": true,
+          "status_match": true,
+          "availability_match": true,
+          "references_valid": true,
+          "required_evidence_present": true,
+          "quotes_valid": true,
+          "required_terms_present": true,
+          "no_flagged_future_markers": true,
+          "normative_conclusion_blocked": true,
+          "all_automatic_checks": true,
+          "flagged_future_markers": []
+        },
+        "finished_at": "2026-10-25T18:42:22.552944+00:00"
+      },
+      {
+        "case_id": "comparison-v1-07",
+        "condition": "glm_full",
+        "provider": "freetheai",
+        "state": "completed",
+        "started_at": "2026-10-25T18:42:22.557970+00:00",
+        "attempts": 1,
+        "input_sha256": "30714026b2db833a8227d2cde3affee36f44aee35ed1b3702e934b6087766b9b",
+        "result": {
+          "criterion_id": "C01",
+          "status": "not_applicable",
+          "explanation": "Возраст пациентки 17 лет, что ниже границы прототипа (>=18): карта и доступный документ приёма подтверждают несовершеннолетие. Диагноз — пневмония (J18.9) и care_setting=general_inpatient соответствуют, но возрастной критерий не выполнен, поэтому случай выходит за границы прототипа: not_applicable.",
+          "available_document_ids": [
+            "admission"
+          ],
+          "evidence_document_ids": [
+            "admission"
+          ],
+          "normative_conclusion_allowed": false,
+          "evidence_quotes": [
+            {
+              "document_id": "admission",
+              "quote": "Пациентке 17 лет. В направлении указана пневмония; история включена для проверки возрастной границы."
+            }
+          ]
+        },
+        "model": "fta/zai/glm-5.3",
+        "mode": "live",
+        "latency_ms": 9015,
+        "usage": {
+          "prompt_tokens": 1290,
+          "completion_tokens": 543,
+          "total_tokens": 2201
+        },
+        "checks": {
+          "criterion_match": true,
+          "status_match": true,
+          "availability_match": true,
+          "references_valid": true,
+          "required_evidence_present": true,
+          "quotes_valid": true,
+          "required_terms_present": true,
+          "no_flagged_future_markers": true,
+          "normative_conclusion_blocked": true,
+          "all_automatic_checks": true,
+          "flagged_future_markers": []
+        },
+        "finished_at": "2026-10-25T18:42:31.574766+00:00"
+      },
+      {
+        "case_id": "comparison-v1-07",
+        "condition": "glm_filtered",
+        "provider": "freetheai",
+        "state": "completed",
+        "started_at": "2026-10-25T18:42:31.580600+00:00",
+        "attempts": 1,
+        "input_sha256": "30714026b2db833a8227d2cde3affee36f44aee35ed1b3702e934b6087766b9b",
+        "result": {
+          "criterion_id": "C01",
+          "status": "not_applicable",
+          "explanation": "Возраст пациентки 17 лет, что ниже границы прототипа 18+. Нозология (пневмония, J18.9) и care_setting=general_inpatient соответствуют, однако возрастной критерий не выполнен, поэтому случай выходит за границы прототипа: статус not_applicable.",
+          "available_document_ids": [
+            "admission"
+          ],
+          "evidence_document_ids": [
+            "admission"
+          ],
+          "normative_conclusion_allowed": false,
+          "evidence_quotes": [
+            {
+              "document_id": "admission",
+              "quote": "Пациентке 17 лет."
+            }
+          ]
+        },
+        "model": "fta/zai/glm-5.3",
+        "mode": "live",
+        "latency_ms": 5835,
+        "usage": {
+          "prompt_tokens": 1290,
+          "completion_tokens": 323,
+          "total_tokens": 1793
+        },
+        "checks": {
+          "criterion_match": true,
+          "status_match": true,
+          "availability_match": true,
+          "references_valid": true,
+          "required_evidence_present": true,
+          "quotes_valid": true,
+          "required_terms_present": true,
+          "no_flagged_future_markers": true,
+          "normative_conclusion_blocked": true,
+          "all_automatic_checks": true,
+          "flagged_future_markers": []
+        },
+        "finished_at": "2026-10-25T18:42:37.418304+00:00"
+      },
+      {
+        "case_id": "comparison-v1-07",
+        "condition": "mistral_filtered",
+        "provider": "mistral",
+        "state": "completed",
+        "started_at": "2026-10-25T18:42:37.430810+00:00",
+        "attempts": 1,
+        "input_sha256": "30714026b2db833a8227d2cde3affee36f44aee35ed1b3702e934b6087766b9b",
+        "result": {
+          "criterion_id": "C01",
+          "status": "not_applicable",
+          "explanation": "Пациентке 17 лет, что не соответствует критерию возраста ≥18 лет. Диагноз пневмония установлен, но возрастная граница не соблюдена.",
+          "available_document_ids": [
+            "admission"
+          ],
+          "evidence_document_ids": [
+            "admission"
+          ],
+          "normative_conclusion_allowed": false,
+          "evidence_quotes": [
+            {
+              "document_id": "admission",
+              "quote": "Пациентке 17 лет."
+            }
+          ]
+        },
+        "model": "ministral-8b-2512",
+        "mode": "live",
+        "latency_ms": 2546,
+        "usage": {
+          "prompt_tokens": 1422,
+          "completion_tokens": 143,
+          "total_tokens": 1565
+        },
+        "checks": {
+          "criterion_match": true,
+          "status_match": true,
+          "availability_match": true,
+          "references_valid": true,
+          "required_evidence_present": true,
+          "quotes_valid": true,
+          "required_terms_present": true,
+          "no_flagged_future_markers": true,
+          "normative_conclusion_blocked": true,
+          "all_automatic_checks": true,
+          "flagged_future_markers": []
+        },
+        "finished_at": "2026-10-25T18:42:39.978795+00:00"
+      },
+      {
+        "case_id": "comparison-v1-08",
+        "condition": "mistral_filtered",
+        "provider": "mistral",
+        "state": "completed",
+        "started_at": "2026-10-25T18:42:39.982592+00:00",
+        "attempts": 1,
+        "input_sha256": "efd1f3ccddcf9a2ded6e6c594db5d140b4a17a0cffae777ba91c7889a88ba3c5",
+        "result": {
+          "criterion_id": "C01",
+          "status": "insufficient_evidence",
+          "explanation": "Возраст пациента не указан в доступных данных, что не позволяет подтвердить критерий возраста ≥18 лет.",
+          "available_document_ids": [
+            "admission"
+          ],
+          "evidence_document_ids": [],
+          "normative_conclusion_allowed": false,
+          "evidence_quotes": []
+        },
+        "model": "ministral-8b-2512",
+        "mode": "live",
+        "latency_ms": 1421,
+        "usage": {
+          "prompt_tokens": 1420,
+          "completion_tokens": 96,
+          "total_tokens": 1516
+        },
+        "checks": {
+          "criterion_match": true,
+          "status_match": true,
+          "availability_match": true,
+          "references_valid": true,
+          "required_evidence_present": true,
+          "quotes_valid": true,
+          "required_terms_present": true,
+          "no_flagged_future_markers": true,
+          "normative_conclusion_blocked": true,
+          "all_automatic_checks": true,
+          "flagged_future_markers": []
+        },
+        "finished_at": "2026-10-25T18:42:41.406022+00:00"
+      },
+      {
+        "case_id": "comparison-v1-08",
+        "condition": "glm_filtered",
+        "provider": "freetheai",
+        "state": "completed",
+        "started_at": "2026-10-25T18:42:41.413049+00:00",
+        "attempts": 1,
+        "input_sha256": "efd1f3ccddcf9a2ded6e6c594db5d140b4a17a0cffae777ba91c7889a88ba3c5",
+        "result": {
+          "criterion_id": "C01",
+          "status": "insufficient_evidence",
+          "explanation": "Пневмония указана в поле diagnosis (J18.9), care_setting=general_inpatient, однако возраст пациента неизвестен: поле age пустое, а в доступном документе приёма отмечено отсутствие возраста и даты рождения. По правилу C01 неизвестный возраст означает insufficient_evidence; данных, подтверждающих возраст 18 лет и старше, нет.",
+          "available_document_ids": [
+            "admission"
+          ],
+          "evidence_document_ids": [
+            "admission"
+          ],
+          "normative_conclusion_allowed": false,
+          "evidence_quotes": [
+            {
+              "document_id": "admission",
+              "quote": "В выгрузке отсутствуют возраст и дата рождения."
+            }
+          ]
+        },
+        "model": "fta/zai/glm-5.3",
+        "mode": "live",
+        "latency_ms": 7229,
+        "usage": {
+          "prompt_tokens": 1290,
+          "completion_tokens": 361,
+          "total_tokens": 1850
+        },
+        "checks": {
+          "criterion_match": true,
+          "status_match": true,
+          "availability_match": true,
+          "references_valid": true,
+          "required_evidence_present": true,
+          "quotes_valid": true,
+          "required_terms_present": true,
+          "no_flagged_future_markers": true,
+          "normative_conclusion_blocked": true,
+          "all_automatic_checks": true,
+          "flagged_future_markers": []
+        },
+        "finished_at": "2026-10-25T18:42:48.647813+00:00"
+      },
+      {
+        "case_id": "comparison-v1-08",
+        "condition": "glm_full",
+        "provider": "freetheai",
+        "state": "completed",
+        "started_at": "2026-10-25T18:42:48.655631+00:00",
+        "attempts": 1,
+        "input_sha256": "efd1f3ccddcf9a2ded6e6c594db5d140b4a17a0cffae777ba91c7889a88ba3c5",
+        "result": {
+          "criterion_id": "C01",
+          "status": "insufficient_evidence",
+          "explanation": "Возраст пациента неизвестен: в карте поле age пустое, а в доступном документе приёма указано, что возраст и дата рождения в выгрузке отсутствуют. Диагноз соответствует пневмонии (J18.9) и care_setting=general_inpatient, но условие границы прототипа по возрасту (>=18 лет) не может быть проверено. По правилу C01 неизвестный возраст даёт insufficient_evidence.",
+          "available_document_ids": [
+            "admission"
+          ],
+          "evidence_document_ids": [
+            "admission"
+          ],
+          "normative_conclusion_allowed": false,
+          "evidence_quotes": [
+            {
+              "document_id": "admission",
+              "quote": "В выгрузке отсутствуют возраст и дата рождения."
+            }
+          ]
+        },
+        "model": "fta/zai/glm-5.3",
+        "mode": "live",
+        "latency_ms": 6785,
+        "usage": {
+          "prompt_tokens": 1290,
+          "completion_tokens": 418,
+          "total_tokens": 1949
+        },
+        "checks": {
+          "criterion_match": true,
+          "status_match": true,
+          "availability_match": true,
+          "references_valid": true,
+          "required_evidence_present": true,
+          "quotes_valid": true,
+          "required_terms_present": true,
+          "no_flagged_future_markers": true,
+          "normative_conclusion_blocked": true,
+          "all_automatic_checks": true,
+          "flagged_future_markers": []
+        },
+        "finished_at": "2026-10-25T18:42:55.443193+00:00"
+      },
+      {
+        "case_id": "comparison-v1-09",
+        "condition": "glm_full",
+        "provider": "freetheai",
+        "state": "completed",
+        "started_at": "2026-10-25T18:42:55.448411+00:00",
+        "attempts": 1,
+        "input_sha256": "0e478c54fc377fbd78809db0b8b108bd40dcc8368b084640b94013c2eff95bf1",
+        "result": {
+          "criterion_id": "C02",
+          "status": "confirmed",
+          "explanation": "Проверяется только доступность документа result на момент review_at = 2026-10-14T12:00:00+03:00. Дата доступности result (available_at = 2026-10-14T12:00:00+03:00) совпадает с review_at, а по правилу C02 равенство допустимо, поэтому документ считается доступным. Следовательно, критерий подтверждён. Содержание документа (отсутствие описания проекций в выгрузке) относится к C03 и на вывод по C02 не влияет.",
+          "available_document_ids": [
+            "admission",
+            "result"
+          ],
+          "evidence_document_ids": [
+            "result"
+          ],
+          "normative_conclusion_allowed": false,
+          "evidence_quotes": [
+            {
+              "document_id": "result",
+              "quote": "Рентгенография: протокол зарегистрирован, проекции описаны в приложении, которое в выгрузку не входит."
+            }
+          ]
+        },
+        "model": "fta/zai/glm-5.3",
+        "mode": "live",
+        "latency_ms": 8293,
+        "usage": {
+          "prompt_tokens": 1344,
+          "completion_tokens": 571,
+          "total_tokens": 2266
+        },
+        "checks": {
+          "criterion_match": true,
+          "status_match": true,
+          "availability_match": true,
+          "references_valid": true,
+          "required_evidence_present": true,
+          "quotes_valid": true,
+          "required_terms_present": true,
+          "no_flagged_future_markers": true,
+          "normative_conclusion_blocked": true,
+          "all_automatic_checks": true,
+          "flagged_future_markers": []
+        },
+        "finished_at": "2026-10-25T18:43:03.746878+00:00"
+      },
+      {
+        "case_id": "comparison-v1-09",
+        "condition": "glm_filtered",
+        "provider": "freetheai",
+        "state": "completed",
+        "started_at": "2026-10-25T18:43:03.751372+00:00",
+        "attempts": 1,
+        "input_sha256": "0e478c54fc377fbd78809db0b8b108bd40dcc8368b084640b94013c2eff95bf1",
+        "result": {
+          "criterion_id": "C02",
+          "status": "confirmed",
+          "explanation": "Документ result доступен: его available_at (2026-10-14T12:00:00+03:00) равен review_at (2026-10-14T12:00:00+03:00), а по правилу C02 равенство допустимо. Следовательно, result доступен на момент проверки, критерий подтверждён. Оба документа (admission и result) доступны на review_at. Оценка касается только C02: наличие проекций в протоколе не проверяется этим критерием.",
+          "available_document_ids": [
+            "admission",
+            "result"
+          ],
+          "evidence_document_ids": [
+            "result"
+          ],
+          "normative_conclusion_allowed": false,
+          "evidence_quotes": [
+            {
+              "document_id": "result",
+              "quote": "Рентгенография: протокол зарегистрирован, проекции описаны в приложении, которое в выгрузку не входит."
+            }
+          ]
+        },
+        "model": "fta/zai/glm-5.3",
+        "mode": "live",
+        "latency_ms": 9068,
+        "usage": {
+          "prompt_tokens": 1344,
+          "completion_tokens": 530,
+          "total_tokens": 2191
+        },
+        "checks": {
+          "criterion_match": true,
+          "status_match": true,
+          "availability_match": true,
+          "references_valid": true,
+          "required_evidence_present": true,
+          "quotes_valid": true,
+          "required_terms_present": true,
+          "no_flagged_future_markers": true,
+          "normative_conclusion_blocked": true,
+          "all_automatic_checks": true,
+          "flagged_future_markers": []
+        },
+        "finished_at": "2026-10-25T18:43:12.821374+00:00"
+      },
+      {
+        "case_id": "comparison-v1-09",
+        "condition": "mistral_filtered",
+        "provider": "mistral",
+        "state": "completed",
+        "started_at": "2026-10-25T18:43:12.826359+00:00",
+        "attempts": 1,
+        "input_sha256": "0e478c54fc377fbd78809db0b8b108bd40dcc8368b084640b94013c2eff95bf1",
+        "result": {
+          "criterion_id": "C02",
+          "status": "insufficient_evidence",
+          "explanation": "Документ с результатом (id: result) доступен только на момент проверки (2026-10-14T12:00:00+03:00), но его текст не содержит фактического результата исследования (только ссылка на приложение, не включённое в выгрузку).",
+          "available_document_ids": [
+            "admission",
+            "result"
+          ],
+          "evidence_document_ids": [],
+          "normative_conclusion_allowed": false,
+          "evidence_quotes": []
+        },
+        "model": "ministral-8b-2512",
+        "mode": "live",
+        "latency_ms": 3302,
+        "usage": {
+          "prompt_tokens": 1485,
+          "completion_tokens": 147,
+          "total_tokens": 1632
+        },
+        "checks": {
+          "criterion_match": true,
+          "status_match": false,
+          "availability_match": true,
+          "references_valid": true,
+          "required_evidence_present": false,
+          "quotes_valid": true,
+          "required_terms_present": true,
+          "no_flagged_future_markers": true,
+          "normative_conclusion_blocked": true,
+          "all_automatic_checks": false,
+          "flagged_future_markers": []
+        },
+        "finished_at": "2026-10-25T18:43:16.129677+00:00"
+      },
+      {
+        "case_id": "comparison-v1-10",
+        "condition": "mistral_filtered",
+        "provider": "mistral",
+        "state": "completed",
+        "started_at": "2026-10-25T18:43:16.131094+00:00",
+        "attempts": 1,
+        "input_sha256": "4896bec6b373547e60cac3689f49ba8b3677183f15862a56e4c2b9d8d6809c35",
+        "result": {
+          "criterion_id": "C01",
+          "status": "not_applicable",
+          "explanation": "Диагноз установлен как острый бронхит (J20.9), а не пневмония. Возраст пациента 47 года, но основным критерием является отсутствие диагноза пневмонии в поле diagnosis.",
+          "available_document_ids": [
+            "admission"
+          ],
+          "evidence_document_ids": [
+            "admission"
+          ],
+          "normative_conclusion_allowed": false,
+          "evidence_quotes": [
+            {
+              "document_id": "admission",
+              "quote": "В текущем диагнозе указан острый бронхит. Диагноз пневмонии в этой истории не установлен."
+            }
+          ]
+        },
+        "model": "ministral-8b-2512",
+        "mode": "live",
+        "latency_ms": 3581,
+        "usage": {
+          "prompt_tokens": 1419,
+          "completion_tokens": 178,
+          "total_tokens": 1597
+        },
+        "checks": {
+          "criterion_match": true,
+          "status_match": true,
+          "availability_match": true,
+          "references_valid": true,
+          "required_evidence_present": true,
+          "quotes_valid": true,
+          "required_terms_present": true,
+          "no_flagged_future_markers": true,
+          "normative_conclusion_blocked": true,
+          "all_automatic_checks": true,
+          "flagged_future_markers": []
+        },
+        "finished_at": "2026-10-25T18:43:19.712900+00:00"
+      },
+      {
+        "case_id": "comparison-v1-10",
+        "condition": "glm_filtered",
+        "provider": "freetheai",
+        "state": "completed",
+        "started_at": "2026-10-25T18:43:19.721299+00:00",
+        "attempts": 1,
+        "input_sha256": "4896bec6b373547e60cac3689f49ba8b3677183f15862a56e4c2b9d8d6809c35",
+        "result": {
+          "criterion_id": "C01",
+          "status": "not_applicable",
+          "explanation": "Возраст пациента 47 лет (>=18) и care_setting=general_inpatient соответствуют границам прототипа, однако в поле diagnosis установлен код J20.9 'Острый бронхит', то есть иная нозология, а не пневмония. Согласно правилу C01, другая нозология делает случай неприменимым для прототипа. Доступный документ admission подтверждает, что пневмония в данной истории не установлена.",
+          "available_document_ids": [
+            "admission"
+          ],
+          "evidence_document_ids": [
+            "admission"
+          ],
+          "normative_conclusion_allowed": false,
+          "evidence_quotes": [
+            {
+              "document_id": "admission",
+              "quote": "В текущем диагнозе указан острый бронхит. Диагноз пневмонии в этой истории не установлен."
+            }
+          ]
+        },
+        "model": "fta/zai/glm-5.3",
+        "mode": "live",
+        "latency_ms": 10306,
+        "usage": {
+          "prompt_tokens": 1287,
+          "completion_tokens": 683,
+          "total_tokens": 2453
+        },
+        "checks": {
+          "criterion_match": true,
+          "status_match": true,
+          "availability_match": true,
+          "references_valid": true,
+          "required_evidence_present": true,
+          "quotes_valid": true,
+          "required_terms_present": true,
+          "no_flagged_future_markers": true,
+          "normative_conclusion_blocked": true,
+          "all_automatic_checks": true,
+          "flagged_future_markers": []
+        },
+        "finished_at": "2026-10-25T18:43:30.029655+00:00"
+      },
+      {
+        "case_id": "comparison-v1-10",
+        "condition": "glm_full",
+        "provider": "freetheai",
+        "state": "completed",
+        "started_at": "2026-10-25T18:43:30.039258+00:00",
+        "attempts": 1,
+        "input_sha256": "4896bec6b373547e60cac3689f49ba8b3677183f15862a56e4c2b9d8d6809c35",
+        "result": {
+          "criterion_id": "C01",
+          "status": "not_applicable",
+          "explanation": "Возраст 47 лет удовлетворяет границе >=18, care_setting=general_inpatient, однако в поле diagnosis указан острый бронхит (J20.9), а не пневмония. Доступный документ admission подтверждает, что диагноз пневмонии в данной истории не установлен. Наличие другой нозологии выводит случай за границы прототипа, поэтому критерий C01 — not_applicable.",
+          "available_document_ids": [
+            "admission"
+          ],
+          "evidence_document_ids": [
+            "admission"
+          ],
+          "normative_conclusion_allowed": false,
+          "evidence_quotes": [
+            {
+              "document_id": "admission",
+              "quote": "В текущем диагнозе указан острый бронхит. Диагноз пневмонии в этой истории не установлен."
+            }
+          ]
+        },
+        "model": "fta/zai/glm-5.3",
+        "mode": "live",
+        "latency_ms": 9681,
+        "usage": {
+          "prompt_tokens": 1287,
+          "completion_tokens": 516,
+          "total_tokens": 2129
+        },
+        "checks": {
+          "criterion_match": true,
+          "status_match": true,
+          "availability_match": true,
+          "references_valid": true,
+          "required_evidence_present": true,
+          "quotes_valid": true,
+          "required_terms_present": true,
+          "no_flagged_future_markers": true,
+          "normative_conclusion_blocked": true,
+          "all_automatic_checks": true,
+          "flagged_future_markers": []
+        },
+        "finished_at": "2026-10-25T18:43:39.721286+00:00"
+      },
+      {
+        "case_id": "comparison-v1-11",
+        "condition": "glm_full",
+        "provider": "freetheai",
+        "state": "completed",
+        "started_at": "2026-10-25T18:43:39.723585+00:00",
+        "attempts": 1,
+        "input_sha256": "1790e3c3b8a1b045e6fa96a1bf4415b6de64c484c29d01347f93720cc631a8c4",
+        "result": {
+          "criterion_id": "C05",
+          "status": "contradiction",
+          "explanation": "В доступной на момент review_at выписке (discharge) основной диагноз имеет код J18.9, тогда как в проекте счёта principal_diagnosis_code указан как J15.9. Значения различаются, что даёт противоречие по C05; диагноз не изменялся. Код счёта взят из поля claim_draft вне документов, поэтому цитата для него не требуется.",
+          "available_document_ids": [
+            "admission",
+            "discharge"
+          ],
+          "evidence_document_ids": [
+            "discharge"
+          ],
+          "normative_conclusion_allowed": false,
+          "evidence_quotes": [
+            {
+              "document_id": "discharge",
+              "quote": "В проекте выписки основной диагноз имеет код J18.9."
+            }
+          ]
+        },
+        "model": "fta/zai/glm-5.3",
+        "mode": "live",
+        "latency_ms": 7624,
+        "usage": {
+          "prompt_tokens": 1349,
+          "completion_tokens": 429,
+          "total_tokens": 2031
+        },
+        "checks": {
+          "criterion_match": true,
+          "status_match": true,
+          "availability_match": true,
+          "references_valid": true,
+          "required_evidence_present": true,
+          "quotes_valid": true,
+          "required_terms_present": true,
+          "no_flagged_future_markers": true,
+          "normative_conclusion_blocked": true,
+          "all_automatic_checks": true,
+          "flagged_future_markers": []
+        },
+        "finished_at": "2026-10-25T18:43:47.348305+00:00"
+      },
+      {
+        "case_id": "comparison-v1-11",
+        "condition": "glm_filtered",
+        "provider": "freetheai",
+        "state": "completed",
+        "started_at": "2026-10-25T18:43:47.356285+00:00",
+        "attempts": 1,
+        "input_sha256": "1790e3c3b8a1b045e6fa96a1bf4415b6de64c484c29d01347f93720cc631a8c4",
+        "result": {
+          "criterion_id": "C05",
+          "status": "contradiction",
+          "explanation": "Оба документа доступны на review_at: admission (2026-10-11T09:00:00+03:00) и discharge (2026-10-14T10:30:00+03:00), оба времени не позже review_at 2026-10-14T12:00:00+03:00. В доступной выписке diagnosis_code = J18.9, а в claim_draft principal_diagnosis_code = J15.9. Значения не совпадают, что даёт противоречие. Диагноз не изменялся; несоответствие кода в счёте фиксируется как есть.",
+          "available_document_ids": [
+            "admission",
+            "discharge"
+          ],
+          "evidence_document_ids": [
+            "discharge"
+          ],
+          "normative_conclusion_allowed": false,
+          "evidence_quotes": [
+            {
+              "document_id": "discharge",
+              "quote": "В проекте выписки основной диагноз имеет код J18.9."
+            }
+          ]
+        },
+        "model": "fta/zai/glm-5.3",
+        "mode": "live",
+        "latency_ms": 10275,
+        "usage": {
+          "prompt_tokens": 1349,
+          "completion_tokens": 544,
+          "total_tokens": 2210
+        },
+        "checks": {
+          "criterion_match": true,
+          "status_match": true,
+          "availability_match": true,
+          "references_valid": true,
+          "required_evidence_present": true,
+          "quotes_valid": true,
+          "required_terms_present": true,
+          "no_flagged_future_markers": true,
+          "normative_conclusion_blocked": true,
+          "all_automatic_checks": true,
+          "flagged_future_markers": []
+        },
+        "finished_at": "2026-10-25T18:43:57.636419+00:00"
+      },
+      {
+        "case_id": "comparison-v1-11",
+        "condition": "mistral_filtered",
+        "provider": "mistral",
+        "state": "completed",
+        "started_at": "2026-10-25T18:43:57.638576+00:00",
+        "attempts": 1,
+        "input_sha256": "1790e3c3b8a1b045e6fa96a1bf4415b6de64c484c29d01347f93720cc631a8c4",
+        "result": {
+          "criterion_id": "C05",
+          "status": "contradiction",
+          "explanation": "В доступной выписке (discharge) диагноз указан как J18.9, тогда как в проекте счёта (claim_draft) указан principal_diagnosis_code J15.9. Различие кодов диагноза подтверждает противоречие.",
+          "available_document_ids": [
+            "admission",
+            "discharge"
+          ],
+          "evidence_document_ids": [
+            "discharge"
+          ],
+          "normative_conclusion_allowed": false,
+          "evidence_quotes": [
+            {
+              "document_id": "discharge",
+              "quote": "В проекте выписки основной диагноз имеет код J18.9."
+            }
+          ]
+        },
+        "model": "ministral-8b-2512",
+        "mode": "live",
+        "latency_ms": 2191,
+        "usage": {
+          "prompt_tokens": 1490,
+          "completion_tokens": 175,
+          "total_tokens": 1665
+        },
+        "checks": {
+          "criterion_match": true,
+          "status_match": true,
+          "availability_match": true,
+          "references_valid": true,
+          "required_evidence_present": true,
+          "quotes_valid": true,
+          "required_terms_present": true,
+          "no_flagged_future_markers": true,
+          "normative_conclusion_blocked": true,
+          "all_automatic_checks": true,
+          "flagged_future_markers": []
+        },
+        "finished_at": "2026-10-25T18:43:59.830789+00:00"
+      },
+      {
+        "case_id": "comparison-v1-12",
+        "condition": "mistral_filtered",
+        "provider": "mistral",
+        "state": "completed",
+        "started_at": "2026-10-25T18:43:59.838836+00:00",
+        "attempts": 1,
+        "input_sha256": "5a671651dd6f99a9ee29e9e685812842259e8f64c222e0b6a42de18607d119db",
+        "result": {
+          "criterion_id": "C06",
+          "status": "requires_expert",
+          "explanation": "Отсутствует подтверждённая дата `valid_for_case_date` в документах, а также отсутствует `source_context` в данных случая.",
+          "available_document_ids": [
+            "admission",
+            "result"
+          ],
+          "evidence_document_ids": [],
+          "normative_conclusion_allowed": false,
+          "evidence_quotes": []
+        },
+        "model": "ministral-8b-2512",
+        "mode": "live",
+        "latency_ms": 1978,
+        "usage": {
+          "prompt_tokens": 1438,
+          "completion_tokens": 100,
+          "total_tokens": 1538
+        },
+        "checks": {
+          "criterion_match": true,
+          "status_match": true,
+          "availability_match": true,
+          "references_valid": true,
+          "required_evidence_present": true,
+          "quotes_valid": true,
+          "required_terms_present": true,
+          "no_flagged_future_markers": true,
+          "normative_conclusion_blocked": true,
+          "all_automatic_checks": true,
+          "flagged_future_markers": []
+        },
+        "finished_at": "2026-10-25T18:44:01.823517+00:00"
+      },
+      {
+        "case_id": "comparison-v1-12",
+        "condition": "glm_filtered",
+        "provider": "freetheai",
+        "state": "completed",
+        "started_at": "2026-10-25T18:44:01.829798+00:00",
+        "attempts": 1,
+        "input_sha256": "5a671651dd6f99a9ee29e9e685812842259e8f64c222e0b6a42de18607d119db",
+        "result": {
+          "criterion_id": "C06",
+          "status": "requires_expert",
+          "explanation": "Поле source_context в карте отсутствует (null), поэтому происхождение исходных материалов и признак valid_for_case_date подтвердить невозможно. Согласно C06 отсутствие source_context ведёт к статусу requires_expert. Документ admission дополнительно указывает, что файл требований и сведения о его версии к проверке не приложены. Все материалы являются исследовательскими, нормативный вывод не допускается. Статус относится только к критерию C06.",
+          "available_document_ids": [
+            "admission",
+            "result"
+          ],
+          "evidence_document_ids": [
+            "admission"
+          ],
+          "normative_conclusion_allowed": false,
+          "evidence_quotes": [
+            {
+              "document_id": "admission",
+              "quote": "Файл требований и сведения о его версии к проверке не приложены."
+            }
+          ]
+        },
+        "model": "fta/zai/glm-5.3",
+        "mode": "live",
+        "latency_ms": 11751,
+        "usage": {
+          "prompt_tokens": 1298,
+          "completion_tokens": 722,
+          "total_tokens": 2555
+        },
+        "checks": {
+          "criterion_match": true,
+          "status_match": true,
+          "availability_match": true,
+          "references_valid": true,
+          "required_evidence_present": true,
+          "quotes_valid": true,
+          "required_terms_present": true,
+          "no_flagged_future_markers": true,
+          "normative_conclusion_blocked": true,
+          "all_automatic_checks": true,
+          "flagged_future_markers": []
+        },
+        "finished_at": "2026-10-25T18:44:13.583180+00:00"
+      },
+      {
+        "case_id": "comparison-v1-12",
+        "condition": "glm_full",
+        "provider": "freetheai",
+        "state": "completed",
+        "started_at": "2026-10-25T18:44:13.587877+00:00",
+        "attempts": 1,
+        "input_sha256": "5a671651dd6f99a9ee29e9e685812842259e8f64c222e0b6a42de18607d119db",
+        "result": {
+          "criterion_id": "C06",
+          "status": "requires_expert",
+          "explanation": "source_context в карте отсутствует (null), что по правилу C06 требует передачи эксперту: без source_context невозможно подтвердить применимость источника к дате случая. Все материалы исследования являются исследовательскими, нормативный вывод не допускается. Вывод основан на отсутствии поля source_context, а не на документах; оба имеющихся документа доступны на review_at, но для данного критерия основанием не служат.",
+          "available_document_ids": [
+            "admission",
+            "result"
+          ],
+          "evidence_document_ids": [],
+          "normative_conclusion_allowed": false,
+          "evidence_quotes": []
+        },
+        "model": "fta/zai/glm-5.3",
+        "mode": "live",
+        "latency_ms": 12079,
+        "usage": {
+          "prompt_tokens": 1298,
+          "completion_tokens": 470,
+          "total_tokens": 2089
+        },
+        "checks": {
+          "criterion_match": true,
+          "status_match": true,
+          "availability_match": true,
+          "references_valid": true,
+          "required_evidence_present": true,
+          "quotes_valid": true,
+          "required_terms_present": true,
+          "no_flagged_future_markers": true,
+          "normative_conclusion_blocked": true,
+          "all_automatic_checks": true,
+          "flagged_future_markers": []
+        },
+        "finished_at": "2026-10-25T18:44:25.668174+00:00"
+      }
+    ],
+    "conditions": {
+      "glm_full": {
+        "planned": 12,
+        "attempted": 12,
+        "completed": 12,
+        "status_matches": 12,
+        "all_automatic_checks_passed": 12,
+        "latency_median_ms": 9690.5,
+        "total_tokens_reported": 27846,
+        "check_failures": {
+          "criterion_match": 0,
+          "status_match": 0,
+          "availability_match": 0,
+          "references_valid": 0,
+          "required_evidence_present": 0,
+          "quotes_valid": 0,
+          "required_terms_present": 0,
+          "no_flagged_future_markers": 0,
+          "normative_conclusion_blocked": 0
+        },
+        "latency_range_ms": [
+          6785,
+          15017
+        ]
+      },
+      "glm_filtered": {
+        "planned": 12,
+        "attempted": 12,
+        "completed": 12,
+        "status_matches": 12,
+        "all_automatic_checks_passed": 12,
+        "latency_median_ms": 9671.5,
+        "total_tokens_reported": 27646,
+        "check_failures": {
+          "criterion_match": 0,
+          "status_match": 0,
+          "availability_match": 0,
+          "references_valid": 0,
+          "required_evidence_present": 0,
+          "quotes_valid": 0,
+          "required_terms_present": 0,
+          "no_flagged_future_markers": 0,
+          "normative_conclusion_blocked": 0
+        },
+        "latency_range_ms": [
+          5835,
+          16596
+        ]
+      },
+      "mistral_filtered": {
+        "planned": 12,
+        "attempted": 12,
+        "completed": 12,
+        "status_matches": 10,
+        "all_automatic_checks_passed": 9,
+        "latency_median_ms": 2557.0,
+        "total_tokens_reported": 19191,
+        "check_failures": {
+          "criterion_match": 0,
+          "status_match": 2,
+          "availability_match": 0,
+          "references_valid": 0,
+          "required_evidence_present": 2,
+          "quotes_valid": 0,
+          "required_terms_present": 0,
+          "no_flagged_future_markers": 0,
+          "normative_conclusion_blocked": 0
+        },
+        "latency_range_ms": [
+          1421,
+          4029
+        ]
+      }
+    },
+    "preflight": {
+      "checked_at": "2026-10-25T18:39:48.792466+00:00",
+      "glm": {
+        "account_page": "https://freetheai.org/dashboard/free-usage",
+        "daily_limit": 50,
+        "counted_finished": 16,
+        "running": 0,
+        "failed": 0,
+        "remaining": 34,
+        "maximum_new_attempts": 24,
+        "reserved_remaining": 10,
+        "model": "fta/zai/glm-5.3",
+        "model_listing": "https://freetheai.org/models",
+        "route_marked_free": true
+      },
+      "mistral": {
+        "account_page": "https://admin.mistral.ai/subscription",
+        "plan": "Free",
+        "api_pay_as_you_go_enabled": false,
+        "displayed_included_api_usage_usd": 0,
+        "included_allowance_usd": 10,
+        "maximum_new_attempts": 12,
+        "model": "ministral-8b-2512",
+        "model_catalog": "https://docs.mistral.ai/models",
+        "model_card": "https://docs.mistral.ai/models/ministral-3-8b-25-12"
+      },
+      "settings_changed": false,
+      "quota_verified_in_browser": true,
+      "extra_smoke_requests": 0
+    },
+    "attempts_by_provider": {
+      "glm": 24,
+      "mistral": 12
+    },
+    "review_map": [
+      {
+        "review_id": "R01",
+        "case_id": "comparison-v1-01",
+        "condition": "glm_full"
+      },
+      {
+        "review_id": "R02",
+        "case_id": "comparison-v1-06",
+        "condition": "glm_full"
+      },
+      {
+        "review_id": "R03",
+        "case_id": "comparison-v1-09",
+        "condition": "glm_filtered"
+      },
+      {
+        "review_id": "R04",
+        "case_id": "comparison-v1-12",
+        "condition": "glm_filtered"
+      },
+      {
+        "review_id": "R05",
+        "case_id": "comparison-v1-03",
+        "condition": "glm_full"
+      },
+      {
+        "review_id": "R06",
+        "case_id": "comparison-v1-03",
+        "condition": "glm_filtered"
+      },
+      {
+        "review_id": "R07",
+        "case_id": "comparison-v1-04",
+        "condition": "glm_full"
+      },
+      {
+        "review_id": "R08",
+        "case_id": "comparison-v1-09",
+        "condition": "glm_full"
+      },
+      {
+        "review_id": "R09",
+        "case_id": "comparison-v1-08",
+        "condition": "glm_filtered"
+      },
+      {
+        "review_id": "R10",
+        "case_id": "comparison-v1-07",
+        "condition": "glm_full"
+      },
+      {
+        "review_id": "R11",
+        "case_id": "comparison-v1-08",
+        "condition": "glm_full"
+      },
+      {
+        "review_id": "R12",
+        "case_id": "comparison-v1-07",
+        "condition": "glm_filtered"
+      },
+      {
+        "review_id": "R13",
+        "case_id": "comparison-v1-07",
+        "condition": "mistral_filtered"
+      },
+      {
+        "review_id": "R14",
+        "case_id": "comparison-v1-04",
+        "condition": "glm_filtered"
+      },
+      {
+        "review_id": "R15",
+        "case_id": "comparison-v1-05",
+        "condition": "glm_filtered"
+      },
+      {
+        "review_id": "R16",
+        "case_id": "comparison-v1-05",
+        "condition": "glm_full"
+      },
+      {
+        "review_id": "R17",
+        "case_id": "comparison-v1-06",
+        "condition": "mistral_filtered"
+      },
+      {
+        "review_id": "R18",
+        "case_id": "comparison-v1-11",
+        "condition": "mistral_filtered"
+      },
+      {
+        "review_id": "R19",
+        "case_id": "comparison-v1-02",
+        "condition": "mistral_filtered"
+      },
+      {
+        "review_id": "R20",
+        "case_id": "comparison-v1-10",
+        "condition": "glm_filtered"
+      },
+      {
+        "review_id": "R21",
+        "case_id": "comparison-v1-03",
+        "condition": "mistral_filtered"
+      },
+      {
+        "review_id": "R22",
+        "case_id": "comparison-v1-12",
+        "condition": "glm_full"
+      },
+      {
+        "review_id": "R23",
+        "case_id": "comparison-v1-10",
+        "condition": "glm_full"
+      },
+      {
+        "review_id": "R24",
+        "case_id": "comparison-v1-12",
+        "condition": "mistral_filtered"
+      },
+      {
+        "review_id": "R25",
+        "case_id": "comparison-v1-05",
+        "condition": "mistral_filtered"
+      },
+      {
+        "review_id": "R26",
+        "case_id": "comparison-v1-02",
+        "condition": "glm_full"
+      },
+      {
+        "review_id": "R27",
+        "case_id": "comparison-v1-02",
+        "condition": "glm_filtered"
+      },
+      {
+        "review_id": "R28",
+        "case_id": "comparison-v1-04",
+        "condition": "mistral_filtered"
+      },
+      {
+        "review_id": "R29",
+        "case_id": "comparison-v1-06",
+        "condition": "glm_filtered"
+      },
+      {
+        "review_id": "R30",
+        "case_id": "comparison-v1-01",
+        "condition": "glm_filtered"
+      },
+      {
+        "review_id": "R31",
+        "case_id": "comparison-v1-10",
+        "condition": "mistral_filtered"
+      },
+      {
+        "review_id": "R32",
+        "case_id": "comparison-v1-08",
+        "condition": "mistral_filtered"
+      },
+      {
+        "review_id": "R33",
+        "case_id": "comparison-v1-09",
+        "condition": "mistral_filtered"
+      },
+      {
+        "review_id": "R34",
+        "case_id": "comparison-v1-01",
+        "condition": "mistral_filtered"
+      },
+      {
+        "review_id": "R35",
+        "case_id": "comparison-v1-11",
+        "condition": "glm_full"
+      },
+      {
+        "review_id": "R36",
+        "case_id": "comparison-v1-11",
+        "condition": "glm_filtered"
+      }
+    ],
+    "postflight": {
+      "checked_at": "2026-10-25T18:48:56.773672+00:00",
+      "source": "https://freetheai.org/dashboard/free-usage",
+      "observed_from": "reloaded account page",
+      "requests_counted": 40,
+      "requests_limit": 50,
+      "requests_running": 0,
+      "requests_failed": 0,
+      "requests_remaining": 10,
+      "new_glm_attempts": 24,
+      "new_mistral_attempts": 12,
+      "paid_settings_changed": false
+    }
+  },
+  "comparison_manual_review": {
+    "reviewed_at": "2026-10-25T18:48:56.775934+00:00",
+    "reviewer": "AI assistant implementing the experiment; not a physician or independent evaluator",
+    "method": "All 36 saved replies read in shuffled order with model and condition labels hidden; aggregate automated results had already been seen. Not an independent blinded evaluation. Original inputs, target criteria and frozen expectations used for comparison.",
+    "rubric": [
+      "Meaning of the requested criterion, status and availability boundary",
+      "Support for explanation in available documents and metadata",
+      "Exact quotation versus whether the quotation supports the claim",
+      "Future-document contents in explanation; clinical claims beyond the task"
+    ],
+    "reviewed_replies": 36,
+    "automatic_results_unchanged": true,
+    "future_document_content_observed_count": 0,
+    "findings_count": {
+      "substantive_error": 2,
+      "missing_evidence": 1,
+      "wording_caution": 3
+    },
+    "limitations": [
+      "Author-created short cases, some documents explicitly highlight the tested boundary.",
+      "No independent clinical labels, no clinician review, no statistical generalisation.",
+      "Absence of an observed error is not a guarantee of complete factual correctness."
+    ],
+    "records": [
+      {
+        "review_id": "R01",
+        "case_id": "comparison-v1-01",
+        "condition": "glm_full",
+        "reviewed": true,
+        "finding": "no_substantive_issue_found",
+        "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+        "future_document_content_observed": false
+      },
+      {
+        "review_id": "R02",
+        "case_id": "comparison-v1-06",
+        "condition": "glm_full",
+        "reviewed": true,
+        "finding": "no_substantive_issue_found",
+        "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+        "future_document_content_observed": false
+      },
+      {
+        "review_id": "R03",
+        "case_id": "comparison-v1-09",
+        "condition": "glm_filtered",
+        "reviewed": true,
+        "finding": "no_substantive_issue_found",
+        "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+        "future_document_content_observed": false
+      },
+      {
+        "review_id": "R04",
+        "case_id": "comparison-v1-12",
+        "condition": "glm_filtered",
+        "reviewed": true,
+        "finding": "no_substantive_issue_found",
+        "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+        "future_document_content_observed": false
+      },
+      {
+        "review_id": "R05",
+        "case_id": "comparison-v1-03",
+        "condition": "glm_full",
+        "reviewed": true,
+        "finding": "no_substantive_issue_found",
+        "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+        "future_document_content_observed": false
+      },
+      {
+        "review_id": "R06",
+        "case_id": "comparison-v1-03",
+        "condition": "glm_filtered",
+        "reviewed": true,
+        "finding": "no_substantive_issue_found",
+        "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+        "future_document_content_observed": false
+      },
+      {
+        "review_id": "R07",
+        "case_id": "comparison-v1-04",
+        "condition": "glm_full",
+        "reviewed": true,
+        "finding": "no_substantive_issue_found",
+        "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+        "future_document_content_observed": false
+      },
+      {
+        "review_id": "R08",
+        "case_id": "comparison-v1-09",
+        "condition": "glm_full",
+        "reviewed": true,
+        "finding": "no_substantive_issue_found",
+        "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+        "future_document_content_observed": false
+      },
+      {
+        "review_id": "R09",
+        "case_id": "comparison-v1-08",
+        "condition": "glm_filtered",
+        "reviewed": true,
+        "finding": "no_substantive_issue_found",
+        "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+        "future_document_content_observed": false
+      },
+      {
+        "review_id": "R10",
+        "case_id": "comparison-v1-07",
+        "condition": "glm_full",
+        "reviewed": true,
+        "finding": "no_substantive_issue_found",
+        "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+        "future_document_content_observed": false
+      },
+      {
+        "review_id": "R11",
+        "case_id": "comparison-v1-08",
+        "condition": "glm_full",
+        "reviewed": true,
+        "finding": "no_substantive_issue_found",
+        "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+        "future_document_content_observed": false
+      },
+      {
+        "review_id": "R12",
+        "case_id": "comparison-v1-07",
+        "condition": "glm_filtered",
+        "reviewed": true,
+        "finding": "no_substantive_issue_found",
+        "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+        "future_document_content_observed": false
+      },
+      {
+        "review_id": "R13",
+        "case_id": "comparison-v1-07",
+        "condition": "mistral_filtered",
+        "reviewed": true,
+        "finding": "no_substantive_issue_found",
+        "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+        "future_document_content_observed": false
+      },
+      {
+        "review_id": "R14",
+        "case_id": "comparison-v1-04",
+        "condition": "glm_filtered",
+        "reviewed": true,
+        "finding": "no_substantive_issue_found",
+        "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+        "future_document_content_observed": false
+      },
+      {
+        "review_id": "R15",
+        "case_id": "comparison-v1-05",
+        "condition": "glm_filtered",
+        "reviewed": true,
+        "finding": "no_substantive_issue_found",
+        "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+        "future_document_content_observed": false
+      },
+      {
+        "review_id": "R16",
+        "case_id": "comparison-v1-05",
+        "condition": "glm_full",
+        "reviewed": true,
+        "finding": "no_substantive_issue_found",
+        "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+        "future_document_content_observed": false
+      },
+      {
+        "review_id": "R17",
+        "case_id": "comparison-v1-06",
+        "condition": "mistral_filtered",
+        "reviewed": true,
+        "finding": "wording_caution",
+        "note": "Фраза «без дополнительных разъяснений или обсуждения последствий» может читаться как отсутствие самого обсуждения. В источнике отсутствует только его описание. Статус requires_expert и цитата соответствуют ожиданию.",
+        "future_document_content_observed": false
+      },
+      {
+        "review_id": "R18",
+        "case_id": "comparison-v1-11",
+        "condition": "mistral_filtered",
+        "reviewed": true,
+        "finding": "no_substantive_issue_found",
+        "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+        "future_document_content_observed": false
+      },
+      {
+        "review_id": "R19",
+        "case_id": "comparison-v1-02",
+        "condition": "mistral_filtered",
+        "reviewed": true,
+        "finding": "no_substantive_issue_found",
+        "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+        "future_document_content_observed": false
+      },
+      {
+        "review_id": "R20",
+        "case_id": "comparison-v1-10",
+        "condition": "glm_filtered",
+        "reviewed": true,
+        "finding": "no_substantive_issue_found",
+        "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+        "future_document_content_observed": false
+      },
+      {
+        "review_id": "R21",
+        "case_id": "comparison-v1-03",
+        "condition": "mistral_filtered",
+        "reviewed": true,
+        "finding": "no_substantive_issue_found",
+        "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+        "future_document_content_observed": false
+      },
+      {
+        "review_id": "R22",
+        "case_id": "comparison-v1-12",
+        "condition": "glm_full",
+        "reviewed": true,
+        "finding": "no_substantive_issue_found",
+        "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+        "future_document_content_observed": false
+      },
+      {
+        "review_id": "R23",
+        "case_id": "comparison-v1-10",
+        "condition": "glm_full",
+        "reviewed": true,
+        "finding": "no_substantive_issue_found",
+        "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+        "future_document_content_observed": false
+      },
+      {
+        "review_id": "R24",
+        "case_id": "comparison-v1-12",
+        "condition": "mistral_filtered",
+        "reviewed": true,
+        "finding": "wording_caution",
+        "note": "valid_for_case_date назван датой в документах, хотя это признак в метаданных источника. Отсутствие source_context и статус requires_expert указаны верно.",
+        "future_document_content_observed": false
+      },
+      {
+        "review_id": "R25",
+        "case_id": "comparison-v1-05",
+        "condition": "mistral_filtered",
+        "reviewed": true,
+        "finding": "substantive_error",
+        "note": "Запись поступления названа выпиской. Код J18.9 взят из метаданных карты и приписан выписке, которой нет среди доступных документов. Цитата дословная, но не содержит кода и не подтверждает сравнение. Нужен insufficient_evidence, получен confirmed.",
+        "future_document_content_observed": false
+      },
+      {
+        "review_id": "R26",
+        "case_id": "comparison-v1-02",
+        "condition": "glm_full",
+        "reviewed": true,
+        "finding": "wording_caution",
+        "note": "Назначение исследования названо приказом. Это не меняет ожидаемый статус, но термин следует заменить в пользовательском объяснении; исходный ответ сохранён без правки.",
+        "future_document_content_observed": false
+      },
+      {
+        "review_id": "R27",
+        "case_id": "comparison-v1-02",
+        "condition": "glm_filtered",
+        "reviewed": true,
+        "finding": "no_substantive_issue_found",
+        "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+        "future_document_content_observed": false
+      },
+      {
+        "review_id": "R28",
+        "case_id": "comparison-v1-04",
+        "condition": "mistral_filtered",
+        "reviewed": true,
+        "finding": "missing_evidence",
+        "note": "Верный статус insufficient_evidence, но пропущена обязательная ссылка и цитата из доступного направления order.",
+        "future_document_content_observed": false
+      },
+      {
+        "review_id": "R29",
+        "case_id": "comparison-v1-06",
+        "condition": "glm_filtered",
+        "reviewed": true,
+        "finding": "no_substantive_issue_found",
+        "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+        "future_document_content_observed": false
+      },
+      {
+        "review_id": "R30",
+        "case_id": "comparison-v1-01",
+        "condition": "glm_filtered",
+        "reviewed": true,
+        "finding": "no_substantive_issue_found",
+        "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+        "future_document_content_observed": false
+      },
+      {
+        "review_id": "R31",
+        "case_id": "comparison-v1-10",
+        "condition": "mistral_filtered",
+        "reviewed": true,
+        "finding": "no_substantive_issue_found",
+        "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+        "future_document_content_observed": false
+      },
+      {
+        "review_id": "R32",
+        "case_id": "comparison-v1-08",
+        "condition": "mistral_filtered",
+        "reviewed": true,
+        "finding": "no_substantive_issue_found",
+        "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+        "future_document_content_observed": false
+      },
+      {
+        "review_id": "R33",
+        "case_id": "comparison-v1-09",
+        "condition": "mistral_filtered",
+        "reviewed": true,
+        "finding": "substantive_error",
+        "note": "C02 проверяет доступность result, включая равенство времени. Вместо этого модель оценила полноту протокола по смыслу C03 и вернула insufficient_evidence вместо confirmed; ссылка и цитата result пропущены.",
+        "future_document_content_observed": false
+      },
+      {
+        "review_id": "R34",
+        "case_id": "comparison-v1-01",
+        "condition": "mistral_filtered",
+        "reviewed": true,
+        "finding": "no_substantive_issue_found",
+        "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+        "future_document_content_observed": false
+      },
+      {
+        "review_id": "R35",
+        "case_id": "comparison-v1-11",
+        "condition": "glm_full",
+        "reviewed": true,
+        "finding": "no_substantive_issue_found",
+        "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+        "future_document_content_observed": false
+      },
+      {
+        "review_id": "R36",
+        "case_id": "comparison-v1-11",
+        "condition": "glm_filtered",
+        "reviewed": true,
+        "finding": "no_substantive_issue_found",
+        "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+        "future_document_content_observed": false
+      }
+    ]
+  },
+  "retrieval_trial_2026_10_25": {
+    "purpose": "extraction_with_supplied_metadata_not_router_or_clinical_search_validation",
+    "api_calls": 0,
+    "bm25": {
+      "k1": 1.5,
+      "b": 0.75,
+      "tokenization": "lowercase Unicode word tokens; no stemming"
+    },
+    "input_sha256": "d9bdf3e13f5e540719dec2b697e28eca7a3197a8dab18ee126dd692da9ec8105",
+    "expectations_sha256": "4c17d924cb661ea11e76a2c9e4a33c6ecea0d02573b896672856536d8d15d84e",
+    "summary": {
+      "bm25_all": {
+        "queries": 12,
+        "top1_hits": 9,
+        "top3_hits": 12,
+        "inapplicable_top3_total": 5
+      },
+      "bm25_scope_version_filter": {
+        "queries": 12,
+        "top1_hits": 11,
+        "top3_hits": 12,
+        "inapplicable_top3_total": 0
+      },
+      "exact_known_keys": {
+        "queries": 12,
+        "top1_hits": 12,
+        "top3_hits": 12,
+        "inapplicable_top3_total": 0
+      }
+    },
+    "records": [
+      {
+        "query_id": "retrieval-01",
+        "method": "bm25_all",
+        "ranked_ids": [
+          "current-C01",
+          "pediatric-C01",
+          "current-C03",
+          "current-C02",
+          "current-C04",
+          "current-C06",
+          "current-C07",
+          "current-C05",
+          "archive-C02"
+        ],
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "inapplicable_in_top3": 1
+      },
+      {
+        "query_id": "retrieval-01",
+        "method": "bm25_scope_version_filter",
+        "ranked_ids": [
+          "current-C01",
+          "current-C03",
+          "current-C02",
+          "current-C04",
+          "current-C06",
+          "current-C07",
+          "current-C05"
+        ],
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "inapplicable_in_top3": 0
+      },
+      {
+        "query_id": "retrieval-01",
+        "method": "exact_known_keys",
+        "ranked_ids": [
+          "current-C01"
+        ],
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "inapplicable_in_top3": 0
+      },
+      {
+        "query_id": "retrieval-02",
+        "method": "bm25_all",
+        "ranked_ids": [
+          "current-C01",
+          "pediatric-C01",
+          "current-C04",
+          "current-C06",
+          "current-C07",
+          "current-C05",
+          "current-C02",
+          "archive-C02",
+          "current-C03"
+        ],
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "inapplicable_in_top3": 1
+      },
+      {
+        "query_id": "retrieval-02",
+        "method": "bm25_scope_version_filter",
+        "ranked_ids": [
+          "current-C01",
+          "current-C04",
+          "current-C06",
+          "current-C05",
+          "current-C07",
+          "current-C02",
+          "current-C03"
+        ],
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "inapplicable_in_top3": 0
+      },
+      {
+        "query_id": "retrieval-02",
+        "method": "exact_known_keys",
+        "ranked_ids": [
+          "current-C01"
+        ],
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "inapplicable_in_top3": 0
+      },
+      {
+        "query_id": "retrieval-03",
+        "method": "bm25_all",
+        "ranked_ids": [
+          "archive-C02",
+          "current-C03",
+          "current-C02",
+          "current-C04",
+          "current-C06",
+          "current-C01",
+          "current-C07",
+          "current-C05",
+          "pediatric-C01"
+        ],
+        "recall_at_1": 0.0,
+        "recall_at_3": 1.0,
+        "inapplicable_in_top3": 1
+      },
+      {
+        "query_id": "retrieval-03",
+        "method": "bm25_scope_version_filter",
+        "ranked_ids": [
+          "current-C02",
+          "current-C03",
+          "current-C04",
+          "current-C06",
+          "current-C01",
+          "current-C07",
+          "current-C05"
+        ],
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "inapplicable_in_top3": 0
+      },
+      {
+        "query_id": "retrieval-03",
+        "method": "exact_known_keys",
+        "ranked_ids": [
+          "current-C02"
+        ],
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "inapplicable_in_top3": 0
+      },
+      {
+        "query_id": "retrieval-04",
+        "method": "bm25_all",
+        "ranked_ids": [
+          "archive-C02",
+          "current-C02",
+          "current-C06",
+          "current-C01",
+          "current-C03",
+          "current-C04",
+          "current-C05",
+          "current-C07",
+          "pediatric-C01"
+        ],
+        "recall_at_1": 0.0,
+        "recall_at_3": 1.0,
+        "inapplicable_in_top3": 1
+      },
+      {
+        "query_id": "retrieval-04",
+        "method": "bm25_scope_version_filter",
+        "ranked_ids": [
+          "current-C02",
+          "current-C06",
+          "current-C01",
+          "current-C03",
+          "current-C05",
+          "current-C04",
+          "current-C07"
+        ],
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "inapplicable_in_top3": 0
+      },
+      {
+        "query_id": "retrieval-04",
+        "method": "exact_known_keys",
+        "ranked_ids": [
+          "current-C02"
+        ],
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "inapplicable_in_top3": 0
+      },
+      {
+        "query_id": "retrieval-05",
+        "method": "bm25_all",
+        "ranked_ids": [
+          "current-C03",
+          "current-C06",
+          "current-C07",
+          "current-C05",
+          "archive-C02",
+          "current-C04",
+          "current-C01",
+          "current-C02",
+          "pediatric-C01"
+        ],
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "inapplicable_in_top3": 0
+      },
+      {
+        "query_id": "retrieval-05",
+        "method": "bm25_scope_version_filter",
+        "ranked_ids": [
+          "current-C03",
+          "current-C06",
+          "current-C05",
+          "current-C07",
+          "current-C04",
+          "current-C02",
+          "current-C01"
+        ],
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "inapplicable_in_top3": 0
+      },
+      {
+        "query_id": "retrieval-05",
+        "method": "exact_known_keys",
+        "ranked_ids": [
+          "current-C03"
+        ],
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "inapplicable_in_top3": 0
+      },
+      {
+        "query_id": "retrieval-06",
+        "method": "bm25_all",
+        "ranked_ids": [
+          "current-C02",
+          "current-C03",
+          "current-C06",
+          "current-C04",
+          "current-C01",
+          "current-C07",
+          "current-C05",
+          "pediatric-C01",
+          "archive-C02"
+        ],
+        "recall_at_1": 0.0,
+        "recall_at_3": 1.0,
+        "inapplicable_in_top3": 0
+      },
+      {
+        "query_id": "retrieval-06",
+        "method": "bm25_scope_version_filter",
+        "ranked_ids": [
+          "current-C02",
+          "current-C03",
+          "current-C06",
+          "current-C04",
+          "current-C01",
+          "current-C07",
+          "current-C05"
+        ],
+        "recall_at_1": 0.0,
+        "recall_at_3": 1.0,
+        "inapplicable_in_top3": 0
+      },
+      {
+        "query_id": "retrieval-06",
+        "method": "exact_known_keys",
+        "ranked_ids": [
+          "current-C03"
+        ],
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "inapplicable_in_top3": 0
+      },
+      {
+        "query_id": "retrieval-07",
+        "method": "bm25_all",
+        "ranked_ids": [
+          "current-C04",
+          "current-C06",
+          "current-C01",
+          "current-C02",
+          "current-C07",
+          "current-C05",
+          "current-C03",
+          "pediatric-C01",
+          "archive-C02"
+        ],
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "inapplicable_in_top3": 0
+      },
+      {
+        "query_id": "retrieval-07",
+        "method": "bm25_scope_version_filter",
+        "ranked_ids": [
+          "current-C04",
+          "current-C06",
+          "current-C01",
+          "current-C02",
+          "current-C07",
+          "current-C05",
+          "current-C03"
+        ],
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "inapplicable_in_top3": 0
+      },
+      {
+        "query_id": "retrieval-07",
+        "method": "exact_known_keys",
+        "ranked_ids": [
+          "current-C04"
+        ],
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "inapplicable_in_top3": 0
+      },
+      {
+        "query_id": "retrieval-08",
+        "method": "bm25_all",
+        "ranked_ids": [
+          "current-C04",
+          "current-C05",
+          "current-C03",
+          "current-C06",
+          "current-C01",
+          "current-C02",
+          "current-C07",
+          "pediatric-C01",
+          "archive-C02"
+        ],
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "inapplicable_in_top3": 0
+      },
+      {
+        "query_id": "retrieval-08",
+        "method": "bm25_scope_version_filter",
+        "ranked_ids": [
+          "current-C04",
+          "current-C05",
+          "current-C03",
+          "current-C06",
+          "current-C01",
+          "current-C02",
+          "current-C07"
+        ],
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "inapplicable_in_top3": 0
+      },
+      {
+        "query_id": "retrieval-08",
+        "method": "exact_known_keys",
+        "ranked_ids": [
+          "current-C04"
+        ],
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "inapplicable_in_top3": 0
+      },
+      {
+        "query_id": "retrieval-09",
+        "method": "bm25_all",
+        "ranked_ids": [
+          "current-C05",
+          "current-C06",
+          "current-C01",
+          "archive-C02",
+          "current-C03",
+          "current-C02",
+          "current-C04",
+          "current-C07",
+          "pediatric-C01"
+        ],
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "inapplicable_in_top3": 0
+      },
+      {
+        "query_id": "retrieval-09",
+        "method": "bm25_scope_version_filter",
+        "ranked_ids": [
+          "current-C05",
+          "current-C06",
+          "current-C01",
+          "current-C03",
+          "current-C02",
+          "current-C04",
+          "current-C07"
+        ],
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "inapplicable_in_top3": 0
+      },
+      {
+        "query_id": "retrieval-09",
+        "method": "exact_known_keys",
+        "ranked_ids": [
+          "current-C05"
+        ],
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "inapplicable_in_top3": 0
+      },
+      {
+        "query_id": "retrieval-10",
+        "method": "bm25_all",
+        "ranked_ids": [
+          "current-C06",
+          "archive-C02",
+          "current-C02",
+          "current-C07",
+          "current-C03",
+          "current-C04",
+          "current-C05",
+          "pediatric-C01",
+          "current-C01"
+        ],
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "inapplicable_in_top3": 1
+      },
+      {
+        "query_id": "retrieval-10",
+        "method": "bm25_scope_version_filter",
+        "ranked_ids": [
+          "current-C06",
+          "current-C02",
+          "current-C07",
+          "current-C03",
+          "current-C04",
+          "current-C05",
+          "current-C01"
+        ],
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "inapplicable_in_top3": 0
+      },
+      {
+        "query_id": "retrieval-10",
+        "method": "exact_known_keys",
+        "ranked_ids": [
+          "current-C06"
+        ],
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "inapplicable_in_top3": 0
+      },
+      {
+        "query_id": "retrieval-11",
+        "method": "bm25_all",
+        "ranked_ids": [
+          "current-C06",
+          "current-C07",
+          "current-C04",
+          "current-C05",
+          "current-C02",
+          "pediatric-C01",
+          "archive-C02",
+          "current-C01",
+          "current-C03"
+        ],
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "inapplicable_in_top3": 0
+      },
+      {
+        "query_id": "retrieval-11",
+        "method": "bm25_scope_version_filter",
+        "ranked_ids": [
+          "current-C06",
+          "current-C07",
+          "current-C04",
+          "current-C05",
+          "current-C02",
+          "current-C01",
+          "current-C03"
+        ],
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "inapplicable_in_top3": 0
+      },
+      {
+        "query_id": "retrieval-11",
+        "method": "exact_known_keys",
+        "ranked_ids": [
+          "current-C06"
+        ],
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "inapplicable_in_top3": 0
+      },
+      {
+        "query_id": "retrieval-12",
+        "method": "bm25_all",
+        "ranked_ids": [
+          "current-C07",
+          "current-C03",
+          "current-C05",
+          "current-C06",
+          "current-C01",
+          "archive-C02",
+          "current-C02",
+          "current-C04",
+          "pediatric-C01"
+        ],
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "inapplicable_in_top3": 0
+      },
+      {
+        "query_id": "retrieval-12",
+        "method": "bm25_scope_version_filter",
+        "ranked_ids": [
+          "current-C07",
+          "current-C03",
+          "current-C05",
+          "current-C06",
+          "current-C01",
+          "current-C02",
+          "current-C04"
+        ],
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "inapplicable_in_top3": 0
+      },
+      {
+        "query_id": "retrieval-12",
+        "method": "exact_known_keys",
+        "ranked_ids": [
+          "current-C07"
+        ],
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "inapplicable_in_top3": 0
+      }
+    ],
+    "limitations": [
+      "All methods receive the same query plus manually supplied topic, scope and revision.",
+      "Exact extraction assumes a correct upstream router; that router is not tested.",
+      "Nine authored cards and twelve authored queries; not clinical documents or an independent retrieval benchmark.",
+      "No embeddings, hybrid search or reranker comparison; no latency claim."
+    ]
+  },
+  "cohort_provenance": {
+    "source_id": "CAPCOHORT",
+    "doi": "10.36488/cmac.2020.3.242-248",
+    "pdf_url": "https://cmac-journal.ru/publication/2020/3/cmac-2020-t22-n3-p242/cmac-2020-t22-n3-p242.pdf",
+    "sha256": "308d12b7b4d8a84250235ce86f47d19ad229dc97a0965f642a4774811a1bb2d1",
+    "accessed": "2026-10-25",
+    "printed_pages": [
+      244,
+      245
+    ],
+    "pdf_pages": [
+      4,
+      5
+    ],
+    "figure": "1",
+    "age_group": "65–74",
+    "reported_diabetes_percent": 23.7,
+    "reported_heart_failure_percent": 45.7,
+    "patient_denominator_verified": false,
+    "use": "factor selection only, not sampling probabilities",
+    "method_note": "171 isolates are not a patient denominator; cohort studied in 2018–2019"
+  },
   "reference_tests_2026_10_18": {
     "tests": 34,
     "failures": 0,
@@ -358,6 +4147,24 @@
       "kind": "проект разработчиков",
       "locator": "Синтетические продольные истории и моделирование процессов",
       "limits": "Не обеспечивает автоматически реализм российской документации и ОМС; в работе не запускалась.",
+      "accessed": "2026-10-25"
+    },
+    {
+      "id": "CAPCOHORT",
+      "title": "Зырянов и соавт. Коморбидность у госпитализированных пациентов с ВП, 2020",
+      "url": "https://cmac-journal.ru/publication/2020/3/cmac-2020-t22-n3-p242/",
+      "kind": "оригинальное исследование",
+      "locator": "С. 244–245; методы, рисунок 1; физические страницы PDF 4–5",
+      "limits": "Пациенты 65–94 лет, 2018–2019. Размер групп пациентов однозначно не установлен; 171 относится к изолятам. Использую для выбора факторов, не вероятностей.",
+      "accessed": "2026-10-25"
+    },
+    {
+      "id": "MISTRAL8B",
+      "title": "Mistral: Ministral 3 8B, версия 25.12",
+      "url": "https://docs.mistral.ai/models/ministral-3-8b-25-12",
+      "kind": "официальная документация разработчика",
+      "locator": "ID ministral-8b-2512; Features: Structured Outputs и Chat Completions",
+      "limits": "Возможности API не подтверждают качество медицинских ответов и текущий остаток тарифа пользователя.",
       "accessed": "2026-10-25"
     }
   ],

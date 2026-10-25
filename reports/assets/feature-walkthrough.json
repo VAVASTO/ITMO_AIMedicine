@@ -1,0 +1,88 @@
+{
+  "kind": "authored_expected_behavior",
+  "is_model_output": false,
+  "case": {
+    "id": "research-03-late_result",
+    "family_id": "research-03",
+    "synthetic": true,
+    "expert_reviewed": false,
+    "split": "review_packet",
+    "stratum": "respiratory",
+    "age": 66,
+    "sex": "male",
+    "diagnosis": {
+      "code": "J18.9",
+      "text": "Внебольничная пневмония"
+    },
+    "review_at": "2026-10-06T12:00:00+03:00",
+    "documents": [
+      {
+        "id": "admission",
+        "kind": "admission_note",
+        "event_at": "2026-10-01T10:00:00+03:00",
+        "available_at": "2026-10-01T11:00:00+03:00",
+        "text": "Лихорадка и кашель четыре дня, слабость. Сахарный диабет 2 типа в анамнезе. Температура 38,3 °C, ЧДД 24 в минуту, SpO2 93% на воздухе."
+      },
+      {
+        "id": "result",
+        "kind": "result_or_consultation",
+        "event_at": "2026-10-02T10:00:00+03:00",
+        "available_at": "2026-10-07T10:00:00+03:00",
+        "text": "Рентгенография: инфильтрация в нижней доле правого лёгкого."
+      },
+      {
+        "id": "discharge",
+        "kind": "discharge_draft",
+        "event_at": "2026-10-06T10:00:00+03:00",
+        "available_at": "2026-10-06T11:00:00+03:00",
+        "text": "Температура 36,8 °C, SpO2 96% на воздухе. Сохраняется умеренный кашель.",
+        "diagnosis_code": "J18.9"
+      }
+    ],
+    "claim_draft": {
+      "principal_diagnosis_code": "J18.9",
+      "synthetic": true,
+      "region": null,
+      "amount": null
+    }
+  },
+  "engineering_expectation": {
+    "case_id": "research-03-late_result",
+    "family_id": "research-03",
+    "mutation": "late_result",
+    "expected_engineering_reaction": "result_not_available_at_review",
+    "document_ids": [
+      "result"
+    ],
+    "clinical_ground_truth": false
+  },
+  "source": {
+    "id": "CAP",
+    "version": "2024",
+    "guideline_id": "654_2",
+    "section": "2.4",
+    "pdf_page": 18,
+    "current_validity_verified": false
+  },
+  "states": [
+    {
+      "review_at": "2026-10-06T12:00:00+03:00",
+      "available_documents": [
+        "admission",
+        "discharge"
+      ],
+      "status": "insufficient_evidence",
+      "message": "Результат недоступен на момент проверки; запросить протокол."
+    },
+    {
+      "review_at": "2026-10-07T10:01:00+03:00",
+      "available_documents": [
+        "admission",
+        "result",
+        "discharge"
+      ],
+      "status": "insufficient_evidence",
+      "message": "Результат найден; проекции не указаны, нужен полный протокол."
+    }
+  ]
+}

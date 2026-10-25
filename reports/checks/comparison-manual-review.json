@@ -1,0 +1,350 @@
+{
+  "reviewed_at": "2026-10-25T18:48:56.775934+00:00",
+  "reviewer": "AI assistant implementing the experiment; not a physician or independent evaluator",
+  "method": "All 36 saved replies read in shuffled order with model and condition labels hidden; aggregate automated results had already been seen. Not an independent blinded evaluation. Original inputs, target criteria and frozen expectations used for comparison.",
+  "rubric": [
+    "Meaning of the requested criterion, status and availability boundary",
+    "Support for explanation in available documents and metadata",
+    "Exact quotation versus whether the quotation supports the claim",
+    "Future-document contents in explanation; clinical claims beyond the task"
+  ],
+  "reviewed_replies": 36,
+  "automatic_results_unchanged": true,
+  "future_document_content_observed_count": 0,
+  "findings_count": {
+    "substantive_error": 2,
+    "missing_evidence": 1,
+    "wording_caution": 3
+  },
+  "limitations": [
+    "Author-created short cases, some documents explicitly highlight the tested boundary.",
+    "No independent clinical labels, no clinician review, no statistical generalisation.",
+    "Absence of an observed error is not a guarantee of complete factual correctness."
+  ],
+  "records": [
+    {
+      "review_id": "R01",
+      "case_id": "comparison-v1-01",
+      "condition": "glm_full",
+      "reviewed": true,
+      "finding": "no_substantive_issue_found",
+      "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+      "future_document_content_observed": false
+    },
+    {
+      "review_id": "R02",
+      "case_id": "comparison-v1-06",
+      "condition": "glm_full",
+      "reviewed": true,
+      "finding": "no_substantive_issue_found",
+      "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+      "future_document_content_observed": false
+    },
+    {
+      "review_id": "R03",
+      "case_id": "comparison-v1-09",
+      "condition": "glm_filtered",
+      "reviewed": true,
+      "finding": "no_substantive_issue_found",
+      "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+      "future_document_content_observed": false
+    },
+    {
+      "review_id": "R04",
+      "case_id": "comparison-v1-12",
+      "condition": "glm_filtered",
+      "reviewed": true,
+      "finding": "no_substantive_issue_found",
+      "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+      "future_document_content_observed": false
+    },
+    {
+      "review_id": "R05",
+      "case_id": "comparison-v1-03",
+      "condition": "glm_full",
+      "reviewed": true,
+      "finding": "no_substantive_issue_found",
+      "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+      "future_document_content_observed": false
+    },
+    {
+      "review_id": "R06",
+      "case_id": "comparison-v1-03",
+      "condition": "glm_filtered",
+      "reviewed": true,
+      "finding": "no_substantive_issue_found",
+      "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+      "future_document_content_observed": false
+    },
+    {
+      "review_id": "R07",
+      "case_id": "comparison-v1-04",
+      "condition": "glm_full",
+      "reviewed": true,
+      "finding": "no_substantive_issue_found",
+      "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+      "future_document_content_observed": false
+    },
+    {
+      "review_id": "R08",
+      "case_id": "comparison-v1-09",
+      "condition": "glm_full",
+      "reviewed": true,
+      "finding": "no_substantive_issue_found",
+      "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+      "future_document_content_observed": false
+    },
+    {
+      "review_id": "R09",
+      "case_id": "comparison-v1-08",
+      "condition": "glm_filtered",
+      "reviewed": true,
+      "finding": "no_substantive_issue_found",
+      "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+      "future_document_content_observed": false
+    },
+    {
+      "review_id": "R10",
+      "case_id": "comparison-v1-07",
+      "condition": "glm_full",
+      "reviewed": true,
+      "finding": "no_substantive_issue_found",
+      "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+      "future_document_content_observed": false
+    },
+    {
+      "review_id": "R11",
+      "case_id": "comparison-v1-08",
+      "condition": "glm_full",
+      "reviewed": true,
+      "finding": "no_substantive_issue_found",
+      "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+      "future_document_content_observed": false
+    },
+    {
+      "review_id": "R12",
+      "case_id": "comparison-v1-07",
+      "condition": "glm_filtered",
+      "reviewed": true,
+      "finding": "no_substantive_issue_found",
+      "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+      "future_document_content_observed": false
+    },
+    {
+      "review_id": "R13",
+      "case_id": "comparison-v1-07",
+      "condition": "mistral_filtered",
+      "reviewed": true,
+      "finding": "no_substantive_issue_found",
+      "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+      "future_document_content_observed": false
+    },
+    {
+      "review_id": "R14",
+      "case_id": "comparison-v1-04",
+      "condition": "glm_filtered",
+      "reviewed": true,
+      "finding": "no_substantive_issue_found",
+      "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+      "future_document_content_observed": false
+    },
+    {
+      "review_id": "R15",
+      "case_id": "comparison-v1-05",
+      "condition": "glm_filtered",
+      "reviewed": true,
+      "finding": "no_substantive_issue_found",
+      "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+      "future_document_content_observed": false
+    },
+    {
+      "review_id": "R16",
+      "case_id": "comparison-v1-05",
+      "condition": "glm_full",
+      "reviewed": true,
+      "finding": "no_substantive_issue_found",
+      "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+      "future_document_content_observed": false
+    },
+    {
+      "review_id": "R17",
+      "case_id": "comparison-v1-06",
+      "condition": "mistral_filtered",
+      "reviewed": true,
+      "finding": "wording_caution",
+      "note": "Фраза «без дополнительных разъяснений или обсуждения последствий» может читаться как отсутствие самого обсуждения. В источнике отсутствует только его описание. Статус requires_expert и цитата соответствуют ожиданию.",
+      "future_document_content_observed": false
+    },
+    {
+      "review_id": "R18",
+      "case_id": "comparison-v1-11",
+      "condition": "mistral_filtered",
+      "reviewed": true,
+      "finding": "no_substantive_issue_found",
+      "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+      "future_document_content_observed": false
+    },
+    {
+      "review_id": "R19",
+      "case_id": "comparison-v1-02",
+      "condition": "mistral_filtered",
+      "reviewed": true,
+      "finding": "no_substantive_issue_found",
+      "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+      "future_document_content_observed": false
+    },
+    {
+      "review_id": "R20",
+      "case_id": "comparison-v1-10",
+      "condition": "glm_filtered",
+      "reviewed": true,
+      "finding": "no_substantive_issue_found",
+      "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+      "future_document_content_observed": false
+    },
+    {
+      "review_id": "R21",
+      "case_id": "comparison-v1-03",
+      "condition": "mistral_filtered",
+      "reviewed": true,
+      "finding": "no_substantive_issue_found",
+      "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+      "future_document_content_observed": false
+    },
+    {
+      "review_id": "R22",
+      "case_id": "comparison-v1-12",
+      "condition": "glm_full",
+      "reviewed": true,
+      "finding": "no_substantive_issue_found",
+      "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+      "future_document_content_observed": false
+    },
+    {
+      "review_id": "R23",
+      "case_id": "comparison-v1-10",
+      "condition": "glm_full",
+      "reviewed": true,
+      "finding": "no_substantive_issue_found",
+      "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+      "future_document_content_observed": false
+    },
+    {
+      "review_id": "R24",
+      "case_id": "comparison-v1-12",
+      "condition": "mistral_filtered",
+      "reviewed": true,
+      "finding": "wording_caution",
+      "note": "valid_for_case_date назван датой в документах, хотя это признак в метаданных источника. Отсутствие source_context и статус requires_expert указаны верно.",
+      "future_document_content_observed": false
+    },
+    {
+      "review_id": "R25",
+      "case_id": "comparison-v1-05",
+      "condition": "mistral_filtered",
+      "reviewed": true,
+      "finding": "substantive_error",
+      "note": "Запись поступления названа выпиской. Код J18.9 взят из метаданных карты и приписан выписке, которой нет среди доступных документов. Цитата дословная, но не содержит кода и не подтверждает сравнение. Нужен insufficient_evidence, получен confirmed.",
+      "future_document_content_observed": false
+    },
+    {
+      "review_id": "R26",
+      "case_id": "comparison-v1-02",
+      "condition": "glm_full",
+      "reviewed": true,
+      "finding": "wording_caution",
+      "note": "Назначение исследования названо приказом. Это не меняет ожидаемый статус, но термин следует заменить в пользовательском объяснении; исходный ответ сохранён без правки.",
+      "future_document_content_observed": false
+    },
+    {
+      "review_id": "R27",
+      "case_id": "comparison-v1-02",
+      "condition": "glm_filtered",
+      "reviewed": true,
+      "finding": "no_substantive_issue_found",
+      "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+      "future_document_content_observed": false
+    },
+    {
+      "review_id": "R28",
+      "case_id": "comparison-v1-04",
+      "condition": "mistral_filtered",
+      "reviewed": true,
+      "finding": "missing_evidence",
+      "note": "Верный статус insufficient_evidence, но пропущена обязательная ссылка и цитата из доступного направления order.",
+      "future_document_content_observed": false
+    },
+    {
+      "review_id": "R29",
+      "case_id": "comparison-v1-06",
+      "condition": "glm_filtered",
+      "reviewed": true,
+      "finding": "no_substantive_issue_found",
+      "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+      "future_document_content_observed": false
+    },
+    {
+      "review_id": "R30",
+      "case_id": "comparison-v1-01",
+      "condition": "glm_filtered",
+      "reviewed": true,
+      "finding": "no_substantive_issue_found",
+      "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+      "future_document_content_observed": false
+    },
+    {
+      "review_id": "R31",
+      "case_id": "comparison-v1-10",
+      "condition": "mistral_filtered",
+      "reviewed": true,
+      "finding": "no_substantive_issue_found",
+      "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+      "future_document_content_observed": false
+    },
+    {
+      "review_id": "R32",
+      "case_id": "comparison-v1-08",
+      "condition": "mistral_filtered",
+      "reviewed": true,
+      "finding": "no_substantive_issue_found",
+      "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+      "future_document_content_observed": false
+    },
+    {
+      "review_id": "R33",
+      "case_id": "comparison-v1-09",
+      "condition": "mistral_filtered",
+      "reviewed": true,
+      "finding": "substantive_error",
+      "note": "C02 проверяет доступность result, включая равенство времени. Вместо этого модель оценила полноту протокола по смыслу C03 и вернула insufficient_evidence вместо confirmed; ссылка и цитата result пропущены.",
+      "future_document_content_observed": false
+    },
+    {
+      "review_id": "R34",
+      "case_id": "comparison-v1-01",
+      "condition": "mistral_filtered",
+      "reviewed": true,
+      "finding": "no_substantive_issue_found",
+      "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+      "future_document_content_observed": false
+    },
+    {
+      "review_id": "R35",
+      "case_id": "comparison-v1-11",
+      "condition": "glm_full",
+      "reviewed": true,
+      "finding": "no_substantive_issue_found",
+      "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+      "future_document_content_observed": false
+    },
+    {
+      "review_id": "R36",
+      "case_id": "comparison-v1-11",
+      "condition": "glm_filtered",
+      "reviewed": true,
+      "finding": "no_substantive_issue_found",
+      "note": "При чтении объяснения и сопоставлении с авторским входом дополнительной содержательной ошибки не выявлено. Это не клиническое заключение.",
+      "future_document_content_observed": false
+    }
+  ]
+}

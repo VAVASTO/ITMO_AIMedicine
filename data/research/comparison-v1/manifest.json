@@ -1,0 +1,129 @@
+{
+  "experiment_id": "comparison-v1-2026-10-25",
+  "created_at": "2026-10-25T18:39:23.242828+00:00",
+  "purpose": "frozen_engineering_pilot_not_clinical_validation",
+  "request_limits": {
+    "glm": 24,
+    "mistral": 12
+  },
+  "automatic_retries": 0,
+  "temperature": 0,
+  "max_tokens": 1024,
+  "models": {
+    "glm": "fta/zai/glm-5.3",
+    "mistral": "ministral-8b-2512"
+  },
+  "cases_sha256": "5648800f38559a7910397d7ee3155fa983a4f97a25d0fd65c8442d51e7d491e1",
+  "expectations_sha256": "000f77a272de7d4136dd6a96bc8a7bc0273fdfeb56e2ea0e9879760d3d284d9f",
+  "system_sha256": "cbaae27dc21798515b8540aa2a40e0d764842a79e949ed341e8c80ed0be4dbd2",
+  "schema": {
+    "$defs": {
+      "EvidenceQuote": {
+        "additionalProperties": false,
+        "properties": {
+          "document_id": {
+            "maxLength": 60,
+            "minLength": 1,
+            "title": "Document Id",
+            "type": "string"
+          },
+          "quote": {
+            "maxLength": 500,
+            "minLength": 1,
+            "title": "Quote",
+            "type": "string"
+          }
+        },
+        "required": [
+          "document_id",
+          "quote"
+        ],
+        "title": "EvidenceQuote",
+        "type": "object"
+      }
+    },
+    "additionalProperties": false,
+    "properties": {
+      "criterion_id": {
+        "enum": [
+          "C01",
+          "C02",
+          "C03",
+          "C04",
+          "C05",
+          "C06"
+        ],
+        "title": "Criterion Id",
+        "type": "string"
+      },
+      "status": {
+        "enum": [
+          "confirmed",
+          "contradiction",
+          "insufficient_evidence",
+          "not_applicable",
+          "requires_expert"
+        ],
+        "title": "Status",
+        "type": "string"
+      },
+      "explanation": {
+        "maxLength": 1200,
+        "minLength": 1,
+        "title": "Explanation",
+        "type": "string"
+      },
+      "available_document_ids": {
+        "items": {
+          "type": "string"
+        },
+        "maxItems": 10,
+        "title": "Available Document Ids",
+        "type": "array"
+      },
+      "evidence_document_ids": {
+        "items": {
+          "type": "string"
+        },
+        "maxItems": 10,
+        "title": "Evidence Document Ids",
+        "type": "array"
+      },
+      "normative_conclusion_allowed": {
+        "const": false,
+        "title": "Normative Conclusion Allowed",
+        "type": "boolean"
+      },
+      "evidence_quotes": {
+        "items": {
+          "$ref": "#/$defs/EvidenceQuote"
+        },
+        "maxItems": 6,
+        "title": "Evidence Quotes",
+        "type": "array"
+      }
+    },
+    "required": [
+      "criterion_id",
+      "status",
+      "explanation",
+      "available_document_ids",
+      "evidence_document_ids",
+      "normative_conclusion_allowed",
+      "evidence_quotes"
+    ],
+    "title": "ComparisonReply",
+    "type": "object"
+  },
+  "metric_priority": [
+    "status_and_grounding_errors",
+    "latency",
+    "provider_reported_tokens"
+  ],
+  "limitations": [
+    "12 authored histories, no independent clinical labels or repeated model runs.",
+    "GLM uses prompt JSON; Mistral additionally enforces provider JSON Schema. Comparison concerns configured pipelines.",
+    "Exact future markers are a lower-bound detector; every explanation also needs manual review.",
+    "No hybrid retrieval, OCR, end-to-end audit or clinical quality validation."
+  ]
+}

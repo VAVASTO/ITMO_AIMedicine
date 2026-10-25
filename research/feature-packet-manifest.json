@@ -1,0 +1,13 @@
+{
+  "purpose": "specification fixtures; not an independent clinical sample",
+  "new_cases": 14,
+  "parent_family_ids": [
+    "research-03"
+  ],
+  "independent_family_count_added": 0,
+  "feature_executed": false,
+  "files": {
+    "feature-cases.json": "da7aab3aacf35b7ce8bc4d4efd54da01dfd3c0e5096ff391133653274313f21a",
+    "feature-expectations.json": "c3f7c36dd6471be29c4bcf6db9dec64b97a1f6fa12c0972e389d2cc2f123c032"
+  }
+}

@@ -1,0 +1,74 @@
+[
+  {
+    "query_id": "retrieval-01",
+    "relevant_ids": [
+      "current-C01"
+    ]
+  },
+  {
+    "query_id": "retrieval-02",
+    "relevant_ids": [
+      "current-C01"
+    ]
+  },
+  {
+    "query_id": "retrieval-03",
+    "relevant_ids": [
+      "current-C02"
+    ]
+  },
+  {
+    "query_id": "retrieval-04",
+    "relevant_ids": [
+      "current-C02"
+    ]
+  },
+  {
+    "query_id": "retrieval-05",
+    "relevant_ids": [
+      "current-C03"
+    ]
+  },
+  {
+    "query_id": "retrieval-06",
+    "relevant_ids": [
+      "current-C03"
+    ]
+  },
+  {
+    "query_id": "retrieval-07",
+    "relevant_ids": [
+      "current-C04"
+    ]
+  },
+  {
+    "query_id": "retrieval-08",
+    "relevant_ids": [
+      "current-C04"
+    ]
+  },
+  {
+    "query_id": "retrieval-09",
+    "relevant_ids": [
+      "current-C05"
+    ]
+  },
+  {
+    "query_id": "retrieval-10",
+    "relevant_ids": [
+      "current-C06"
+    ]
+  },
+  {
+    "query_id": "retrieval-11",
+    "relevant_ids": [
+      "current-C06"
+    ]
+  },
+  {
+    "query_id": "retrieval-12",
+    "relevant_ids": [
+      "current-C07"
+    ]
+  }
+]

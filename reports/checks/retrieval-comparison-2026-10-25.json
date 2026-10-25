@@ -1,0 +1,567 @@
+{
+  "purpose": "extraction_with_supplied_metadata_not_router_or_clinical_search_validation",
+  "api_calls": 0,
+  "bm25": {
+    "k1": 1.5,
+    "b": 0.75,
+    "tokenization": "lowercase Unicode word tokens; no stemming"
+  },
+  "input_sha256": "d9bdf3e13f5e540719dec2b697e28eca7a3197a8dab18ee126dd692da9ec8105",
+  "expectations_sha256": "4c17d924cb661ea11e76a2c9e4a33c6ecea0d02573b896672856536d8d15d84e",
+  "summary": {
+    "bm25_all": {
+      "queries": 12,
+      "top1_hits": 9,
+      "top3_hits": 12,
+      "inapplicable_top3_total": 5
+    },
+    "bm25_scope_version_filter": {
+      "queries": 12,
+      "top1_hits": 11,
+      "top3_hits": 12,
+      "inapplicable_top3_total": 0
+    },
+    "exact_known_keys": {
+      "queries": 12,
+      "top1_hits": 12,
+      "top3_hits": 12,
+      "inapplicable_top3_total": 0
+    }
+  },
+  "records": [
+    {
+      "query_id": "retrieval-01",
+      "method": "bm25_all",
+      "ranked_ids": [
+        "current-C01",
+        "pediatric-C01",
+        "current-C03",
+        "current-C02",
+        "current-C04",
+        "current-C06",
+        "current-C07",
+        "current-C05",
+        "archive-C02"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "inapplicable_in_top3": 1
+    },
+    {
+      "query_id": "retrieval-01",
+      "method": "bm25_scope_version_filter",
+      "ranked_ids": [
+        "current-C01",
+        "current-C03",
+        "current-C02",
+        "current-C04",
+        "current-C06",
+        "current-C07",
+        "current-C05"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "inapplicable_in_top3": 0
+    },
+    {
+      "query_id": "retrieval-01",
+      "method": "exact_known_keys",
+      "ranked_ids": [
+        "current-C01"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "inapplicable_in_top3": 0
+    },
+    {
+      "query_id": "retrieval-02",
+      "method": "bm25_all",
+      "ranked_ids": [
+        "current-C01",
+        "pediatric-C01",
+        "current-C04",
+        "current-C06",
+        "current-C07",
+        "current-C05",
+        "current-C02",
+        "archive-C02",
+        "current-C03"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "inapplicable_in_top3": 1
+    },
+    {
+      "query_id": "retrieval-02",
+      "method": "bm25_scope_version_filter",
+      "ranked_ids": [
+        "current-C01",
+        "current-C04",
+        "current-C06",
+        "current-C05",
+        "current-C07",
+        "current-C02",
+        "current-C03"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "inapplicable_in_top3": 0
+    },
+    {
+      "query_id": "retrieval-02",
+      "method": "exact_known_keys",
+      "ranked_ids": [
+        "current-C01"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "inapplicable_in_top3": 0
+    },
+    {
+      "query_id": "retrieval-03",
+      "method": "bm25_all",
+      "ranked_ids": [
+        "archive-C02",
+        "current-C03",
+        "current-C02",
+        "current-C04",
+        "current-C06",
+        "current-C01",
+        "current-C07",
+        "current-C05",
+        "pediatric-C01"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_3": 1.0,
+      "inapplicable_in_top3": 1
+    },
+    {
+      "query_id": "retrieval-03",
+      "method": "bm25_scope_version_filter",
+      "ranked_ids": [
+        "current-C02",
+        "current-C03",
+        "current-C04",
+        "current-C06",
+        "current-C01",
+        "current-C07",
+        "current-C05"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "inapplicable_in_top3": 0
+    },
+    {
+      "query_id": "retrieval-03",
+      "method": "exact_known_keys",
+      "ranked_ids": [
+        "current-C02"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "inapplicable_in_top3": 0
+    },
+    {
+      "query_id": "retrieval-04",
+      "method": "bm25_all",
+      "ranked_ids": [
+        "archive-C02",
+        "current-C02",
+        "current-C06",
+        "current-C01",
+        "current-C03",
+        "current-C04",
+        "current-C05",
+        "current-C07",
+        "pediatric-C01"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_3": 1.0,
+      "inapplicable_in_top3": 1
+    },
+    {
+      "query_id": "retrieval-04",
+      "method": "bm25_scope_version_filter",
+      "ranked_ids": [
+        "current-C02",
+        "current-C06",
+        "current-C01",
+        "current-C03",
+        "current-C05",
+        "current-C04",
+        "current-C07"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "inapplicable_in_top3": 0
+    },
+    {
+      "query_id": "retrieval-04",
+      "method": "exact_known_keys",
+      "ranked_ids": [
+        "current-C02"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "inapplicable_in_top3": 0
+    },
+    {
+      "query_id": "retrieval-05",
+      "method": "bm25_all",
+      "ranked_ids": [
+        "current-C03",
+        "current-C06",
+        "current-C07",
+        "current-C05",
+        "archive-C02",
+        "current-C04",
+        "current-C01",
+        "current-C02",
+        "pediatric-C01"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "inapplicable_in_top3": 0
+    },
+    {
+      "query_id": "retrieval-05",
+      "method": "bm25_scope_version_filter",
+      "ranked_ids": [
+        "current-C03",
+        "current-C06",
+        "current-C05",
+        "current-C07",
+        "current-C04",
+        "current-C02",
+        "current-C01"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "inapplicable_in_top3": 0
+    },
+    {
+      "query_id": "retrieval-05",
+      "method": "exact_known_keys",
+      "ranked_ids": [
+        "current-C03"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "inapplicable_in_top3": 0
+    },
+    {
+      "query_id": "retrieval-06",
+      "method": "bm25_all",
+      "ranked_ids": [
+        "current-C02",
+        "current-C03",
+        "current-C06",
+        "current-C04",
+        "current-C01",
+        "current-C07",
+        "current-C05",
+        "pediatric-C01",
+        "archive-C02"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_3": 1.0,
+      "inapplicable_in_top3": 0
+    },
+    {
+      "query_id": "retrieval-06",
+      "method": "bm25_scope_version_filter",
+      "ranked_ids": [
+        "current-C02",
+        "current-C03",
+        "current-C06",
+        "current-C04",
+        "current-C01",
+        "current-C07",
+        "current-C05"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_3": 1.0,
+      "inapplicable_in_top3": 0
+    },
+    {
+      "query_id": "retrieval-06",
+      "method": "exact_known_keys",
+      "ranked_ids": [
+        "current-C03"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "inapplicable_in_top3": 0
+    },
+    {
+      "query_id": "retrieval-07",
+      "method": "bm25_all",
+      "ranked_ids": [
+        "current-C04",
+        "current-C06",
+        "current-C01",
+        "current-C02",
+        "current-C07",
+        "current-C05",
+        "current-C03",
+        "pediatric-C01",
+        "archive-C02"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "inapplicable_in_top3": 0
+    },
+    {
+      "query_id": "retrieval-07",
+      "method": "bm25_scope_version_filter",
+      "ranked_ids": [
+        "current-C04",
+        "current-C06",
+        "current-C01",
+        "current-C02",
+        "current-C07",
+        "current-C05",
+        "current-C03"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "inapplicable_in_top3": 0
+    },
+    {
+      "query_id": "retrieval-07",
+      "method": "exact_known_keys",
+      "ranked_ids": [
+        "current-C04"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "inapplicable_in_top3": 0
+    },
+    {
+      "query_id": "retrieval-08",
+      "method": "bm25_all",
+      "ranked_ids": [
+        "current-C04",
+        "current-C05",
+        "current-C03",
+        "current-C06",
+        "current-C01",
+        "current-C02",
+        "current-C07",
+        "pediatric-C01",
+        "archive-C02"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "inapplicable_in_top3": 0
+    },
+    {
+      "query_id": "retrieval-08",
+      "method": "bm25_scope_version_filter",
+      "ranked_ids": [
+        "current-C04",
+        "current-C05",
+        "current-C03",
+        "current-C06",
+        "current-C01",
+        "current-C02",
+        "current-C07"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "inapplicable_in_top3": 0
+    },
+    {
+      "query_id": "retrieval-08",
+      "method": "exact_known_keys",
+      "ranked_ids": [
+        "current-C04"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "inapplicable_in_top3": 0
+    },
+    {
+      "query_id": "retrieval-09",
+      "method": "bm25_all",
+      "ranked_ids": [
+        "current-C05",
+        "current-C06",
+        "current-C01",
+        "archive-C02",
+        "current-C03",
+        "current-C02",
+        "current-C04",
+        "current-C07",
+        "pediatric-C01"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "inapplicable_in_top3": 0
+    },
+    {
+      "query_id": "retrieval-09",
+      "method": "bm25_scope_version_filter",
+      "ranked_ids": [
+        "current-C05",
+        "current-C06",
+        "current-C01",
+        "current-C03",
+        "current-C02",
+        "current-C04",
+        "current-C07"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "inapplicable_in_top3": 0
+    },
+    {
+      "query_id": "retrieval-09",
+      "method": "exact_known_keys",
+      "ranked_ids": [
+        "current-C05"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "inapplicable_in_top3": 0
+    },
+    {
+      "query_id": "retrieval-10",
+      "method": "bm25_all",
+      "ranked_ids": [
+        "current-C06",
+        "archive-C02",
+        "current-C02",
+        "current-C07",
+        "current-C03",
+        "current-C04",
+        "current-C05",
+        "pediatric-C01",
+        "current-C01"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "inapplicable_in_top3": 1
+    },
+    {
+      "query_id": "retrieval-10",
+      "method": "bm25_scope_version_filter",
+      "ranked_ids": [
+        "current-C06",
+        "current-C02",
+        "current-C07",
+        "current-C03",
+        "current-C04",
+        "current-C05",
+        "current-C01"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "inapplicable_in_top3": 0
+    },
+    {
+      "query_id": "retrieval-10",
+      "method": "exact_known_keys",
+      "ranked_ids": [
+        "current-C06"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "inapplicable_in_top3": 0
+    },
+    {
+      "query_id": "retrieval-11",
+      "method": "bm25_all",
+      "ranked_ids": [
+        "current-C06",
+        "current-C07",
+        "current-C04",
+        "current-C05",
+        "current-C02",
+        "pediatric-C01",
+        "archive-C02",
+        "current-C01",
+        "current-C03"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "inapplicable_in_top3": 0
+    },
+    {
+      "query_id": "retrieval-11",
+      "method": "bm25_scope_version_filter",
+      "ranked_ids": [
+        "current-C06",
+        "current-C07",
+        "current-C04",
+        "current-C05",
+        "current-C02",
+        "current-C01",
+        "current-C03"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "inapplicable_in_top3": 0
+    },
+    {
+      "query_id": "retrieval-11",
+      "method": "exact_known_keys",
+      "ranked_ids": [
+        "current-C06"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "inapplicable_in_top3": 0
+    },
+    {
+      "query_id": "retrieval-12",
+      "method": "bm25_all",
+      "ranked_ids": [
+        "current-C07",
+        "current-C03",
+        "current-C05",
+        "current-C06",
+        "current-C01",
+        "archive-C02",
+        "current-C02",
+        "current-C04",
+        "pediatric-C01"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "inapplicable_in_top3": 0
+    },
+    {
+      "query_id": "retrieval-12",
+      "method": "bm25_scope_version_filter",
+      "ranked_ids": [
+        "current-C07",
+        "current-C03",
+        "current-C05",
+        "current-C06",
+        "current-C01",
+        "current-C02",
+        "current-C04"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "inapplicable_in_top3": 0
+    },
+    {
+      "query_id": "retrieval-12",
+      "method": "exact_known_keys",
+      "ranked_ids": [
+        "current-C07"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "inapplicable_in_top3": 0
+    }
+  ],
+  "limitations": [
+    "All methods receive the same query plus manually supplied topic, scope and revision.",
+    "Exact extraction assumes a correct upstream router; that router is not tested.",
+    "Nine authored cards and twelve authored queries; not clinical documents or an independent retrieval benchmark.",
+    "No embeddings, hybrid search or reranker comparison; no latency claim."
+  ]
+}

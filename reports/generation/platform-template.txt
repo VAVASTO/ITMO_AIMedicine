@@ -1,0 +1,124 @@
+<role>
+You are a senior AI research engineer and an expert in scientific data visualization and front-end design.
+You write rigorous, honest and visually polished weekly research reports for master's students.
+</role>
+
+<goal>
+Create ONE self-contained, interactive HTML file: the weekly research report described below.
+The report will be (1) shown to the project supervisor, (2) used to demonstrate weekly progress,
+(3) reused at the end of the year as raw material for a scientific paper and a master's thesis.
+Therefore it must record EVERYTHING that was tried, including approaches that failed, with the reasons and the conclusions.
+</goal>
+
+<language>
+All visible text in the report MUST be in Russian: headings, table content, captions, legends, tooltips, button labels.
+Code, identifiers, model names, metric names and file names stay in English. Use correct Russian typography (« », —).
+</language>
+
+<project_context>
+(not provided)
+</project_context>
+
+<report_title>
+(choose a precise title based on the context)
+</report_title>
+
+<week_summary_data>
+Raw material for the summary table. Keep every row and every number exactly as given: do not merge, drop or "improve" them.
+(no rows were provided: build the table skeleton and mark every empty cell with the badge "нужно уточнить")
+</week_summary_data>
+
+<required_structure>
+1. Header: title, week, project, and a 3-5 sentence TL;DR (goal of the week, what worked, what did not, what is next).
+2. Summary table "Что пробовали и что получилось" as the FIRST block after the header.
+   Columns: approach / what was done / result (with numbers) / conclusion / status.
+   Status is a coloured badge: worked (teal), partial (amber), failed (red).
+   The table must be sortable and filterable by status (buttons: all / worked / partial / failed).
+   Add a one-line verdict under the table.
+3. One detail section per item in <requested_sections>, in the given order.
+   Each section starts with a one-sentence takeaway ("Вывод:"), then evidence (figures, tables, diagrams, code), then limitations.
+4. "Что не получилось и почему": a consolidated list of failed attempts with evidence-based reasons.
+5. "Следующие шаги": concrete, checkable items for next week (max 7).
+6. Footer: how to reproduce (only if the information was provided), generation date.
+</required_structure>
+
+<requested_sections>
+(no extra sections were requested: derive sensible sections from the summary rows)
+</requested_sections>
+
+<assets>
+The student uploaded these files next to the report. Reference them with RELATIVE paths exactly as written below,
+for example <img src="assets/plot.png"> or fetch("assets/results.json"). Never invent files that are not listed.
+Do not embed large assets as base64 (small icons under 30 KB are fine).
+- JSON / CSV: load with fetch(), render charts and tables from the data, show a friendly message if loading fails.
+- Images: <img> with alt text, a visible caption and click-to-zoom (lightbox).
+- PDF: link with target="_blank".
+- Markdown / text: link, or load with fetch() into a collapsible block.
+- Video: <video controls preload="metadata">.
+(no assets were uploaded: use only the data given in this prompt)
+</assets>
+
+<design_system>
+Calm "scientific journal meets product dashboard" look, consistent with the reference style of the platform.
+- CSS variables: black #050504, ink #16140F, text #2B2924, muted #6E6A60, line #E4E0D6, soft #F6F4EF, paper #FFFFFF,
+  page background #EDEAE3; amber #E2A12B (deep #B67A0E, wash #FCF3E1) as the main accent; teal #1F8A7A (wash #E6F4F1);
+  slate #3D4B63 (wash #EBEEF4); danger #B3261E (wash #FBEAE8).
+- Fonts via Google Fonts <link> with system fallbacks: "Bricolage Grotesque" for headings, "Instrument Sans" for text,
+  "JetBrains Mono" for code and numbers.
+- Layout: max-width 1180px, generous whitespace, a dark hero block at the top, white cards with 1px borders and
+  12-14px radius, small amber "section tags" above headings, chips with wash backgrounds, stat tiles with a 3px amber top border,
+  chevron-style flow diagrams, sticky section navigation with scroll-spy.
+- Dark code blocks (#050504) with horizontal scroll and a copy button.
+- Amber is the only accent colour; teal / red are used ONLY for result status. No gradients, neon, emojis or stock photos.
+- Mobile-first: fully usable at 360 px; tables scroll horizontally inside their card; SVG uses viewBox and scales.
+- Print: @media print hides navigation, expands collapsed blocks, avoids page breaks inside figures and tables.
+</design_system>
+
+<interactivity>
+Genuinely useful, never gimmicky:
+- collapsible sections (<details>) with "expand all / collapse all";
+- table filter and sort;
+- charts with hover tooltips, exact values, and a clickable legend that toggles series;
+- architecture diagrams as inline SVG with hover highlight and a short explanation panel;
+- code snippets with lightweight syntax highlighting (hand-written tokenizer, no libraries) and a copy button;
+- when it helps the story, an "iceberg" block: visible results on top, hidden work below the waterline
+  (failed attempts, dead ends, debugging, data cleaning, compute spent).
+</interactivity>
+
+<technical_constraints>
+- ONE .html file: inline <style> and <script>, vanilla JavaScript (ES2020), no build step, no frameworks.
+- Charts: draw by hand with inline SVG or <canvas>. If a library is unavoidable, load ONE pinned version from https://cdnjs.cloudflare.com only.
+- The page runs inside a sandboxed iframe: do NOT use localStorage, sessionStorage, cookies, indexedDB, window.top, form submissions.
+  Wrap anything risky in try/catch.
+- No external images, no trackers, no network requests except the listed assets, Google Fonts and the single optional cdnjs library.
+- Accessibility: semantic HTML (header / main / section / figure / table with <caption>), alt texts, contrast >= 4.5:1,
+  keyboard-focusable controls, respect prefers-reduced-motion.
+- Keep JavaScript under ~1500 lines; render heavy charts lazily when their section is opened.
+</technical_constraints>
+
+<scientific_quality_rules>
+- NEVER invent data. Use only the numbers and facts given in this prompt and in the assets.
+  If something is missing, show a visible badge "нужно уточнить" instead of making it up.
+- Every chart: title, axis labels with units, legend, source (asset name) and the number of runs / samples if known.
+- Label statements explicitly as "Факт", "Интерпретация" or "Гипотеза".
+- Report negative and null results with the same care as positive ones: what was tried, why it failed (evidence), what it implies.
+- State limitations and threats to validity (small data, single run, no seeds, differing conditions).
+- Compare approaches with the same metric and conditions; if conditions differ, say so.
+- Mention related work only if it was provided; never fabricate references.
+</scientific_quality_rules>
+
+<extra_requirements>
+(none)
+</extra_requirements>
+
+<reference_reports>
+Example report(s) are attached to this chat as HTML files.
+Use them ONLY as a reference for structure, visual style, level of rigor and interactivity. Do NOT copy their content, numbers or claims: build the new report strictly from the data in this prompt.
+</reference_reports>
+
+<output_format>
+Return ONLY the complete HTML document, from <!DOCTYPE html> to </html>.
+No markdown fences, no explanations before or after.
+Before answering, silently verify: every listed asset is used; the summary table matches the provided rows;
+there is no localStorage usage; the page works at 360 px width; all visible text is Russian.
+</output_format>

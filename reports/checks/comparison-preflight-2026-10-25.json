@@ -1,0 +1,30 @@
+{
+  "checked_at": "2026-10-25T18:39:48.792466+00:00",
+  "glm": {
+    "account_page": "https://freetheai.org/dashboard/free-usage",
+    "daily_limit": 50,
+    "counted_finished": 16,
+    "running": 0,
+    "failed": 0,
+    "remaining": 34,
+    "maximum_new_attempts": 24,
+    "reserved_remaining": 10,
+    "model": "fta/zai/glm-5.3",
+    "model_listing": "https://freetheai.org/models",
+    "route_marked_free": true
+  },
+  "mistral": {
+    "account_page": "https://admin.mistral.ai/subscription",
+    "plan": "Free",
+    "api_pay_as_you_go_enabled": false,
+    "displayed_included_api_usage_usd": 0,
+    "included_allowance_usd": 10,
+    "maximum_new_attempts": 12,
+    "model": "ministral-8b-2512",
+    "model_catalog": "https://docs.mistral.ai/models",
+    "model_card": "https://docs.mistral.ai/models/ministral-3-8b-25-12"
+  },
+  "settings_changed": false,
+  "quota_verified_in_browser": true,
+  "extra_smoke_requests": 0
+}

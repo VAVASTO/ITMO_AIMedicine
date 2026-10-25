@@ -30,13 +30,13 @@ async function check() {
     <section aria-labelledby="connection">
       <h2 id="connection">Подключение модели</h2>
       <dl v-if="config"><div><dt>Провайдер</dt><dd>{{ config.provider }}</dd></div><div><dt>Модель</dt><dd>{{ config.model }}</dd></div><div><dt>Режим</dt><dd>{{ config.mode === 'mock' ? 'Локальная имитация' : 'Реальный API' }}</dd></div></dl>
-      <p v-if="config?.mode === 'mock'">Тест проверяет работу приложения без ключа и обращения к Mistral. Он не подтверждает доступ к модели.</p>
-      <p v-else-if="config">Проверка отправит один технический запрос в Mistral. Медицинские данные в нём отсутствуют.</p>
-      <button :disabled="busy || !config" @click="check">{{ busy ? 'Проверка…' : config?.mode === 'live' ? 'Проверить Mistral API' : 'Проверить локальный режим' }}</button>
+      <p v-if="config?.mode === 'mock'">Тест проверяет работу приложения без ключа и обращения к модели. Он не подтверждает доступ к API.</p>
+      <p v-else-if="config">Проверка отправит технический запрос в указанную модель. Медицинские данные в нём отсутствуют.</p>
+      <button :disabled="busy || !config" @click="check">{{ busy ? 'Проверка…' : config?.mode === 'live' ? 'Проверить подключение' : 'Проверить локальный режим' }}</button>
       <p role="alert" class="error" v-if="error">{{ error }}</p>
-      <div v-if="result" class="result" role="status"><strong>{{ result.mode === 'mock' ? 'Локальная проверка пройдена' : 'Ответ Mistral получен' }}</strong><p>{{ result.result.message }}</p><small>Режим: {{ result.mode }} · запросов к API: {{ result.attempts }}</small></div>
+      <div v-if="result" class="result" role="status"><strong>{{ result.mode === 'mock' ? 'Локальная проверка пройдена' : 'Ответ модели получен' }}</strong><p>{{ result.result.message }}</p><small>Режим: {{ result.mode }} · запросов к API: {{ result.attempts }}</small></div>
     </section>
-    <aside><h2>Почему пока Mistral</h2><p>Google AI Studio перенаправлял на страницу доступных регионов. Ключ Gemini получить не удалось. К подключению Gemini/Gemma вернусь позже и сравню модели на одинаковых примерах.</p></aside>
+    <aside><h2>Подключение моделей</h2><p>Подготовлены адаптеры Mistral и GLM через FreeTheAI. Google AI Studio перенаправлял на страницу доступных регионов; ключ Gemini получить не удалось. К подключению Gemini/Gemma вернусь позже.</p></aside>
     <footer>Учебный проект · Клиническая функция ещё не реализована · Только синтетические данные</footer>
   </main>
 </template>

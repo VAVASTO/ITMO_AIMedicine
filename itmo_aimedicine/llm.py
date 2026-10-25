@@ -110,7 +110,10 @@ class MistralClient:
 
 
 def get_provider(settings: Settings) -> StructuredProvider:
+    if settings.provider == "glm":
+        from .glm import FreeGLMClient
+        return FreeGLMClient(settings)
     if settings.provider != "mistral":
         # Gemini needs its own validated adapter, not just a different Mistral URL.
-        raise LLMError("Провайдер ещё не реализован. Сейчас доступен только mistral; Gemini отложен.")
+        raise LLMError("Провайдер ещё не реализован. Доступны mistral и glm; Gemini отложен.")
     return MistralClient(settings)

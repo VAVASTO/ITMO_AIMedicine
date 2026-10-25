@@ -1,0 +1,22 @@
+{
+  "source_id": "CAPCOHORT",
+  "doi": "10.36488/cmac.2020.3.242-248",
+  "pdf_url": "https://cmac-journal.ru/publication/2020/3/cmac-2020-t22-n3-p242/cmac-2020-t22-n3-p242.pdf",
+  "sha256": "308d12b7b4d8a84250235ce86f47d19ad229dc97a0965f642a4774811a1bb2d1",
+  "accessed": "2026-10-25",
+  "printed_pages": [
+    244,
+    245
+  ],
+  "pdf_pages": [
+    4,
+    5
+  ],
+  "figure": "1",
+  "age_group": "65–74",
+  "reported_diabetes_percent": 23.7,
+  "reported_heart_failure_percent": 45.7,
+  "patient_denominator_verified": false,
+  "use": "factor selection only, not sampling probabilities",
+  "method_note": "171 isolates are not a patient denominator; cohort studied in 2018–2019"
+}
