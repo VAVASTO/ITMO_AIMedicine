@@ -1,0 +1,242 @@
+[
+  {
+    "case_id": "research-01-late_result",
+    "family_id": "research-01",
+    "mutation": "late_result",
+    "expected_engineering_reaction": "result_not_available_at_review",
+    "document_ids": [
+      "result"
+    ],
+    "clinical_ground_truth": false
+  },
+  {
+    "case_id": "research-01-code_mismatch",
+    "family_id": "research-01",
+    "mutation": "code_mismatch",
+    "expected_engineering_reaction": "request_coding_review",
+    "document_ids": [
+      "discharge"
+    ],
+    "clinical_ground_truth": false
+  },
+  {
+    "case_id": "research-02-late_result",
+    "family_id": "research-02",
+    "mutation": "late_result",
+    "expected_engineering_reaction": "result_not_available_at_review",
+    "document_ids": [
+      "result"
+    ],
+    "clinical_ground_truth": false
+  },
+  {
+    "case_id": "research-02-code_mismatch",
+    "family_id": "research-02",
+    "mutation": "code_mismatch",
+    "expected_engineering_reaction": "request_coding_review",
+    "document_ids": [
+      "discharge"
+    ],
+    "clinical_ground_truth": false
+  },
+  {
+    "case_id": "research-03-late_result",
+    "family_id": "research-03",
+    "mutation": "late_result",
+    "expected_engineering_reaction": "result_not_available_at_review",
+    "document_ids": [
+      "result"
+    ],
+    "clinical_ground_truth": false
+  },
+  {
+    "case_id": "research-03-code_mismatch",
+    "family_id": "research-03",
+    "mutation": "code_mismatch",
+    "expected_engineering_reaction": "request_coding_review",
+    "document_ids": [
+      "discharge"
+    ],
+    "clinical_ground_truth": false
+  },
+  {
+    "case_id": "research-04-late_result",
+    "family_id": "research-04",
+    "mutation": "late_result",
+    "expected_engineering_reaction": "result_not_available_at_review",
+    "document_ids": [
+      "result"
+    ],
+    "clinical_ground_truth": false
+  },
+  {
+    "case_id": "research-04-code_mismatch",
+    "family_id": "research-04",
+    "mutation": "code_mismatch",
+    "expected_engineering_reaction": "request_coding_review",
+    "document_ids": [
+      "discharge"
+    ],
+    "clinical_ground_truth": false
+  },
+  {
+    "case_id": "research-05-late_result",
+    "family_id": "research-05",
+    "mutation": "late_result",
+    "expected_engineering_reaction": "result_not_available_at_review",
+    "document_ids": [
+      "result"
+    ],
+    "clinical_ground_truth": false
+  },
+  {
+    "case_id": "research-05-code_mismatch",
+    "family_id": "research-05",
+    "mutation": "code_mismatch",
+    "expected_engineering_reaction": "request_coding_review",
+    "document_ids": [
+      "discharge"
+    ],
+    "clinical_ground_truth": false
+  },
+  {
+    "case_id": "research-06-late_result",
+    "family_id": "research-06",
+    "mutation": "late_result",
+    "expected_engineering_reaction": "result_not_available_at_review",
+    "document_ids": [
+      "result"
+    ],
+    "clinical_ground_truth": false
+  },
+  {
+    "case_id": "research-06-code_mismatch",
+    "family_id": "research-06",
+    "mutation": "code_mismatch",
+    "expected_engineering_reaction": "request_coding_review",
+    "document_ids": [
+      "discharge"
+    ],
+    "clinical_ground_truth": false
+  },
+  {
+    "case_id": "research-07-late_result",
+    "family_id": "research-07",
+    "mutation": "late_result",
+    "expected_engineering_reaction": "result_not_available_at_review",
+    "document_ids": [
+      "result"
+    ],
+    "clinical_ground_truth": false
+  },
+  {
+    "case_id": "research-07-code_mismatch",
+    "family_id": "research-07",
+    "mutation": "code_mismatch",
+    "expected_engineering_reaction": "request_coding_review",
+    "document_ids": [
+      "discharge"
+    ],
+    "clinical_ground_truth": false
+  },
+  {
+    "case_id": "research-08-late_result",
+    "family_id": "research-08",
+    "mutation": "late_result",
+    "expected_engineering_reaction": "result_not_available_at_review",
+    "document_ids": [
+      "result"
+    ],
+    "clinical_ground_truth": false
+  },
+  {
+    "case_id": "research-08-code_mismatch",
+    "family_id": "research-08",
+    "mutation": "code_mismatch",
+    "expected_engineering_reaction": "request_coding_review",
+    "document_ids": [
+      "discharge"
+    ],
+    "clinical_ground_truth": false
+  },
+  {
+    "case_id": "research-09-late_result",
+    "family_id": "research-09",
+    "mutation": "late_result",
+    "expected_engineering_reaction": "result_not_available_at_review",
+    "document_ids": [
+      "result"
+    ],
+    "clinical_ground_truth": false
+  },
+  {
+    "case_id": "research-09-code_mismatch",
+    "family_id": "research-09",
+    "mutation": "code_mismatch",
+    "expected_engineering_reaction": "request_coding_review",
+    "document_ids": [
+      "discharge"
+    ],
+    "clinical_ground_truth": false
+  },
+  {
+    "case_id": "research-10-late_result",
+    "family_id": "research-10",
+    "mutation": "late_result",
+    "expected_engineering_reaction": "result_not_available_at_review",
+    "document_ids": [
+      "result"
+    ],
+    "clinical_ground_truth": false
+  },
+  {
+    "case_id": "research-10-code_mismatch",
+    "family_id": "research-10",
+    "mutation": "code_mismatch",
+    "expected_engineering_reaction": "request_coding_review",
+    "document_ids": [
+      "discharge"
+    ],
+    "clinical_ground_truth": false
+  },
+  {
+    "case_id": "research-11-late_result",
+    "family_id": "research-11",
+    "mutation": "late_result",
+    "expected_engineering_reaction": "result_not_available_at_review",
+    "document_ids": [
+      "result"
+    ],
+    "clinical_ground_truth": false
+  },
+  {
+    "case_id": "research-11-code_mismatch",
+    "family_id": "research-11",
+    "mutation": "code_mismatch",
+    "expected_engineering_reaction": "request_coding_review",
+    "document_ids": [
+      "discharge"
+    ],
+    "clinical_ground_truth": false
+  },
+  {
+    "case_id": "research-12-late_result",
+    "family_id": "research-12",
+    "mutation": "late_result",
+    "expected_engineering_reaction": "result_not_available_at_review",
+    "document_ids": [
+      "result"
+    ],
+    "clinical_ground_truth": false
+  },
+  {
+    "case_id": "research-12-code_mismatch",
+    "family_id": "research-12",
+    "mutation": "code_mismatch",
+    "expected_engineering_reaction": "request_coding_review",
+    "document_ids": [
+      "discharge"
+    ],
+    "clinical_ground_truth": false
+  }
+]

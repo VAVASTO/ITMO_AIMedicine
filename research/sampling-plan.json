@@ -1,0 +1,71 @@
+{
+  "source_id": "STAT",
+  "population_year": 2024,
+  "total_discharged_thousand": 27515,
+  "selected_discharged_thousand": 13415,
+  "planned_base_cases": 60,
+  "generated_from_plan": 0,
+  "method": "largest_remainder",
+  "strata": [
+    {
+      "id": "circulatory",
+      "label": "Болезни системы кровообращения",
+      "discharged_thousand_2024": 4928,
+      "source_id": "STAT",
+      "share_all_percent": 17.91,
+      "share_selected_percent": 36.735,
+      "planned_cases": 22,
+      "review_packet_examples": 2
+    },
+    {
+      "id": "respiratory",
+      "label": "Болезни органов дыхания",
+      "discharged_thousand_2024": 2805,
+      "source_id": "STAT",
+      "share_all_percent": 10.194,
+      "share_selected_percent": 20.909,
+      "planned_cases": 13,
+      "review_packet_examples": 2
+    },
+    {
+      "id": "digestive",
+      "label": "Болезни органов пищеварения",
+      "discharged_thousand_2024": 2525,
+      "source_id": "STAT",
+      "share_all_percent": 9.177,
+      "share_selected_percent": 18.822,
+      "planned_cases": 11,
+      "review_packet_examples": 2
+    },
+    {
+      "id": "endocrine",
+      "label": "Болезни эндокринной системы",
+      "discharged_thousand_2024": 636,
+      "source_id": "STAT",
+      "share_all_percent": 2.311,
+      "share_selected_percent": 4.741,
+      "planned_cases": 3,
+      "review_packet_examples": 2
+    },
+    {
+      "id": "urogenital",
+      "label": "Болезни мочеполовой системы",
+      "discharged_thousand_2024": 2357,
+      "source_id": "STAT",
+      "share_all_percent": 8.566,
+      "share_selected_percent": 17.57,
+      "planned_cases": 10,
+      "review_packet_examples": 2
+    },
+    {
+      "id": "ear",
+      "label": "Болезни уха и сосцевидного отростка",
+      "discharged_thousand_2024": 164,
+      "source_id": "STAT",
+      "share_all_percent": 0.596,
+      "share_selected_percent": 1.223,
+      "planned_cases": 1,
+      "review_packet_examples": 2
+    }
+  ]
+}

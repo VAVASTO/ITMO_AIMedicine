@@ -1,0 +1,559 @@
+{
+  "purpose": "synthetic examples for expert review; not clinical ground truth",
+  "cases": [
+    {
+      "id": "research-01",
+      "family_id": "research-01",
+      "synthetic": true,
+      "expert_reviewed": false,
+      "split": "review_packet",
+      "stratum": "circulatory",
+      "age": 68,
+      "sex": "female",
+      "diagnosis": {
+        "code": "I50.9",
+        "text": "Декомпенсация хронической сердечной недостаточности"
+      },
+      "review_at": "2026-10-06T12:00:00+03:00",
+      "documents": [
+        {
+          "id": "admission",
+          "kind": "admission_note",
+          "event_at": "2026-10-01T10:00:00+03:00",
+          "available_at": "2026-10-01T11:00:00+03:00",
+          "text": "Одышка при небольшой нагрузке, нарастание отёков голеней в течение недели. В анамнезе артериальная гипертензия. АД 145/85 мм рт. ст., пульс 96 в минуту, SpO2 94% на воздухе."
+        },
+        {
+          "id": "result",
+          "kind": "result_or_consultation",
+          "event_at": "2026-10-02T10:00:00+03:00",
+          "available_at": "2026-10-03T10:00:00+03:00",
+          "text": "Эхокардиография: фракция выброса левого желудочка 38%."
+        },
+        {
+          "id": "discharge",
+          "kind": "discharge_draft",
+          "event_at": "2026-10-06T10:00:00+03:00",
+          "available_at": "2026-10-06T11:00:00+03:00",
+          "text": "Одышка уменьшилась, отёки сохраняются. В выписке требуется связать план наблюдения с состоянием при выписке.",
+          "diagnosis_code": "I50.9"
+        }
+      ],
+      "claim_draft": {
+        "principal_diagnosis_code": "I50.9",
+        "synthetic": true,
+        "region": null,
+        "amount": null
+      }
+    },
+    {
+      "id": "research-02",
+      "family_id": "research-02",
+      "synthetic": true,
+      "expert_reviewed": false,
+      "split": "review_packet",
+      "stratum": "circulatory",
+      "age": 75,
+      "sex": "male",
+      "diagnosis": {
+        "code": "I48.0",
+        "text": "Пароксизм фибрилляции предсердий"
+      },
+      "review_at": "2026-10-06T12:00:00+03:00",
+      "documents": [
+        {
+          "id": "admission",
+          "kind": "admission_note",
+          "event_at": "2026-10-01T10:00:00+03:00",
+          "available_at": "2026-10-01T11:00:00+03:00",
+          "text": "Сердцебиение и слабость в течение суток. Ранее отмечал похожие короткие эпизоды. АД 125/80 мм рт. ст., пульс нерегулярный 128 в минуту."
+        },
+        {
+          "id": "result",
+          "kind": "result_or_consultation",
+          "event_at": "2026-10-02T10:00:00+03:00",
+          "available_at": "2026-10-03T10:00:00+03:00",
+          "text": "ЭКГ: фибрилляция предсердий с частотой желудочковых сокращений 126 в минуту."
+        },
+        {
+          "id": "discharge",
+          "kind": "discharge_draft",
+          "event_at": "2026-10-06T10:00:00+03:00",
+          "available_at": "2026-10-06T11:00:00+03:00",
+          "text": "В дневнике частота пульса 82 в минуту. В выписке остаётся фибрилляция предсердий; факт восстановления синусового ритма не заявлен.",
+          "diagnosis_code": "I48.0"
+        }
+      ],
+      "claim_draft": {
+        "principal_diagnosis_code": "I48.0",
+        "synthetic": true,
+        "region": null,
+        "amount": null
+      }
+    },
+    {
+      "id": "research-03",
+      "family_id": "research-03",
+      "synthetic": true,
+      "expert_reviewed": false,
+      "split": "review_packet",
+      "stratum": "respiratory",
+      "age": 66,
+      "sex": "male",
+      "diagnosis": {
+        "code": "J18.9",
+        "text": "Внебольничная пневмония"
+      },
+      "review_at": "2026-10-06T12:00:00+03:00",
+      "documents": [
+        {
+          "id": "admission",
+          "kind": "admission_note",
+          "event_at": "2026-10-01T10:00:00+03:00",
+          "available_at": "2026-10-01T11:00:00+03:00",
+          "text": "Лихорадка и кашель четыре дня, слабость. Сахарный диабет 2 типа в анамнезе. Температура 38,3 °C, ЧДД 24 в минуту, SpO2 93% на воздухе."
+        },
+        {
+          "id": "result",
+          "kind": "result_or_consultation",
+          "event_at": "2026-10-02T10:00:00+03:00",
+          "available_at": "2026-10-03T10:00:00+03:00",
+          "text": "Рентгенография: инфильтрация в нижней доле правого лёгкого."
+        },
+        {
+          "id": "discharge",
+          "kind": "discharge_draft",
+          "event_at": "2026-10-06T10:00:00+03:00",
+          "available_at": "2026-10-06T11:00:00+03:00",
+          "text": "Температура 36,8 °C, SpO2 96% на воздухе. Сохраняется умеренный кашель.",
+          "diagnosis_code": "J18.9"
+        }
+      ],
+      "claim_draft": {
+        "principal_diagnosis_code": "J18.9",
+        "synthetic": true,
+        "region": null,
+        "amount": null
+      }
+    },
+    {
+      "id": "research-04",
+      "family_id": "research-04",
+      "synthetic": true,
+      "expert_reviewed": false,
+      "split": "review_packet",
+      "stratum": "respiratory",
+      "age": 72,
+      "sex": "female",
+      "diagnosis": {
+        "code": "J44.1",
+        "text": "Обострение ХОБЛ"
+      },
+      "review_at": "2026-10-06T12:00:00+03:00",
+      "documents": [
+        {
+          "id": "admission",
+          "kind": "admission_note",
+          "event_at": "2026-10-01T10:00:00+03:00",
+          "available_at": "2026-10-01T11:00:00+03:00",
+          "text": "Усиление одышки и увеличение количества мокроты за три дня. Указана ХОБЛ в анамнезе. ЧДД 26 в минуту, SpO2 89% на воздухе."
+        },
+        {
+          "id": "result",
+          "kind": "result_or_consultation",
+          "event_at": "2026-10-02T10:00:00+03:00",
+          "available_at": "2026-10-03T10:00:00+03:00",
+          "text": "В описании рентгенографии свежая очаговая инфильтрация не выявлена."
+        },
+        {
+          "id": "discharge",
+          "kind": "discharge_draft",
+          "event_at": "2026-10-06T10:00:00+03:00",
+          "available_at": "2026-10-06T11:00:00+03:00",
+          "text": "В последнем дневнике одышка уменьшилась. Не указано, на воздухе или при кислородной поддержке измерено SpO2 93%.",
+          "diagnosis_code": "J44.1"
+        }
+      ],
+      "claim_draft": {
+        "principal_diagnosis_code": "J44.1",
+        "synthetic": true,
+        "region": null,
+        "amount": null
+      }
+    },
+    {
+      "id": "research-05",
+      "family_id": "research-05",
+      "synthetic": true,
+      "expert_reviewed": false,
+      "split": "review_packet",
+      "stratum": "digestive",
+      "age": 47,
+      "sex": "male",
+      "diagnosis": {
+        "code": "K25.9",
+        "text": "Язва желудка"
+      },
+      "review_at": "2026-10-06T12:00:00+03:00",
+      "documents": [
+        {
+          "id": "admission",
+          "kind": "admission_note",
+          "event_at": "2026-10-01T10:00:00+03:00",
+          "available_at": "2026-10-01T11:00:00+03:00",
+          "text": "Боль в эпигастрии, тошнота; сообщает о приёме противовоспалительных средств по поводу боли в спине. АД 120/75 мм рт. ст., пульс 78 в минуту. Видимого кровотечения не описано."
+        },
+        {
+          "id": "result",
+          "kind": "result_or_consultation",
+          "event_at": "2026-10-02T10:00:00+03:00",
+          "available_at": "2026-10-03T10:00:00+03:00",
+          "text": "ЭГДС: язвенный дефект антрального отдела; результат биопсии в пакет документов не включён."
+        },
+        {
+          "id": "discharge",
+          "kind": "discharge_draft",
+          "event_at": "2026-10-06T10:00:00+03:00",
+          "available_at": "2026-10-06T11:00:00+03:00",
+          "text": "Боль уменьшилась. В выписке нужен статус ожидаемого результата и дальнейшего наблюдения.",
+          "diagnosis_code": "K25.9"
+        }
+      ],
+      "claim_draft": {
+        "principal_diagnosis_code": "K25.9",
+        "synthetic": true,
+        "region": null,
+        "amount": null
+      }
+    },
+    {
+      "id": "research-06",
+      "family_id": "research-06",
+      "synthetic": true,
+      "expert_reviewed": false,
+      "split": "review_packet",
+      "stratum": "digestive",
+      "age": 61,
+      "sex": "male",
+      "diagnosis": {
+        "code": "K70.3",
+        "text": "Алкогольный цирроз печени"
+      },
+      "review_at": "2026-10-06T12:00:00+03:00",
+      "documents": [
+        {
+          "id": "admission",
+          "kind": "admission_note",
+          "event_at": "2026-10-01T10:00:00+03:00",
+          "available_at": "2026-10-01T11:00:00+03:00",
+          "text": "Увеличение живота и отёки ног. Цирроз отмечен в предыдущей выписке. АД 110/70 мм рт. ст., пульс 88 в минуту; сознание ясное."
+        },
+        {
+          "id": "result",
+          "kind": "result_or_consultation",
+          "event_at": "2026-10-02T10:00:00+03:00",
+          "available_at": "2026-10-03T10:00:00+03:00",
+          "text": "УЗИ: свободная жидкость в брюшной полости."
+        },
+        {
+          "id": "discharge",
+          "kind": "discharge_draft",
+          "event_at": "2026-10-06T10:00:00+03:00",
+          "available_at": "2026-10-06T11:00:00+03:00",
+          "text": "В дневнике уменьшение окружности живота. Не хватает исходных данных для оценки стадии и тяжести.",
+          "diagnosis_code": "K70.3"
+        }
+      ],
+      "claim_draft": {
+        "principal_diagnosis_code": "K70.3",
+        "synthetic": true,
+        "region": null,
+        "amount": null
+      }
+    },
+    {
+      "id": "research-07",
+      "family_id": "research-07",
+      "synthetic": true,
+      "expert_reviewed": false,
+      "split": "review_packet",
+      "stratum": "endocrine",
+      "age": 58,
+      "sex": "female",
+      "diagnosis": {
+        "code": "E11.9",
+        "text": "Сахарный диабет 2 типа, гипергликемия"
+      },
+      "review_at": "2026-10-06T12:00:00+03:00",
+      "documents": [
+        {
+          "id": "admission",
+          "kind": "admission_note",
+          "event_at": "2026-10-01T10:00:00+03:00",
+          "available_at": "2026-10-01T11:00:00+03:00",
+          "text": "Жажда, учащённое мочеиспускание и слабость. Ранее установлен сахарный диабет 2 типа. Сознание ясное, АД 135/80 мм рт. ст."
+        },
+        {
+          "id": "result",
+          "kind": "result_or_consultation",
+          "event_at": "2026-10-02T10:00:00+03:00",
+          "available_at": "2026-10-03T10:00:00+03:00",
+          "text": "Глюкоза плазмы при поступлении 16,2 ммоль/л; HbA1c 10,1%."
+        },
+        {
+          "id": "discharge",
+          "kind": "discharge_draft",
+          "event_at": "2026-10-06T10:00:00+03:00",
+          "available_at": "2026-10-06T11:00:00+03:00",
+          "text": "В дневнике глюкоза 8,7 ммоль/л; время относительно еды не указано.",
+          "diagnosis_code": "E11.9"
+        }
+      ],
+      "claim_draft": {
+        "principal_diagnosis_code": "E11.9",
+        "synthetic": true,
+        "region": null,
+        "amount": null
+      }
+    },
+    {
+      "id": "research-08",
+      "family_id": "research-08",
+      "synthetic": true,
+      "expert_reviewed": false,
+      "split": "review_packet",
+      "stratum": "endocrine",
+      "age": 70,
+      "sex": "male",
+      "diagnosis": {
+        "code": "E11.9",
+        "text": "Сахарный диабет 2 типа после эпизода гипогликемии"
+      },
+      "review_at": "2026-10-06T12:00:00+03:00",
+      "documents": [
+        {
+          "id": "admission",
+          "kind": "admission_note",
+          "event_at": "2026-10-01T10:00:00+03:00",
+          "available_at": "2026-10-01T11:00:00+03:00",
+          "text": "Доставлен после эпизода потливости и спутанности сознания. В анамнезе диабет. На первом доступном осмотре сознание ясное, АД 130/75 мм рт. ст."
+        },
+        {
+          "id": "result",
+          "kind": "result_or_consultation",
+          "event_at": "2026-10-02T10:00:00+03:00",
+          "available_at": "2026-10-03T10:00:00+03:00",
+          "text": "В записи бригады указана глюкоза 2,6 ммоль/л до коррекции; в стационаре 5,4 ммоль/л."
+        },
+        {
+          "id": "discharge",
+          "kind": "discharge_draft",
+          "event_at": "2026-10-06T10:00:00+03:00",
+          "available_at": "2026-10-06T11:00:00+03:00",
+          "text": "В выписке описано наблюдение без повторного эпизода. Исходная схема препаратов не включена в учебный пакет.",
+          "diagnosis_code": "E11.9"
+        }
+      ],
+      "claim_draft": {
+        "principal_diagnosis_code": "E11.9",
+        "synthetic": true,
+        "region": null,
+        "amount": null
+      }
+    },
+    {
+      "id": "research-09",
+      "family_id": "research-09",
+      "synthetic": true,
+      "expert_reviewed": false,
+      "split": "review_packet",
+      "stratum": "urogenital",
+      "age": 36,
+      "sex": "female",
+      "diagnosis": {
+        "code": "N10",
+        "text": "Острый пиелонефрит"
+      },
+      "review_at": "2026-10-06T12:00:00+03:00",
+      "documents": [
+        {
+          "id": "admission",
+          "kind": "admission_note",
+          "event_at": "2026-10-01T10:00:00+03:00",
+          "available_at": "2026-10-01T11:00:00+03:00",
+          "text": "Лихорадка, боль в пояснице справа и болезненное мочеиспускание. Температура 38,7 °C, АД 115/75 мм рт. ст., пульс 104 в минуту."
+        },
+        {
+          "id": "result",
+          "kind": "result_or_consultation",
+          "event_at": "2026-10-02T10:00:00+03:00",
+          "available_at": "2026-10-03T10:00:00+03:00",
+          "text": "Анализ мочи: лейкоциты 50–60 в поле зрения. Посев назначен, результат в пакете отсутствует."
+        },
+        {
+          "id": "discharge",
+          "kind": "discharge_draft",
+          "event_at": "2026-10-06T10:00:00+03:00",
+          "available_at": "2026-10-06T11:00:00+03:00",
+          "text": "Температура нормализовалась. В выписке отмечен ожидаемый результат посева.",
+          "diagnosis_code": "N10"
+        }
+      ],
+      "claim_draft": {
+        "principal_diagnosis_code": "N10",
+        "synthetic": true,
+        "region": null,
+        "amount": null
+      }
+    },
+    {
+      "id": "research-10",
+      "family_id": "research-10",
+      "synthetic": true,
+      "expert_reviewed": false,
+      "split": "review_packet",
+      "stratum": "urogenital",
+      "age": 69,
+      "sex": "male",
+      "diagnosis": {
+        "code": "N18.3",
+        "text": "Хроническая болезнь почек"
+      },
+      "review_at": "2026-10-06T12:00:00+03:00",
+      "documents": [
+        {
+          "id": "admission",
+          "kind": "admission_note",
+          "event_at": "2026-10-01T10:00:00+03:00",
+          "available_at": "2026-10-01T11:00:00+03:00",
+          "text": "Снижение аппетита и слабость. В анамнезе длительная гипертензия; есть предыдущие результаты креатинина. АД 155/90 мм рт. ст., отёки голеней."
+        },
+        {
+          "id": "result",
+          "kind": "result_or_consultation",
+          "event_at": "2026-10-02T10:00:00+03:00",
+          "available_at": "2026-10-03T10:00:00+03:00",
+          "text": "Креатинин 168 мкмоль/л; в выписке трёхмесячной давности 160 мкмоль/л."
+        },
+        {
+          "id": "discharge",
+          "kind": "discharge_draft",
+          "event_at": "2026-10-06T10:00:00+03:00",
+          "available_at": "2026-10-06T11:00:00+03:00",
+          "text": "В выписке сохранён диагноз ХБП. Нужны исходные данные и метод расчёта СКФ, а не вывод только по одному креатинину.",
+          "diagnosis_code": "N18.3"
+        }
+      ],
+      "claim_draft": {
+        "principal_diagnosis_code": "N18.3",
+        "synthetic": true,
+        "region": null,
+        "amount": null
+      }
+    },
+    {
+      "id": "research-11",
+      "family_id": "research-11",
+      "synthetic": true,
+      "expert_reviewed": false,
+      "split": "review_packet",
+      "stratum": "ear",
+      "age": 42,
+      "sex": "female",
+      "diagnosis": {
+        "code": "H66.0",
+        "text": "Острый гнойный средний отит"
+      },
+      "review_at": "2026-10-06T12:00:00+03:00",
+      "documents": [
+        {
+          "id": "admission",
+          "kind": "admission_note",
+          "event_at": "2026-10-01T10:00:00+03:00",
+          "available_at": "2026-10-01T11:00:00+03:00",
+          "text": "Боль в правом ухе, лихорадка, затем отделяемое из уха. Направлена на консультацию ЛОР-врача. Температура 38,0 °C. Общая слабость."
+        },
+        {
+          "id": "result",
+          "kind": "result_or_consultation",
+          "event_at": "2026-10-02T10:00:00+03:00",
+          "available_at": "2026-10-03T10:00:00+03:00",
+          "text": "В заключении ЛОР-врача описаны перфорация барабанной перепонки и отделяемое справа."
+        },
+        {
+          "id": "discharge",
+          "kind": "discharge_draft",
+          "event_at": "2026-10-06T10:00:00+03:00",
+          "available_at": "2026-10-06T11:00:00+03:00",
+          "text": "В пакете есть консультация, но нет полного профильного протокола. Маршрут и показания к стационару требуют проверки.",
+          "diagnosis_code": "H66.0"
+        }
+      ],
+      "claim_draft": {
+        "principal_diagnosis_code": "H66.0",
+        "synthetic": true,
+        "region": null,
+        "amount": null
+      }
+    },
+    {
+      "id": "research-12",
+      "family_id": "research-12",
+      "synthetic": true,
+      "expert_reviewed": false,
+      "split": "review_packet",
+      "stratum": "ear",
+      "age": 55,
+      "sex": "male",
+      "diagnosis": {
+        "code": "H70.0",
+        "text": "Острый мастоидит"
+      },
+      "review_at": "2026-10-06T12:00:00+03:00",
+      "documents": [
+        {
+          "id": "admission",
+          "kind": "admission_note",
+          "event_at": "2026-10-01T10:00:00+03:00",
+          "available_at": "2026-10-01T11:00:00+03:00",
+          "text": "После боли в ухе появились болезненность и припухлость за ушной раковиной. Температура 38,4 °C. Описана болезненность в заушной области."
+        },
+        {
+          "id": "result",
+          "kind": "result_or_consultation",
+          "event_at": "2026-10-02T10:00:00+03:00",
+          "available_at": "2026-10-03T10:00:00+03:00",
+          "text": "Заключение ЛОР-врача: подозрение на осложнение; рекомендован профильный стационар."
+        },
+        {
+          "id": "discharge",
+          "kind": "discharge_draft",
+          "event_at": "2026-10-06T10:00:00+03:00",
+          "available_at": "2026-10-06T11:00:00+03:00",
+          "text": "В документе о переводе указан профиль ЛОР. Оперативный этап и его результаты в учебный пакет не включены.",
+          "diagnosis_code": "H70.0"
+        }
+      ],
+      "claim_draft": {
+        "principal_diagnosis_code": "H70.0",
+        "synthetic": true,
+        "region": null,
+        "amount": null
+      }
+    }
+  ],
+  "questions": {
+    "research-01": "Подтвердить показания, тяжесть и достаточность описания динамики.",
+    "research-02": "Проверить клинические основания оценки риска и план наблюдения; выбрать КР по фибрилляции предсердий.",
+    "research-03": "Проверить обоснование тяжести, условия госпитализации и полноту клинических полей.",
+    "research-04": "Выбрать КР по ХОБЛ; оценить необходимость сведений об условиях измерения и тяжести.",
+    "research-05": "Проверить маршрут и необходимость госпитализации; выбрать актуальные КР по язвенной болезни.",
+    "research-06": "Выбрать КР по циррозу; согласовать необходимые лабораторные поля и описание осложнений.",
+    "research-07": "Проверить показания к госпитализации и исключение неотложных состояний; уточнить контекст измерений.",
+    "research-08": "Проверить причинную связь, кодирование и достаточность лекарственного анамнеза; не приписывать эпизод конкретному препарату.",
+    "research-09": "Выбрать КР по пиелонефриту; проверить контекст беременности, обструкции и признаков системной инфекции.",
+    "research-10": "Проверить стадию, основания госпитализации и набор данных; выбрать актуальные КР по ХБП.",
+    "research-11": "Подтвердить профиль помощи; это пример передачи ЛОР-врачу, а не готовая терапевтическая тактика.",
+    "research-12": "Проверить маршрут и кодирование; не генерировать лечение хирургического осложнения в общей терапевтической функции."
+  }
+}

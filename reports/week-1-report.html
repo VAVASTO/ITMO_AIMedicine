@@ -1,0 +1,1321 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Первая неделя: клинический помощник и экспертиза ОМС</title><style>
+*{box-sizing:border-box}html{background:#fff;color:#222;font:16px/1.6 Arial,sans-serif}body{max-width:1120px;margin:auto;padding:40px 30px 70px}h1{font-size:30px;line-height:1.25;margin:0 0 12px}h2{font-size:25px;line-height:1.35}h3{font-size:20px;margin-top:28px}h4{font-size:16px;margin:18px 0 8px}header{border-bottom:1px solid #aaa;padding-bottom:22px}.meta,figcaption,.caption{font-size:14px;color:#555}.subtitle{font-size:20px}p{margin:12px 0 18px}a{color:inherit;text-underline-offset:3px;overflow-wrap:anywhere}a:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid #333;outline-offset:3px}nav{padding:12px 0 28px}nav li{margin:5px 0}.chapter{border-top:1px solid #bbb;padding:24px 0;scroll-margin-top:20px}.table-wrap{overflow-x:auto;margin:18px 0 26px}table{border-collapse:collapse;width:100%;font-size:14px;text-align:left}td,th{border:1px solid #c9c9c9;padding:10px 12px;vertical-align:top}th{background:#f1f1f1}td{min-width:110px}tr[hidden]{display:none}code{font-size:.9em;overflow-wrap:anywhere}pre{background:#f5f5f5;border:1px solid #ddd;white-space:pre-wrap;overflow-wrap:anywhere;padding:15px;font-size:13px}li{margin:6px 0}.diagram{overflow-x:auto;margin:10px 0 18px}.diagram svg{display:block;width:100%;min-width:640px;height:auto}figure{margin:22px 0}details{border-bottom:1px solid #ddd;padding:12px 0}summary{cursor:pointer;font-weight:600}select{font:inherit;padding:7px;max-width:100%;background:#fff;border:1px solid #888}#filter-count{font-size:14px;color:#555}button{font:inherit}footer{border-top:1px solid #aaa;padding-top:18px;color:#555;font-size:14px}.filter{display:block} @media(max-width:700px){body{padding:24px 16px 40px}h1{font-size:26px}h2{font-size:22px}td,th{min-width:145px}.table-wrap{font-size:13px}.diagram{border-bottom:1px solid #ddd}}
+@media print{html{font-size:10pt}body{max-width:none;padding:0}nav,.filter,#filter-count{display:none}h1{font-size:22pt}h2{font-size:17pt;break-after:avoid}h3,h4{break-after:avoid}.chapter{padding:15px 0}.table-wrap,.diagram{overflow:visible}table{font-size:8pt}td,th{min-width:0;padding:5px}tr{break-inside:avoid}tr[hidden]{display:table-row}.diagram svg{min-width:0;width:100%}details{break-inside:auto}details::details-content{content-visibility:visible}summary{margin-top:10px}pre{font-size:8pt}}
+</style></head><body>
+<header><h1>Отчёт за первую неделю</h1><p class="subtitle">Клинический помощник и экспертиза медицинской документации</p><p class="meta">Доработка от 25 октября 2026 года<br>Репозиторий: <a href="https://github.com/VAVASTO/ITMO_AIMedicine">VAVASTO/ITMO_AIMedicine</a></p></header>
+<main><h2>Что сделано</h2><div class="table-wrap"><table ><thead><tr><th scope="col">Что сделал</th><th scope="col">Результат</th><th scope="col">Вывод</th><th scope="col">Статус</th></tr></thead><tbody><tr><td>Исследовал рабочий процесс</td><td>3 роли; 3 вида контроля ОМС</td><td>Нужны разные основания для клинического и финансового вывода</td><td>По открытым документам</td></tr><tr><td>Сравнил решения</td><td>12 подходов и продуктов; схемы каждого</td><td>Ближайшие аналоги: ОМС-Эксперт и контроль КР Webiomed</td><td>Исследование выполнено</td></tr><tr><td>Разобрал документы</td><td>24 типа; 26 источников в реестре</td><td>Выделены версии, применение и недостающие документы организации</td><td>Реестр подготовлен</td></tr><tr><td>Подготовил методику и примеры</td><td>6 статистических классов; 12 заготовок + 24 варианта</td><td>План на 60 историй рассчитан; клиническая разметка ещё нужна</td><td>Для согласования</td></tr><tr><td>Спроектировал систему</td><td>2 ветви; 12 модулей; спецификация первой функции</td><td>Общий учёт фактов, времени и источников</td><td>Проект</td></tr><tr><td>Проверил доработку</td><td>35 локальных тестов, 0 ошибок</td><td>Целостность данных и техническая часть; не клиническая точность</td><td>25.10.2026</td></tr><tr><td>Сохранил результаты подключения</td><td>1 успешный запрос Mistral, 73 токена; 34 теста старого клиента</td><td>Повторных живых запросов при доработке не было</td><td>Результаты 18.10.2026</td></tr><tr><td>Проверил ограничения</td><td>0 экспертно размеченных клинических карт</td><td>Нужны врач, эксперт ОМС и документы выбранной организации</td><td>Открытые вопросы</td></tr></tbody></table></div><nav aria-label="Содержание"><h2>Содержание</h2><ol><li><a href="#chapter-1">Задача, пользователи и рабочий процесс</a></li><li><a href="#chapter-2">Существующие решения и доказательства их эффективности</a></li><li><a href="#chapter-3">Какие документы нужны системе</a></li><li><a href="#chapter-4">Данные и методика симуляции</a></li><li><a href="#chapter-5">Архитектура полного решения</a></li><li><a href="#chapter-6">Первая функция: проверка карты перед выпиской</a></li><li><a href="#chapter-7">Как оценивать качество и пользу</a></li><li><a href="#chapter-8">Mistral сейчас, Gemini позже</a></li><li><a href="#chapter-9">Результаты проверки</a></li><li><a href="#chapter-10">Выполнение первого этапа и следующие шаги</a></li><li><a href="#examples">Примеры для согласования</a></li><li><a href="#sources">Источники и ограничения</a></li><li><a href="#checks">Подтверждение технических проверок</a></li></ol></nav>
+<section class="chapter" id="chapter-1"><h2>Задача, пользователи и рабочий процесс</h2>
+<p>Я исследую помощника для терапевтической помощи взрослым, включая кардиологические, респираторные, эндокринные, гастроэнтерологические и почечные заболевания, а также взаимодействие с ЛОР-врачом. В проекте есть две связанные задачи: помочь врачу обосновать и документировать помощь и помочь эксперту проверить уже оказанную помощь. В первой версии отчёта я слишком рано сузил исследование до полноты записи при пневмонии. Здесь рассматриваю весь процесс; ограничение первой функции объясняю после исследования.</p>
+<h3>Как я изучал процесс</h3>
+<p>Я сопоставил описание проекта, план первой недели, порядок контроля ОМС, требования к стационарным документам и руководства существующих систем. Это исследование открытых документов. Интервью с врачом и наблюдения в клинике я пока не проводил; доступа к настоящим картам у меня нет. Схемы ниже показывают мою модель процесса по этим источникам; конкретная медицинская организация должна подтвердить её на своих документах.</p>
+<p>Карту и порядок её ведения задаёт приказ №530н. Внешний контроль ОМС описан в №231н: он использует первичную и учётную документацию, сведения информационных систем и результаты внутреннего контроля. Для критериев качества нужна версия приказа №203н от 14.04.2025: она вступила в силу 01.09.2025 и заменила приказ с тем же номером от 10.05.2017. Внутренний контроль имеет собственную нормативную основу, включая №785н. <a href="https://webmed.irkutsk.ru/doc/order/530.pdf">N530</a> <a href="https://ak.reso-med.com/upload/iblock/470/d42wmdfv8pm6olg72ucsp1v0rhls0vy9/Prikaz-Minzdrava-RF-ot-19.03.2021-N-231N-Ob-utverzhdenii-Poryadka-provedeniya-kontrolya-obemov_-srokov-_red-04.09.24_.pdf">N231</a> <a href="https://www.nsi.ru/upload/normativ-doc/203N_prikaz.pdf">N203COPY</a> <a href="https://roszdravnadzor.ru/medactivities/statecontrol/rights/documents/80120">N785</a></p>
+<h3>Три роли и передача результата</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Роль</th>
+<th>Что получает и делает</th>
+<th>Что передаёт дальше</th>
+<th>Где нужна помощь</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Лечащий врач</td>
+<td>Жалобы, анамнез, осмотр, прошлые записи; уточняет диагноз, назначает обследования и лечение, оценивает динамику</td>
+<td>Подписанные записи, назначения, результаты, обоснования отклонений, выписной эпикриз</td>
+<td>Найти применимую рекомендацию; заметить противоречия; отличить назначенное от выполненного; подготовить черновик из подтверждённых фактов</td>
+</tr>
+<tr>
+<td>Внутренний эксперт, заведующий, методист</td>
+<td>Карту и документы организации; проверяет полноту, обоснованность и согласованность помощи до закрытия случая</td>
+<td>Замечания врачу, результат внутренней проверки, данные для кодирования и счёта</td>
+<td>Быстро увидеть доказательства и пропуски; разобрать исключения; не переписывать карту за врача</td>
+</tr>
+<tr>
+<td>Эксперт страховой медицинской организации</td>
+<td>Представленные документы по отобранному случаю; сопоставляет помощь с применимыми требованиями</td>
+<td>Экспертное заключение и основания выявленных нарушений; результат для установленной процедуры ОМС</td>
+<td>Проследить хронологию, проверить критерии, отделить недостаток документации от дефекта помощи; сформировать проверяемый проект заключения</td>
+</tr>
+</tbody>
+</table></div>
+<p>Подписанные документы не исправляются незаметно. Уточнение оформляется по правилам организации, с автором, временем и историей изменений. Помощник предлагает вопрос или проект замечания; медицинское и экспертное решение принимает соответствующий специалист.</p>
+<h4>Работа врача</h4><div class="diagram"><svg role="img" aria-label="Работа врача" viewBox="0 0 960 110" xmlns="http://www.w3.org/2000/svg"><title>Работа врача</title><rect x="0.0" y="10" width="216.0" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="108.0" y="46" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Поступление и первичная</text><text x="108.0" y="66" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">оценка</text><path d="M220.0 55 h24 m-6 -5 l6 5 -6 5" fill="none" stroke="#444"/><rect x="248.0" y="10" width="216.0" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="356.0" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Обследования и лечение</text><path d="M468.0 55 h24 m-6 -5 l6 5 -6 5" fill="none" stroke="#444"/><rect x="496.0" y="10" width="216.0" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="604.0" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Динамика и обоснования</text><path d="M716.0 55 h24 m-6 -5 l6 5 -6 5" fill="none" stroke="#444"/><rect x="744.0" y="10" width="216.0" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="852.0" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Карта и выписка</text></svg></div><h4>Внутренняя проверка</h4><div class="diagram"><svg role="img" aria-label="Внутренняя проверка" viewBox="0 0 960 110" xmlns="http://www.w3.org/2000/svg"><title>Внутренняя проверка</title><rect x="0.0" y="10" width="216.0" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="108.0" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Карта и локальные правила</text><path d="M220.0 55 h24 m-6 -5 l6 5 -6 5" fill="none" stroke="#444"/><rect x="248.0" y="10" width="216.0" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="356.0" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Сопоставление и исключения</text><path d="M468.0 55 h24 m-6 -5 l6 5 -6 5" fill="none" stroke="#444"/><rect x="496.0" y="10" width="216.0" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="604.0" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Уточнения у врача</text><path d="M716.0 55 h24 m-6 -5 l6 5 -6 5" fill="none" stroke="#444"/><rect x="744.0" y="10" width="216.0" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="852.0" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Закрытие случая и счёт</text></svg></div><h4>Экспертиза ОМС</h4><div class="diagram"><svg role="img" aria-label="Экспертиза ОМС" viewBox="0 0 960 110" xmlns="http://www.w3.org/2000/svg"><title>Экспертиза ОМС</title><rect x="0.0" y="10" width="216.0" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="108.0" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Счёт и первичные документы</text><path d="M220.0 55 h24 m-6 -5 l6 5 -6 5" fill="none" stroke="#444"/><rect x="248.0" y="10" width="216.0" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="356.0" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">МЭЭ / ЭКМП по процедуре</text><path d="M468.0 55 h24 m-6 -5 l6 5 -6 5" fill="none" stroke="#444"/><rect x="496.0" y="10" width="216.0" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="604.0" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Заключение с основаниями</text><path d="M716.0 55 h24 m-6 -5 l6 5 -6 5" fill="none" stroke="#444"/><rect x="744.0" y="10" width="216.0" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="852.0" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Возражения и разбор</text></svg></div><p class="caption">Передача: врач → внутренний эксперт → учёт и счёт → внешний контроль. Замечания возвращаются ответственному специалисту. МЭК выполняется отдельно по реестрам счетов.</p>
+
+<h3>Контроль ОМС: что именно проверяют</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Вид</th>
+<th>Объект и вопрос</th>
+<th>Кто выполняет по изученному порядку</th>
+<th>Роль будущей системы</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Медико-экономический контроль, МЭК</td>
+<td>Реестр счетов: согласуются ли объёмы и стоимость с договором, программой, способом оплаты и тарифом?</td>
+<td>ФФОМС или территориальный фонд в зависимости от договора</td>
+<td>Формальные проверки схемы, сроков и справочников; текстовая модель здесь не основной инструмент</td>
+</tr>
+<tr>
+<td>Медико-экономическая экспертиза, МЭЭ</td>
+<td>Подтверждают ли первичные документы сведения о факте, сроках и объёме помощи, представленном к оплате?</td>
+<td>Специалист-эксперт в предусмотренной процедуре</td>
+<td>Сопоставить услугу в счёте, назначение и доказательство выполнения; обозначить отсутствующие документы</td>
+</tr>
+<tr>
+<td>Экспертиза качества, ЭКМП</td>
+<td>Были ли нарушения при оказании помощи, выборе технологий, оценке результата с учётом конкретного случая?</td>
+<td>Эксперт качества медицинской помощи</td>
+<td>Подготовить доказательства и вопросы; не выдавать автоматическое заключение о виновности или размере санкции</td>
+</tr>
+</tbody>
+</table></div>
+<p>Основание разделения: разделы III–V приказа №231н и разъяснение ЛОФОМС. Изученная копия №231н имеет редакцию от 04.09.2024; перед применением к конкретному счёту нужно проверить изменения и действовавшие тогда региональные документы. <a href="https://ak.reso-med.com/upload/iblock/470/d42wmdfv8pm6olg72ucsp1v0rhls0vy9/Prikaz-Minzdrava-RF-ot-19.03.2021-N-231N-Ob-utverzhdenii-Poryadka-provedeniya-kontrolya-obemov_-srokov-_red-04.09.24_.pdf">N231</a> <a href="https://lofoms.spb.ru/control_procedure">OMSPROCESS</a></p>
+<h3>Почему задача сложна</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Проблема</th>
+<th>Конкретный пример</th>
+<th>Последствие для проекта</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Факты разбросаны по документам и времени</td>
+<td>В дневнике исследование назначено, результат лежит отдельным файлом следующего дня</td>
+<td>Хранить время события и время появления документа. Проверять состояние карты на выбранный момент</td>
+</tr>
+<tr>
+<td>Отсутствие записи не доказывает отсутствие действия</td>
+<td>В выгрузку не попал лист выполнения назначений</td>
+<td>Статус «сведений недостаточно» и запрос документа вместо утверждения «лечение не проводилось»</td>
+</tr>
+<tr>
+<td>Требование имеет условия и исключения</td>
+<td>Возраст, тяжесть, противопоказания или отказ пациента меняют применимость</td>
+<td>Сначала определить применимость; сохранять обоснование исключения</td>
+</tr>
+<tr>
+<td>Клинический риск и риск оплаты различаются</td>
+<td>Неполный код услуги и опасное клиническое противоречие имеют разные последствия</td>
+<td>Два независимых приоритета, без единого искусственного «балла качества»</td>
+</tr>
+<tr>
+<td>Источники меняются</td>
+<td>Два приказа №203н разных лет; тариф зависит от региона и периода</td>
+<td>Версионный реестр и проверка даты действия; номер документа сам по себе недостаточен</td>
+</tr>
+<tr>
+<td>Правдоподобный ответ может быть неверным</td>
+<td>Модель добавила несуществующий результат или ссылку</td>
+<td>Проверка каждой ссылки и факта; неподтверждённое утверждение не становится готовым выводом</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Как проверить пользу</h3>
+<p>Я не нашёл в изученных материалах надёжной общей оценки потерь российских терапевтических стационаров именно из-за тех дефектов, которые будет искать проект. Поэтому не рассчитываю выручку рынка и экономию клиники по произвольному проценту. Публикации ТФОМС подтверждают наличие отдельного процесса регистрации нарушений, но частоты из недоступного квартального файла я не использовал. <a href="https://www.orenfoms.ru/grazhdanam/informirovanie-o-vyyavlennykh-narusheniyakh-v-mo/">OMSDEF</a></p>
+<p>В сравнительном испытании планирую измерять время проверки одной карты, долю принятых экспертом замечаний, пропущенные значимые дефекты, число лишних замечаний на карту и долю выводов с верным основанием. Для экономического результата понадобится связать подтверждённые дефекты с реальными решениями по оплате в одной организации и одном периоде. Экономия времени не доказывает улучшение лечения или уменьшение отказов в оплате.</p>
+<p>Перед пилотом нужно обсудить с врачом и экспертом ОМС пять вопросов: когда они получают карту, какие документы часто отсутствуют в выгрузке, что считают критичным, как оформляют исключения и как разрешают разногласия. Для каждого ответа нужен пример обезличенного документа или локального правила. Пока такие ответы не получены.</p></section><section class="chapter" id="chapter-2"><h2>Существующие решения и доказательства их эффективности</h2>
+<p>Я сравнил 12 подходов и продуктов: ручную экспертизу, формальные проверки в МИС, прямые российские аналоги и смежные зарубежные системы. Искал решения по двум рабочим процессам, затем проверял сайт разработчика, руководство или первичное исследование. Журнал запросов и решений о включении находится в <code>research/search-log.csv</code>. Обзор целевой, он не претендует на исчерпывающий каталог рынка.</p>
+<p>Схемы показывают подтверждённый пользовательский процесс. Если устройство модели или поиска не раскрыто, я не восстанавливаю его по рекламе. Эффективность разделяю на измеренную в исследовании, заявленную поставщиком и неизвестную для выбранной задачи. Во всех случаях продукты исследованы по открытым материалам; самостоятельного испытания на одинаковых картах не было.</p>
+<label class="filter">Показать: <select id="group-filter"><option value="all">Все подходы</option><option value="baseline">Ручной процесс и правила</option><option value="direct">Российские аналоги</option><option value="adjacent">Экспертиза в другой юрисдикции</option><option value="knowledge">Поиск знаний</option><option value="documentation">Подготовка записей</option></select></label><p id="filter-count" aria-live="polite">Показано: 12</p><div class="table-wrap"><table id="competitor-table"><thead><tr><th scope="col">Подход / продукт</th><th scope="col">Задача</th><th scope="col">Доказательства эффективности</th><th scope="col">Источники</th></tr></thead><tbody><tr data-group="baseline"><td><a href="#solution-0">Ручная экспертиза</a></td><td>Ручной процесс и правила</td><td>Регламент описывает процедуру и роли. Время и согласие экспертов в выбранной организации пока не измерены.</td><td><a href="https://ak.reso-med.com/upload/iblock/470/d42wmdfv8pm6olg72ucsp1v0rhls0vy9/Prikaz-Minzdrava-RF-ot-19.03.2021-N-231N-Ob-utverzhdenii-Poryadka-provedeniya-kontrolya-obemov_-srokov-_red-04.09.24_.pdf">N231</a></td></tr><tr data-group="baseline"><td><a href="#solution-1">1С:Медицина. Поликлиника</a></td><td>Ручной процесс и правила</td><td>Публичная документация описывает функции, но не даёт сравнительной точности. Страница ссылается на приказ 2017 года; состояние установленного продукта по ней неизвестно.</td><td><a href="https://solutions.1c.ru/catalog/clinic/expert">ONEC</a></td></tr><tr data-group="direct"><td><a href="#solution-2">ОМС-Эксперт / СДК-Сатурн</a></td><td>Российские аналоги</td><td>Поставщик заявляет пять минут на карту. Это не независимый результат и не оценка полноты выявления дефектов. Руководство описывает локальную установку в контейнере; алгоритм поиска и модель не раскрыты.</td><td><a href="https://sbermed.ai/our-algorithms/oms-expert">SBER</a> <a href="https://sbermed.ai/uploads/Rukovodstvo_po_ekspluataczii_Saturn_68565ba3d5.pdf">SATURN</a></td></tr><tr data-group="direct"><td><a href="#solution-3">Webiomed: контроль выполнения КР</a></td><td>Российские аналоги</td><td>Более 500 рекомендаций указаны производителем. В публикации нет независимой оценки ошибок и эффекта на оплату.</td><td><a href="https://webiomed.ru/novosti/kontrol-klinicheskikh-rekomendatsii/">WEBIOMED</a></td></tr><tr data-group="direct"><td><a href="#solution-4">Панацея</a></td><td>Российские аналоги</td><td>На сайте описаны функции и масштабы использования. Публичной сопоставимой оценки точности в просмотренных материалах нет.</td><td><a href="https://panaceadoc.ru/">PANACEA</a></td></tr><tr data-group="adjacent"><td><a href="#solution-5">Defect AI</a></td><td>Экспертиза в другой юрисдикции</td><td>Заявленные проценты снижения дефектов не сопровождаются в источнике описанием сопоставимого эксперимента. Юрисдикция: Казахстан.</td><td><a href="https://defect.kz/">DEFECT</a></td></tr><tr data-group="knowledge"><td><a href="#solution-6">UpToDate Expert AI</a></td><td>Поиск знаний</td><td>Описание производителя. Проверка российских стационарных карт и ОМС в этом источнике не подтверждена.</td><td><a href="https://www.wolterskluwer.com/en-au/news/uptodate-expert-ai-genai-clinical-decision-support">UPTODATE</a></td></tr><tr data-group="knowledge"><td><a href="#solution-7">Dyna AI</a></td><td>Поиск знаний</td><td>На изученной странице нет сопоставимой оценки качества в выбранной задаче.</td><td><a href="https://more.ebsco.com/dyna-ai.html">DYNA</a></td></tr><tr data-group="knowledge"><td><a href="#solution-8">OpenEvidence</a></td><td>Поиск знаний</td><td>Изучено описание Enterprise. Распространённость и организационные функции не дают оценки качества аудита ОМС.</td><td><a href="https://portal.openevidence.com/">OE</a></td></tr><tr data-group="documentation"><td><a href="#solution-9">Abridge</a></td><td>Подготовка записей</td><td>Публичное описание продукта. Поддержку американского процесса оплаты нельзя считать подтверждением пригодности для ОМС.</td><td><a href="https://www.abridge.com/">ABRIDGE</a></td></tr><tr data-group="documentation"><td><a href="#solution-10">Nabla</a></td><td>Подготовка записей</td><td>Время написания записи уменьшилось на 9,5% относительно контроля. Условия и доверительный интервал приведены в разделе оценки.</td><td><a href="https://doi.org/10.1056/AIoa2501000">RCT</a></td></tr><tr data-group="documentation"><td><a href="#solution-11">Microsoft DAX Copilot</a></td><td>Подготовка записей</td><td>Статистически значимого сокращения времени написания записи относительно контроля по первичному исходу не показано.</td><td><a href="https://doi.org/10.1056/AIoa2501000">RCT</a></td></tr></tbody></table></div>
+
+<h3>Сопоставление функций</h3>
+<p>«Заявлено» означает, что функция описана в приведённых источниках. «Не установлено» означает недостаток публичных сведений, а не доказанное отсутствие функции. Для ручного процесса отмечаю роль специалиста, а не программные возможности.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Подход</th>
+<th>Помощь врачу со знаниями или планом</th>
+<th>Подготовка записи</th>
+<th>Проверка готовой карты</th>
+<th>Российские требования ОМС</th>
+<th>Доказательства в результате</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ручная экспертиза</td>
+<td>Компетенция врача</td>
+<td>Работа врача</td>
+<td>Работа эксперта</td>
+<td>Регламент</td>
+<td>Обоснование эксперта</td>
+</tr>
+<tr>
+<td>1С:Медицина</td>
+<td>Чек-лист критериев</td>
+<td>МИС</td>
+<td>Формализованные отметки</td>
+<td>Для этого модуля не установлено</td>
+<td>Отметки и отчёты</td>
+</tr>
+<tr>
+<td>ОМС-Эксперт</td>
+<td>Не установлено</td>
+<td>Не установлено</td>
+<td>Заявлено</td>
+<td>Заявлено</td>
+<td>Требование, объяснение и фрагмент карты</td>
+</tr>
+<tr>
+<td>Webiomed, контроль КР</td>
+<td>Контроль назначений</td>
+<td>Не установлено</td>
+<td>Заявлено</td>
+<td>Финансовый расчёт не установлен</td>
+<td>Ссылки на фрагменты КР</td>
+</tr>
+<tr>
+<td>Панацея</td>
+<td>Заявлено</td>
+<td>Помощь при ведении карты</td>
+<td>Заявлено</td>
+<td>Найден модуль ДМС; ОМС не подтверждён</td>
+<td>Устройство связи с фактом не установлено</td>
+</tr>
+<tr>
+<td>Defect AI</td>
+<td>Поиск протоколов</td>
+<td>Не установлено</td>
+<td>Заявлено</td>
+<td>Документы Казахстана</td>
+<td>Основания по протоколам</td>
+</tr>
+<tr>
+<td>UpToDate Expert AI</td>
+<td>Заявлено</td>
+<td>Не установлено</td>
+<td>Не установлено</td>
+<td>Не установлено</td>
+<td>Клинические материалы</td>
+</tr>
+<tr>
+<td>Dyna AI</td>
+<td>Заявлено</td>
+<td>Не установлено</td>
+<td>Не установлено</td>
+<td>Не установлено</td>
+<td>Ссылки на источник</td>
+</tr>
+<tr>
+<td>OpenEvidence</td>
+<td>Заявлено</td>
+<td>По рассмотренной странице не установлено</td>
+<td>Не установлено</td>
+<td>Не установлено</td>
+<td>Ответ по медицинским знаниям</td>
+</tr>
+<tr>
+<td>Abridge</td>
+<td>Помощь в клиническом процессе</td>
+<td>Заявлено</td>
+<td>Отдельный аудит не установлен</td>
+<td>Не установлено</td>
+<td>Связь с разговором требует отдельной проверки</td>
+</tr>
+<tr>
+<td>Nabla</td>
+<td>В РКИ не оценивалась</td>
+<td>Испытано в РКИ</td>
+<td>В РКИ не оценивалась</td>
+<td>В РКИ не оценивалась</td>
+<td>Качество оснований не было первичным исходом</td>
+</tr>
+<tr>
+<td>DAX Copilot</td>
+<td>В РКИ не оценивалась</td>
+<td>Испытано в РКИ</td>
+<td>В РКИ не оценивалась</td>
+<td>В РКИ не оценивалась</td>
+<td>Качество оснований не было первичным исходом</td>
+</tr>
+</tbody>
+</table></div>
+<p>Для клиники я бы проверял два варианта закупки: отдельный аудит перед закрытием случая либо функцию внутри МИС. Для первого важны импорт карты, время обработки и доказательства; для второго также важны доступ к событиям, авторство исправлений и нагрузка на врача. Стоимость внедрения и интеграции у прямых аналогов требует запроса поставщику. Публичного сопоставимого расчёта стоимости на карту я не получил, поэтому экономического победителя не выбираю.</p>
+<h3>Ручная экспертиза</h3>
+<div id="solution-0"><div class="diagram"><svg role="img" aria-label="Ручная экспертиза" viewBox="0 0 960 110" xmlns="http://www.w3.org/2000/svg"><title>Ручная экспертиза</title><rect x="0.0" y="10" width="298.7" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="149.3" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Карта и требования</text><path d="M302.7 55 h24 m-6 -5 l6 5 -6 5" fill="none" stroke="#444"/><rect x="330.7" y="10" width="298.7" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="480.0" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Чтение и сопоставление</text><path d="M633.3 55 h24 m-6 -5 l6 5 -6 5" fill="none" stroke="#444"/><rect x="661.3" y="10" width="298.7" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="810.7" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Заключение эксперта</text></svg></div></div>
+
+<p>Человек проверяет документы, применимость требований и исключения, формулирует заключение.</p>
+<p><strong>Доказательства.</strong> Регламент описывает процедуру и роли. Время и согласие экспертов в выбранной организации пока не измерены.</p>
+<p><strong>Вывод для проекта.</strong> Гибко учитывает контекст, но результат зависит от полноты документов и воспроизводимости рассуждения. Это обязательная точка сравнения; эксперт участвует и в проверке ИИ. <a href="https://ak.reso-med.com/upload/iblock/470/d42wmdfv8pm6olg72ucsp1v0rhls0vy9/Prikaz-Minzdrava-RF-ot-19.03.2021-N-231N-Ob-utverzhdenii-Poryadka-provedeniya-kontrolya-obemov_-srokov-_red-04.09.24_.pdf">N231</a></p>
+<h3>1С:Медицина. Поликлиника</h3>
+<div id="solution-1"><div class="diagram"><svg role="img" aria-label="1С:Медицина. Поликлиника" viewBox="0 0 960 110" xmlns="http://www.w3.org/2000/svg"><title>1С:Медицина. Поликлиника</title><rect x="0.0" y="10" width="298.7" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="149.3" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Диагноз и критерии ФНСИ</text><path d="M302.7 55 h24 m-6 -5 l6 5 -6 5" fill="none" stroke="#444"/><rect x="330.7" y="10" width="298.7" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="480.0" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Отметки по чек-листу</text><path d="M633.3 55 h24 m-6 -5 l6 5 -6 5" fill="none" stroke="#444"/><rect x="661.3" y="10" width="298.7" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="810.7" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Отчёт о качестве</text></svg></div></div>
+
+<p>Формализованные критерии и отметки выполнения помогают вести клинико-экспертную работу.</p>
+<p><strong>Доказательства.</strong> Публичная документация описывает функции, но не даёт сравнительной точности. Страница ссылается на приказ 2017 года; состояние установленного продукта по ней неизвестно.</p>
+<p><strong>Вывод для проекта.</strong> Полезный базовый подход для обязательных полей и кодов. Рассмотренный модуль амбулаторный; свободный текст и исключения требуют отдельной проверки. <a href="https://solutions.1c.ru/catalog/clinic/expert">ONEC</a></p>
+<h3>ОМС-Эксперт / СДК-Сатурн</h3>
+<div id="solution-2"><div class="diagram"><svg role="img" aria-label="ОМС-Эксперт / СДК-Сатурн" viewBox="0 0 960 110" xmlns="http://www.w3.org/2000/svg"><title>ОМС-Эксперт / СДК-Сатурн</title><rect x="0.0" y="10" width="298.7" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="149.3" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Обезличенная карта 003/у</text><path d="M302.7 55 h24 m-6 -5 l6 5 -6 5" fill="none" stroke="#444"/><rect x="330.7" y="10" width="298.7" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="480.0" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Проверки карты и требований</text><path d="M633.3 55 h24 m-6 -5 l6 5 -6 5" fill="none" stroke="#444"/><rect x="661.3" y="10" width="298.7" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="810.7" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Основания и результат</text></svg></div></div>
+
+<p>Прямой аналог: МКБ-10, КСГ, оформление карты, клинические критерии и требования ОМС. В руководстве есть статусы чтения, ошибки и таблица с требованием, обоснованием и фрагментом карты.</p>
+<p><strong>Доказательства.</strong> Поставщик заявляет пять минут на карту. Это не независимый результат и не оценка полноты выявления дефектов. Руководство описывает локальную установку в контейнере; алгоритм поиска и модель не раскрыты.</p>
+<p><strong>Вывод для проекта.</strong> Нельзя заявлять новизну самой автоматической проверки карты. Для сравнения нужны одинаковые случаи и доступ к продукту; сейчас его нет. <a href="https://sbermed.ai/our-algorithms/oms-expert">SBER</a> <a href="https://sbermed.ai/uploads/Rukovodstvo_po_ekspluataczii_Saturn_68565ba3d5.pdf">SATURN</a></p>
+<h3>Webiomed: контроль выполнения КР</h3>
+<div id="solution-3"><div class="diagram"><svg role="img" aria-label="Webiomed: контроль выполнения КР" viewBox="0 0 960 110" xmlns="http://www.w3.org/2000/svg"><title>Webiomed: контроль выполнения КР</title><rect x="0.0" y="10" width="298.7" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="149.3" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Завершённый случай из МИС</text><path d="M302.7 55 h24 m-6 -5 l6 5 -6 5" fill="none" stroke="#444"/><rect x="330.7" y="10" width="298.7" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="480.0" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Сверка выполненных назначений</text><path d="M633.3 55 h24 m-6 -5 l6 5 -6 5" fill="none" stroke="#444"/><rect x="661.3" y="10" width="298.7" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="810.7" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Пропуски и избыток</text></svg></div></div>
+
+<p>Сервис 2026 года использует LLM, выделяет выполненные, недостающие и избыточные назначения; предоставляет API и навигацию по основаниям.</p>
+<p><strong>Доказательства.</strong> Более 500 рекомендаций указаны производителем. В публикации нет независимой оценки ошибок и эффекта на оплату.</p>
+<p><strong>Вывод для проекта.</strong> Близкий конкурент в экспертной ветви. Важны различение назначений и выполнения, интеграция с МИС и видимость источника. Преимущество предложенного подхода ещё предстоит доказать. <a href="https://webiomed.ru/novosti/kontrol-klinicheskikh-rekomendatsii/">WEBIOMED</a></p>
+<h3>Панацея</h3>
+<div id="solution-4"><div class="diagram"><svg role="img" aria-label="Панацея" viewBox="0 0 960 110" xmlns="http://www.w3.org/2000/svg"><title>Панацея</title><rect x="0.0" y="10" width="298.7" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="149.3" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Приём или карта</text><path d="M302.7 55 h24 m-6 -5 l6 5 -6 5" fill="none" stroke="#444"/><rect x="330.7" y="10" width="298.7" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="480.0" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">СППВР и ИИ-проверка</text><path d="M633.3 55 h24 m-6 -5 l6 5 -6 5" fill="none" stroke="#444"/><rect x="661.3" y="10" width="298.7" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="810.7" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Подсказки и ошибки</text></svg></div></div>
+
+<p>Объединяет поддержку приёма, справочник и проверку карт; модуль ДМС учитывает покрытие назначений.</p>
+<p><strong>Доказательства.</strong> На сайте описаны функции и масштабы использования. Публичной сопоставимой оценки точности в просмотренных материалах нет.</p>
+<p><strong>Вывод для проекта.</strong> Рассматриваю как конкурента по помощи врачу и внутреннему контролю. Правила ДМС отличаются от ОМС; поддержку всех задач страхового эксперта по сайту установить нельзя. <a href="https://panaceadoc.ru/">PANACEA</a></p>
+<h3>Defect AI</h3>
+<div id="solution-5"><div class="diagram"><svg role="img" aria-label="Defect AI" viewBox="0 0 960 110" xmlns="http://www.w3.org/2000/svg"><title>Defect AI</title><rect x="0.0" y="10" width="298.7" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="149.3" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Карта или выгрузка услуг</text><path d="M302.7 55 h24 m-6 -5 l6 5 -6 5" fill="none" stroke="#444"/><rect x="330.7" y="10" width="298.7" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="480.0" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Протоколы и приказы РК</text><path d="M633.3 55 h24 m-6 -5 l6 5 -6 5" fill="none" stroke="#444"/><rect x="661.3" y="10" width="298.7" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="810.7" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Дефекты и возражения</text></svg></div></div>
+
+<p>Проверяет документацию и услуги, готовит разбор дефектов и основания для возражений; есть стационарные сценарии.</p>
+<p><strong>Доказательства.</strong> Заявленные проценты снижения дефектов не сопровождаются в источнике описанием сопоставимого эксперимента. Юрисдикция: Казахстан.</p>
+<p><strong>Вывод для проекта.</strong> Полезен устройством полного экспертного процесса. Российские нормы, тарифы и формы придётся проверять отдельно; переносить результат автоматически нельзя. <a href="https://defect.kz/">DEFECT</a></p>
+<h3>UpToDate Expert AI</h3>
+<div id="solution-6"><div class="diagram"><svg role="img" aria-label="UpToDate Expert AI" viewBox="0 0 960 110" xmlns="http://www.w3.org/2000/svg"><title>UpToDate Expert AI</title><rect x="0.0" y="10" width="298.7" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="149.3" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Вопрос врача</text><path d="M302.7 55 h24 m-6 -5 l6 5 -6 5" fill="none" stroke="#444"/><rect x="330.7" y="10" width="298.7" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="480.0" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Экспертная база знаний</text><path d="M633.3 55 h24 m-6 -5 l6 5 -6 5" fill="none" stroke="#444"/><rect x="661.3" y="10" width="298.7" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="810.7" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Клинический ответ</text></svg></div></div>
+
+<p>Помогает получать ответы по медицинским знаниям на основе материалов UpToDate.</p>
+<p><strong>Доказательства.</strong> Описание производителя. Проверка российских стационарных карт и ОМС в этом источнике не подтверждена.</p>
+<p><strong>Вывод для проекта.</strong> Показывает ценность подготовленного корпуса. Для процесса проекта нужен ещё слой фактов карты и проверка применимости к случаю. <a href="https://www.wolterskluwer.com/en-au/news/uptodate-expert-ai-genai-clinical-decision-support">UPTODATE</a></p>
+<h3>Dyna AI</h3>
+<div id="solution-7"><div class="diagram"><svg role="img" aria-label="Dyna AI" viewBox="0 0 960 110" xmlns="http://www.w3.org/2000/svg"><title>Dyna AI</title><rect x="0.0" y="10" width="298.7" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="149.3" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Вопрос врача</text><path d="M302.7 55 h24 m-6 -5 l6 5 -6 5" fill="none" stroke="#444"/><rect x="330.7" y="10" width="298.7" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="480.0" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">RAG по клиническим материалам</text><path d="M633.3 55 h24 m-6 -5 l6 5 -6 5" fill="none" stroke="#444"/><rect x="661.3" y="10" width="298.7" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="810.7" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Ответ со ссылками</text></svg></div></div>
+
+<p>Поиск и генерация по DynaMed/DynaMedex; производитель описывает RAG и переход к источникам.</p>
+<p><strong>Доказательства.</strong> На изученной странице нет сопоставимой оценки качества в выбранной задаче.</p>
+<p><strong>Вывод для проекта.</strong> Применим как образец поиска знаний. Наличие ссылки само по себе не доказывает корректность экспертного вывода по конкретной карте. <a href="https://more.ebsco.com/dyna-ai.html">DYNA</a></p>
+<h3>OpenEvidence</h3>
+<div id="solution-8"><div class="diagram"><svg role="img" aria-label="OpenEvidence" viewBox="0 0 960 110" xmlns="http://www.w3.org/2000/svg"><title>OpenEvidence</title><rect x="0.0" y="10" width="298.7" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="149.3" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Медицинский вопрос</text><path d="M302.7 55 h24 m-6 -5 l6 5 -6 5" fill="none" stroke="#444"/><rect x="330.7" y="10" width="298.7" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="480.0" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Поиск доказательств</text><path d="M633.3 55 h24 m-6 -5 l6 5 -6 5" fill="none" stroke="#444"/><rect x="661.3" y="10" width="298.7" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="810.7" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Ответ в работе врача</text></svg></div></div>
+
+<p>Клинический поиск и корпоративное рабочее пространство для медицинских организаций.</p>
+<p><strong>Доказательства.</strong> Изучено описание Enterprise. Распространённость и организационные функции не дают оценки качества аудита ОМС.</p>
+<p><strong>Вывод для проекта.</strong> Смежный инструмент врача. Для сравнения нужен отдельный набор медицинских вопросов; смешивать его с оценкой дефектов документации нельзя. <a href="https://portal.openevidence.com/">OE</a></p>
+<h3>Abridge</h3>
+<div id="solution-9"><div class="diagram"><svg role="img" aria-label="Abridge" viewBox="0 0 960 110" xmlns="http://www.w3.org/2000/svg"><title>Abridge</title><rect x="0.0" y="10" width="298.7" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="149.3" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Клинический разговор</text><path d="M302.7 55 h24 m-6 -5 l6 5 -6 5" fill="none" stroke="#444"/><rect x="330.7" y="10" width="298.7" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="480.0" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Черновик документации</text><path d="M633.3 55 h24 m-6 -5 l6 5 -6 5" fill="none" stroke="#444"/><rect x="661.3" y="10" width="298.7" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="810.7" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Проверка в рабочем процессе</text></svg></div></div>
+
+<p>Подготовка медицинских записей, сценарии врача и revenue cycle.</p>
+<p><strong>Доказательства.</strong> Публичное описание продукта. Поддержку американского процесса оплаты нельзя считать подтверждением пригодности для ОМС.</p>
+<p><strong>Вывод для проекта.</strong> Помогает на этапе создания исходной записи. Ошибки черновика могут перейти в аудит, поэтому связь с первичным фактом должна сохраняться. <a href="https://www.abridge.com/">ABRIDGE</a></p>
+<h3>Nabla</h3>
+<div id="solution-10"><div class="diagram"><svg role="img" aria-label="Nabla" viewBox="0 0 960 110" xmlns="http://www.w3.org/2000/svg"><title>Nabla</title><rect x="0.0" y="10" width="298.7" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="149.3" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Разговор на приёме</text><path d="M302.7 55 h24 m-6 -5 l6 5 -6 5" fill="none" stroke="#444"/><rect x="330.7" y="10" width="298.7" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="480.0" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Проект записи</text><path d="M633.3 55 h24 m-6 -5 l6 5 -6 5" fill="none" stroke="#444"/><rect x="661.3" y="10" width="298.7" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="810.7" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Проверка врачом</text></svg></div></div>
+
+<p>Автоматическая подготовка записей после приёма; один из двух продуктов в опубликованном РКИ.</p>
+<p><strong>Доказательства.</strong> Время написания записи уменьшилось на 9,5% относительно контроля. Условия и доверительный интервал приведены в разделе оценки.</p>
+<p><strong>Вывод для проекта.</strong> Есть экспериментальные данные для конкретного амбулаторного процесса. Они не измеряют точность аудита в проекте и не заменяют испытание на русском языке. <a href="https://doi.org/10.1056/AIoa2501000">RCT</a></p>
+<h3>Microsoft DAX Copilot</h3>
+<div id="solution-11"><div class="diagram"><svg role="img" aria-label="Microsoft DAX Copilot" viewBox="0 0 960 110" xmlns="http://www.w3.org/2000/svg"><title>Microsoft DAX Copilot</title><rect x="0.0" y="10" width="298.7" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="149.3" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Разговор на приёме</text><path d="M302.7 55 h24 m-6 -5 l6 5 -6 5" fill="none" stroke="#444"/><rect x="330.7" y="10" width="298.7" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="480.0" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Проект записи</text><path d="M633.3 55 h24 m-6 -5 l6 5 -6 5" fill="none" stroke="#444"/><rect x="661.3" y="10" width="298.7" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="810.7" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Проверка врачом</text></svg></div></div>
+
+<p>Второй продукт в том же РКИ, что позволяет сравнить результаты в одном дизайне.</p>
+<p><strong>Доказательства.</strong> Статистически значимого сокращения времени написания записи относительно контроля по первичному исходу не показано.</p>
+<p><strong>Вывод для проекта.</strong> Нельзя считать любой ИИ автоматически экономящим время. Нужен эксперимент с полным временем работы, включая исправление ответа. <a href="https://doi.org/10.1056/AIoa2501000">RCT</a></p>
+<h3>Что следует из сравнения</h3>
+<p>Для проверки российского стационарного случая ближайшими аналогами оказались ОМС-Эксперт и сервис контроля КР Webiomed. Панацея закрывает близкие задачи приёма и внутренней проверки. В первоначальном обзоре я пропустил эти прямые сценарии и слишком много внимания уделил поисковым помощникам и составлению записей.</p>
+<p>Мой проект не может претендовать на новизну за счёт сочетания LLM и медицинских рекомендаций. Проверяемая исследовательская гипотеза уже: явный учёт времени доступности факта, применимости требования и двух оснований замечания уменьшит число необоснованных замечаний по сравнению с проверкой всего текста одним запросом. Гипотеза пока не проверена; сходные функции у конкурентов могут существовать и не быть раскрыты в открытых материалах.</p>
+<p>Формальные ошибки удобнее искать правилами. Поиск по знаниям помогает подготовить основание. Модель полезна для извлечения и объяснения неоднозначного текста, но требует проверки. Человек остаётся участником решения там, где важны исключения и клиническая обоснованность. Поэтому архитектура сочетает эти подходы, а эксперимент сравнивает их вклад отдельно.</p></section><section class="chapter" id="chapter-3"><h2>Какие документы нужны системе</h2>
+<p>Я составил реестр по каждому шагу работы врача и эксперта. Документы делю по назначению: факты конкретного случая, клинические знания, правила оформления, правила ОМС и решения экспертов. Текст карты не может сам задавать правило проверки; внешнее требование не может подменить факт о пациенте.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>№</th>
+<th>Тип документа или данных</th>
+<th>Кто и для чего использует</th>
+<th>Хранение и источник</th>
+<th>Состояние</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Направление, основания и обстоятельства госпитализации</td>
+<td>Врач: маршрут; эксперт: условия и сроки помощи</td>
+<td>Факты случая и исходный документ, МИС</td>
+<td>Реальных документов нет; нужны образцы организации</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Карта 003/у: первичный осмотр, анамнез, диагноз</td>
+<td>Врач и эксперт: исходное состояние и обоснование</td>
+<td>Текст с координатами и извлечённые факты; №530н <a href="https://webmed.irkutsk.ru/doc/order/530.pdf">N530</a></td>
+<td>Структура определена, реальные карты не получены</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Дневники и повторные осмотры</td>
+<td>Врач: динамика; эксперт: своевременность оценки</td>
+<td>События с датой и автором</td>
+<td>Синтетические примеры</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Назначения и листы выполнения</td>
+<td>Врач и эксперт: что планировали и что сделали</td>
+<td>Отдельные сущности назначения и выполнения</td>
+<td>Нужны формы и правила МИС</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Лабораторные и инструментальные результаты</td>
+<td>Обе роли: доказательства и время доступности</td>
+<td>Значение, единица, референс, время, первичный файл</td>
+<td>Синтетические примеры; справочники лаборатории нужны</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Консультации, переводы, протоколы вмешательств</td>
+<td>Маршрут и участие специалистов</td>
+<td>Документы и связи событий</td>
+<td>Нужны примеры выбранных маршрутов</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Согласия, отказы, врачебная комиссия, обоснования отклонений</td>
+<td>Проверка применимости и исключений</td>
+<td>Факты и документальное основание</td>
+<td>Категории включены; реальные формы не получены</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Выписной эпикриз и рекомендации</td>
+<td>Врач: передача информации; эксперт: исход и согласованность</td>
+<td>Документ с диагнозами и событиями</td>
+<td>Синтетические примеры</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Карта выбывшего 066/у и учётные сведения</td>
+<td>Кодирование и сопоставление со счётом</td>
+<td>Структурированные поля; №530н <a href="https://webmed.irkutsk.ru/doc/order/530.pdf">N530</a></td>
+<td>Состав требуется сверить с конкретной выгрузкой</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Реестр счетов, строка услуги, исправления</td>
+<td>МЭК/МЭЭ: объём, факт, сроки и стоимость</td>
+<td>Отдельные таблицы и формат обмена региона</td>
+<td>В примерах только учебные коды, без расчёта денег</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Клинические рекомендации по основному и сопутствующим заболеваниям</td>
+<td>Врач: диагностика и лечение; эксперт: применимые действия</td>
+<td>Версионный корпус RAG, рубрикатор <a href="https://cr.minzdrav.gov.ru/">KR</a></td>
+<td>Пневмония 2024 и ХСН 2024 найдены; остальные версии требуют проверки</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Порядки оказания помощи по профилю</td>
+<td>Маршрутизация, условия, организация помощи</td>
+<td>Нормативный корпус по профилю и дате</td>
+<td>Перечень определяется маршрутами; полный корпус ещё не собран</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Стандарты медицинской помощи</td>
+<td>Сопоставление состава помощи с применимым стандартом</td>
+<td>Версионный корпус; поиск в официальном реестре</td>
+<td>Нужен подбор по диагнозу и условиям; средняя частота услуги не становится обязанностью для каждого пациента</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Критерии качества №203н от 14.04.2025</td>
+<td>Внутренний и внешний эксперт: критерии по заболеванию</td>
+<td>Нормативные требования с условиями <a href="https://publication.pravo.gov.ru/document/0001202505290045">N203</a> <a href="https://www.nsi.ru/upload/normativ-doc/203N_prikaz.pdf">N203COPY</a></td>
+<td>Текст проверен; критерии ещё не превращены в исполняемые правила</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Формы и порядок ведения документации №530н</td>
+<td>Врач и эксперт: структура и оформление</td>
+<td>Нормативные формы, отдельные правила <a href="https://webmed.irkutsk.ru/doc/order/530.pdf">N530</a></td>
+<td>Найдена исходная публикация; нужна сверка изменений</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Внутренний контроль №785н и локальное положение</td>
+<td>Методист и руководитель: процедура, роли, результаты</td>
+<td>Общие нормы + правила организации <a href="https://roszdravnadzor.ru/medactivities/statecontrol/rights/documents/80120">N785</a></td>
+<td>Реестр найден; локальное положение отсутствует</td>
+</tr>
+<tr>
+<td>17</td>
+<td>№326-ФЗ и порядок контроля №231н</td>
+<td>Эксперт: полномочия, процедура, основания и формы</td>
+<td>Нормативный корпус с периодом действия <a href="https://ak.reso-med.com/upload/iblock/470/d42wmdfv8pm6olg72ucsp1v0rhls0vy9/Prikaz-Minzdrava-RF-ot-19.03.2021-N-231N-Ob-utverzhdenii-Poryadka-provedeniya-kontrolya-obemov_-srokov-_red-04.09.24_.pdf">N231</a> <a href="https://lofoms.spb.ru/control_procedure">OMSPROCESS</a></td>
+<td>Процесс изучен; актуализация перед применением обязательна</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Федеральная и территориальная программы госгарантий</td>
+<td>Условия, сроки и покрытие помощи</td>
+<td>Документы конкретного года и региона</td>
+<td>Регион и организация не заданы; применять произвольную программу нельзя</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Тарифное соглашение и приложения, способы оплаты, КСГ</td>
+<td>Эксперт/экономист: расчёт и классификация</td>
+<td>Структурированные таблицы; требования к соглашению №44н <a href="https://www.mofoms.ru/dokumenty/normativnaya-baza/prikazy-ministerstva-zdravookhraneniya-rossiyskoy-federatsii/">OMSREG</a></td>
+<td>Нужен регион и год; финансовый расчёт заблокирован до их выбора</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Договоры ОМС, объёмы, правила обмена и справочники фонда</td>
+<td>МЭК/МЭЭ: условия конкретной организации</td>
+<td>Закрытые документы организации и версии справочников</td>
+<td>Не предоставлены</td>
+</tr>
+<tr>
+<td>21</td>
+<td>МКБ, номенклатура услуг, справочники единиц и лекарств</td>
+<td>Кодирование и нормализация фактов</td>
+<td>Таблицы с версиями; проверка кодов детерминированно</td>
+<td>Источники и лицензии конкретных выгрузок ещё нужно закрепить</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Инструкции к лекарствам, противопоказания и взаимодействия</td>
+<td>Клиническая ветвь: безопасность предложений</td>
+<td>Официальные инструкции, структурированные ограничения</td>
+<td>Нужны до функции назначения терапии; дозировки сейчас не генерируются</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Акты, экспертные заключения, возражения, повторная экспертиза</td>
+<td>Эксперт: результат и согласование</td>
+<td>Шаблон формы + факты + решения; №231н <a href="https://ak.reso-med.com/upload/iblock/470/d42wmdfv8pm6olg72ucsp1v0rhls0vy9/Prikaz-Minzdrava-RF-ot-19.03.2021-N-231N-Ob-utverzhdenii-Poryadka-provedeniya-kontrolya-obemov_-srokov-_red-04.09.24_.pdf">N231</a></td>
+<td>Формы предусмотрены архитектурой; реальные заключения не получены</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Экспертная разметка и журнал решений пользователя</td>
+<td>Оценка качества и разбор ошибок</td>
+<td>Отдельно от корпуса и входа модели</td>
+<td>Пока только инженерные ожидания, без клинической разметки</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Проверка версии и полноты корпуса</h3>
+<p>Для каждого источника нужны название, издатель, URL, дата получения, контрольная сумма, версия, дата начала и окончания действия, возраст, условия помощи, регион, связанный диагноз и статус проверки. У документа может не быть известной даты окончания; отсутствие даты не означает бессрочное действие. Изменение источника создаёт новую версию и требует повторной проверки затронутых критериев.</p>
+<p>В <code>research/sources.json</code> зафиксированы прочитанные источники, место подтверждения и ограничения. Этот реестр исследования ещё не является готовым медицинским корпусом RAG. Документы организации нельзя заменить общими рекомендациями; пока их нет, система должна явно исключать неподтверждённые локальные и финансовые выводы.</p></section><section class="chapter" id="chapter-4"><h2>Данные и методика симуляции</h2>
+<p>Для первой недели я выбрал методику симуляции с примерами для согласования. Реальные карты не предоставлены. В репозитории отдельно хранятся старые инженерные примеры, новые клинические заготовки и план статистической выборки; ни один из этих наборов не выдаю за проверенную врачом клиническую выборку.</p>
+<h3>Что дают доступные наборы</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Набор</th>
+<th>Что можно использовать</th>
+<th>Почему не подходит без изменений</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MIMIC-IV 3.1</td>
+<td>Структуру госпитализации, событий и результатов; в будущем исследование временных зависимостей</td>
+<td>Другая страна и система оплаты; нет российской карты и локальных правил ОМС. Нужны обучение, подтверждённый доступ и соглашение. Данные не скачивал <a href="https://physionet.org/content/mimiciv/3.1/">MIMIC</a></td>
+</tr>
+<tr>
+<td>Synthea</td>
+<td>Генерацию продольных историй и структуру обмена данными</td>
+<td>Её модели процессов не подтверждают реализм российского стационара. Потребуются адаптация модулей и проверка специалистом. Генератор не запускал <a href="https://synthetichealth.github.io/synthea/">SYNTHEA</a></td>
+</tr>
+<tr>
+<td>Карты партнёрской клиники</td>
+<td>В дальнейшем: реальные формы, частоты и экспертные решения</td>
+<td>Партнёра и разрешённой выгрузки пока нет. Это необходимый источник для внешней проверки, а не уже полученные данные</td>
+</tr>
+<tr>
+<td>Собственные сценарии</td>
+<td>Управляемые проверки времени, полноты и согласованности; обсуждение состава данных с экспертом</td>
+<td>Авторские заготовки не заменяют эпидемиологическую выборку и клиническую разметку</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Статистическая основа</h3>
+<p>В таблице 3.17 сборника Росстата «Здравоохранение в России. 2025» приведено 27 515 тыс. выбывших пациентов стационара за 2024 год. Я выписал шесть классов, связанных с областью проекта. Таблица относится ко всем возрастам и профилям. Это ориентир для первоначального охвата, а не оценка частот в терапевтическом отделении. Долю ЛОР-заболеваний нельзя целиком приравнять к строке болезней уха: заболевания носа и горла входят в другие классы. <a href="https://www.rosstat.gov.ru/storage/mediabank/Zdravooxran_2025.pdf">STAT</a></p>
+<figure><div class="diagram"><svg role="img" aria-label="Число выбывших пациентов по выбранным классам, 2024 год, тысячи человек" viewBox="0 0 960 300" xmlns="http://www.w3.org/2000/svg"><title>Данные Росстата: тысячи выбывших пациентов, 2024 год</title><text x="0" y="34" font-family="Arial" font-size="16">Кровообращение</text><rect x="285" y="15" width="490.00" height="26" fill="#606060"/><text x="785.00" y="34" font-family="Arial" font-size="16">4 928</text><text x="0" y="77" font-family="Arial" font-size="16">Дыхание</text><rect x="285" y="58" width="278.91" height="26" fill="#606060"/><text x="573.91" y="77" font-family="Arial" font-size="16">2 805</text><text x="0" y="120" font-family="Arial" font-size="16">Пищеварение</text><rect x="285" y="101" width="251.07" height="26" fill="#606060"/><text x="546.07" y="120" font-family="Arial" font-size="16">2 525</text><text x="0" y="163" font-family="Arial" font-size="16">Эндокринные</text><rect x="285" y="144" width="63.24" height="26" fill="#606060"/><text x="358.24" y="163" font-family="Arial" font-size="16">636</text><text x="0" y="206" font-family="Arial" font-size="16">Мочеполовые</text><rect x="285" y="187" width="234.36" height="26" fill="#606060"/><text x="529.36" y="206" font-family="Arial" font-size="16">2 357</text><text x="0" y="249" font-family="Arial" font-size="16">Ухо и сосцевидный отросток</text><rect x="285" y="230" width="16.31" height="26" fill="#606060"/><text x="311.31" y="249" font-family="Arial" font-size="16">164</text></svg></div><figcaption>РФ, 2024 год. Все возраста и профили стационара. Показаны только шесть выбранных классов; единица: тысяча человек. Источник: Росстат, таблица 3.17, с. 97.</figcaption></figure>
+<div class="table-wrap"><table ><thead><tr><th scope="col">Класс</th><th scope="col">Выбыло, тыс.</th><th scope="col">Доля всех, %</th><th scope="col">Доля выбранных, %</th><th scope="col">План из 60</th></tr></thead><tbody><tr><td>Болезни системы кровообращения</td><td>4928</td><td>17.91</td><td>36.73</td><td>22</td></tr><tr><td>Болезни органов дыхания</td><td>2805</td><td>10.19</td><td>20.91</td><td>13</td></tr><tr><td>Болезни органов пищеварения</td><td>2525</td><td>9.18</td><td>18.82</td><td>11</td></tr><tr><td>Болезни эндокринной системы</td><td>636</td><td>2.31</td><td>4.74</td><td>3</td></tr><tr><td>Болезни мочеполовой системы</td><td>2357</td><td>8.57</td><td>17.57</td><td>10</td></tr><tr><td>Болезни уха и сосцевидного отростка</td><td>164</td><td>0.60</td><td>1.22</td><td>1</td></tr></tbody></table></div>
+
+<p>Из расчёта исключены, например, онкологические, акушерские и травматологические случаи: они требуют других маршрутов. Это решение о границах первой исследуемой выборки, а не утверждение, что шесть выбранных классов покрывают весь рынок терапии. Сопутствующие состояния могут принадлежать и другим классам.</p>
+<p>Для пробной партии из 60 базовых историй рассчитываю доли внутри выбранных классов: <code>n_i = 60 × число класса / 13 415</code>. Сначала беру целую часть, оставшиеся места распределяю по наибольшему дробному остатку. Получается 22, 13, 11, 3, 10 и 1 история соответственно. Это план, 60 историй ещё не сгенерированы и не размечены. Отдельно добавлю по два проверочных случая каждого класса для редких условий; их нельзя смешивать с основной партией при подсчёте общей частоты ошибок.</p>
+<p>Возраст, пол, тяжесть и сочетания диагнозов из таблицы 3.17 не следуют. До получения более подробной статистики не подгоняю их под придуманные проценты. Для проверки охвата использую заданные категории возраста 18–44, 45–64 и 65+, наличие сопутствующей болезни, перевод между отделениями, отказ, неполную выгрузку и поздний результат. Это факторы экспериментального дизайна.</p>
+<h3>Подготовленные примеры</h3>
+<p>В <code>data/research/base-cases.json</code> находятся 12 разных заготовок: по две на каждый класс. У них разные жалобы, возраст, клинический контекст и состав документов. Они иллюстрируют задачу до создания полного набора. Выбранные диагнозы служат примерами класса; их доли не получены из Росстата. ЛОР-примеры проверяют передачу случая профильному специалисту, а не лечение осложнённого отита терапевтом.</p>
+<p>У каждой заготовки есть исходная запись, документ с результатом, запись при выписке, время проверки, диагноз и перечень вопросов для эксперта. Числа и события вымышлены. Я не добавлял дозировки и не утверждаю, что представлен полный план лечения. Клинические рекомендации используются для выбора полей и будущей проверки; для запуска клинического аудита потребуется подтвердить версии по всем выбранным заболеваниям. Для пневмонии и ХСН найдены материалы разработчиков; карточка диабета в доступной выдаче содержит старую дату пересмотра. <a href="https://spulmo.ru/upload/KR-vnebolnichnaya-pnevmoniya-u-vzroslyh-2024.pdf">CAP</a> <a href="https://russjcardiol.elpub.ru/jour/article/download/6162/4522">HF</a> <a href="https://cr.minzdrav.gov.ru/view-cr/290_2">DM</a></p>
+<p>Из каждой заготовки создаю два технических варианта: результат становится доступен позже проверки либо код диагноза расходится в выписке и счёте. Итого 24 варианта и 12 исходных заготовок. Метки ожидаемой инженерной реакции лежат отдельно в <code>expectations.json</code>; они не являются заключениями врача. Прежние восемь примеров в <code>data/cases.json</code> сохраняю для существующих тестов и не прибавляю к числу независимых историй.</p>
+<h3>Как получить реалистичную симуляцию</h3>
+<ol>
+<li>Согласовать целевую организацию, условия помощи, возрастную группу, период и перечень диагнозов. По её статистике заменить общероссийские доли, если они заметно отличаются.</li>
+<li>Для каждого диагноза выбрать действующую на дату случая рекомендацию и карту требований. Врач утверждает допустимые сочетания жалоб, результатов, тяжести и маршрута.</li>
+<li>Создавать базовую историю по временному графу: поступление → обследование → назначения и выполнение → динамика → выписка. Значение результата должно согласоваться с единицей, временем и контекстом. Правдоподобность нельзя получить независимой случайной генерацией полей.</li>
+<li>Сначала проверить базовую историю, затем вводить один известный дефект. Хранить тип изменения и исходную историю. Отдельно создавать случаи без дефекта, неизвестного статуса и обоснованного отклонения.</li>
+<li>Два специалиста независимо размечают применимость критерия, факт, источник, тип замечания и значимость. Разногласия обсуждают; согласованная метка хранится с объяснением.</li>
+<li>Делить данные по базовым историям, пациентам и шаблонам, сохраняя все варианты семьи в одной части. Примерное разделение будущих 60 историй: 30 для разработки, 15 для настройки и 15 для закрытой проверки. Для надёжных оценок редких дефектов понадобится больше данных.</li>
+</ol>
+<h3>Условия приёмки данных</h3>
+<p>До клинической оценки проверяю: корректность дат и единиц, отсутствие фактов из будущего, явные пропуски, связь факта с документом, соответствие кодов и текста, доли классов, отсутствие пересечения семей между частями. Эти проверки подтверждают целостность набора. Реалистичность, показания к госпитализации, достаточность обследования и правильность лечения должен подтвердить врач. Сейчас такого подтверждения нет; примеры готовы именно для согласования.</p></section><section class="chapter" id="chapter-5"><h2>Архитектура полного решения</h2>
+<p>Я разделил общую систему на подготовку документов, клиническую работу и экспертизу. Все ветви используют одни и те же факты случая и версии источников. Это позволяет эксперту проверить основание предложенного врачебного действия и увидеть, какие действия подтверждены документами.</p>
+<h4>Общая подготовка</h4><div class="diagram"><svg role="img" aria-label="Общая подготовка" viewBox="0 0 960 110" xmlns="http://www.w3.org/2000/svg"><title>Общая подготовка</title><rect x="0.0" y="10" width="216.0" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="108.0" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Файлы / МИС / OCR</text><path d="M220.0 55 h24 m-6 -5 l6 5 -6 5" fill="none" stroke="#444"/><rect x="248.0" y="10" width="216.0" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="356.0" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Факты и хронология</text><path d="M468.0 55 h24 m-6 -5 l6 5 -6 5" fill="none" stroke="#444"/><rect x="496.0" y="10" width="216.0" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="604.0" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Онтология и версии знаний</text><path d="M716.0 55 h24 m-6 -5 l6 5 -6 5" fill="none" stroke="#444"/><rect x="744.0" y="10" width="216.0" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="852.0" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Поиск и правила</text></svg></div><h4>Клиническая ветвь</h4><div class="diagram"><svg role="img" aria-label="Клиническая ветвь" viewBox="0 0 960 110" xmlns="http://www.w3.org/2000/svg"><title>Клиническая ветвь</title><rect x="0.0" y="10" width="216.0" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="108.0" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Состояние пациента</text><path d="M220.0 55 h24 m-6 -5 l6 5 -6 5" fill="none" stroke="#444"/><rect x="248.0" y="10" width="216.0" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="356.0" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Проект плана и основания</text><path d="M468.0 55 h24 m-6 -5 l6 5 -6 5" fill="none" stroke="#444"/><rect x="496.0" y="10" width="216.0" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="604.0" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Оценка динамики</text><path d="M716.0 55 h24 m-6 -5 l6 5 -6 5" fill="none" stroke="#444"/><rect x="744.0" y="10" width="216.0" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="852.0" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Решение врача и запись</text></svg></div><h4>Экспертная ветвь</h4><div class="diagram"><svg role="img" aria-label="Экспертная ветвь" viewBox="0 0 960 110" xmlns="http://www.w3.org/2000/svg"><title>Экспертная ветвь</title><rect x="0.0" y="10" width="216.0" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="108.0" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Карта и счёт</text><path d="M220.0 55 h24 m-6 -5 l6 5 -6 5" fill="none" stroke="#444"/><rect x="248.0" y="10" width="216.0" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="356.0" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Критерии и исключения</text><path d="M468.0 55 h24 m-6 -5 l6 5 -6 5" fill="none" stroke="#444"/><rect x="496.0" y="10" width="216.0" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="604.0" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Замечания и доказательства</text><path d="M716.0 55 h24 m-6 -5 l6 5 -6 5" fill="none" stroke="#444"/><rect x="744.0" y="10" width="216.0" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="852.0" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Решение эксперта</text></svg></div><h4>Общий контроль</h4><div class="diagram"><svg role="img" aria-label="Общий контроль" viewBox="0 0 960 110" xmlns="http://www.w3.org/2000/svg"><title>Общий контроль</title><rect x="0.0" y="10" width="216.0" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="108.0" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Проверка ссылок и фактов</text><path d="M220.0 55 h24 m-6 -5 l6 5 -6 5" fill="none" stroke="#444"/><rect x="248.0" y="10" width="216.0" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="356.0" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Vue: две панели оснований</text><path d="M468.0 55 h24 m-6 -5 l6 5 -6 5" fill="none" stroke="#444"/><rect x="496.0" y="10" width="216.0" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="604.0" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Решение и комментарий</text><path d="M716.0 55 h24 m-6 -5 l6 5 -6 5" fill="none" stroke="#444"/><rect x="744.0" y="10" width="216.0" height="90" rx="3" fill="#f6f6f6" stroke="#777"/><text x="852.0" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#222">Журнал версий и экспорт</text></svg></div>
+
+<h3>Модули и ожидаемые результаты</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Модуль</th>
+<th>Вход → выход</th>
+<th>Почему нужен и как проверять</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Приём документов и OCR</td>
+<td>PDF, сканы, выгрузка МИС → страницы, текст, координаты, оценка качества распознавания</td>
+<td>Без точного текста нельзя надёжно проверить карту. Низкое качество страницы требует ручной сверки</td>
+</tr>
+<tr>
+<td>Извлечение и временная модель</td>
+<td>Документы → факты, единицы, отрицания, события, источники</td>
+<td>Разделяет назначение, выполнение и результат. Проверяется на размеченных фрагментах</td>
+</tr>
+<tr>
+<td>Реестр знаний</td>
+<td>КР, приказы, справочники, локальные правила → версии и применимые требования</td>
+<td>Исключает смешение регионов и редакций; сохраняет историю</td>
+</tr>
+<tr>
+<td>Онтология случая</td>
+<td>Диагнозы, состояния, действия, исключения → связи между сущностями</td>
+<td>Соединяет «требуется исследование», «назначено», «выполнено», «есть результат»; уменьшает зависимость от формулировок</td>
+</tr>
+<tr>
+<td>Поиск RAG</td>
+<td>Вопрос, диагноз, возраст, дата, условия помощи → фрагменты с идентификаторами</td>
+<td>Сначала фильтры применимости, затем поиск. Релевантность измеряется отдельно от качества ответа</td>
+</tr>
+<tr>
+<td>Клиническая ветвь</td>
+<td>Состояние пациента и источники → проект плана, вопросы, черновик записи</td>
+<td>Поддерживает врача, сохраняет основания; новые факты требуют повторной оценки</td>
+</tr>
+<tr>
+<td>Модель динамики</td>
+<td>Последовательность наблюдений → пересчитанный контекст и изменения проекта плана</td>
+<td>Не приписывает пациенту сгенерированные результаты; учебная симуляция помечается отдельно</td>
+</tr>
+<tr>
+<td>Экспертная ветвь</td>
+<td>Карта, критерии, сведения счёта → проекты замечаний и приоритеты</td>
+<td>Разделяет документальный, клинический и финансовый вопросы; не назначает санкции</td>
+</tr>
+<tr>
+<td>Формальные правила</td>
+<td>Коды, даты, обязательные связи → детерминированные несоответствия</td>
+<td>Числа, справочники и контроль полей проверяются без свободной генерации</td>
+</tr>
+<tr>
+<td>Проверка ответа модели</td>
+<td>Проект вывода → подтверждённые ссылки, противоречия, отказ от вывода</td>
+<td>Проверяет существование фрагмента и точность цитаты; смысловую достаточность оценивает отдельно</td>
+</tr>
+<tr>
+<td>Рабочее место Vue</td>
+<td>Факты и замечания → решение врача или эксперта, комментарий, исправление</td>
+<td>Две панели: основание в карте и основание в документе. Разные полномочия ролей</td>
+</tr>
+<tr>
+<td>Протокол и экспорт</td>
+<td>Решения пользователя → версия отчёта, история, проект экспертного документа</td>
+<td>Сохраняет автора и изменения; повторная проверка воспроизводится</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Где хранить данные</h3>
+<p>Для учебного прототипа достаточно SQLite и файлового хранилища. Предлагаю таблицы <code>encounters</code>, <code>documents</code>, <code>observations</code>, <code>orders</code>, <code>procedures</code>, <code>claims</code>, <code>source_versions</code>, <code>requirements</code>, <code>chunks</code>, <code>audit_runs</code>, <code>findings</code>, <code>reviews</code>. Полные файлы хранятся отдельно с контрольной суммой. При переходе к нескольким организациям потребуется серверная база, разграничение доступа и отдельный контур хранения медицинских данных.</p>
+<p>Минимальный факт содержит значение, единицу, время события, время доступности, отрицание/неизвестность и координаты источника. Требование содержит область применения, условие, исключения, действие, документ и период действия. Связи онтологии: «подтверждает», «противоречит», «назначено», «выполнено», «результат получен», «исключение обосновано». Хранить такую схему можно в обычных таблицах; графовая база на первом этапе не обязательна.</p>
+<h3>Как готовить и искать документы</h3>
+<p>Сначала регистрирую источник и проверяю редакцию. Затем извлекаю текст постранично, сверяю таблицы и создаю фрагменты по смысловым разделам. Требование не отрывается от условий, примечаний и заголовка таблицы. Для поиска начинаю с BM25; гибридный поиск добавлю только после сравнения на размеченных запросах. Числа тарифов, коды и даты держу в структурированных таблицах, а не только в текстовых фрагментах.</p>
+<p>Поиск фильтруется по диагнозу, возрасту, условиям помощи, региону и дате случая. Если версия или регион неизвестны, система сообщает об этом и не делает финансовый вывод. Ответ модели обязан ссылаться на переданные <code>chunk_id</code> и <code>evidence_id</code>. Точное совпадение цитаты ещё не доказывает, что она обосновывает вывод, поэтому проверка основания имеет два уровня: технический и содержательный.</p>
+<h3>Реализация и проект</h3>
+<p>Сейчас работают FastAPI, Vue, настройки, технический запрос и адаптер Mistral. OCR, онтология, корпус RAG, клиническая и экспертная ветви, хранилище истории ещё не реализованы. Новые файлы данных и схемы в этом отчёте описывают исследование и подготовку следующего этапа. Я не выдаю нарисованную архитектуру за работающую систему.</p>
+<p>Интерфейс <code>StructuredProvider</code> уже отделяет приложение от API Mistral. Для замены провайдера понадобится отдельный адаптер и те же проверки схемы, ошибок и метрик. Бесплатного API достаточно для технической части; отдельный GPU сейчас не нужен. Вопрос доступа к Gemini/Gemma остаётся в прежнем состоянии.</p></section><section class="chapter" id="chapter-6"><h2>Первая функция: проверка карты перед выпиской</h2>
+<p>Первой функцией я выбираю проверку согласованности документов и наличия оснований перед закрытием стационарного случая. Она полезна врачу и внутреннему эксперту, а результат можно использовать при подготовке к внешней экспертизе. Для первого клинического набора ограничу критерии внебольничной пневмонией у взрослых. Шесть групп заболеваний остаются в исследовании и плане расширения.</p>
+<p>Почему начинаю здесь: есть доступная клиническая рекомендация и понятный результат проверки; можно связать запись, исследование и выписку; ошибки времени и источников измеримы без выдачи пациенту плана лечения. Полный персонализированный план, моделирование динамики и оценка финансовых последствий потребуют больше источников и отдельной проверки.</p>
+<h3>Вход и результат</h3>
+<p>Вход: текстовые документы одной госпитализации, момент проверки, возраст, условия помощи, диагноз, версии источников и необязательная учебная строка счёта. Первая реализация принимает текст или JSON; OCR добавлю отдельным шагом, чтобы ошибки распознавания не смешивались с ошибками проверки.</p>
+<p>Результат: список проверенных критериев со статусами «подтверждено», «противоречие», «недостаточно сведений», «неприменимо» или «требуется эксперт». Для замечания показываю факт и место в карте, требование и его версию, условие применимости, вопрос пользователю и основание приоритета. Пустой список замечаний не равен заключению о качестве всей помощи.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Ситуация</th>
+<th>Ожидаемое поведение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Исследование назначено, отдельного результата нет</td>
+<td>Сообщить о недостатке сведений; предложить проверить наличие результата в выгрузке</td>
+</tr>
+<tr>
+<td>Результат загружен после момента проверки</td>
+<td>Не использовать его в прежнем заключении; новая проверка создаёт новую версию</td>
+</tr>
+<tr>
+<td>Услуга заявлена в счёте, доказательство выполнения отсутствует</td>
+<td>Обозначить документальное расхождение; не утверждать фиктивность услуги</td>
+</tr>
+<tr>
+<td>В выписке и счёте разные коды</td>
+<td>Показать оба значения и запросить проверку кодирования; не выбирать диагноз автоматически</td>
+</tr>
+<tr>
+<td>Есть отказ или противопоказание</td>
+<td>Проверить применимость критерия и основание исключения; не ставить дефект только по отсутствию действия</td>
+</tr>
+<tr>
+<td>Случай ребёнка, реанимации или другой нозологии</td>
+<td>Сообщить границы набора критериев и направить на ручную проверку</td>
+</tr>
+<tr>
+<td>Нет подходящей версии источника</td>
+<td>Не формировать нормативное заключение; вывести, какого документа не хватает</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Экран и действия пользователя</h3>
+<p>Слева располагается хронология документов, в центре список замечаний, справа оба основания. Врач может открыть фрагмент, указать недостающий документ или добавить обоснование. Эксперт принимает, отклоняет либо уточняет замечание. Ответ и комментарий сохраняются в журнале. Повторная проверка показывает, какие замечания исчезли и почему. Отправка счёта и подписание карты остаются в существующем процессе организации.</p>
+<h3>Приёмка функции</h3>
+<p>Функция принимается после проверки на закрытом наборе с согласованной разметкой. Обязательны отсутствие выдуманных ссылок, корректная работа с временем, явное отделение неизвестного от отрицательного и отсутствие утечки разметки во вход модели. Численные клинические пороги и дизайн сравнения описаны в разделе оценки; сейчас они не достигнуты, поскольку функция ещё не реализована.</p></section><section class="chapter" id="chapter-7"><h2>Как оценивать качество и пользу</h2>
+<p>Я разделяю технические тесты, оценку извлечения и поиска, экспертное качество и результат в работе пользователя. Успешный запрос к Mistral подтверждает доступность API; он ничего не говорит о качестве клинического аудита.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Уровень</th>
+<th>Метрика и знаменатель</th>
+<th>С чем сравнивать</th>
+<th>Статус</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Извлечение</td>
+<td>Precision/recall фактов и правильность времени, единиц, отрицаний на размеченных фрагментах</td>
+<td>Регулярные правила и структурированная выгрузка</td>
+<td>План</td>
+</tr>
+<tr>
+<td>Поиск</td>
+<td>Recall@5: доля размеченных релевантных фрагментов, найденных в первых пяти результатах; среднее по запросам</td>
+<td>BM25 против гибридного поиска</td>
+<td>План</td>
+</tr>
+<tr>
+<td>Обоснование</td>
+<td>Доля выводов с существующей ссылкой; отдельно доля ссылок, действительно подтверждающих вывод</td>
+<td>Ручная проверка двух экспертов</td>
+<td>План; цель для существования ссылок 100%</td>
+</tr>
+<tr>
+<td>Дефекты</td>
+<td>TP/(TP+FP) и TP/(TP+FN), отдельно по значимости и классу</td>
+<td>Ручной чек-лист, формальные правила, правила + RAG + модель</td>
+<td>План; ориентиры проекта: recall критичных ≥95%, precision ≥90%</td>
+</tr>
+<tr>
+<td>Полезность</td>
+<td>Принятые экспертом рекомендации / рассмотренные рекомендации</td>
+<td>Слепая оценка результата без названия модели</td>
+<td>План; ориентир проекта ≥90%</td>
+</tr>
+<tr>
+<td>Время</td>
+<td>Медиана и разброс минут на карту, включая проверку ответа и исправления</td>
+<td>Один и тот же набор в обычном процессе и с помощником</td>
+<td>Базовое время организации неизвестно</td>
+</tr>
+<tr>
+<td>Нагрузка</td>
+<td>Лишние замечания на карту, доля карт без полезного результата, число ручных уточнений</td>
+<td>Ручная проверка</td>
+<td>План</td>
+</tr>
+<tr>
+<td>Надёжность</td>
+<td>Завершённые запуски / все запуски, задержка, токены, ошибки схемы</td>
+<td>Одинаковые случаи и настройки</td>
+<td>Сейчас есть только технические проверки</td>
+</tr>
+</tbody>
+</table></div>
+<p>Пороги служат проектными ориентирами, а не результатами эксперимента. При небольшом наборе обязательно покажу абсолютные TP, FP, FN и интервалы неопределённости. Нулевое число ошибок на десятке примеров не докажет 95% полноты. «Доля правильных ответов» без числа положительных и отрицательных примеров может скрыть пропуски редких критичных дефектов.</p>
+<h3>Сравнительный эксперимент</h3>
+<p>Сначала эксперт размечает случаи без ответов системы. Затем сравниваю ручной чек-лист, формальные правила, RAG без генерации и RAG с Mistral. Модель, параметры, корпус и версия каждого входа фиксируются. Состав набора одинаковый; варианты одной базовой истории не пересекают части. Промпт и параметры настраиваются только на открытой части.</p>
+<p>В пользовательском испытании меняю порядок условий между участниками и учитываю повторное знакомство с картой. Измеряю всё время проверки, а не только скорость ответа сервера. Для разметки использую два независимых заключения и разбор расхождений. Межэкспертное согласие сообщаю отдельно от качества модели. Доступа к врачам для такого испытания пока нет.</p>
+<h3>Что показывают опубликованные результаты</h3>
+<p>В РКИ Lukac et al. участвовали 238 амбулаторных врачей 14 специальностей в США. Относительно контроля Nabla уменьшила время написания записи на 9,5%: 95% ДИ изменения от −17,2% до −1,8%. Для DAX изменение составило −1,7%, ДИ от −9,4% до +5,9%; статистически значимого эффекта по этому исходу не показано. Период испытания: 04.11.2024–03.01.2025. Это пример измеренного эффекта на конкретной задаче, а не ожидаемая экономия моего проекта. <a href="https://doi.org/10.1056/AIoa2501000">RCT</a></p>
+<p>Для российских продуктов в изученных публичных описаниях нет общего испытания на одном открытом наборе с одинаковыми метками. Поэтому я сравниваю их функции и качество доказательств, а рейтинг по точности не строю. Собственный набор сначала должен пройти экспертное согласование.</p></section><section class="chapter" id="chapter-8"><h2>Mistral сейчас, Gemini позже</h2>
+<p>18 октября 2026 года я подключил Mistral и проверил соединение одним техническим запросом без медицинских данных. За основу взял клиент из <a href="https://github.com/VAVASTO/AIMedicine/tree/e2f4877">отборочного проекта AIMedicine</a>.</p>
+<h3>Что произошло с Google</h3>
+<p>После входа Google AI Studio перенаправлял на <a href="https://aistudio.google.com/docs/available-regions">страницу доступных регионов</a>; ранее появлялась ошибка получения списка моделей. Создать ключ не удалось.</p>
+<p>18 октября 2026 года я повторно попробовал создать ключ с телефона через VPN с выбранной локацией США. Кнопка создания ключа была недоступна либо интерфейс указывал на отсутствие прав. Точный текст ошибки я не сохранил, причину ограничения пока не установил. Ключ получить не удалось.</p>
+<p>Gemini и Gemma пока не вызывались, поэтому этот пункт задания остаётся незавершённым. Для продолжения разработки я подключил Mistral; его техническая проверка прошла успешно. После решения проблемы доступа планирую вернуться к Google AI Studio и проверить модели на том же наборе примеров.</p>
+<h3>Что перенесено из примера</h3>
+<p>В <code>aimedicine/llm.py</code> отборочного проекта используется официальный HTTPS endpoint, переменные окружения, JSON Schema и проверка ответа через Pydantic. Также ограничены попытки, обработаны квоты и обрезанные ответы. Эти решения я адаптировал в <code>itmo_aimedicine/llm.py</code>.</p>
+<p>В новом клиенте нет дискового кеша: для технической проверки он не нужен и мог бы скрыть отсутствие свежего ответа API. После неоднозначной сетевой ошибки автоматического повтора нет, чтобы не дублировать потенциально оплаченный запрос. Повтор предусмотрен только для 429, 502, 503 и 504, максимум три попытки на один вызов. Между попытками есть ограниченная пауза.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Назначение</th>
+<th>Сейчас</th>
+<th>Дальше</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Проверка соединения</td>
+<td><code>ministral-8b-2512</code>, успешный технический JSON</td>
+<td>Доступ подтверждён; клиническое качество ещё не проверено</td>
+</tr>
+<tr>
+<td>Подготовка замечаний</td>
+<td>Mistral, модель задаётся настройкой</td>
+<td>Выбрать по качеству и квоте после эксперимента</td>
+</tr>
+<tr>
+<td>Проверка результата</td>
+<td>Формальные правила и проверка человеком</td>
+<td>Отдельную LLM-проверку оценить как дополнительный вариант</td>
+</tr>
+<tr>
+<td>Сравнение провайдеров</td>
+<td>Gemini/Gemma отложены</td>
+<td>Добавить адаптер и провести одинаковые тесты</td>
+</tr>
+</tbody>
+</table></div>
+<p>В ответе API подтверждена модель <code>ministral-8b-2512</code>: 49 входных и 24 выходных токена, всего 73; одна попытка, 763 мс. Формат JSON прошёл проверку схемы. Это проверка соединения, а не оценка качества медицинских ответов.</p>
+<p>В Subscription активен Free с включённым объёмом API/Studio на $10 в месяц. Платный перерасход API pay-as-you-go выключен; подписка не менялась. Эти условия зафиксированы при подключении 18 октября 2026 года. Пределы частоты запросов зависят от модели, нагрузочный тест не проводился.</p>
+<p>Ключ я создал без срока действия. Он привязан к <code>Default Workspace</code>, права на подключения ограничены <code>Shared only</code>. Клиент отправляет запросы только в <code>/chat/completions</code> и не использует подключения к внешним сервисам. Локальная настройка ограничивает проверку одной попыткой и 128 токенами ответа. Приложение не управляет тарифом, поэтому API pay-as-you-go нужно оставлять выключенным в аккаунте.</p>
+<h3>Документация API</h3>
+<ul>
+<li><a href="https://docs.mistral.ai/api">Mistral Chat API</a>: формат сообщений и endpoint.</li>
+<li><a href="https://docs.mistral.ai/studio/conversations/structured-output/custom">Структурированный ответ</a>: JSON Schema.</li>
+<li><a href="https://docs.mistral.ai/getting-started/quickstarts/developer/first-api-request">Первый запрос</a>: ключ через переменную окружения.</li>
+</ul>
+<p>Секрет хранится в локальном <code>.env</code> или окружении процесса, не возвращается интерфейсу. <code>mock</code> и <code>live</code> явно разделены. Ошибка реального API заканчивает проверку с ошибкой.</p>
+<h3>Порядок перехода на Gemini</h3>
+<ol>
+<li>Подтвердить доступ к AI Studio и доступные модели.</li>
+<li>Добавить адаптер к контракту <code>StructuredProvider</code> и настройки Google.</li>
+<li>Проверить формат JSON, неполные ответы, ошибки, учёт токенов и ограничения запросов.</li>
+<li>Запустить техническую проверку, затем сравнение на синтетических примерах.</li>
+<li>Сменить <code>LLM_PROVIDER</code> после проверок. Код клинического процесса менять не потребуется.</li>
+</ol></section><section class="chapter" id="chapter-9"><h2>Результаты проверки</h2>
+<p>Проверки я выполнил 18 октября 2026 года. После локальных тестов отправил один реальный технический запрос к Mistral. Gemini и Gemma не вызывались.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Проверка</th>
+<th>Фактический результат</th>
+<th>Что это доказывает</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Тесты нового проекта</td>
+<td>29 passed</td>
+<td>Формат запросов, обработка ошибок, разделение режимов, API и структура восьми примеров</td>
+</tr>
+<tr>
+<td>Локальная техническая проверка</td>
+<td><code>mock</code>, 0 обращений к API</td>
+<td>CLI работает без ключа и явно обозначает имитацию</td>
+</tr>
+<tr>
+<td>Vue/Vite</td>
+<td>Сборка прошла; кнопка проверена в браузере</td>
+<td>Запрос дошёл до Python и вернулся в интерфейс с режимом <code>mock</code> и 0 обращений к модели</td>
+</tr>
+<tr>
+<td>Клиент отборочного проекта</td>
+<td>34 passed</td>
+<td>Выбранный модуль Mistral проходит свои тесты на текущем окружении</td>
+</tr>
+<tr>
+<td>Живой Mistral</td>
+<td><code>ministral-8b-2512</code>, JSON <code>status=ok</code>, 1 попытка, 73 токена, 763 мс</td>
+<td>Ключ работает, ответ модели прошёл проверку схемы</td>
+</tr>
+<tr>
+<td>Gemini/Gemma</td>
+<td>Ключ AI Studio не создан; повторная попытка с телефона через VPN США также не удалась</td>
+<td>Причина ограничения не установлена; модели не вызывались</td>
+</tr>
+<tr>
+<td>Клинический аудит</td>
+<td>Ещё не реализован</td>
+<td>Клиническая точность не измерялась</td>
+</tr>
+</tbody>
+</table></div>
+<p>Результаты тестов сохранил в <code>reports/checks/pytest.xml</code>, <code>reports/checks/mock-smoke.json</code>, <code>reports/checks/reference-mistral.xml</code>, <code>reports/checks/mistral-live.json</code>. В тестовом клиенте FastAPI получено предупреждение об устаревающем способе подключения HTTPX; на результат оно не повлияло.</p>
+<p>Технический запрос содержит только проверочную фразу, без медицинских данных. Использовано 49 входных и 24 выходных токена. Перед запросом проверен тариф Free; API pay-as-you-go выключен. Ключ сохранён в локальном <code>.env</code> с правами доступа <code>0600</code>, файл исключён из Git.</p>
+<h3>Отборочный проект</h3>
+<p>Для отборочного задания я делал <a href="https://github.com/VAVASTO/AIMedicine">VAVASTO/AIMedicine</a>. В этой работе проверил коммит <code>e2f4877</code>: запустил только <code>tests/test_llm.py</code>, без правки исходников и без сети. Файл содержит 34 проверки, включая кеш, бюджет запросов, квоты, задержки повторов, JSON Schema, неверные ответы и отсутствие утечки ключа.</p>
+<p>Полный набор из 262 тестов и прежние live-результаты описаны в README старого проекта. Полный набор я повторно не запускал, сохранённые ответы модели не засчитывал как новые результаты.</p>
+<p>Чтобы воспроизвести выбранные проверки, клонируйте отборочный репозиторий, перейдите на коммит <code>e2f4877</code>, установите его зависимости и выполните <code>python -m pytest tests/test_llm.py -q</code>. Для повторного запуска я использовал Python 3.12.14 и зависимости из <code>requirements.lock.txt</code> нового проекта.</p>
+<h3>Проверки доработки от 25 октября</h3>
+<p>Для новых материалов добавил проверку расчёта выборки, уникальности примеров, хронологии, отделения ожидаемых реакций от входных данных и ссылок на источники. Повторный запуск завершился: 35 тестов пройдено, обращений к моделям не было. Результат сохранён в <code>reports/checks/pytest-revision.xml</code>. Исходные результаты от 18 октября не перезаписываются.</p>
+<h3>Что осталось</h3>
+<p>Проверить актуальную редакцию рекомендаций; согласовать клинические поля и разметку с врачом; реализовать поиск и первую функцию; вернуться к Gemini/Gemma.</p></section><section class="chapter" id="chapter-10"><h2>Выполнение первого этапа и следующие шаги</h2>
+<p>Я перечитал описание проекта, раздел с общей информацией, руководство по отчётам и PDF с семью блоками первой недели. Доработка от 25 октября 2026 года посвящена исследованию и проектированию. Результаты технических проверок от 18 октября сохранены с исходной датой.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Блок задания</th>
+<th>Результат в отчёте</th>
+<th>Что ещё не подтверждено</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Проблема и процесс</td>
+<td>Три роли, передача документов, отдельные виды контроля ОМС, боли и метрики</td>
+<td>Проверка модели процесса в конкретной клинике</td>
+</tr>
+<tr>
+<td>2. Существующие решения</td>
+<td>12 подходов и продуктов, схемы процесса, источники и уровень доказательств</td>
+<td>Прямое испытание коммерческих продуктов на одном наборе</td>
+</tr>
+<tr>
+<td>3. Полное решение</td>
+<td>Клиническая и экспертная ветви, подготовка документов, онтология, RAG, протоколы</td>
+<td>Клинические модули пока спроектированы</td>
+</tr>
+<tr>
+<td>4. Окружение</td>
+<td>Репозиторий, FastAPI/Vue, работающий Mistral, проверки отборочного проекта</td>
+<td>Доступ к Google остаётся нерешённым</td>
+</tr>
+<tr>
+<td>5. Данные</td>
+<td>Статистика Росстата, расчёт пробной выборки, методика симуляции, 12 заготовок и 24 технических варианта</td>
+<td>Клиническая реалистичность и разметка требуют врача</td>
+</tr>
+<tr>
+<td>6. Документы и RAG</td>
+<td>24 типа документов, источник, применение, состояние доступа и хранение</td>
+<td>Полный актуальный корпус и документы организации</td>
+</tr>
+<tr>
+<td>7. Первая функция</td>
+<td>Вход, выход, экран, исключения, критерии оценки и причина выбора</td>
+<td>Реализация и закрытое испытание</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Что не получилось и что изменил</h3>
+<p>Первый обзор был слишком узким: фактически я подготовил техническую основу и одну семью примеров. Этого недостаточно для исследования клинической работы и экспертизы ОМС. Я расширил процессы, аналоги и состав документов, а восемь прежних примеров оставил в роли инженерных тестов.</p>
+<p>Не удалось создать ключ Google AI Studio, включая попытку с телефона через VPN США. Причина ограничения не установлена; подробности сохранены в разделе моделей. В этой доработке новых попыток не было, использую Mistral. Платные услуги не подключал.</p>
+<p>В открытых источниках не нашёл сопоставимой точности российских конкурентов на общей выборке. Не заменяю её маркетинговыми процентами. Квартальный файл ТФОМС получить не удалось; его цифры в расчёты не включал. Даты и версии клинических рекомендаций в разных копиях расходятся, поэтому непроверенные документы не помечаю актуальными.</p>
+<h3>Порядок дальнейшей работы</h3>
+<ol>
+<li>Согласовать с руководителем охват заболеваний, два рабочих процесса и пакет из 12 примеров. Получить замечания по клинической правдоподобности и маршрутам.</li>
+<li>Найти врача и эксперта ОМС, выбрать организацию и регион; получить разрешённые формы, локальные правила и примеры заключений. Без этого оценка финансовых рисков остаётся проектом.</li>
+<li>Собрать и проверить версии документов для первой функции; разметить применимость требований и основания. Начать с пневмонии, затем переносить общий процесс на другие классы.</li>
+<li>Реализовать извлечение фактов и формальные проверки; добавить поиск, затем Mistral. Сравнить каждый следующий вариант с предыдущим на одном наборе.</li>
+<li>Провести экспертную разметку и закрытое испытание. Только после этого сообщать о клиническом качестве, времени и возможном экономическом эффекте.</li>
+</ol>
+<p>Каждый пункт завершается отдельным проверяемым результатом: согласованный охват, набор документов, размеченный корпус, работающая функция и протокол испытания. Сейчас готовы материалы первого этапа для повторного рассмотрения; перечисленные проверки с участием специалистов ещё предстоят.</p></section>
+<section class="chapter" id="examples"><h2>Примеры для согласования</h2><p>12 вымышленных заготовок для обсуждения с врачом и экспертом. В них показана часть документов, а не полная история болезни. Показания к госпитализации, кодирование и клиническая достаточность ещё не подтверждены. Ожидаемые инженерные реакции хранятся отдельно от входных данных.</p><details><summary>research-01 · Декомпенсация хронической сердечной недостаточности · возраст: 68</summary><p>Код в учебном примере: I50.9. Проверка: 2026-10-06T12:00:00+03:00.</p><h4>admission · событие 2026-10-01T10:00</h4><p>Одышка при небольшой нагрузке, нарастание отёков голеней в течение недели. В анамнезе артериальная гипертензия. АД 145/85 мм рт. ст., пульс 96 в минуту, SpO2 94% на воздухе.</p><p class="meta">Доступно: 2026-10-01T11:00:00+03:00</p><h4>result · событие 2026-10-02T10:00</h4><p>Эхокардиография: фракция выброса левого желудочка 38%.</p><p class="meta">Доступно: 2026-10-03T10:00:00+03:00</p><h4>discharge · событие 2026-10-06T10:00</h4><p>Одышка уменьшилась, отёки сохраняются. В выписке требуется связать план наблюдения с состоянием при выписке.</p><p class="meta">Доступно: 2026-10-06T11:00:00+03:00</p><p><strong>Вопрос эксперту:</strong> Подтвердить показания, тяжесть и достаточность описания динамики.</p></details><details><summary>research-02 · Пароксизм фибрилляции предсердий · возраст: 75</summary><p>Код в учебном примере: I48.0. Проверка: 2026-10-06T12:00:00+03:00.</p><h4>admission · событие 2026-10-01T10:00</h4><p>Сердцебиение и слабость в течение суток. Ранее отмечал похожие короткие эпизоды. АД 125/80 мм рт. ст., пульс нерегулярный 128 в минуту.</p><p class="meta">Доступно: 2026-10-01T11:00:00+03:00</p><h4>result · событие 2026-10-02T10:00</h4><p>ЭКГ: фибрилляция предсердий с частотой желудочковых сокращений 126 в минуту.</p><p class="meta">Доступно: 2026-10-03T10:00:00+03:00</p><h4>discharge · событие 2026-10-06T10:00</h4><p>В дневнике частота пульса 82 в минуту. В выписке остаётся фибрилляция предсердий; факт восстановления синусового ритма не заявлен.</p><p class="meta">Доступно: 2026-10-06T11:00:00+03:00</p><p><strong>Вопрос эксперту:</strong> Проверить клинические основания оценки риска и план наблюдения; выбрать КР по фибрилляции предсердий.</p></details><details><summary>research-03 · Внебольничная пневмония · возраст: 66</summary><p>Код в учебном примере: J18.9. Проверка: 2026-10-06T12:00:00+03:00.</p><h4>admission · событие 2026-10-01T10:00</h4><p>Лихорадка и кашель четыре дня, слабость. Сахарный диабет 2 типа в анамнезе. Температура 38,3 °C, ЧДД 24 в минуту, SpO2 93% на воздухе.</p><p class="meta">Доступно: 2026-10-01T11:00:00+03:00</p><h4>result · событие 2026-10-02T10:00</h4><p>Рентгенография: инфильтрация в нижней доле правого лёгкого.</p><p class="meta">Доступно: 2026-10-03T10:00:00+03:00</p><h4>discharge · событие 2026-10-06T10:00</h4><p>Температура 36,8 °C, SpO2 96% на воздухе. Сохраняется умеренный кашель.</p><p class="meta">Доступно: 2026-10-06T11:00:00+03:00</p><p><strong>Вопрос эксперту:</strong> Проверить обоснование тяжести, условия госпитализации и полноту клинических полей.</p></details><details><summary>research-04 · Обострение ХОБЛ · возраст: 72</summary><p>Код в учебном примере: J44.1. Проверка: 2026-10-06T12:00:00+03:00.</p><h4>admission · событие 2026-10-01T10:00</h4><p>Усиление одышки и увеличение количества мокроты за три дня. Указана ХОБЛ в анамнезе. ЧДД 26 в минуту, SpO2 89% на воздухе.</p><p class="meta">Доступно: 2026-10-01T11:00:00+03:00</p><h4>result · событие 2026-10-02T10:00</h4><p>В описании рентгенографии свежая очаговая инфильтрация не выявлена.</p><p class="meta">Доступно: 2026-10-03T10:00:00+03:00</p><h4>discharge · событие 2026-10-06T10:00</h4><p>В последнем дневнике одышка уменьшилась. Не указано, на воздухе или при кислородной поддержке измерено SpO2 93%.</p><p class="meta">Доступно: 2026-10-06T11:00:00+03:00</p><p><strong>Вопрос эксперту:</strong> Выбрать КР по ХОБЛ; оценить необходимость сведений об условиях измерения и тяжести.</p></details><details><summary>research-05 · Язва желудка · возраст: 47</summary><p>Код в учебном примере: K25.9. Проверка: 2026-10-06T12:00:00+03:00.</p><h4>admission · событие 2026-10-01T10:00</h4><p>Боль в эпигастрии, тошнота; сообщает о приёме противовоспалительных средств по поводу боли в спине. АД 120/75 мм рт. ст., пульс 78 в минуту. Видимого кровотечения не описано.</p><p class="meta">Доступно: 2026-10-01T11:00:00+03:00</p><h4>result · событие 2026-10-02T10:00</h4><p>ЭГДС: язвенный дефект антрального отдела; результат биопсии в пакет документов не включён.</p><p class="meta">Доступно: 2026-10-03T10:00:00+03:00</p><h4>discharge · событие 2026-10-06T10:00</h4><p>Боль уменьшилась. В выписке нужен статус ожидаемого результата и дальнейшего наблюдения.</p><p class="meta">Доступно: 2026-10-06T11:00:00+03:00</p><p><strong>Вопрос эксперту:</strong> Проверить маршрут и необходимость госпитализации; выбрать актуальные КР по язвенной болезни.</p></details><details><summary>research-06 · Алкогольный цирроз печени · возраст: 61</summary><p>Код в учебном примере: K70.3. Проверка: 2026-10-06T12:00:00+03:00.</p><h4>admission · событие 2026-10-01T10:00</h4><p>Увеличение живота и отёки ног. Цирроз отмечен в предыдущей выписке. АД 110/70 мм рт. ст., пульс 88 в минуту; сознание ясное.</p><p class="meta">Доступно: 2026-10-01T11:00:00+03:00</p><h4>result · событие 2026-10-02T10:00</h4><p>УЗИ: свободная жидкость в брюшной полости.</p><p class="meta">Доступно: 2026-10-03T10:00:00+03:00</p><h4>discharge · событие 2026-10-06T10:00</h4><p>В дневнике уменьшение окружности живота. Не хватает исходных данных для оценки стадии и тяжести.</p><p class="meta">Доступно: 2026-10-06T11:00:00+03:00</p><p><strong>Вопрос эксперту:</strong> Выбрать КР по циррозу; согласовать необходимые лабораторные поля и описание осложнений.</p></details><details><summary>research-07 · Сахарный диабет 2 типа, гипергликемия · возраст: 58</summary><p>Код в учебном примере: E11.9. Проверка: 2026-10-06T12:00:00+03:00.</p><h4>admission · событие 2026-10-01T10:00</h4><p>Жажда, учащённое мочеиспускание и слабость. Ранее установлен сахарный диабет 2 типа. Сознание ясное, АД 135/80 мм рт. ст.</p><p class="meta">Доступно: 2026-10-01T11:00:00+03:00</p><h4>result · событие 2026-10-02T10:00</h4><p>Глюкоза плазмы при поступлении 16,2 ммоль/л; HbA1c 10,1%.</p><p class="meta">Доступно: 2026-10-03T10:00:00+03:00</p><h4>discharge · событие 2026-10-06T10:00</h4><p>В дневнике глюкоза 8,7 ммоль/л; время относительно еды не указано.</p><p class="meta">Доступно: 2026-10-06T11:00:00+03:00</p><p><strong>Вопрос эксперту:</strong> Проверить показания к госпитализации и исключение неотложных состояний; уточнить контекст измерений.</p></details><details><summary>research-08 · Сахарный диабет 2 типа после эпизода гипогликемии · возраст: 70</summary><p>Код в учебном примере: E11.9. Проверка: 2026-10-06T12:00:00+03:00.</p><h4>admission · событие 2026-10-01T10:00</h4><p>Доставлен после эпизода потливости и спутанности сознания. В анамнезе диабет. На первом доступном осмотре сознание ясное, АД 130/75 мм рт. ст.</p><p class="meta">Доступно: 2026-10-01T11:00:00+03:00</p><h4>result · событие 2026-10-02T10:00</h4><p>В записи бригады указана глюкоза 2,6 ммоль/л до коррекции; в стационаре 5,4 ммоль/л.</p><p class="meta">Доступно: 2026-10-03T10:00:00+03:00</p><h4>discharge · событие 2026-10-06T10:00</h4><p>В выписке описано наблюдение без повторного эпизода. Исходная схема препаратов не включена в учебный пакет.</p><p class="meta">Доступно: 2026-10-06T11:00:00+03:00</p><p><strong>Вопрос эксперту:</strong> Проверить причинную связь, кодирование и достаточность лекарственного анамнеза; не приписывать эпизод конкретному препарату.</p></details><details><summary>research-09 · Острый пиелонефрит · возраст: 36</summary><p>Код в учебном примере: N10. Проверка: 2026-10-06T12:00:00+03:00.</p><h4>admission · событие 2026-10-01T10:00</h4><p>Лихорадка, боль в пояснице справа и болезненное мочеиспускание. Температура 38,7 °C, АД 115/75 мм рт. ст., пульс 104 в минуту.</p><p class="meta">Доступно: 2026-10-01T11:00:00+03:00</p><h4>result · событие 2026-10-02T10:00</h4><p>Анализ мочи: лейкоциты 50–60 в поле зрения. Посев назначен, результат в пакете отсутствует.</p><p class="meta">Доступно: 2026-10-03T10:00:00+03:00</p><h4>discharge · событие 2026-10-06T10:00</h4><p>Температура нормализовалась. В выписке отмечен ожидаемый результат посева.</p><p class="meta">Доступно: 2026-10-06T11:00:00+03:00</p><p><strong>Вопрос эксперту:</strong> Выбрать КР по пиелонефриту; проверить контекст беременности, обструкции и признаков системной инфекции.</p></details><details><summary>research-10 · Хроническая болезнь почек · возраст: 69</summary><p>Код в учебном примере: N18.3. Проверка: 2026-10-06T12:00:00+03:00.</p><h4>admission · событие 2026-10-01T10:00</h4><p>Снижение аппетита и слабость. В анамнезе длительная гипертензия; есть предыдущие результаты креатинина. АД 155/90 мм рт. ст., отёки голеней.</p><p class="meta">Доступно: 2026-10-01T11:00:00+03:00</p><h4>result · событие 2026-10-02T10:00</h4><p>Креатинин 168 мкмоль/л; в выписке трёхмесячной давности 160 мкмоль/л.</p><p class="meta">Доступно: 2026-10-03T10:00:00+03:00</p><h4>discharge · событие 2026-10-06T10:00</h4><p>В выписке сохранён диагноз ХБП. Нужны исходные данные и метод расчёта СКФ, а не вывод только по одному креатинину.</p><p class="meta">Доступно: 2026-10-06T11:00:00+03:00</p><p><strong>Вопрос эксперту:</strong> Проверить стадию, основания госпитализации и набор данных; выбрать актуальные КР по ХБП.</p></details><details><summary>research-11 · Острый гнойный средний отит · возраст: 42</summary><p>Код в учебном примере: H66.0. Проверка: 2026-10-06T12:00:00+03:00.</p><h4>admission · событие 2026-10-01T10:00</h4><p>Боль в правом ухе, лихорадка, затем отделяемое из уха. Направлена на консультацию ЛОР-врача. Температура 38,0 °C. Общая слабость.</p><p class="meta">Доступно: 2026-10-01T11:00:00+03:00</p><h4>result · событие 2026-10-02T10:00</h4><p>В заключении ЛОР-врача описаны перфорация барабанной перепонки и отделяемое справа.</p><p class="meta">Доступно: 2026-10-03T10:00:00+03:00</p><h4>discharge · событие 2026-10-06T10:00</h4><p>В пакете есть консультация, но нет полного профильного протокола. Маршрут и показания к стационару требуют проверки.</p><p class="meta">Доступно: 2026-10-06T11:00:00+03:00</p><p><strong>Вопрос эксперту:</strong> Подтвердить профиль помощи; это пример передачи ЛОР-врачу, а не готовая терапевтическая тактика.</p></details><details><summary>research-12 · Острый мастоидит · возраст: 55</summary><p>Код в учебном примере: H70.0. Проверка: 2026-10-06T12:00:00+03:00.</p><h4>admission · событие 2026-10-01T10:00</h4><p>После боли в ухе появились болезненность и припухлость за ушной раковиной. Температура 38,4 °C. Описана болезненность в заушной области.</p><p class="meta">Доступно: 2026-10-01T11:00:00+03:00</p><h4>result · событие 2026-10-02T10:00</h4><p>Заключение ЛОР-врача: подозрение на осложнение; рекомендован профильный стационар.</p><p class="meta">Доступно: 2026-10-03T10:00:00+03:00</p><h4>discharge · событие 2026-10-06T10:00</h4><p>В документе о переводе указан профиль ЛОР. Оперативный этап и его результаты в учебный пакет не включены.</p><p class="meta">Доступно: 2026-10-06T11:00:00+03:00</p><p><strong>Вопрос эксперту:</strong> Проверить маршрут и кодирование; не генерировать лечение хирургического осложнения в общей терапевтической функции.</p></details></section>
+<section class="chapter" id="sources"><h2>Источники и ограничения</h2><p>Дата обращения: 25 октября 2026 года. Для каждого источника указал, что именно проверял и какие выводы из него делать нельзя. Нормативный документ перед использованием нужно связать с датой конкретного случая.</p><div class="table-wrap"><table ><thead><tr><th scope="col">ID</th><th scope="col">Источник</th><th scope="col">Место подтверждения</th><th scope="col">Ограничение</th></tr></thead><tbody><tr><td>STAT</td><td><a href="https://www.rosstat.gov.ru/storage/mediabank/Zdravooxran_2025.pdf">Росстат. Здравоохранение в России. 2025</a><br>официальная статистика</td><td>Таблица 3.17; с. 97, физическая страница PDF 98</td><td>2024 год; все возрасты и профили стационара. Не структура взрослого терапевтического отделения.</td></tr><tr><td>N203</td><td><a href="https://publication.pravo.gov.ru/document/0001202505290045">Приказ Минздрава №203н от 14.04.2025</a><br>нормативный документ</td><td>Пункты 2–3; критерии по заболеваниям</td><td>Текст проверен по копии НСИ; публикация также присутствует в реестре МОФОМС. Перед внедрением нужна проверка изменений на дату случая.</td></tr><tr><td>N203COPY</td><td><a href="https://www.nsi.ru/upload/normativ-doc/203N_prikaz.pdf">Текст приказа №203н 2025 года</a><br>копия нормативного документа</td><td>Страница PDF 2: отмена приказа 2017 года, сроки действия</td><td>Копия сохранена 05.09.2025; не заменяет отслеживание изменений.</td></tr><tr><td>N231</td><td><a href="https://ak.reso-med.com/upload/iblock/470/d42wmdfv8pm6olg72ucsp1v0rhls0vy9/Prikaz-Minzdrava-RF-ot-19.03.2021-N-231N-Ob-utverzhdenii-Poryadka-provedeniya-kontrolya-obemov_-srokov-_red-04.09.24_.pdf">Порядок контроля ОМС, приказ №231н</a><br>нормативный документ у участника ОМС</td><td>Разделы II–V, приложения с основаниями и формами</td><td>Изучена редакция от 04.09.2024. Не утверждаю отсутствие последующих изменений.</td></tr><tr><td>N530</td><td><a href="https://webmed.irkutsk.ru/doc/order/530.pdf">Приказ №530н: стационарная документация</a><br>копия нормативного документа</td><td>Форма 003/у и порядок ведения; форма 066/у</td><td>Исходный приказ 05.08.2022; для рабочего корпуса нужна редакция с изменениями, включая №95н от 01.03.2024.</td></tr><tr><td>N785</td><td><a href="https://roszdravnadzor.ru/medactivities/statecontrol/rights/documents/80120">Росздравнадзор: приказ №785н, внутренний контроль</a><br>официальный реестр</td><td>Требования к внутреннему контролю качества и безопасности</td><td>Карточка найдена; полный текст в рабочий корпус пока не загружен.</td></tr><tr><td>OMSREG</td><td><a href="https://www.mofoms.ru/dokumenty/normativnaya-baza/prikazy-ministerstva-zdravookhraneniya-rossiyskoy-federatsii/">МОФОМС: реестр приказов Минздрава</a><br>официальный реестр</td><td>№203н 2025, №231н, №496н 2025, №44н 2023</td><td>Наличие документа в реестре не подтверждает всю применимую цепочку изменений.</td></tr><tr><td>OMSPROCESS</td><td><a href="https://lofoms.spb.ru/control_procedure">ЛОФОМС: порядок контроля качества</a><br>официальное разъяснение</td><td>Глава 9 закона №326-ФЗ, формы контроля</td><td>Описание процесса, а не статистика эффективности ИИ.</td></tr><tr><td>OMSDEF</td><td><a href="https://www.orenfoms.ru/grazhdanam/informirovanie-o-vyyavlennykh-narusheniyakh-v-mo/">ТФОМС Оренбургской области: выявленные нарушения</a><br>официальная публикация</td><td>Перечень оснований; квартальные сведения, включая III квартал 2026</td><td>Страница прочитана; файл последнего квартала получить не удалось. Численные частоты из него не использованы.</td></tr><tr><td>KR</td><td><a href="https://cr.minzdrav.gov.ru/">Рубрикатор клинических рекомендаций Минздрава</a><br>официальный реестр</td><td>Поиск по заболеванию, возрасту, идентификатору и версии</td><td>Динамические карточки извлекаются неполно; актуальность версии проверяется перед включением в корпус.</td></tr><tr><td>CAP</td><td><a href="https://spulmo.ru/upload/KR-vnebolnichnaya-pnevmoniya-u-vzroslyh-2024.pdf">Внебольничная пневмония у взрослых, 2024</a><br>клиническая рекомендация у разработчика</td><td>ID 654_2; диагностика, оценка тяжести, критерии качества</td><td>Изученная версия 2024 года; актуальность на дату будущего клинического испытания требует сверки в рубрикаторе.</td></tr><tr><td>HF</td><td><a href="https://russjcardiol.elpub.ru/jour/article/download/6162/4522">Хроническая сердечная недостаточность. РКО, 2024</a><br>публикация разработчика рекомендации</td><td>Российский кардиологический журнал 29(11):6162; DOI 10.15829/1560-4071-2024-6162</td><td>Опора для клинических полей; не полная разметка случаев.</td></tr><tr><td>DM</td><td><a href="https://cr.minzdrav.gov.ru/view-cr/290_2">Сахарный диабет 2 типа у взрослых, ID 290_2</a><br>карточка клинической рекомендации</td><td>Возрастная группа, коды, диагностика</td><td>Карточка указывает 2022 год и пересмотр не позднее 2024. Не помечена как подтверждённо актуальная в 2026.</td></tr><tr><td>SBER</td><td><a href="https://sbermed.ai/our-algorithms/oms-expert">ОМС-Эксперт: описание продукта</a><br>производитель</td><td>Сценарий, семь направлений проверок, заявленное время</td><td>Пять минут и возможность проверки всех карт заявлены поставщиком; независимая точность на данных проекта неизвестна.</td></tr><tr><td>SATURN</td><td><a href="https://sbermed.ai/uploads/Rukovodstvo_po_ekspluataczii_Saturn_68565ba3d5.pdf">СДК-Сатурн: руководство эксплуатации</a><br>руководство производителя</td><td>Страницы PDF 3, 5, 9–10: функции, результаты, размещение</td><td>Описывает интерфейс и локальную установку; внутреннюю модель и алгоритм поиска не раскрывает.</td></tr><tr><td>WEBIOMED</td><td><a href="https://webiomed.ru/novosti/kontrol-klinicheskikh-rekomendatsii/">Webiomed: контроль выполнения клинических рекомендаций</a><br>производитель</td><td>29.04.2026; завершённый случай, назначения, ссылки, API</td><td>Более 500 КР заявлены поставщиком. Метрик precision/recall на независимой выборке в статье нет.</td></tr><tr><td>PANACEA</td><td><a href="https://panaceadoc.ru/">Панацея: СППВР, ИИ-аудит, ДМС</a><br>производитель</td><td>Раздел продуктов: помощь врачу, проверка карт, модуль ДМС</td><td>Показатели клиентов и врачей не доказывают точность. ДМС нельзя приравнять к ОМС.</td></tr><tr><td>ONEC</td><td><a href="https://solutions.1c.ru/catalog/clinic/expert">1С:Медицина. Поликлиника: клинико-экспертная работа</a><br>производитель</td><td>Критерии из ФНСИ, отметки врача, отчётность</td><td>На странице сохранена ссылка на №203н 2017 года. По ней нельзя судить об актуальности установленной версии продукта.</td></tr><tr><td>DEFECT</td><td><a href="https://defect.kz/">Defect AI: аудит документации Казахстана</a><br>производитель</td><td>Истории болезни, эпикризы, протоколы, дефекты, возражения</td><td>Другая юрисдикция; заявления об эффекте не сопровождаются сопоставимым испытанием.</td></tr><tr><td>UPTODATE</td><td><a href="https://www.wolterskluwer.com/en-au/news/uptodate-expert-ai-genai-clinical-decision-support">UpToDate Expert AI</a><br>производитель</td><td>Ответы по экспертным медицинским материалам</td><td>Клинический поиск; проверка российских требований ОМС не установлена.</td></tr><tr><td>DYNA</td><td><a href="https://more.ebsco.com/dyna-ai.html">Dyna AI</a><br>производитель</td><td>Поиск и ответы по DynaMed/DynaMedex, RAG, ссылки</td><td>Не найдено в источнике испытания аудита российских стационарных карт.</td></tr><tr><td>OE</td><td><a href="https://portal.openevidence.com/">OpenEvidence Enterprise</a><br>производитель</td><td>Клиническое рабочее пространство и интеграция</td><td>Распространённость не равна качеству аудита; российская нормативная база не подтверждена.</td></tr><tr><td>ABRIDGE</td><td><a href="https://www.abridge.com/">Abridge: clinical conversations</a><br>производитель</td><td>Документация, работа врача и revenue cycle</td><td>Поддержка оплаты в другой системе здравоохранения не означает поддержку ОМС.</td></tr><tr><td>RCT</td><td><a href="https://doi.org/10.1056/AIoa2501000">Lukac et al. Ambient AI Scribes in Clinical Practice: A Randomized Trial</a><br>рандомизированное исследование</td><td>NEJM AI, 2025; 238 врачей, 14 специальностей, США; DAX и Nabla</td><td>Первичный исход: изменение времени написания записи. Не точность диагноза, не российский стационар и не аудит ОМС.</td></tr><tr><td>MIMIC</td><td><a href="https://physionet.org/content/mimiciv/3.1/">MIMIC-IV 3.1</a><br>описание набора авторами</td><td>Версия 3.1, 11.10.2024; доступ после обучения и соглашения</td><td>Данные не скачивались; нельзя публиковать или передавать в сторонний API без проверки условий.</td></tr><tr><td>SYNTHEA</td><td><a href="https://synthetichealth.github.io/synthea/">Synthea: Synthetic Patient Generation</a><br>проект разработчиков</td><td>Синтетические продольные истории и моделирование процессов</td><td>Не обеспечивает автоматически реализм российской документации и ОМС; в работе не запускалась.</td></tr></tbody></table></div></section>
+<section class="chapter" id="checks"><h2>Подтверждение технических проверок</h2><p>Доработка: 35 тестов пройдено, ошибок 0, падений 0. Предупреждение об устаревающем способе подключения HTTPX осталось прежним. Клиническую точность не измерял.</p><details><summary>Результаты и версии в JSON</summary><pre>{
+  &quot;revision_date&quot;: &quot;2026-10-25&quot;,
+  &quot;revision_tests&quot;: {
+    &quot;tests&quot;: 35,
+    &quot;failures&quot;: 0,
+    &quot;errors&quot;: 0,
+    &quot;skipped&quot;: 0
+  },
+  &quot;original_tests_2026_10_18&quot;: {
+    &quot;tests&quot;: 29,
+    &quot;failures&quot;: 0,
+    &quot;errors&quot;: 0,
+    &quot;skipped&quot;: 0
+  },
+  &quot;reference_tests_2026_10_18&quot;: {
+    &quot;tests&quot;: 34,
+    &quot;failures&quot;: 0,
+    &quot;errors&quot;: 0,
+    &quot;skipped&quot;: 0
+  },
+  &quot;mistral_live_2026_10_18&quot;: {
+    &quot;success&quot;: true,
+    &quot;provider&quot;: &quot;mistral&quot;,
+    &quot;model&quot;: &quot;ministral-8b-2512&quot;,
+    &quot;mode&quot;: &quot;live&quot;,
+    &quot;attempts&quot;: 1,
+    &quot;latency_ms&quot;: 763,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 49,
+      &quot;completion_tokens&quot;: 24,
+      &quot;total_tokens&quot;: 73
+    },
+    &quot;checked_on&quot;: &quot;2026-10-18&quot;,
+    &quot;result&quot;: {
+      &quot;status&quot;: &quot;ok&quot;
+    },
+    &quot;input_contains_patient_data&quot;: false,
+    &quot;subscription_observed&quot;: {
+      &quot;plan&quot;: &quot;Free&quot;,
+      &quot;api_pay_as_you_go_enabled&quot;: false,
+      &quot;included_api_allowance_usd_per_month&quot;: 10
+    }
+  },
+  &quot;mock_smoke_2026_10_18&quot;: {
+    &quot;success&quot;: true,
+    &quot;result&quot;: {
+      &quot;status&quot;: &quot;ok&quot;,
+      &quot;message&quot;: &quot;Локальный тестовый ответ. Mistral не вызывался.&quot;
+    },
+    &quot;provider&quot;: &quot;mock&quot;,
+    &quot;model&quot;: &quot;fixture-v1&quot;,
+    &quot;mode&quot;: &quot;mock&quot;,
+    &quot;attempts&quot;: 0,
+    &quot;latency_ms&quot;: 0,
+    &quot;usage&quot;: {}
+  },
+  &quot;sampling_plan&quot;: {
+    &quot;source_id&quot;: &quot;STAT&quot;,
+    &quot;population_year&quot;: 2024,
+    &quot;total_discharged_thousand&quot;: 27515,
+    &quot;selected_discharged_thousand&quot;: 13415,
+    &quot;planned_base_cases&quot;: 60,
+    &quot;generated_from_plan&quot;: 0,
+    &quot;method&quot;: &quot;largest_remainder&quot;,
+    &quot;strata&quot;: [
+      {
+        &quot;id&quot;: &quot;circulatory&quot;,
+        &quot;label&quot;: &quot;Болезни системы кровообращения&quot;,
+        &quot;discharged_thousand_2024&quot;: 4928,
+        &quot;source_id&quot;: &quot;STAT&quot;,
+        &quot;share_all_percent&quot;: 17.91,
+        &quot;share_selected_percent&quot;: 36.735,
+        &quot;planned_cases&quot;: 22,
+        &quot;review_packet_examples&quot;: 2
+      },
+      {
+        &quot;id&quot;: &quot;respiratory&quot;,
+        &quot;label&quot;: &quot;Болезни органов дыхания&quot;,
+        &quot;discharged_thousand_2024&quot;: 2805,
+        &quot;source_id&quot;: &quot;STAT&quot;,
+        &quot;share_all_percent&quot;: 10.194,
+        &quot;share_selected_percent&quot;: 20.909,
+        &quot;planned_cases&quot;: 13,
+        &quot;review_packet_examples&quot;: 2
+      },
+      {
+        &quot;id&quot;: &quot;digestive&quot;,
+        &quot;label&quot;: &quot;Болезни органов пищеварения&quot;,
+        &quot;discharged_thousand_2024&quot;: 2525,
+        &quot;source_id&quot;: &quot;STAT&quot;,
+        &quot;share_all_percent&quot;: 9.177,
+        &quot;share_selected_percent&quot;: 18.822,
+        &quot;planned_cases&quot;: 11,
+        &quot;review_packet_examples&quot;: 2
+      },
+      {
+        &quot;id&quot;: &quot;endocrine&quot;,
+        &quot;label&quot;: &quot;Болезни эндокринной системы&quot;,
+        &quot;discharged_thousand_2024&quot;: 636,
+        &quot;source_id&quot;: &quot;STAT&quot;,
+        &quot;share_all_percent&quot;: 2.311,
+        &quot;share_selected_percent&quot;: 4.741,
+        &quot;planned_cases&quot;: 3,
+        &quot;review_packet_examples&quot;: 2
+      },
+      {
+        &quot;id&quot;: &quot;urogenital&quot;,
+        &quot;label&quot;: &quot;Болезни мочеполовой системы&quot;,
+        &quot;discharged_thousand_2024&quot;: 2357,
+        &quot;source_id&quot;: &quot;STAT&quot;,
+        &quot;share_all_percent&quot;: 8.566,
+        &quot;share_selected_percent&quot;: 17.57,
+        &quot;planned_cases&quot;: 10,
+        &quot;review_packet_examples&quot;: 2
+      },
+      {
+        &quot;id&quot;: &quot;ear&quot;,
+        &quot;label&quot;: &quot;Болезни уха и сосцевидного отростка&quot;,
+        &quot;discharged_thousand_2024&quot;: 164,
+        &quot;source_id&quot;: &quot;STAT&quot;,
+        &quot;share_all_percent&quot;: 0.596,
+        &quot;share_selected_percent&quot;: 1.223,
+        &quot;planned_cases&quot;: 1,
+        &quot;review_packet_examples&quot;: 2
+      }
+    ]
+  },
+  &quot;sources&quot;: [
+    {
+      &quot;id&quot;: &quot;STAT&quot;,
+      &quot;title&quot;: &quot;Росстат. Здравоохранение в России. 2025&quot;,
+      &quot;url&quot;: &quot;https://www.rosstat.gov.ru/storage/mediabank/Zdravooxran_2025.pdf&quot;,
+      &quot;kind&quot;: &quot;официальная статистика&quot;,
+      &quot;locator&quot;: &quot;Таблица 3.17; с. 97, физическая страница PDF 98&quot;,
+      &quot;limits&quot;: &quot;2024 год; все возрасты и профили стационара. Не структура взрослого терапевтического отделения.&quot;,
+      &quot;accessed&quot;: &quot;2026-10-25&quot;
+    },
+    {
+      &quot;id&quot;: &quot;N203&quot;,
+      &quot;title&quot;: &quot;Приказ Минздрава №203н от 14.04.2025&quot;,
+      &quot;url&quot;: &quot;https://publication.pravo.gov.ru/document/0001202505290045&quot;,
+      &quot;kind&quot;: &quot;нормативный документ&quot;,
+      &quot;locator&quot;: &quot;Пункты 2–3; критерии по заболеваниям&quot;,
+      &quot;limits&quot;: &quot;Текст проверен по копии НСИ; публикация также присутствует в реестре МОФОМС. Перед внедрением нужна проверка изменений на дату случая.&quot;,
+      &quot;accessed&quot;: &quot;2026-10-25&quot;
+    },
+    {
+      &quot;id&quot;: &quot;N203COPY&quot;,
+      &quot;title&quot;: &quot;Текст приказа №203н 2025 года&quot;,
+      &quot;url&quot;: &quot;https://www.nsi.ru/upload/normativ-doc/203N_prikaz.pdf&quot;,
+      &quot;kind&quot;: &quot;копия нормативного документа&quot;,
+      &quot;locator&quot;: &quot;Страница PDF 2: отмена приказа 2017 года, сроки действия&quot;,
+      &quot;limits&quot;: &quot;Копия сохранена 05.09.2025; не заменяет отслеживание изменений.&quot;,
+      &quot;accessed&quot;: &quot;2026-10-25&quot;
+    },
+    {
+      &quot;id&quot;: &quot;N231&quot;,
+      &quot;title&quot;: &quot;Порядок контроля ОМС, приказ №231н&quot;,
+      &quot;url&quot;: &quot;https://ak.reso-med.com/upload/iblock/470/d42wmdfv8pm6olg72ucsp1v0rhls0vy9/Prikaz-Minzdrava-RF-ot-19.03.2021-N-231N-Ob-utverzhdenii-Poryadka-provedeniya-kontrolya-obemov_-srokov-_red-04.09.24_.pdf&quot;,
+      &quot;kind&quot;: &quot;нормативный документ у участника ОМС&quot;,
+      &quot;locator&quot;: &quot;Разделы II–V, приложения с основаниями и формами&quot;,
+      &quot;limits&quot;: &quot;Изучена редакция от 04.09.2024. Не утверждаю отсутствие последующих изменений.&quot;,
+      &quot;accessed&quot;: &quot;2026-10-25&quot;
+    },
+    {
+      &quot;id&quot;: &quot;N530&quot;,
+      &quot;title&quot;: &quot;Приказ №530н: стационарная документация&quot;,
+      &quot;url&quot;: &quot;https://webmed.irkutsk.ru/doc/order/530.pdf&quot;,
+      &quot;kind&quot;: &quot;копия нормативного документа&quot;,
+      &quot;locator&quot;: &quot;Форма 003/у и порядок ведения; форма 066/у&quot;,
+      &quot;limits&quot;: &quot;Исходный приказ 05.08.2022; для рабочего корпуса нужна редакция с изменениями, включая №95н от 01.03.2024.&quot;,
+      &quot;accessed&quot;: &quot;2026-10-25&quot;
+    },
+    {
+      &quot;id&quot;: &quot;N785&quot;,
+      &quot;title&quot;: &quot;Росздравнадзор: приказ №785н, внутренний контроль&quot;,
+      &quot;url&quot;: &quot;https://roszdravnadzor.ru/medactivities/statecontrol/rights/documents/80120&quot;,
+      &quot;kind&quot;: &quot;официальный реестр&quot;,
+      &quot;locator&quot;: &quot;Требования к внутреннему контролю качества и безопасности&quot;,
+      &quot;limits&quot;: &quot;Карточка найдена; полный текст в рабочий корпус пока не загружен.&quot;,
+      &quot;accessed&quot;: &quot;2026-10-25&quot;
+    },
+    {
+      &quot;id&quot;: &quot;OMSREG&quot;,
+      &quot;title&quot;: &quot;МОФОМС: реестр приказов Минздрава&quot;,
+      &quot;url&quot;: &quot;https://www.mofoms.ru/dokumenty/normativnaya-baza/prikazy-ministerstva-zdravookhraneniya-rossiyskoy-federatsii/&quot;,
+      &quot;kind&quot;: &quot;официальный реестр&quot;,
+      &quot;locator&quot;: &quot;№203н 2025, №231н, №496н 2025, №44н 2023&quot;,
+      &quot;limits&quot;: &quot;Наличие документа в реестре не подтверждает всю применимую цепочку изменений.&quot;,
+      &quot;accessed&quot;: &quot;2026-10-25&quot;
+    },
+    {
+      &quot;id&quot;: &quot;OMSPROCESS&quot;,
+      &quot;title&quot;: &quot;ЛОФОМС: порядок контроля качества&quot;,
+      &quot;url&quot;: &quot;https://lofoms.spb.ru/control_procedure&quot;,
+      &quot;kind&quot;: &quot;официальное разъяснение&quot;,
+      &quot;locator&quot;: &quot;Глава 9 закона №326-ФЗ, формы контроля&quot;,
+      &quot;limits&quot;: &quot;Описание процесса, а не статистика эффективности ИИ.&quot;,
+      &quot;accessed&quot;: &quot;2026-10-25&quot;
+    },
+    {
+      &quot;id&quot;: &quot;OMSDEF&quot;,
+      &quot;title&quot;: &quot;ТФОМС Оренбургской области: выявленные нарушения&quot;,
+      &quot;url&quot;: &quot;https://www.orenfoms.ru/grazhdanam/informirovanie-o-vyyavlennykh-narusheniyakh-v-mo/&quot;,
+      &quot;kind&quot;: &quot;официальная публикация&quot;,
+      &quot;locator&quot;: &quot;Перечень оснований; квартальные сведения, включая III квартал 2026&quot;,
+      &quot;limits&quot;: &quot;Страница прочитана; файл последнего квартала получить не удалось. Численные частоты из него не использованы.&quot;,
+      &quot;accessed&quot;: &quot;2026-10-25&quot;
+    },
+    {
+      &quot;id&quot;: &quot;KR&quot;,
+      &quot;title&quot;: &quot;Рубрикатор клинических рекомендаций Минздрава&quot;,
+      &quot;url&quot;: &quot;https://cr.minzdrav.gov.ru/&quot;,
+      &quot;kind&quot;: &quot;официальный реестр&quot;,
+      &quot;locator&quot;: &quot;Поиск по заболеванию, возрасту, идентификатору и версии&quot;,
+      &quot;limits&quot;: &quot;Динамические карточки извлекаются неполно; актуальность версии проверяется перед включением в корпус.&quot;,
+      &quot;accessed&quot;: &quot;2026-10-25&quot;
+    },
+    {
+      &quot;id&quot;: &quot;CAP&quot;,
+      &quot;title&quot;: &quot;Внебольничная пневмония у взрослых, 2024&quot;,
+      &quot;url&quot;: &quot;https://spulmo.ru/upload/KR-vnebolnichnaya-pnevmoniya-u-vzroslyh-2024.pdf&quot;,
+      &quot;kind&quot;: &quot;клиническая рекомендация у разработчика&quot;,
+      &quot;locator&quot;: &quot;ID 654_2; диагностика, оценка тяжести, критерии качества&quot;,
+      &quot;limits&quot;: &quot;Изученная версия 2024 года; актуальность на дату будущего клинического испытания требует сверки в рубрикаторе.&quot;,
+      &quot;accessed&quot;: &quot;2026-10-25&quot;
+    },
+    {
+      &quot;id&quot;: &quot;HF&quot;,
+      &quot;title&quot;: &quot;Хроническая сердечная недостаточность. РКО, 2024&quot;,
+      &quot;url&quot;: &quot;https://russjcardiol.elpub.ru/jour/article/download/6162/4522&quot;,
+      &quot;kind&quot;: &quot;публикация разработчика рекомендации&quot;,
+      &quot;locator&quot;: &quot;Российский кардиологический журнал 29(11):6162; DOI 10.15829/1560-4071-2024-6162&quot;,
+      &quot;limits&quot;: &quot;Опора для клинических полей; не полная разметка случаев.&quot;,
+      &quot;accessed&quot;: &quot;2026-10-25&quot;
+    },
+    {
+      &quot;id&quot;: &quot;DM&quot;,
+      &quot;title&quot;: &quot;Сахарный диабет 2 типа у взрослых, ID 290_2&quot;,
+      &quot;url&quot;: &quot;https://cr.minzdrav.gov.ru/view-cr/290_2&quot;,
+      &quot;kind&quot;: &quot;карточка клинической рекомендации&quot;,
+      &quot;locator&quot;: &quot;Возрастная группа, коды, диагностика&quot;,
+      &quot;limits&quot;: &quot;Карточка указывает 2022 год и пересмотр не позднее 2024. Не помечена как подтверждённо актуальная в 2026.&quot;,
+      &quot;accessed&quot;: &quot;2026-10-25&quot;
+    },
+    {
+      &quot;id&quot;: &quot;SBER&quot;,
+      &quot;title&quot;: &quot;ОМС-Эксперт: описание продукта&quot;,
+      &quot;url&quot;: &quot;https://sbermed.ai/our-algorithms/oms-expert&quot;,
+      &quot;kind&quot;: &quot;производитель&quot;,
+      &quot;locator&quot;: &quot;Сценарий, семь направлений проверок, заявленное время&quot;,
+      &quot;limits&quot;: &quot;Пять минут и возможность проверки всех карт заявлены поставщиком; независимая точность на данных проекта неизвестна.&quot;,
+      &quot;accessed&quot;: &quot;2026-10-25&quot;
+    },
+    {
+      &quot;id&quot;: &quot;SATURN&quot;,
+      &quot;title&quot;: &quot;СДК-Сатурн: руководство эксплуатации&quot;,
+      &quot;url&quot;: &quot;https://sbermed.ai/uploads/Rukovodstvo_po_ekspluataczii_Saturn_68565ba3d5.pdf&quot;,
+      &quot;kind&quot;: &quot;руководство производителя&quot;,
+      &quot;locator&quot;: &quot;Страницы PDF 3, 5, 9–10: функции, результаты, размещение&quot;,
+      &quot;limits&quot;: &quot;Описывает интерфейс и локальную установку; внутреннюю модель и алгоритм поиска не раскрывает.&quot;,
+      &quot;accessed&quot;: &quot;2026-10-25&quot;
+    },
+    {
+      &quot;id&quot;: &quot;WEBIOMED&quot;,
+      &quot;title&quot;: &quot;Webiomed: контроль выполнения клинических рекомендаций&quot;,
+      &quot;url&quot;: &quot;https://webiomed.ru/novosti/kontrol-klinicheskikh-rekomendatsii/&quot;,
+      &quot;kind&quot;: &quot;производитель&quot;,
+      &quot;locator&quot;: &quot;29.04.2026; завершённый случай, назначения, ссылки, API&quot;,
+      &quot;limits&quot;: &quot;Более 500 КР заявлены поставщиком. Метрик precision/recall на независимой выборке в статье нет.&quot;,
+      &quot;accessed&quot;: &quot;2026-10-25&quot;
+    },
+    {
+      &quot;id&quot;: &quot;PANACEA&quot;,
+      &quot;title&quot;: &quot;Панацея: СППВР, ИИ-аудит, ДМС&quot;,
+      &quot;url&quot;: &quot;https://panaceadoc.ru/&quot;,
+      &quot;kind&quot;: &quot;производитель&quot;,
+      &quot;locator&quot;: &quot;Раздел продуктов: помощь врачу, проверка карт, модуль ДМС&quot;,
+      &quot;limits&quot;: &quot;Показатели клиентов и врачей не доказывают точность. ДМС нельзя приравнять к ОМС.&quot;,
+      &quot;accessed&quot;: &quot;2026-10-25&quot;
+    },
+    {
+      &quot;id&quot;: &quot;ONEC&quot;,
+      &quot;title&quot;: &quot;1С:Медицина. Поликлиника: клинико-экспертная работа&quot;,
+      &quot;url&quot;: &quot;https://solutions.1c.ru/catalog/clinic/expert&quot;,
+      &quot;kind&quot;: &quot;производитель&quot;,
+      &quot;locator&quot;: &quot;Критерии из ФНСИ, отметки врача, отчётность&quot;,
+      &quot;limits&quot;: &quot;На странице сохранена ссылка на №203н 2017 года. По ней нельзя судить об актуальности установленной версии продукта.&quot;,
+      &quot;accessed&quot;: &quot;2026-10-25&quot;
+    },
+    {
+      &quot;id&quot;: &quot;DEFECT&quot;,
+      &quot;title&quot;: &quot;Defect AI: аудит документации Казахстана&quot;,
+      &quot;url&quot;: &quot;https://defect.kz/&quot;,
+      &quot;kind&quot;: &quot;производитель&quot;,
+      &quot;locator&quot;: &quot;Истории болезни, эпикризы, протоколы, дефекты, возражения&quot;,
+      &quot;limits&quot;: &quot;Другая юрисдикция; заявления об эффекте не сопровождаются сопоставимым испытанием.&quot;,
+      &quot;accessed&quot;: &quot;2026-10-25&quot;
+    },
+    {
+      &quot;id&quot;: &quot;UPTODATE&quot;,
+      &quot;title&quot;: &quot;UpToDate Expert AI&quot;,
+      &quot;url&quot;: &quot;https://www.wolterskluwer.com/en-au/news/uptodate-expert-ai-genai-clinical-decision-support&quot;,
+      &quot;kind&quot;: &quot;производитель&quot;,
+      &quot;locator&quot;: &quot;Ответы по экспертным медицинским материалам&quot;,
+      &quot;limits&quot;: &quot;Клинический поиск; проверка российских требований ОМС не установлена.&quot;,
+      &quot;accessed&quot;: &quot;2026-10-25&quot;
+    },
+    {
+      &quot;id&quot;: &quot;DYNA&quot;,
+      &quot;title&quot;: &quot;Dyna AI&quot;,
+      &quot;url&quot;: &quot;https://more.ebsco.com/dyna-ai.html&quot;,
+      &quot;kind&quot;: &quot;производитель&quot;,
+      &quot;locator&quot;: &quot;Поиск и ответы по DynaMed/DynaMedex, RAG, ссылки&quot;,
+      &quot;limits&quot;: &quot;Не найдено в источнике испытания аудита российских стационарных карт.&quot;,
+      &quot;accessed&quot;: &quot;2026-10-25&quot;
+    },
+    {
+      &quot;id&quot;: &quot;OE&quot;,
+      &quot;title&quot;: &quot;OpenEvidence Enterprise&quot;,
+      &quot;url&quot;: &quot;https://portal.openevidence.com/&quot;,
+      &quot;kind&quot;: &quot;производитель&quot;,
+      &quot;locator&quot;: &quot;Клиническое рабочее пространство и интеграция&quot;,
+      &quot;limits&quot;: &quot;Распространённость не равна качеству аудита; российская нормативная база не подтверждена.&quot;,
+      &quot;accessed&quot;: &quot;2026-10-25&quot;
+    },
+    {
+      &quot;id&quot;: &quot;ABRIDGE&quot;,
+      &quot;title&quot;: &quot;Abridge: clinical conversations&quot;,
+      &quot;url&quot;: &quot;https://www.abridge.com/&quot;,
+      &quot;kind&quot;: &quot;производитель&quot;,
+      &quot;locator&quot;: &quot;Документация, работа врача и revenue cycle&quot;,
+      &quot;limits&quot;: &quot;Поддержка оплаты в другой системе здравоохранения не означает поддержку ОМС.&quot;,
+      &quot;accessed&quot;: &quot;2026-10-25&quot;
+    },
+    {
+      &quot;id&quot;: &quot;RCT&quot;,
+      &quot;title&quot;: &quot;Lukac et al. Ambient AI Scribes in Clinical Practice: A Randomized Trial&quot;,
+      &quot;url&quot;: &quot;https://doi.org/10.1056/AIoa2501000&quot;,
+      &quot;kind&quot;: &quot;рандомизированное исследование&quot;,
+      &quot;locator&quot;: &quot;NEJM AI, 2025; 238 врачей, 14 специальностей, США; DAX и Nabla&quot;,
+      &quot;limits&quot;: &quot;Первичный исход: изменение времени написания записи. Не точность диагноза, не российский стационар и не аудит ОМС.&quot;,
+      &quot;accessed&quot;: &quot;2026-10-25&quot;
+    },
+    {
+      &quot;id&quot;: &quot;MIMIC&quot;,
+      &quot;title&quot;: &quot;MIMIC-IV 3.1&quot;,
+      &quot;url&quot;: &quot;https://physionet.org/content/mimiciv/3.1/&quot;,
+      &quot;kind&quot;: &quot;описание набора авторами&quot;,
+      &quot;locator&quot;: &quot;Версия 3.1, 11.10.2024; доступ после обучения и соглашения&quot;,
+      &quot;limits&quot;: &quot;Данные не скачивались; нельзя публиковать или передавать в сторонний API без проверки условий.&quot;,
+      &quot;accessed&quot;: &quot;2026-10-25&quot;
+    },
+    {
+      &quot;id&quot;: &quot;SYNTHEA&quot;,
+      &quot;title&quot;: &quot;Synthea: Synthetic Patient Generation&quot;,
+      &quot;url&quot;: &quot;https://synthetichealth.github.io/synthea/&quot;,
+      &quot;kind&quot;: &quot;проект разработчиков&quot;,
+      &quot;locator&quot;: &quot;Синтетические продольные истории и моделирование процессов&quot;,
+      &quot;limits&quot;: &quot;Не обеспечивает автоматически реализм российской документации и ОМС; в работе не запускалась.&quot;,
+      &quot;accessed&quot;: &quot;2026-10-25&quot;
+    }
+  ],
+  &quot;source_provenance&quot;: {
+    &quot;source&quot;: &quot;https://www.rosstat.gov.ru/storage/mediabank/Zdravooxran_2025.pdf&quot;,
+    &quot;accessed&quot;: &quot;2026-10-25&quot;,
+    &quot;sha256&quot;: &quot;66d71b1fd1bf437c0da7cc0d408203c749dd8637c971d0c38075a31a432a47d2&quot;,
+    &quot;table&quot;: &quot;3.17&quot;,
+    &quot;printed_page&quot;: 97,
+    &quot;pdf_page&quot;: 98,
+    &quot;units&quot;: &quot;thousand persons, discharged patients&quot;,
+    &quot;year&quot;: 2024,
+    &quot;total&quot;: 27515,
+    &quot;note&quot;: &quot;All ages and inpatient profiles, not adult internal medicine alone.&quot;
+  }
+}</pre></details></section></main><script>
+const group = document.getElementById('group-filter');
+group.addEventListener('change', () => {
+ let count = 0;
+ for (const row of document.querySelectorAll('#competitor-table tbody tr')) {
+  row.hidden = group.value !== 'all' && row.dataset.group !== group.value;
+  if (!row.hidden) count++;
+ }
+ document.getElementById('filter-count').textContent = 'Показано: ' + count;
+});
+let printOpen = [];
+window.addEventListener('beforeprint', () => { printOpen = [...document.querySelectorAll('details')].map(d => d.open); document.querySelectorAll('details').forEach(d => d.open = true); });
+window.addEventListener('afterprint', () => { document.querySelectorAll('details').forEach((d,i) => d.open = printOpen[i] || false); });
+</script></body></html>

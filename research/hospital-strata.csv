@@ -1,0 +1,7 @@
+id,label,discharged_thousand_2024,source_id
+circulatory,Болезни системы кровообращения,4928,STAT
+respiratory,Болезни органов дыхания,2805,STAT
+digestive,Болезни органов пищеварения,2525,STAT
+endocrine,Болезни эндокринной системы,636,STAT
+urogenital,Болезни мочеполовой системы,2357,STAT
+ear,Болезни уха и сосцевидного отростка,164,STAT

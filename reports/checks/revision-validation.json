@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-25",
+  "report_sha256": "c18df2c8c1abf60a533574e4d40406381533111e8a4549edcbb8d627b3a741c1",
+  "report_bytes": 195102,
+  "internal_anchors_valid": true,
+  "svg_count": 20,
+  "external_script_or_api_calls": 0,
+  "research_data_reproducible": true,
+  "browser": {
+    "desktop_reviewed": true,
+    "mobile_width": 390,
+    "document_overflow": false,
+    "competitor_filter_direct_count": 3,
+    "console_errors": 0
+  },
+  "clinical_validation": false
+}

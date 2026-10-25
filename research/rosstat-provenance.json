@@ -1,0 +1,12 @@
+{
+  "source": "https://www.rosstat.gov.ru/storage/mediabank/Zdravooxran_2025.pdf",
+  "accessed": "2026-10-25",
+  "sha256": "66d71b1fd1bf437c0da7cc0d408203c749dd8637c971d0c38075a31a432a47d2",
+  "table": "3.17",
+  "printed_page": 97,
+  "pdf_page": 98,
+  "units": "thousand persons, discharged patients",
+  "year": 2024,
+  "total": 27515,
+  "note": "All ages and inpatient profiles, not adult internal medicine alone."
+}
