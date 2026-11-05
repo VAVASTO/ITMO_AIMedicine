@@ -1,0 +1,21 @@
+{
+  "id": "job_9cR2MWvk17ubx_ilONXNTQ",
+  "model": "gemma-4-31b-it",
+  "status": "done",
+  "fallback": null,
+  "result": {
+    "text": " {\n  \"recommendations\": [\n    {\n      \"rule_id\": \"CAP01\",\n      \"action\": \"measure_spo2\",\n      \"source_id\": \"cap-2024-p13\",\n      \"evidence_ids\": [\n        \"V08-diagnosis-0\"\n      ],\n      \"explanation\": \"Отсутствует запись об измерении SpO2 после постановки диагноза V08-diagnosis-0.\"\n    },\n    {\n      \"rule_id\": \"CAP03\",\n      \"action\": \"assess_response\",\n      \"source_id\": \"cap-2024-p28\",\n      \"evidence_ids\": [\n        \"V08-antibiotic_start-2\",\n        \"V08-reassessment-74\"\n      ],\n      \"explanation\": \"Оценка эффективности V08-reassessment-74 проведена через 259200 секунд после начала лечения, что соответствует интервалу 48-72 ч. Однако, текущее время анализа превышает 72 ч от начала лечения (262800 секунд), и статус правила CAP03 требует подтверждения текущего ответа.\"\n    }\n  ]\n}\n```",
+    "parts": [
+      {
+        "text": " {\n  \"recommendations\": [\n    {\n      \"rule_id\": \"CAP01\",\n      \"action\": \"measure_spo2\",\n      \"source_id\": \"cap-2024-p13\",\n      \"evidence_ids\": [\n        \"V08-diagnosis-0\"\n      ],\n      \"explanation\": \"Отсутствует запись об измерении SpO2 после постановки диагноза V08-diagnosis-0.\"\n    },\n    {\n      \"rule_id\": \"CAP03\",\n      \"action\": \"assess_response\",\n      \"source_id\": \"cap-2024-p28\",\n      \"evidence_ids\": [\n        \"V08-antibiotic_start-2\",\n        \"V08-reassessment-74\"\n      ],\n      \"explanation\": \"Оценка эффективности V08-reassessment-74 проведена через 259200 секунд после начала лечения, что соответствует интервалу 48-72 ч. Однако, текущее время анализа превышает 72 ч от начала лечения (262800 секунд), и статус правила CAP03 требует подтверждения текущего ответа.\"\n    }\n  ]\n}\n```"
+      }
+    ],
+    "finishReason": "STOP",
+    "usage": {
+      "input": 2242,
+      "output": 284,
+      "thoughts": 0,
+      "total": 2526
+    }
+  }
+}

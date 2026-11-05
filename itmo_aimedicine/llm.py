@@ -1,9 +1,4 @@
-"""Transport approach adapted from VAVASTO/AIMedicine, commit e2f4877.
-
-Mistral is the initial provider because Google AI Studio could not be set up:
-it redirected to available-regions. Gemini/Gemma remain deferred, untested.
-A future Gemini adapter implements StructuredProvider without changing callers.
-"""
+"""Structured model adapters. Each provider validates its response locally."""
 from dataclasses import dataclass
 import json
 import time
@@ -30,6 +25,8 @@ class Completion:
     attempts: int
     latency_ms: int
     usage: dict[str, int]
+    job_id: str | None = None
+    format_cleanup: str | None = None
 
     def as_dict(self) -> dict[str, Any]:
         return {**self.__dict__, "result": self.result.model_dump()}
@@ -110,10 +107,12 @@ class MistralClient:
 
 
 def get_provider(settings: Settings) -> StructuredProvider:
+    if settings.provider == "router":
+        from .router import RouterClient
+        return RouterClient(settings)
     if settings.provider == "glm":
         from .glm import FreeGLMClient
         return FreeGLMClient(settings)
     if settings.provider != "mistral":
-        # Gemini needs its own validated adapter, not just a different Mistral URL.
-        raise LLMError("Провайдер ещё не реализован. Доступны mistral и glm; Gemini отложен.")
+        raise LLMError("Неизвестный провайдер. Доступны mistral, glm и router. Для Gemini/Gemma выберите router.")
     return MistralClient(settings)

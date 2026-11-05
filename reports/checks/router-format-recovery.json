@@ -1,0 +1,35 @@
+[
+  {
+    "job_id": "job_xOpx903buwd4aJS0ukyglQ",
+    "case_id": "V05",
+    "condition": "v2",
+    "role": "recommend",
+    "format_cleanup": true,
+    "schema_and_links_after_cleanup": true,
+    "error": null,
+    "experimental_record_unchanged": true,
+    "extra_api_jobs": 0
+  },
+  {
+    "job_id": "job_lnHvLY_KsGIdj4chYd_VwA",
+    "case_id": "V04",
+    "condition": "v1",
+    "role": "audit",
+    "format_cleanup": true,
+    "schema_and_links_after_cleanup": false,
+    "error": "Неверный набор правил в ответе модели.",
+    "experimental_record_unchanged": true,
+    "extra_api_jobs": 0
+  },
+  {
+    "job_id": "job_9cR2MWvk17ubx_ilONXNTQ",
+    "case_id": "V08",
+    "condition": "v2",
+    "role": "recommend",
+    "format_cleanup": true,
+    "schema_and_links_after_cleanup": true,
+    "error": null,
+    "experimental_record_unchanged": true,
+    "extra_api_jobs": 0
+  }
+]

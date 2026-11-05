@@ -1,0 +1,43 @@
+{
+  "date": "2026-11-04",
+  "results": [
+    {
+      "success": true,
+      "result": {
+        "status": "ok",
+        "message": "Connectivity test received successfully."
+      },
+      "provider": "router",
+      "model": "gemini-3.5-flash-lite",
+      "mode": "live",
+      "attempts": 1,
+      "latency_ms": 21763,
+      "usage": {
+        "input": 45,
+        "output": 16,
+        "thoughts": 0,
+        "total": 61
+      },
+      "job_id": "job_mWAlVvjZo9hWxUowE_0ZHw"
+    },
+    {
+      "success": true,
+      "result": {
+        "status": "ok",
+        "message": "Connectivity test successful. Receipt confirmed."
+      },
+      "provider": "router",
+      "model": "gemma-4-31b-it",
+      "mode": "live",
+      "attempts": 1,
+      "latency_ms": 72671,
+      "usage": {
+        "input": 45,
+        "output": 24,
+        "thoughts": 0,
+        "total": 69
+      },
+      "job_id": "job_s3MINIWL9NEATBpQEjwGWg"
+    }
+  ]
+}

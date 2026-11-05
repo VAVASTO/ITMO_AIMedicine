@@ -12,7 +12,7 @@ from .smoke import run_smoke
 def main():
     parser = argparse.ArgumentParser(description="Проверка соединения без медицинских данных")
     parser.add_argument("--mode", choices=("mock", "live"), default="mock")
-    parser.add_argument("--provider", choices=("mistral", "glm"))
+    parser.add_argument("--provider", choices=("mistral", "glm", "router"))
     parser.add_argument("--env-file", type=Path)
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()
@@ -20,7 +20,7 @@ def main():
         settings = Settings.from_env(provider=args.provider, env_file=args.env_file).model_copy(update={"mode": args.mode})
         result = {"success": True, **run_smoke(settings).as_dict()}
         code = 0
-    except (LLMError, ValidationError) as error:
+    except (LLMError, ValueError) as error:
         message = str(error) if isinstance(error, LLMError) else "Некорректные настройки; проверьте .env.example."
         result = {"success": False, "mode": args.mode, "error": message}
         code = 1

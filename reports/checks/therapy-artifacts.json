@@ -1,0 +1,17 @@
+{
+  "groups": {
+    "therapy": {
+      "ok": 56
+    },
+    "therapy-revision": {
+      "ok": 61,
+      "error": 3
+    }
+  },
+  "unique_job_ids": 120,
+  "input_hashes_and_links": true,
+  "v2_temporal_facts_recomputed": true,
+  "v2_audit_has_no_draft_plan": true,
+  "api_calls": 0,
+  "all_finished": true
+}

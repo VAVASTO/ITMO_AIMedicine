@@ -1,0 +1,21 @@
+{
+  "id": "job_lnHvLY_KsGIdj4chYd_VwA",
+  "model": "gemma-4-31b-it",
+  "status": "done",
+  "fallback": null,
+  "result": {
+    "text": "{\"checks\": [{\"rule_id\": \"CAP01\", \"status\": \"met\", \"evidence_ids\": [\"V04-spo2-0.1\"], \"source_id\": \"cap-2024-p13\", \"explanation\": \"Зафиксировано измерение SpO2 после постановки диагноза.\"}, {\"rule_id\": \"CAP02\", \"status\": \"attention\", \"evidence_ids\": [\"V04-diagnosis-0\", \"V04-antibiotic_order-1\"], \"source_id\": \"cap-2024-p24\", \"explanation\": \"Диагноз установлен в 20:30Z (11-02), заказ антибиотика в 17:30-04:00 (21:30Z 11-02). Разница составляет 1 час, что укладывается в 4 часа. Однако, в соответствии с формальным контрактом, события должны быть 'at or after first confirmed diagnosis'. Заказ антибиотика V04-antibiotic_order-1 произошел в 17:30-04:00 (21:30Z), что позже диагноза V04-diagnosis-0 (20:30Z). Срок назначения составляет 1 час, статус 'met'.\"}, {\"rule_id\": \"CAP02\", \"status\": \"met\", \"evidence_ids\": [\"V04-diagnosis-0\", \"V04-antibiotic_order-1\"], \"source_id\": \"cap-2024-p24\", \"explanation\": \"Диагноз V04-diagnosis-0 (20:30Z) и заказ антибиотика V04-antibiotic_order-1 (21:30Z) разница 1 час, что <= 4 часов.\"}, {\"rule_id\": \"CAP03\", \"status\": \"unknown\", \"evidence_ids\": [\"V04-diagnosis-0\"], \"source_id\": \"cap-2024-p28\", \"explanation\": \"Отсутствует запись о начале лечения (antibiotic_start), что делает невозможным расчет интервала для переоценки. Статус 'unknown'.\"}] } \n```",
+    "parts": [
+      {
+        "text": "{\"checks\": [{\"rule_id\": \"CAP01\", \"status\": \"met\", \"evidence_ids\": [\"V04-spo2-0.1\"], \"source_id\": \"cap-2024-p13\", \"explanation\": \"Зафиксировано измерение SpO2 после постановки диагноза.\"}, {\"rule_id\": \"CAP02\", \"status\": \"attention\", \"evidence_ids\": [\"V04-diagnosis-0\", \"V04-antibiotic_order-1\"], \"source_id\": \"cap-2024-p24\", \"explanation\": \"Диагноз установлен в 20:30Z (11-02), заказ антибиотика в 17:30-04:00 (21:30Z 11-02). Разница составляет 1 час, что укладывается в 4 часа. Однако, в соответствии с формальным контрактом, события должны быть 'at or after first confirmed diagnosis'. Заказ антибиотика V04-antibiotic_order-1 произошел в 17:30-04:00 (21:30Z), что позже диагноза V04-diagnosis-0 (20:30Z). Срок назначения составляет 1 час, статус 'met'.\"}, {\"rule_id\": \"CAP02\", \"status\": \"met\", \"evidence_ids\": [\"V04-diagnosis-0\", \"V04-antibiotic_order-1\"], \"source_id\": \"cap-2024-p24\", \"explanation\": \"Диагноз V04-diagnosis-0 (20:30Z) и заказ антибиотика V04-antibiotic_order-1 (21:30Z) разница 1 час, что <= 4 часов.\"}, {\"rule_id\": \"CAP03\", \"status\": \"unknown\", \"evidence_ids\": [\"V04-diagnosis-0\"], \"source_id\": \"cap-2024-p28\", \"explanation\": \"Отсутствует запись о начале лечения (antibiotic_start), что делает невозможным расчет интервала для переоценки. Статус 'unknown'.\"}] } \n```"
+      }
+    ],
+    "finishReason": "STOP",
+    "usage": {
+      "input": 2079,
+      "output": 498,
+      "thoughts": 0,
+      "total": 2577
+    }
+  }
+}

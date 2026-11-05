@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "itmo-aimedicine"
 version = "0.1.0"
-description = "ITMO stage 1: medical documentation audit design and Mistral integration"
+description = "ITMO research prototype: longitudinal adult therapy workflow and Gemini/Gemma evaluation"
 requires-python = ">=3.11"
 dependencies = [
   "fastapi>=0.115,<1",
@@ -17,6 +17,7 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest>=8,<9", "markdown>=3.7,<4"]
+research = ["pypdf==6.10.0"]
 
 [project.scripts]
 aimedicine-smoke = "itmo_aimedicine.cli:main"

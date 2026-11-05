@@ -1,0 +1,108 @@
+{
+  "label_origin": "Авторская разметка до запуска моделей; клинической валидации нет.",
+  "snapshots": [
+    {
+      "case_id": "V01",
+      "review_at": "2026-11-06T04:30:00+03:00",
+      "statuses": {
+        "CAP01": "met",
+        "CAP02": "met",
+        "CAP03": "pending",
+        "CAP04": "not_applicable"
+      },
+      "actions": {
+        "CAP03": "assess_response"
+      }
+    },
+    {
+      "case_id": "V02",
+      "review_at": "2026-11-06T04:30:01+03:00",
+      "statuses": {
+        "CAP01": "met",
+        "CAP02": "attention",
+        "CAP03": "unknown",
+        "CAP04": "not_applicable"
+      },
+      "actions": {
+        "CAP02": "review_antibiotic_order",
+        "CAP03": "assess_response"
+      }
+    },
+    {
+      "case_id": "V03",
+      "review_at": "2026-11-05T02:30:00+03:00",
+      "statuses": {
+        "CAP01": "met",
+        "CAP02": "met",
+        "CAP03": "pending",
+        "CAP04": "not_applicable"
+      },
+      "actions": {
+        "CAP03": "assess_response"
+      }
+    },
+    {
+      "case_id": "V04",
+      "review_at": "2026-11-05T11:30:00+03:00",
+      "statuses": {
+        "CAP01": "met",
+        "CAP02": "met",
+        "CAP03": "unknown",
+        "CAP04": "not_applicable"
+      },
+      "actions": {
+        "CAP03": "clarify_treatment_start"
+      }
+    },
+    {
+      "case_id": "V05",
+      "review_at": "2026-11-05T08:30:00+03:00",
+      "statuses": {
+        "CAP01": "met",
+        "CAP02": "unknown",
+        "CAP03": "met",
+        "CAP04": "not_applicable"
+      },
+      "actions": {
+        "CAP02": "specialist_review"
+      }
+    },
+    {
+      "case_id": "V06",
+      "review_at": "2026-11-05T09:30:00+03:00",
+      "statuses": {
+        "CAP01": "met",
+        "CAP02": "met",
+        "CAP03": "met",
+        "CAP04": "attention"
+      },
+      "actions": {
+        "CAP04": "review_treatment"
+      }
+    },
+    {
+      "case_id": "V07",
+      "review_at": "2026-11-05T03:30:00+03:00",
+      "statuses": {
+        "CAP01": "met",
+        "CAP02": "met",
+        "CAP03": "met",
+        "CAP04": "not_applicable"
+      },
+      "actions": {}
+    },
+    {
+      "case_id": "V08",
+      "review_at": "2026-11-06T02:30:00+03:00",
+      "statuses": {
+        "CAP01": "unknown",
+        "CAP02": "met",
+        "CAP03": "met",
+        "CAP04": "not_applicable"
+      },
+      "actions": {
+        "CAP01": "measure_spo2"
+      }
+    }
+  ]
+}

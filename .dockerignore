@@ -1,0 +1,12 @@
+**/.env*
+**/.git
+**/.venv
+**/__pycache__
+**/node_modules
+frontend/dist
+data/private
+reports/live
+reports/checks
+reports/generation
+*.env
+*key*.txt

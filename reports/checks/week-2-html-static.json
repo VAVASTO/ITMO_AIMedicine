@@ -1,0 +1,16 @@
+{
+  "report_bytes": 290958,
+  "sections": 14,
+  "unique_ids": true,
+  "internal_links": true,
+  "sequential_labels": true,
+  "replay_views": 30,
+  "unique_cases": 20,
+  "revision_jobs": 64,
+  "javascript_syntax": true,
+  "no_api_calls_in_html": true,
+  "working_key_absent": true,
+  "visual_review": false,
+  "visual_blocker": "Browser security policy rejects file://; no workaround attempted.",
+  "report_sha256": "7f09895f679b7f5599348ffbf97efcc08a4569b2c3dd5b831d0e35960e9600ec"
+}

@@ -1,0 +1,344 @@
+{
+  "version": "therapy-cap-v1",
+  "cases": 12,
+  "snapshots_per_model": 14,
+  "max_jobs": 56,
+  "models": {
+    "gemini-3.5-flash-lite": {
+      "attempted_jobs": 28,
+      "validated_jobs": 28,
+      "audit_correct_checks": 51,
+      "audit_total_checks": 56,
+      "audit_exact_snapshots": 10,
+      "audit_snapshots": 14,
+      "plan_exact_snapshots": 7,
+      "plan_snapshots": 14,
+      "audit_details": [
+        {
+          "case_id": "T01",
+          "review_at": "2026-11-02T10:00:00+03:00",
+          "matches": 4,
+          "errors": []
+        },
+        {
+          "case_id": "T01",
+          "review_at": "2026-11-03T14:00:00+03:00",
+          "matches": 4,
+          "errors": []
+        },
+        {
+          "case_id": "T12",
+          "review_at": "2026-11-03T14:00:00+03:00",
+          "matches": 4,
+          "errors": []
+        },
+        {
+          "case_id": "T07",
+          "review_at": "2026-11-04T14:00:00+03:00",
+          "matches": 3,
+          "errors": [
+            {
+              "rule": "CAP03",
+              "expected": "unknown",
+              "actual": "pending"
+            }
+          ]
+        },
+        {
+          "case_id": "T08",
+          "review_at": "2026-11-04T10:00:00+03:00",
+          "matches": 4,
+          "errors": []
+        },
+        {
+          "case_id": "T01",
+          "review_at": "2026-11-01T08:30:00+03:00",
+          "matches": 4,
+          "errors": []
+        },
+        {
+          "case_id": "T09",
+          "review_at": "2026-11-03T14:00:00+03:00",
+          "matches": 2,
+          "errors": [
+            {
+              "rule": "CAP01",
+              "expected": "met",
+              "actual": "unknown"
+            },
+            {
+              "rule": "CAP03",
+              "expected": "met",
+              "actual": "unknown"
+            }
+          ]
+        },
+        {
+          "case_id": "T06",
+          "review_at": "2026-11-03T18:00:00+03:00",
+          "matches": 4,
+          "errors": []
+        },
+        {
+          "case_id": "T04",
+          "review_at": "2026-11-04T16:00:00+03:00",
+          "matches": 3,
+          "errors": [
+            {
+              "rule": "CAP03",
+              "expected": "unknown",
+              "actual": "attention"
+            }
+          ]
+        },
+        {
+          "case_id": "T11",
+          "review_at": "2026-11-03T14:00:00+03:00",
+          "matches": 4,
+          "errors": []
+        },
+        {
+          "case_id": "T03",
+          "review_at": "2026-11-04T16:00:00+03:00",
+          "matches": 4,
+          "errors": []
+        },
+        {
+          "case_id": "T02",
+          "review_at": "2026-11-03T18:00:00+03:00",
+          "matches": 3,
+          "errors": [
+            {
+              "rule": "CAP02",
+              "expected": "attention",
+              "actual": "met"
+            }
+          ]
+        },
+        {
+          "case_id": "T10",
+          "review_at": "2026-11-03T14:00:00+03:00",
+          "matches": 4,
+          "errors": []
+        },
+        {
+          "case_id": "T05",
+          "review_at": "2026-11-03T18:00:00+03:00",
+          "matches": 4,
+          "errors": []
+        }
+      ],
+      "plan_errors": [
+        {
+          "case_id": "T03",
+          "review_at": "2026-11-04T16:00:00+03:00",
+          "expected": {
+            "CAP03": "clarify_treatment_start"
+          },
+          "actual": {
+            "CAP01": "measure_spo2",
+            "CAP02": "review_antibiotic_order",
+            "CAP03": "clarify_treatment_start"
+          }
+        },
+        {
+          "case_id": "T08",
+          "review_at": "2026-11-04T10:00:00+03:00",
+          "expected": {
+            "CAP03": "assess_response"
+          },
+          "actual": {
+            "CAP01": "measure_spo2",
+            "CAP02": "review_antibiotic_order",
+            "CAP03": "schedule_reassessment",
+            "CAP04": "review_treatment"
+          }
+        },
+        {
+          "case_id": "T04",
+          "review_at": "2026-11-04T16:00:00+03:00",
+          "expected": {
+            "CAP03": "assess_response"
+          },
+          "actual": {
+            "CAP01": "measure_spo2",
+            "CAP04": "review_treatment"
+          }
+        },
+        {
+          "case_id": "T09",
+          "review_at": "2026-11-03T14:00:00+03:00",
+          "expected": {
+            "CAP02": "specialist_review"
+          },
+          "actual": {
+            "CAP01": "specialist_review",
+            "CAP02": "specialist_review",
+            "CAP03": "specialist_review"
+          }
+        },
+        {
+          "case_id": "T07",
+          "review_at": "2026-11-04T14:00:00+03:00",
+          "expected": {
+            "CAP03": "assess_response"
+          },
+          "actual": {
+            "CAP03": "schedule_reassessment",
+            "CAP04": "review_treatment"
+          }
+        },
+        {
+          "case_id": "T01",
+          "review_at": "2026-11-01T08:30:00+03:00",
+          "expected": {
+            "CAP02": "review_antibiotic_order",
+            "CAP03": "clarify_treatment_start"
+          },
+          "actual": {
+            "CAP01": "measure_spo2",
+            "CAP02": "review_antibiotic_order",
+            "CAP03": "clarify_treatment_start",
+            "CAP04": "review_treatment"
+          }
+        },
+        {
+          "case_id": "T02",
+          "review_at": "2026-11-03T18:00:00+03:00",
+          "expected": {
+            "CAP02": "review_antibiotic_order"
+          },
+          "actual": {}
+        }
+      ],
+      "latency_median_ms": 20686.0,
+      "tokens": 64889,
+      "errors": []
+    },
+    "gemma-4-31b-it": {
+      "attempted_jobs": 28,
+      "validated_jobs": 28,
+      "audit_correct_checks": 54,
+      "audit_total_checks": 56,
+      "audit_exact_snapshots": 12,
+      "audit_snapshots": 14,
+      "plan_exact_snapshots": 13,
+      "plan_snapshots": 14,
+      "audit_details": [
+        {
+          "case_id": "T09",
+          "review_at": "2026-11-03T14:00:00+03:00",
+          "matches": 4,
+          "errors": []
+        },
+        {
+          "case_id": "T01",
+          "review_at": "2026-11-01T08:30:00+03:00",
+          "matches": 4,
+          "errors": []
+        },
+        {
+          "case_id": "T06",
+          "review_at": "2026-11-03T18:00:00+03:00",
+          "matches": 4,
+          "errors": []
+        },
+        {
+          "case_id": "T07",
+          "review_at": "2026-11-04T14:00:00+03:00",
+          "matches": 4,
+          "errors": []
+        },
+        {
+          "case_id": "T12",
+          "review_at": "2026-11-03T14:00:00+03:00",
+          "matches": 4,
+          "errors": []
+        },
+        {
+          "case_id": "T08",
+          "review_at": "2026-11-04T10:00:00+03:00",
+          "matches": 3,
+          "errors": [
+            {
+              "rule": "CAP03",
+              "expected": "pending",
+              "actual": "unknown"
+            }
+          ]
+        },
+        {
+          "case_id": "T02",
+          "review_at": "2026-11-03T18:00:00+03:00",
+          "matches": 4,
+          "errors": []
+        },
+        {
+          "case_id": "T05",
+          "review_at": "2026-11-03T18:00:00+03:00",
+          "matches": 3,
+          "errors": [
+            {
+              "rule": "CAP03",
+              "expected": "met",
+              "actual": "attention"
+            }
+          ]
+        },
+        {
+          "case_id": "T10",
+          "review_at": "2026-11-03T14:00:00+03:00",
+          "matches": 4,
+          "errors": []
+        },
+        {
+          "case_id": "T11",
+          "review_at": "2026-11-03T14:00:00+03:00",
+          "matches": 4,
+          "errors": []
+        },
+        {
+          "case_id": "T04",
+          "review_at": "2026-11-04T16:00:00+03:00",
+          "matches": 4,
+          "errors": []
+        },
+        {
+          "case_id": "T03",
+          "review_at": "2026-11-04T16:00:00+03:00",
+          "matches": 4,
+          "errors": []
+        },
+        {
+          "case_id": "T01",
+          "review_at": "2026-11-02T10:00:00+03:00",
+          "matches": 4,
+          "errors": []
+        },
+        {
+          "case_id": "T01",
+          "review_at": "2026-11-03T14:00:00+03:00",
+          "matches": 4,
+          "errors": []
+        }
+      ],
+      "plan_errors": [
+        {
+          "case_id": "T05",
+          "review_at": "2026-11-03T18:00:00+03:00",
+          "expected": {
+            "CAP04": "review_treatment"
+          },
+          "actual": {
+            "CAP03": "assess_response",
+            "CAP04": "review_treatment"
+          }
+        }
+      ],
+      "latency_median_ms": 51465.0,
+      "tokens": 62284,
+      "errors": []
+    }
+  },
+  "clinical_validation": false
+}

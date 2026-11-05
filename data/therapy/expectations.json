@@ -1,0 +1,146 @@
+{
+  "author": "Инженерная разметка до запуска моделей, независимо от их ответов. Не врачебный эталон.",
+  "version": "therapy-cap-v1",
+  "snapshots": [
+    {
+      "case_id": "T01",
+      "review_at": "2026-11-01T08:30:00+03:00",
+      "statuses": {
+        "CAP01": "met",
+        "CAP02": "pending",
+        "CAP03": "unknown",
+        "CAP04": "not_applicable"
+      }
+    },
+    {
+      "case_id": "T01",
+      "review_at": "2026-11-02T10:00:00+03:00",
+      "statuses": {
+        "CAP01": "met",
+        "CAP02": "met",
+        "CAP03": "pending",
+        "CAP04": "not_applicable"
+      }
+    },
+    {
+      "case_id": "T01",
+      "review_at": "2026-11-03T14:00:00+03:00",
+      "statuses": {
+        "CAP01": "met",
+        "CAP02": "met",
+        "CAP03": "met",
+        "CAP04": "not_applicable"
+      }
+    },
+    {
+      "case_id": "T02",
+      "review_at": "2026-11-03T18:00:00+03:00",
+      "statuses": {
+        "CAP01": "met",
+        "CAP02": "attention",
+        "CAP03": "met",
+        "CAP04": "not_applicable"
+      }
+    },
+    {
+      "case_id": "T03",
+      "review_at": "2026-11-04T16:00:00+03:00",
+      "statuses": {
+        "CAP01": "met",
+        "CAP02": "met",
+        "CAP03": "unknown",
+        "CAP04": "not_applicable"
+      }
+    },
+    {
+      "case_id": "T04",
+      "review_at": "2026-11-04T16:00:00+03:00",
+      "statuses": {
+        "CAP01": "met",
+        "CAP02": "met",
+        "CAP03": "unknown",
+        "CAP04": "not_applicable"
+      }
+    },
+    {
+      "case_id": "T05",
+      "review_at": "2026-11-03T18:00:00+03:00",
+      "statuses": {
+        "CAP01": "met",
+        "CAP02": "met",
+        "CAP03": "met",
+        "CAP04": "attention"
+      }
+    },
+    {
+      "case_id": "T06",
+      "review_at": "2026-11-03T18:00:00+03:00",
+      "statuses": {
+        "CAP01": "met",
+        "CAP02": "met",
+        "CAP03": "met",
+        "CAP04": "met"
+      }
+    },
+    {
+      "case_id": "T07",
+      "review_at": "2026-11-04T14:00:00+03:00",
+      "statuses": {
+        "CAP01": "met",
+        "CAP02": "met",
+        "CAP03": "unknown",
+        "CAP04": "not_applicable"
+      }
+    },
+    {
+      "case_id": "T08",
+      "review_at": "2026-11-04T10:00:00+03:00",
+      "statuses": {
+        "CAP01": "met",
+        "CAP02": "met",
+        "CAP03": "pending",
+        "CAP04": "not_applicable"
+      }
+    },
+    {
+      "case_id": "T09",
+      "review_at": "2026-11-03T14:00:00+03:00",
+      "statuses": {
+        "CAP01": "met",
+        "CAP02": "unknown",
+        "CAP03": "met",
+        "CAP04": "not_applicable"
+      }
+    },
+    {
+      "case_id": "T10",
+      "review_at": "2026-11-03T14:00:00+03:00",
+      "statuses": {
+        "CAP01": "unknown",
+        "CAP02": "met",
+        "CAP03": "met",
+        "CAP04": "not_applicable"
+      }
+    },
+    {
+      "case_id": "T11",
+      "review_at": "2026-11-03T14:00:00+03:00",
+      "statuses": {
+        "CAP01": "not_applicable",
+        "CAP02": "not_applicable",
+        "CAP03": "not_applicable",
+        "CAP04": "not_applicable"
+      }
+    },
+    {
+      "case_id": "T12",
+      "review_at": "2026-11-03T14:00:00+03:00",
+      "statuses": {
+        "CAP01": "not_applicable",
+        "CAP02": "not_applicable",
+        "CAP03": "not_applicable",
+        "CAP04": "not_applicable"
+      }
+    }
+  ]
+}

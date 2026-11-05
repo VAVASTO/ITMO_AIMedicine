@@ -1,0 +1,146 @@
+{
+  "model": "gemini-3.5-flash-lite",
+  "case_id": "V01",
+  "condition": "v2",
+  "role": "recommend",
+  "review_at": "2026-11-06T04:30:00+03:00",
+  "payload": {
+    "state": {
+      "case_id": "V01",
+      "age": 59,
+      "ward": "therapy",
+      "severity": "nonsevere",
+      "synthetic": true,
+      "review_at": "2026-11-06T04:30:00+03:00",
+      "events": [
+        {
+          "id": "V01-diagnosis-0",
+          "kind": "diagnosis",
+          "occurred_at": "2026-11-02T20:30:00Z",
+          "available_at": "2026-11-02T20:30:00Z",
+          "value": "confirmed_cap",
+          "rule_id": null
+        },
+        {
+          "id": "V01-spo2-0.1",
+          "kind": "spo2",
+          "occurred_at": "2026-11-02T23:36:00+03:00",
+          "available_at": "2026-11-02T23:36:00+03:00",
+          "value": "95",
+          "rule_id": null
+        },
+        {
+          "id": "V01-antibiotic_order-4",
+          "kind": "antibiotic_order",
+          "occurred_at": "2026-11-02T20:30:00-04:00",
+          "available_at": "2026-11-02T20:30:00-04:00",
+          "value": "documented",
+          "rule_id": null
+        },
+        {
+          "id": "V01-antibiotic_start-5",
+          "kind": "antibiotic_start",
+          "occurred_at": "2026-11-03T01:30:00Z",
+          "available_at": "2026-11-03T01:30:00Z",
+          "value": "documented",
+          "rule_id": null
+        }
+      ]
+    },
+    "source_cards": [
+      {
+        "id": "cap-2024-p13",
+        "rule_id": "CAP01",
+        "title": "Измерение SpO2",
+        "source_document": "CAP-2024",
+        "page": 13,
+        "url": "https://spulmo.ru/upload/KR-vnebolnichnaya-pnevmoniya-u-vzroslyh-2024.pdf#page=13",
+        "summary": "При ВП рекомендовано измерять SpO2 для выявления гипоксемии.",
+        "formal_contract": "Scope: age>=18, ward=therapy, severity=nonsevere, visible diagnosis value=confirmed_cap. Otherwise not_applicable, no action. Only events at or after first confirmed diagnosis. Explicit rule exception overrides: unknown, action specialist_review. Missing record is not proof that care was omitted. A visible spo2 record: met, no action. No record: unknown, action measure_spo2. Do not grade the measured percentage or infer a diagnosis from it.",
+        "approval": "Исследовательская формализация; врачом и преподавателем не утверждена"
+      },
+      {
+        "id": "cap-2024-p24",
+        "rule_id": "CAP02",
+        "title": "Срок назначения антибиотика",
+        "source_document": "CAP-2024",
+        "page": 24,
+        "url": "https://spulmo.ru/upload/KR-vnebolnichnaya-pnevmoniya-u-vzroslyh-2024.pdf#page=24",
+        "summary": "В стационаре системный антибиотик при установленной ВП назначают как можно раньше, не позднее 4 ч после диагноза.",
+        "formal_contract": "Scope: age>=18, ward=therapy, severity=nonsevere, visible diagnosis value=confirmed_cap. Otherwise not_applicable, no action. Only events at or after first confirmed diagnosis. Explicit rule exception overrides: unknown, action specialist_review. Missing record is not proof that care was omitted. Use antibiotic_order, NOT antibiotic_start. First order <=4h after diagnosis: met; >4h: attention. No order and elapsed<=4h: pending; no order and elapsed>4h: unknown. For every non-met status action review_antibiotic_order. Never infer an order from a start record. Dose and drug choice are outside this rule.",
+        "approval": "Исследовательская формализация; врачом и преподавателем не утверждена"
+      },
+      {
+        "id": "cap-2024-p28",
+        "rule_id": "CAP03",
+        "title": "Оценка ответа на лечение",
+        "source_document": "CAP-2024",
+        "page": 28,
+        "url": "https://spulmo.ru/upload/KR-vnebolnichnaya-pnevmoniya-u-vzroslyh-2024.pdf#page=28",
+        "summary": "После начала лечения оценку эффективности и безопасности проводят через 48–72 ч; учитывают клиническую динамику.",
+        "formal_contract": "Scope: age>=18, ward=therapy, severity=nonsevere, visible diagnosis value=confirmed_cap. Otherwise not_applicable, no action. Only events at or after first confirmed diagnosis. Explicit rule exception overrides: unknown, action specialist_review. Missing record is not proof that care was omitted. Use first antibiotic_start, NOT order. No start: unknown, action clarify_treatment_start. A reassessment 48<=hours_from_start<=72: met. Without such assessment: elapsed<=72 pending; elapsed>72 with late reassessment attention; elapsed>72 without late reassessment unknown. Early assessments <48h do not satisfy the interval. Action for non-met: elapsed<48 schedule_reassessment; otherwise assess_response. Absence of documentation is not proof of no assessment.",
+        "approval": "Исследовательская формализация; врачом и преподавателем не утверждена"
+      },
+      {
+        "id": "cap-2024-p28-review",
+        "rule_id": "CAP04",
+        "title": "Пересмотр тактики при ухудшении",
+        "source_document": "CAP-2024",
+        "page": 28,
+        "url": "https://spulmo.ru/upload/KR-vnebolnichnaya-pnevmoniya-u-vzroslyh-2024.pdf#page=28",
+        "summary": "При прогрессировании симптомов или осложнениях требуется пересмотреть тактику, тяжесть состояния и необходимость перевода в ОРИТ.",
+        "formal_contract": "Scope: age>=18, ward=therapy, severity=nonsevere, visible diagnosis value=confirmed_cap. Otherwise not_applicable, no action. Only events at or after first confirmed diagnosis. Explicit rule exception overrides: unknown, action specialist_review. Missing record is not proof that care was omitted. Consider reassessment value=worsening only after a visible antibiotic_start. No such event: not_applicable. Any treatment_review at or after the latest worsening: met; otherwise attention and action review_treatment. No invented grace period. This formal trigger covers only explicit worsening, not every clinical sign of treatment failure; unchanged alone does not trigger it.",
+        "approval": "Исследовательская формализация; врачом и преподавателем не утверждена"
+      }
+    ],
+    "temporal_facts": {
+      "units": "seconds; 4h=14400, 48h=172800, 72h=259200; boundaries inclusive",
+      "diagnosis_id": "V01-diagnosis-0",
+      "first_order_id": "V01-antibiotic_order-4",
+      "first_start_id": "V01-antibiotic_start-5",
+      "review_since_diagnosis_seconds": 277200.0,
+      "order_since_diagnosis_seconds": 14400.0,
+      "review_since_start_seconds": 259200.0,
+      "assessment_intervals": [],
+      "latest_worsening_id": null,
+      "reviews_after_latest_worsening": [],
+      "exceptions_by_rule": {
+        "CAP01": [],
+        "CAP02": [],
+        "CAP03": [],
+        "CAP04": []
+      }
+    }
+  },
+  "payload_sha256": "76344d55f33dc7dea0c3638fc799e1b5a758acf64b8a37fbc6fb75e9db28ef32",
+  "prompt_sha256": "b658eca57bd9e67845b5a59cdddc01a3cb78b87d9ce1e95a13055245cc85fe2b",
+  "status": "ok",
+  "started_at": "2026-11-04T20:09:22.534586+00:00",
+  "job_id": "job_hRz-Ke-Dmii4mnFsHxVKqg",
+  "completion": {
+    "result": {
+      "recommendations": [
+        {
+          "rule_id": "CAP04",
+          "action": "review_treatment",
+          "source_id": "cap-2024-p28-review",
+          "evidence_ids": [],
+          "explanation": "Для правила CAP04 признаков ухудшения после начала лечения не зафиксировано, пересмотр тактики не требуется (not_applicable)."
+        }
+      ]
+    },
+    "provider": "router",
+    "model": "gemini-3.5-flash-lite",
+    "mode": "live",
+    "attempts": 1,
+    "latency_ms": 10424,
+    "usage": {
+      "input": 2212,
+      "output": 106,
+      "thoughts": 0,
+      "total": 2318
+    },
+    "job_id": "job_hRz-Ke-Dmii4mnFsHxVKqg"
+  },
+  "finished_at": "2026-11-04T20:09:32.963020+00:00"
+}

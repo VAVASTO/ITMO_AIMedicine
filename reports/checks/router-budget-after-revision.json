@@ -1,0 +1,22 @@
+{
+  "checked_at": "2026-11-04T20:50:54.794008+00:00",
+  "models": [
+    {
+      "id": "gemini-3.5-flash-lite",
+      "rpd_limit": 100,
+      "used_today": 61,
+      "in_flight": 0
+    },
+    {
+      "id": "gemma-4-31b-it",
+      "rpd_limit": 200,
+      "used_today": 61,
+      "in_flight": 0
+    }
+  ],
+  "this_revision_jobs": 64,
+  "prior_project_jobs": 58,
+  "glm_calls": 0,
+  "mistral_calls": 0,
+  "paid_settings_changed": false
+}

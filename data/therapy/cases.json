@@ -1,0 +1,632 @@
+[
+  {
+    "id": "T01",
+    "title": "Последовательное наблюдение: назначение, начало лечения, улучшение",
+    "age": 45,
+    "ward": "therapy",
+    "severity": "nonsevere",
+    "synthetic": true,
+    "events": [
+      {
+        "id": "T01-e01",
+        "kind": "diagnosis",
+        "occurred_at": "2026-11-01T08:00:00+03:00",
+        "available_at": "2026-11-01T08:00:00+03:00",
+        "value": "confirmed_cap",
+        "rule_id": null
+      },
+      {
+        "id": "T01-e02",
+        "kind": "spo2",
+        "occurred_at": "2026-11-01T08:15:00+03:00",
+        "available_at": "2026-11-01T08:15:00+03:00",
+        "value": "95",
+        "rule_id": null
+      },
+      {
+        "id": "T01-e03",
+        "kind": "antibiotic_order",
+        "occurred_at": "2026-11-01T09:00:00+03:00",
+        "available_at": "2026-11-01T09:00:00+03:00",
+        "value": "Системный антибиотик назначен врачом; выбор препарата здесь не проверяется.",
+        "rule_id": null
+      },
+      {
+        "id": "T01-e04",
+        "kind": "antibiotic_start",
+        "occurred_at": "2026-11-01T10:00:00+03:00",
+        "available_at": "2026-11-01T10:00:00+03:00",
+        "value": "В листе введения подтверждено начало терапии.",
+        "rule_id": null
+      },
+      {
+        "id": "T01-e05",
+        "kind": "reassessment",
+        "occurred_at": "2026-11-03T12:00:00+03:00",
+        "available_at": "2026-11-03T12:00:00+03:00",
+        "value": "improving",
+        "rule_id": null
+      }
+    ],
+    "review_times": [
+      "2026-11-01T08:30:00+03:00",
+      "2026-11-02T10:00:00+03:00",
+      "2026-11-03T14:00:00+03:00"
+    ]
+  },
+  {
+    "id": "T02",
+    "title": "Позднее назначение при сохранённой оценке ответа",
+    "age": 72,
+    "ward": "therapy",
+    "severity": "nonsevere",
+    "synthetic": true,
+    "events": [
+      {
+        "id": "T02-e01",
+        "kind": "diagnosis",
+        "occurred_at": "2026-11-01T08:00:00+03:00",
+        "available_at": "2026-11-01T08:00:00+03:00",
+        "value": "confirmed_cap",
+        "rule_id": null
+      },
+      {
+        "id": "T02-e02",
+        "kind": "spo2",
+        "occurred_at": "2026-11-01T08:15:00+03:00",
+        "available_at": "2026-11-01T08:15:00+03:00",
+        "value": "95",
+        "rule_id": null
+      },
+      {
+        "id": "T02-e03",
+        "kind": "antibiotic_order",
+        "occurred_at": "2026-11-01T14:00:00+03:00",
+        "available_at": "2026-11-01T14:00:00+03:00",
+        "value": "Системный антибиотик назначен врачом; выбор препарата здесь не проверяется.",
+        "rule_id": null
+      },
+      {
+        "id": "T02-e04",
+        "kind": "antibiotic_start",
+        "occurred_at": "2026-11-01T15:00:00+03:00",
+        "available_at": "2026-11-01T15:00:00+03:00",
+        "value": "В листе введения подтверждено начало терапии.",
+        "rule_id": null
+      },
+      {
+        "id": "T02-e05",
+        "kind": "reassessment",
+        "occurred_at": "2026-11-03T16:00:00+03:00",
+        "available_at": "2026-11-03T16:00:00+03:00",
+        "value": "improving",
+        "rule_id": null
+      }
+    ],
+    "review_times": [
+      "2026-11-03T18:00:00+03:00"
+    ]
+  },
+  {
+    "id": "T03",
+    "title": "Назначение есть, начало лечения не записано",
+    "age": 51,
+    "ward": "therapy",
+    "severity": "nonsevere",
+    "synthetic": true,
+    "events": [
+      {
+        "id": "T03-e01",
+        "kind": "diagnosis",
+        "occurred_at": "2026-11-01T08:00:00+03:00",
+        "available_at": "2026-11-01T08:00:00+03:00",
+        "value": "confirmed_cap",
+        "rule_id": null
+      },
+      {
+        "id": "T03-e02",
+        "kind": "spo2",
+        "occurred_at": "2026-11-01T08:15:00+03:00",
+        "available_at": "2026-11-01T08:15:00+03:00",
+        "value": "95",
+        "rule_id": null
+      },
+      {
+        "id": "T03-e03",
+        "kind": "antibiotic_order",
+        "occurred_at": "2026-11-01T09:00:00+03:00",
+        "available_at": "2026-11-01T09:00:00+03:00",
+        "value": "Системный антибиотик назначен врачом; выбор препарата здесь не проверяется.",
+        "rule_id": null
+      }
+    ],
+    "review_times": [
+      "2026-11-04T16:00:00+03:00"
+    ]
+  },
+  {
+    "id": "T04",
+    "title": "Ранняя оценка не заменяет оценку через 48–72 часа",
+    "age": 67,
+    "ward": "therapy",
+    "severity": "nonsevere",
+    "synthetic": true,
+    "events": [
+      {
+        "id": "T04-e01",
+        "kind": "diagnosis",
+        "occurred_at": "2026-11-01T08:00:00+03:00",
+        "available_at": "2026-11-01T08:00:00+03:00",
+        "value": "confirmed_cap",
+        "rule_id": null
+      },
+      {
+        "id": "T04-e02",
+        "kind": "spo2",
+        "occurred_at": "2026-11-01T08:15:00+03:00",
+        "available_at": "2026-11-01T08:15:00+03:00",
+        "value": "95",
+        "rule_id": null
+      },
+      {
+        "id": "T04-e03",
+        "kind": "antibiotic_order",
+        "occurred_at": "2026-11-01T09:00:00+03:00",
+        "available_at": "2026-11-01T09:00:00+03:00",
+        "value": "Системный антибиотик назначен врачом; выбор препарата здесь не проверяется.",
+        "rule_id": null
+      },
+      {
+        "id": "T04-e04",
+        "kind": "antibiotic_start",
+        "occurred_at": "2026-11-01T10:00:00+03:00",
+        "available_at": "2026-11-01T10:00:00+03:00",
+        "value": "В листе введения подтверждено начало терапии.",
+        "rule_id": null
+      },
+      {
+        "id": "T04-e05",
+        "kind": "reassessment",
+        "occurred_at": "2026-11-02T08:00:00+03:00",
+        "available_at": "2026-11-02T08:00:00+03:00",
+        "value": "improving",
+        "rule_id": null
+      }
+    ],
+    "review_times": [
+      "2026-11-04T16:00:00+03:00"
+    ]
+  },
+  {
+    "id": "T05",
+    "title": "Ухудшение без записи пересмотра тактики",
+    "age": 63,
+    "ward": "therapy",
+    "severity": "nonsevere",
+    "synthetic": true,
+    "events": [
+      {
+        "id": "T05-e01",
+        "kind": "diagnosis",
+        "occurred_at": "2026-11-01T08:00:00+03:00",
+        "available_at": "2026-11-01T08:00:00+03:00",
+        "value": "confirmed_cap",
+        "rule_id": null
+      },
+      {
+        "id": "T05-e02",
+        "kind": "spo2",
+        "occurred_at": "2026-11-01T08:15:00+03:00",
+        "available_at": "2026-11-01T08:15:00+03:00",
+        "value": "95",
+        "rule_id": null
+      },
+      {
+        "id": "T05-e03",
+        "kind": "antibiotic_order",
+        "occurred_at": "2026-11-01T09:00:00+03:00",
+        "available_at": "2026-11-01T09:00:00+03:00",
+        "value": "Системный антибиотик назначен врачом; выбор препарата здесь не проверяется.",
+        "rule_id": null
+      },
+      {
+        "id": "T05-e04",
+        "kind": "antibiotic_start",
+        "occurred_at": "2026-11-01T10:00:00+03:00",
+        "available_at": "2026-11-01T10:00:00+03:00",
+        "value": "В листе введения подтверждено начало терапии.",
+        "rule_id": null
+      },
+      {
+        "id": "T05-e05",
+        "kind": "reassessment",
+        "occurred_at": "2026-11-03T14:00:00+03:00",
+        "available_at": "2026-11-03T14:00:00+03:00",
+        "value": "worsening",
+        "rule_id": null
+      }
+    ],
+    "review_times": [
+      "2026-11-03T18:00:00+03:00"
+    ]
+  },
+  {
+    "id": "T06",
+    "title": "Ухудшение и последующий пересмотр",
+    "age": 58,
+    "ward": "therapy",
+    "severity": "nonsevere",
+    "synthetic": true,
+    "events": [
+      {
+        "id": "T06-e01",
+        "kind": "diagnosis",
+        "occurred_at": "2026-11-01T08:00:00+03:00",
+        "available_at": "2026-11-01T08:00:00+03:00",
+        "value": "confirmed_cap",
+        "rule_id": null
+      },
+      {
+        "id": "T06-e02",
+        "kind": "spo2",
+        "occurred_at": "2026-11-01T08:15:00+03:00",
+        "available_at": "2026-11-01T08:15:00+03:00",
+        "value": "95",
+        "rule_id": null
+      },
+      {
+        "id": "T06-e03",
+        "kind": "antibiotic_order",
+        "occurred_at": "2026-11-01T09:00:00+03:00",
+        "available_at": "2026-11-01T09:00:00+03:00",
+        "value": "Системный антибиотик назначен врачом; выбор препарата здесь не проверяется.",
+        "rule_id": null
+      },
+      {
+        "id": "T06-e04",
+        "kind": "antibiotic_start",
+        "occurred_at": "2026-11-01T10:00:00+03:00",
+        "available_at": "2026-11-01T10:00:00+03:00",
+        "value": "В листе введения подтверждено начало терапии.",
+        "rule_id": null
+      },
+      {
+        "id": "T06-e05",
+        "kind": "reassessment",
+        "occurred_at": "2026-11-03T14:00:00+03:00",
+        "available_at": "2026-11-03T14:00:00+03:00",
+        "value": "worsening",
+        "rule_id": null
+      },
+      {
+        "id": "T06-e06",
+        "kind": "treatment_review",
+        "occurred_at": "2026-11-03T15:00:00+03:00",
+        "available_at": "2026-11-03T15:00:00+03:00",
+        "value": "Врач повторно оценил тяжесть и пересмотрел тактику.",
+        "rule_id": null
+      }
+    ],
+    "review_times": [
+      "2026-11-03T18:00:00+03:00"
+    ]
+  },
+  {
+    "id": "T07",
+    "title": "Поздно внесённый дневник пока недоступен",
+    "age": 34,
+    "ward": "therapy",
+    "severity": "nonsevere",
+    "synthetic": true,
+    "events": [
+      {
+        "id": "T07-e01",
+        "kind": "diagnosis",
+        "occurred_at": "2026-11-01T08:00:00+03:00",
+        "available_at": "2026-11-01T08:00:00+03:00",
+        "value": "confirmed_cap",
+        "rule_id": null
+      },
+      {
+        "id": "T07-e02",
+        "kind": "spo2",
+        "occurred_at": "2026-11-01T08:15:00+03:00",
+        "available_at": "2026-11-01T08:15:00+03:00",
+        "value": "95",
+        "rule_id": null
+      },
+      {
+        "id": "T07-e03",
+        "kind": "antibiotic_order",
+        "occurred_at": "2026-11-01T09:00:00+03:00",
+        "available_at": "2026-11-01T09:00:00+03:00",
+        "value": "Системный антибиотик назначен врачом; выбор препарата здесь не проверяется.",
+        "rule_id": null
+      },
+      {
+        "id": "T07-e04",
+        "kind": "antibiotic_start",
+        "occurred_at": "2026-11-01T10:00:00+03:00",
+        "available_at": "2026-11-01T10:00:00+03:00",
+        "value": "В листе введения подтверждено начало терапии.",
+        "rule_id": null
+      },
+      {
+        "id": "T07-e05",
+        "kind": "reassessment",
+        "occurred_at": "2026-11-03T12:00:00+03:00",
+        "available_at": "2026-11-04T18:00:00+03:00",
+        "value": "improving",
+        "rule_id": null
+      }
+    ],
+    "review_times": [
+      "2026-11-04T14:00:00+03:00"
+    ]
+  },
+  {
+    "id": "T08",
+    "title": "Будущая оценка пока не учитывается",
+    "age": 81,
+    "ward": "therapy",
+    "severity": "nonsevere",
+    "synthetic": true,
+    "events": [
+      {
+        "id": "T08-e01",
+        "kind": "diagnosis",
+        "occurred_at": "2026-11-01T08:00:00+03:00",
+        "available_at": "2026-11-01T08:00:00+03:00",
+        "value": "confirmed_cap",
+        "rule_id": null
+      },
+      {
+        "id": "T08-e02",
+        "kind": "spo2",
+        "occurred_at": "2026-11-01T08:15:00+03:00",
+        "available_at": "2026-11-01T08:15:00+03:00",
+        "value": "95",
+        "rule_id": null
+      },
+      {
+        "id": "T08-e03",
+        "kind": "antibiotic_order",
+        "occurred_at": "2026-11-01T09:00:00+03:00",
+        "available_at": "2026-11-01T09:00:00+03:00",
+        "value": "Системный антибиотик назначен врачом; выбор препарата здесь не проверяется.",
+        "rule_id": null
+      },
+      {
+        "id": "T08-e04",
+        "kind": "antibiotic_start",
+        "occurred_at": "2026-11-01T10:00:00+03:00",
+        "available_at": "2026-11-01T10:00:00+03:00",
+        "value": "В листе введения подтверждено начало терапии.",
+        "rule_id": null
+      },
+      {
+        "id": "T08-e05",
+        "kind": "reassessment",
+        "occurred_at": "2026-11-04T16:00:00+03:00",
+        "available_at": "2026-11-04T16:00:00+03:00",
+        "value": "improving",
+        "rule_id": null
+      }
+    ],
+    "review_times": [
+      "2026-11-04T10:00:00+03:00"
+    ]
+  },
+  {
+    "id": "T09",
+    "title": "Исключение требует ручного разбора",
+    "age": 48,
+    "ward": "therapy",
+    "severity": "nonsevere",
+    "synthetic": true,
+    "events": [
+      {
+        "id": "T09-e01",
+        "kind": "diagnosis",
+        "occurred_at": "2026-11-01T08:00:00+03:00",
+        "available_at": "2026-11-01T08:00:00+03:00",
+        "value": "confirmed_cap",
+        "rule_id": null
+      },
+      {
+        "id": "T09-e02",
+        "kind": "spo2",
+        "occurred_at": "2026-11-01T08:15:00+03:00",
+        "available_at": "2026-11-01T08:15:00+03:00",
+        "value": "95",
+        "rule_id": null
+      },
+      {
+        "id": "T09-e03",
+        "kind": "antibiotic_order",
+        "occurred_at": "2026-11-01T09:00:00+03:00",
+        "available_at": "2026-11-01T09:00:00+03:00",
+        "value": "Системный антибиотик назначен врачом; выбор препарата здесь не проверяется.",
+        "rule_id": null
+      },
+      {
+        "id": "T09-e04",
+        "kind": "antibiotic_start",
+        "occurred_at": "2026-11-01T10:00:00+03:00",
+        "available_at": "2026-11-01T10:00:00+03:00",
+        "value": "В листе введения подтверждено начало терапии.",
+        "rule_id": null
+      },
+      {
+        "id": "T09-e05",
+        "kind": "reassessment",
+        "occurred_at": "2026-11-03T12:00:00+03:00",
+        "available_at": "2026-11-03T12:00:00+03:00",
+        "value": "improving",
+        "rule_id": null
+      },
+      {
+        "id": "T09-e06",
+        "kind": "exception",
+        "occurred_at": "2026-11-01T08:30:00+03:00",
+        "available_at": "2026-11-01T08:30:00+03:00",
+        "value": "Отказ пациента от предложенного назначения; требуется разбор обстоятельств.",
+        "rule_id": "CAP02"
+      }
+    ],
+    "review_times": [
+      "2026-11-03T14:00:00+03:00"
+    ]
+  },
+  {
+    "id": "T10",
+    "title": "Нет записи измерения SpO2",
+    "age": 26,
+    "ward": "therapy",
+    "severity": "nonsevere",
+    "synthetic": true,
+    "events": [
+      {
+        "id": "T10-e01",
+        "kind": "diagnosis",
+        "occurred_at": "2026-11-01T08:00:00+03:00",
+        "available_at": "2026-11-01T08:00:00+03:00",
+        "value": "confirmed_cap",
+        "rule_id": null
+      },
+      {
+        "id": "T10-e02",
+        "kind": "antibiotic_order",
+        "occurred_at": "2026-11-01T09:00:00+03:00",
+        "available_at": "2026-11-01T09:00:00+03:00",
+        "value": "Системный антибиотик назначен врачом; выбор препарата здесь не проверяется.",
+        "rule_id": null
+      },
+      {
+        "id": "T10-e03",
+        "kind": "antibiotic_start",
+        "occurred_at": "2026-11-01T10:00:00+03:00",
+        "available_at": "2026-11-01T10:00:00+03:00",
+        "value": "В листе введения подтверждено начало терапии.",
+        "rule_id": null
+      },
+      {
+        "id": "T10-e04",
+        "kind": "reassessment",
+        "occurred_at": "2026-11-03T12:00:00+03:00",
+        "available_at": "2026-11-03T12:00:00+03:00",
+        "value": "improving",
+        "rule_id": null
+      }
+    ],
+    "review_times": [
+      "2026-11-03T14:00:00+03:00"
+    ]
+  },
+  {
+    "id": "T11",
+    "title": "Возраст вне взрослой популяции",
+    "age": 16,
+    "ward": "therapy",
+    "severity": "nonsevere",
+    "synthetic": true,
+    "events": [
+      {
+        "id": "T11-e01",
+        "kind": "diagnosis",
+        "occurred_at": "2026-11-01T08:00:00+03:00",
+        "available_at": "2026-11-01T08:00:00+03:00",
+        "value": "confirmed_cap",
+        "rule_id": null
+      },
+      {
+        "id": "T11-e02",
+        "kind": "spo2",
+        "occurred_at": "2026-11-01T08:15:00+03:00",
+        "available_at": "2026-11-01T08:15:00+03:00",
+        "value": "95",
+        "rule_id": null
+      },
+      {
+        "id": "T11-e03",
+        "kind": "antibiotic_order",
+        "occurred_at": "2026-11-01T09:00:00+03:00",
+        "available_at": "2026-11-01T09:00:00+03:00",
+        "value": "Системный антибиотик назначен врачом; выбор препарата здесь не проверяется.",
+        "rule_id": null
+      },
+      {
+        "id": "T11-e04",
+        "kind": "antibiotic_start",
+        "occurred_at": "2026-11-01T10:00:00+03:00",
+        "available_at": "2026-11-01T10:00:00+03:00",
+        "value": "В листе введения подтверждено начало терапии.",
+        "rule_id": null
+      },
+      {
+        "id": "T11-e05",
+        "kind": "reassessment",
+        "occurred_at": "2026-11-03T12:00:00+03:00",
+        "available_at": "2026-11-03T12:00:00+03:00",
+        "value": "improving",
+        "rule_id": null
+      }
+    ],
+    "review_times": [
+      "2026-11-03T14:00:00+03:00"
+    ]
+  },
+  {
+    "id": "T12",
+    "title": "Диагноз пока не подтверждён",
+    "age": 54,
+    "ward": "therapy",
+    "severity": "nonsevere",
+    "synthetic": true,
+    "events": [
+      {
+        "id": "T12-e01",
+        "kind": "diagnosis",
+        "occurred_at": "2026-11-01T08:00:00+03:00",
+        "available_at": "2026-11-01T08:00:00+03:00",
+        "value": "suspected_cap",
+        "rule_id": null
+      },
+      {
+        "id": "T12-e02",
+        "kind": "spo2",
+        "occurred_at": "2026-11-01T08:15:00+03:00",
+        "available_at": "2026-11-01T08:15:00+03:00",
+        "value": "95",
+        "rule_id": null
+      },
+      {
+        "id": "T12-e03",
+        "kind": "antibiotic_order",
+        "occurred_at": "2026-11-01T09:00:00+03:00",
+        "available_at": "2026-11-01T09:00:00+03:00",
+        "value": "Системный антибиотик назначен врачом; выбор препарата здесь не проверяется.",
+        "rule_id": null
+      },
+      {
+        "id": "T12-e04",
+        "kind": "antibiotic_start",
+        "occurred_at": "2026-11-01T10:00:00+03:00",
+        "available_at": "2026-11-01T10:00:00+03:00",
+        "value": "В листе введения подтверждено начало терапии.",
+        "rule_id": null
+      },
+      {
+        "id": "T12-e05",
+        "kind": "reassessment",
+        "occurred_at": "2026-11-03T12:00:00+03:00",
+        "available_at": "2026-11-03T12:00:00+03:00",
+        "value": "improving",
+        "rule_id": null
+      }
+    ],
+    "review_times": [
+      "2026-11-03T14:00:00+03:00"
+    ]
+  }
+]

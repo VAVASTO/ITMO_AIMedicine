@@ -1,0 +1,193 @@
+{
+  "model": "gemma-4-31b-it",
+  "case_id": "V08",
+  "condition": "v1",
+  "role": "audit",
+  "review_at": "2026-11-06T02:30:00+03:00",
+  "payload": {
+    "state": {
+      "case_id": "V08",
+      "age": 59,
+      "ward": "therapy",
+      "severity": "nonsevere",
+      "synthetic": true,
+      "review_at": "2026-11-06T02:30:00+03:00",
+      "events": [
+        {
+          "id": "V08-diagnosis-0",
+          "kind": "diagnosis",
+          "occurred_at": "2026-11-02T20:30:00Z",
+          "available_at": "2026-11-02T20:30:00Z",
+          "value": "confirmed_cap",
+          "rule_id": null
+        },
+        {
+          "id": "V08-antibiotic_order-1",
+          "kind": "antibiotic_order",
+          "occurred_at": "2026-11-02T17:30:00-04:00",
+          "available_at": "2026-11-02T17:30:00-04:00",
+          "value": "documented",
+          "rule_id": null
+        },
+        {
+          "id": "V08-antibiotic_start-2",
+          "kind": "antibiotic_start",
+          "occurred_at": "2026-11-02T22:30:00Z",
+          "available_at": "2026-11-02T22:30:00Z",
+          "value": "documented",
+          "rule_id": null
+        },
+        {
+          "id": "V08-reassessment-74",
+          "kind": "reassessment",
+          "occurred_at": "2026-11-06T00:30:00+02:00",
+          "available_at": "2026-11-06T00:30:00+02:00",
+          "value": "improving",
+          "rule_id": null
+        }
+      ]
+    },
+    "source_cards": [
+      {
+        "id": "cap-2024-p13",
+        "rule_id": "CAP01",
+        "title": "Измерение SpO2",
+        "source_document": "CAP-2024",
+        "page": 13,
+        "url": "https://spulmo.ru/upload/KR-vnebolnichnaya-pnevmoniya-u-vzroslyh-2024.pdf#page=13",
+        "summary": "При ВП рекомендовано измерять SpO2 для выявления гипоксемии.",
+        "formal_contract": "Scope: age>=18, ward=therapy, severity=nonsevere, visible diagnosis value=confirmed_cap. Otherwise not_applicable, no action. Only events at or after first confirmed diagnosis. Explicit rule exception overrides: unknown, action specialist_review. Missing record is not proof that care was omitted. A visible spo2 record: met, no action. No record: unknown, action measure_spo2. Do not grade the measured percentage or infer a diagnosis from it.",
+        "approval": "Исследовательская формализация; врачом и преподавателем не утверждена"
+      },
+      {
+        "id": "cap-2024-p24",
+        "rule_id": "CAP02",
+        "title": "Срок назначения антибиотика",
+        "source_document": "CAP-2024",
+        "page": 24,
+        "url": "https://spulmo.ru/upload/KR-vnebolnichnaya-pnevmoniya-u-vzroslyh-2024.pdf#page=24",
+        "summary": "В стационаре системный антибиотик при установленной ВП назначают как можно раньше, не позднее 4 ч после диагноза.",
+        "formal_contract": "Scope: age>=18, ward=therapy, severity=nonsevere, visible diagnosis value=confirmed_cap. Otherwise not_applicable, no action. Only events at or after first confirmed diagnosis. Explicit rule exception overrides: unknown, action specialist_review. Missing record is not proof that care was omitted. Use antibiotic_order, NOT antibiotic_start. First order <=4h after diagnosis: met; >4h: attention. No order and elapsed<=4h: pending; no order and elapsed>4h: unknown. For every non-met status action review_antibiotic_order. Never infer an order from a start record. Dose and drug choice are outside this rule.",
+        "approval": "Исследовательская формализация; врачом и преподавателем не утверждена"
+      },
+      {
+        "id": "cap-2024-p28",
+        "rule_id": "CAP03",
+        "title": "Оценка ответа на лечение",
+        "source_document": "CAP-2024",
+        "page": 28,
+        "url": "https://spulmo.ru/upload/KR-vnebolnichnaya-pnevmoniya-u-vzroslyh-2024.pdf#page=28",
+        "summary": "После начала лечения оценку эффективности и безопасности проводят через 48–72 ч; учитывают клиническую динамику.",
+        "formal_contract": "Scope: age>=18, ward=therapy, severity=nonsevere, visible diagnosis value=confirmed_cap. Otherwise not_applicable, no action. Only events at or after first confirmed diagnosis. Explicit rule exception overrides: unknown, action specialist_review. Missing record is not proof that care was omitted. Use first antibiotic_start, NOT order. No start: unknown, action clarify_treatment_start. A reassessment 48<=hours_from_start<=72: met. Without such assessment: elapsed<=72 pending; elapsed>72 with late reassessment attention; elapsed>72 without late reassessment unknown. Early assessments <48h do not satisfy the interval. Action for non-met: elapsed<48 schedule_reassessment; otherwise assess_response. Absence of documentation is not proof of no assessment.",
+        "approval": "Исследовательская формализация; врачом и преподавателем не утверждена"
+      },
+      {
+        "id": "cap-2024-p28-review",
+        "rule_id": "CAP04",
+        "title": "Пересмотр тактики при ухудшении",
+        "source_document": "CAP-2024",
+        "page": 28,
+        "url": "https://spulmo.ru/upload/KR-vnebolnichnaya-pnevmoniya-u-vzroslyh-2024.pdf#page=28",
+        "summary": "При прогрессировании симптомов или осложнениях требуется пересмотреть тактику, тяжесть состояния и необходимость перевода в ОРИТ.",
+        "formal_contract": "Scope: age>=18, ward=therapy, severity=nonsevere, visible diagnosis value=confirmed_cap. Otherwise not_applicable, no action. Only events at or after first confirmed diagnosis. Explicit rule exception overrides: unknown, action specialist_review. Missing record is not proof that care was omitted. Consider reassessment value=worsening only after a visible antibiotic_start. No such event: not_applicable. Any treatment_review at or after the latest worsening: met; otherwise attention and action review_treatment. No invented grace period. This formal trigger covers only explicit worsening, not every clinical sign of treatment failure; unchanged alone does not trigger it.",
+        "approval": "Исследовательская формализация; врачом и преподавателем не утверждена"
+      }
+    ],
+    "draft_plan": {
+      "recommendations": [
+        {
+          "rule_id": "CAP01",
+          "action": "measure_spo2",
+          "source_id": "cap-2024-p13",
+          "evidence_ids": [
+            "V08-diagnosis-0"
+          ],
+          "explanation": "Отсутствует запись об измерении SpO2 после постановки диагноза."
+        },
+        {
+          "rule_id": "CAP02",
+          "action": "review_antibiotic_order",
+          "source_id": "cap-2024-p24",
+          "evidence_ids": [
+            "V08-diagnosis-0",
+            "V08-antibiotic_order-1"
+          ],
+          "explanation": "Назначение антибиотика (17:30 -04:00) произошло до постановки диагноза (20:30Z), что не соответствует условиям правила о сроках назначения после диагноза."
+        },
+        {
+          "rule_id": "CAP03",
+          "action": "assess_response",
+          "source_id": "cap-2024-p28",
+          "evidence_ids": [
+            "V08-antibiotic_start-2",
+            "V08-reassessment-74"
+          ],
+          "explanation": "Переоценка состояния (00:30 +02:00) проведена через 82 часа после начала лечения (22:30Z), что превышает рекомендованный интервал 48-72 часа."
+        }
+      ]
+    }
+  },
+  "payload_sha256": "433d042deafa55d70b529133bc611a9edad650dd6ad6c944162e1204c4fd8ce4",
+  "prompt_sha256": "ff85410291a9a60fc7ce2fb89dfa358da2582cf89c9efa0deaf70715c813fb18",
+  "status": "ok",
+  "started_at": "2026-11-04T20:46:37.636580+00:00",
+  "job_id": "job_YD89W24ot1qUcBJgamLzvw",
+  "completion": {
+    "result": {
+      "checks": [
+        {
+          "rule_id": "CAP01",
+          "status": "unknown",
+          "evidence_ids": [
+            "V08-diagnosis-0"
+          ],
+          "source_id": "cap-2024-p13",
+          "explanation": "Запись об измерении SpO2 после диагноза (V08-diagnosis-0) отсутствует."
+        },
+        {
+          "rule_id": "CAP02",
+          "status": "met",
+          "evidence_ids": [
+            "V08-diagnosis-0",
+            "V08-antibiotic_order-1"
+          ],
+          "source_id": "cap-2024-p24",
+          "explanation": "Назначение антибиотика (V08-antibiotic_order-1, 21:30Z) произошло до или в течение 4 часов после диагноза (V08-diagnosis-0, 20:30Z)."
+        },
+        {
+          "rule_id": "CAP03",
+          "status": "attention",
+          "evidence_ids": [
+            "V08-antibiotic_start-2",
+            "V08-reassessment-74"
+          ],
+          "source_id": "cap-2024-p28",
+          "explanation": "Переоценка (V08-reassessment-74) проведена через 82 часа после начала терапии (V08-antibiotic_start-2), что превышает интервал 48-72 часа."
+        },
+        {
+          "rule_id": "CAP04",
+          "status": "not_applicable",
+          "evidence_ids": [
+            "V08-antibiotic_start-2",
+            "V08-reassessment-74"
+          ],
+          "source_id": "cap-2024-p28-review",
+          "explanation": "Событие reassessment со значением worsening не зафиксировано; текущая динамика improving."
+        }
+      ]
+    },
+    "provider": "router",
+    "model": "gemma-4-31b-it",
+    "mode": "live",
+    "attempts": 1,
+    "latency_ms": 31174,
+    "usage": {
+      "input": 2212,
+      "output": 400,
+      "thoughts": 0,
+      "total": 2612
+    },
+    "job_id": "job_YD89W24ot1qUcBJgamLzvw"
+  },
+  "finished_at": "2026-11-04T20:47:08.811792+00:00"
+}

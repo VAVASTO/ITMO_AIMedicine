@@ -136,6 +136,6 @@ def test_live_does_not_fall_back_to_mock():
         run_smoke(Settings(mode="live"))
 
 
-def test_gemini_is_explicitly_deferred():
-    with pytest.raises(LLMError, match="Gemini отложен"):
+def test_direct_gemini_requires_router():
+    with pytest.raises(LLMError, match="Для Gemini/Gemma выберите router"):
         get_provider(Settings(provider="gemini"))

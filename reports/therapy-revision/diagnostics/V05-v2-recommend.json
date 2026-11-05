@@ -1,0 +1,21 @@
+{
+  "id": "job_xOpx903buwd4aJS0ukyglQ",
+  "model": "gemma-4-31b-it",
+  "status": "done",
+  "fallback": null,
+  "result": {
+    "text": "{\"recommendations\": [\n  {\n    \"rule_id\": \"CAP02\",\n    \"action\": \"specialist_review\",\n    \"source_id\": \"cap-2024-p24\",\n    \"evidence_ids\": [\n      \"V05-exception-2\"\n    ],\n    \"explanation\": \"Обнаружено исключение для правила CAP02 (V05-exception-2), требующее специализированного пересмотра.\"\n  },\n  {\n    \"rule_id\": \"CAP03\",\n    \"action\": \"assess_response\",\n    \"source_id\": \"cap-2024-p28\",\n    \"evidence_ids\": [\n      \"V05-antibiotic_start-3\",\n      \"V05-reassessment-55\"\n    ],\n    \"explanation\": \"Оценка эффективности лечения (V05-reassessment-55) проведена через 187200 секунд после начала терапии (V05-antibiotic_start-3), что входит в интервал 48-72ч (172800-259200 сек), статус met.\"\n  }\n]}\n```",
+    "parts": [
+      {
+        "text": "{\"recommendations\": [\n  {\n    \"rule_id\": \"CAP02\",\n    \"action\": \"specialist_review\",\n    \"source_id\": \"cap-2024-p24\",\n    \"evidence_ids\": [\n      \"V05-exception-2\"\n    ],\n    \"explanation\": \"Обнаружено исключение для правила CAP02 (V05-exception-2), требующее специализированного пересмотра.\"\n  },\n  {\n    \"rule_id\": \"CAP03\",\n    \"action\": \"assess_response\",\n    \"source_id\": \"cap-2024-p28\",\n    \"evidence_ids\": [\n      \"V05-antibiotic_start-3\",\n      \"V05-reassessment-55\"\n    ],\n    \"explanation\": \"Оценка эффективности лечения (V05-reassessment-55) проведена через 187200 секунд после начала терапии (V05-antibiotic_start-3), что входит в интервал 48-72ч (172800-259200 сек), статус met.\"\n  }\n]}\n```"
+      }
+    ],
+    "finishReason": "STOP",
+    "usage": {
+      "input": 2451,
+      "output": 275,
+      "thoughts": 0,
+      "total": 2726
+    }
+  }
+}

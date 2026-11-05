@@ -1,0 +1,161 @@
+{
+  "case_id": "T12",
+  "review_at": "2026-11-03T14:00:00+03:00",
+  "checkpoint": 0,
+  "model": "gemini-3.5-flash-lite",
+  "role": "audit",
+  "version": "therapy-cap-v1",
+  "status": "ok",
+  "started_at": "2026-11-04T14:18:50.941012+00:00",
+  "payload": {
+    "state": {
+      "case_id": "T12",
+      "age": 54,
+      "ward": "therapy",
+      "severity": "nonsevere",
+      "synthetic": true,
+      "review_at": "2026-11-03T14:00:00+03:00",
+      "events": [
+        {
+          "id": "T12-e01",
+          "kind": "diagnosis",
+          "occurred_at": "2026-11-01T08:00:00+03:00",
+          "available_at": "2026-11-01T08:00:00+03:00",
+          "value": "suspected_cap",
+          "rule_id": null
+        },
+        {
+          "id": "T12-e02",
+          "kind": "spo2",
+          "occurred_at": "2026-11-01T08:15:00+03:00",
+          "available_at": "2026-11-01T08:15:00+03:00",
+          "value": "95",
+          "rule_id": null
+        },
+        {
+          "id": "T12-e03",
+          "kind": "antibiotic_order",
+          "occurred_at": "2026-11-01T09:00:00+03:00",
+          "available_at": "2026-11-01T09:00:00+03:00",
+          "value": "Системный антибиотик назначен врачом; выбор препарата здесь не проверяется.",
+          "rule_id": null
+        },
+        {
+          "id": "T12-e04",
+          "kind": "antibiotic_start",
+          "occurred_at": "2026-11-01T10:00:00+03:00",
+          "available_at": "2026-11-01T10:00:00+03:00",
+          "value": "В листе введения подтверждено начало терапии.",
+          "rule_id": null
+        },
+        {
+          "id": "T12-e05",
+          "kind": "reassessment",
+          "occurred_at": "2026-11-03T12:00:00+03:00",
+          "available_at": "2026-11-03T12:00:00+03:00",
+          "value": "improving",
+          "rule_id": null
+        }
+      ]
+    },
+    "source_cards": [
+      {
+        "id": "cap-2024-p13",
+        "rule_id": "CAP01",
+        "title": "Измерение SpO2",
+        "source_document": "CAP-2024",
+        "page": 13,
+        "url": "https://spulmo.ru/upload/KR-vnebolnichnaya-pnevmoniya-u-vzroslyh-2024.pdf#page=13",
+        "summary": "При ВП рекомендовано измерять SpO2 для выявления гипоксемии.",
+        "formal_contract": "Scope: age>=18, ward=therapy, severity=nonsevere, visible diagnosis value=confirmed_cap. Otherwise not_applicable, no action. Only events at or after first confirmed diagnosis. Explicit rule exception overrides: unknown, action specialist_review. Missing record is not proof that care was omitted. A visible spo2 record: met, no action. No record: unknown, action measure_spo2. Do not grade the measured percentage or infer a diagnosis from it.",
+        "approval": "Исследовательская формализация; врачом и преподавателем не утверждена"
+      },
+      {
+        "id": "cap-2024-p24",
+        "rule_id": "CAP02",
+        "title": "Срок назначения антибиотика",
+        "source_document": "CAP-2024",
+        "page": 24,
+        "url": "https://spulmo.ru/upload/KR-vnebolnichnaya-pnevmoniya-u-vzroslyh-2024.pdf#page=24",
+        "summary": "В стационаре системный антибиотик при установленной ВП назначают как можно раньше, не позднее 4 ч после диагноза.",
+        "formal_contract": "Scope: age>=18, ward=therapy, severity=nonsevere, visible diagnosis value=confirmed_cap. Otherwise not_applicable, no action. Only events at or after first confirmed diagnosis. Explicit rule exception overrides: unknown, action specialist_review. Missing record is not proof that care was omitted. Use antibiotic_order, NOT antibiotic_start. First order <=4h after diagnosis: met; >4h: attention. No order and elapsed<=4h: pending; no order and elapsed>4h: unknown. For every non-met status action review_antibiotic_order. Never infer an order from a start record. Dose and drug choice are outside this rule.",
+        "approval": "Исследовательская формализация; врачом и преподавателем не утверждена"
+      },
+      {
+        "id": "cap-2024-p28",
+        "rule_id": "CAP03",
+        "title": "Оценка ответа на лечение",
+        "source_document": "CAP-2024",
+        "page": 28,
+        "url": "https://spulmo.ru/upload/KR-vnebolnichnaya-pnevmoniya-u-vzroslyh-2024.pdf#page=28",
+        "summary": "После начала лечения оценку эффективности и безопасности проводят через 48–72 ч; учитывают клиническую динамику.",
+        "formal_contract": "Scope: age>=18, ward=therapy, severity=nonsevere, visible diagnosis value=confirmed_cap. Otherwise not_applicable, no action. Only events at or after first confirmed diagnosis. Explicit rule exception overrides: unknown, action specialist_review. Missing record is not proof that care was omitted. Use first antibiotic_start, NOT order. No start: unknown, action clarify_treatment_start. A reassessment 48<=hours_from_start<=72: met. Without such assessment: elapsed<=72 pending; elapsed>72 with late reassessment attention; elapsed>72 without late reassessment unknown. Early assessments <48h do not satisfy the interval. Action for non-met: elapsed<48 schedule_reassessment; otherwise assess_response. Absence of documentation is not proof of no assessment.",
+        "approval": "Исследовательская формализация; врачом и преподавателем не утверждена"
+      },
+      {
+        "id": "cap-2024-p28-review",
+        "rule_id": "CAP04",
+        "title": "Пересмотр тактики при ухудшении",
+        "source_document": "CAP-2024",
+        "page": 28,
+        "url": "https://spulmo.ru/upload/KR-vnebolnichnaya-pnevmoniya-u-vzroslyh-2024.pdf#page=28",
+        "summary": "При прогрессировании симптомов или осложнениях требуется пересмотреть тактику, тяжесть состояния и необходимость перевода в ОРИТ.",
+        "formal_contract": "Scope: age>=18, ward=therapy, severity=nonsevere, visible diagnosis value=confirmed_cap. Otherwise not_applicable, no action. Only events at or after first confirmed diagnosis. Explicit rule exception overrides: unknown, action specialist_review. Missing record is not proof that care was omitted. Consider reassessment value=worsening only after a visible antibiotic_start. No such event: not_applicable. Any treatment_review at or after the latest worsening: met; otherwise attention and action review_treatment. No invented grace period. This formal trigger covers only explicit worsening, not every clinical sign of treatment failure; unchanged alone does not trigger it.",
+        "approval": "Исследовательская формализация; врачом и преподавателем не утверждена"
+      }
+    ],
+    "draft_plan": {
+      "recommendations": []
+    }
+  },
+  "prompt_sha256": "ff85410291a9a60fc7ce2fb89dfa358da2582cf89c9efa0deaf70715c813fb18",
+  "payload_sha256": "778b611db37203d43d8f9ea8320a2c55f8f370c5d9410e63115201c4d75cca0d",
+  "job_id": "job_aUzDYdVrR4Paog095Ekurg",
+  "completion": {
+    "result": {
+      "checks": [
+        {
+          "rule_id": "CAP01",
+          "status": "not_applicable",
+          "evidence_ids": [],
+          "source_id": "cap-2024-p13",
+          "explanation": "Диагноз confirmed_cap отсутствует, диагноз в карточке suspected_cap."
+        },
+        {
+          "rule_id": "CAP02",
+          "status": "not_applicable",
+          "evidence_ids": [],
+          "source_id": "cap-2024-p24",
+          "explanation": "Диагноз confirmed_cap отсутствует в видимых событиях."
+        },
+        {
+          "rule_id": "CAP03",
+          "status": "not_applicable",
+          "evidence_ids": [],
+          "source_id": "cap-2024-p28",
+          "explanation": "Область применения требует подтвержденного диагноза confirmed_cap."
+        },
+        {
+          "rule_id": "CAP04",
+          "status": "not_applicable",
+          "evidence_ids": [],
+          "source_id": "cap-2024-p28-review",
+          "explanation": "Правило неприменимо из-за отсутствия confirmed_cap."
+        }
+      ]
+    },
+    "provider": "router",
+    "model": "gemini-3.5-flash-lite",
+    "mode": "live",
+    "attempts": 1,
+    "latency_ms": 10631,
+    "usage": {
+      "input": 2042,
+      "output": 317,
+      "thoughts": 0,
+      "total": 2359
+    },
+    "job_id": "job_aUzDYdVrR4Paog095Ekurg"
+  },
+  "finished_at": "2026-11-04T14:19:01.575172+00:00"
+}

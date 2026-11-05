@@ -1,0 +1,426 @@
+[
+  {
+    "id": "V01",
+    "title": "Ровно 4 и 72 часа, разные часовые пояса",
+    "age": 59,
+    "ward": "therapy",
+    "severity": "nonsevere",
+    "synthetic": true,
+    "events": [
+      {
+        "id": "V01-diagnosis-0",
+        "kind": "diagnosis",
+        "occurred_at": "2026-11-02T20:30:00+00:00",
+        "available_at": "2026-11-02T20:30:00+00:00",
+        "value": "confirmed_cap",
+        "rule_id": null
+      },
+      {
+        "id": "V01-spo2-0.1",
+        "kind": "spo2",
+        "occurred_at": "2026-11-02T23:36:00+03:00",
+        "available_at": "2026-11-02T23:36:00+03:00",
+        "value": "95",
+        "rule_id": null
+      },
+      {
+        "id": "V01-antibiotic_order-4",
+        "kind": "antibiotic_order",
+        "occurred_at": "2026-11-02T20:30:00-04:00",
+        "available_at": "2026-11-02T20:30:00-04:00",
+        "value": "documented",
+        "rule_id": null
+      },
+      {
+        "id": "V01-antibiotic_start-5",
+        "kind": "antibiotic_start",
+        "occurred_at": "2026-11-03T01:30:00+00:00",
+        "available_at": "2026-11-03T01:30:00+00:00",
+        "value": "documented",
+        "rule_id": null
+      }
+    ],
+    "review_times": [
+      "2026-11-06T04:30:00+03:00"
+    ]
+  },
+  {
+    "id": "V02",
+    "title": "Порог пройден на секунду, запись ещё недоступна",
+    "age": 59,
+    "ward": "therapy",
+    "severity": "nonsevere",
+    "synthetic": true,
+    "events": [
+      {
+        "id": "V02-diagnosis-0",
+        "kind": "diagnosis",
+        "occurred_at": "2026-11-02T20:30:00+00:00",
+        "available_at": "2026-11-02T20:30:00+00:00",
+        "value": "confirmed_cap",
+        "rule_id": null
+      },
+      {
+        "id": "V02-spo2-0.1",
+        "kind": "spo2",
+        "occurred_at": "2026-11-02T23:36:00+03:00",
+        "available_at": "2026-11-02T23:36:00+03:00",
+        "value": "95",
+        "rule_id": null
+      },
+      {
+        "id": "V02-antibiotic_order-4.00028",
+        "kind": "antibiotic_order",
+        "occurred_at": "2026-11-02T20:30:01-04:00",
+        "available_at": "2026-11-02T20:30:01-04:00",
+        "value": "documented",
+        "rule_id": null
+      },
+      {
+        "id": "V02-antibiotic_start-5",
+        "kind": "antibiotic_start",
+        "occurred_at": "2026-11-03T01:30:00+00:00",
+        "available_at": "2026-11-03T01:30:00+00:00",
+        "value": "documented",
+        "rule_id": null
+      },
+      {
+        "id": "V02-reassessment-65",
+        "kind": "reassessment",
+        "occurred_at": "2026-11-05T15:30:00+02:00",
+        "available_at": "2026-11-06T04:30:00+02:00",
+        "value": "improving",
+        "rule_id": null
+      }
+    ],
+    "review_times": [
+      "2026-11-06T04:30:01+03:00"
+    ]
+  },
+  {
+    "id": "V03",
+    "title": "Оценка на секунду раньше 48 часов",
+    "age": 59,
+    "ward": "therapy",
+    "severity": "nonsevere",
+    "synthetic": true,
+    "events": [
+      {
+        "id": "V03-diagnosis-0",
+        "kind": "diagnosis",
+        "occurred_at": "2026-11-02T20:30:00+00:00",
+        "available_at": "2026-11-02T20:30:00+00:00",
+        "value": "confirmed_cap",
+        "rule_id": null
+      },
+      {
+        "id": "V03-spo2-0.1",
+        "kind": "spo2",
+        "occurred_at": "2026-11-02T23:36:00+03:00",
+        "available_at": "2026-11-02T23:36:00+03:00",
+        "value": "95",
+        "rule_id": null
+      },
+      {
+        "id": "V03-antibiotic_order-1",
+        "kind": "antibiotic_order",
+        "occurred_at": "2026-11-02T17:30:00-04:00",
+        "available_at": "2026-11-02T17:30:00-04:00",
+        "value": "documented",
+        "rule_id": null
+      },
+      {
+        "id": "V03-antibiotic_start-2",
+        "kind": "antibiotic_start",
+        "occurred_at": "2026-11-02T22:30:00+00:00",
+        "available_at": "2026-11-02T22:30:00+00:00",
+        "value": "documented",
+        "rule_id": null
+      },
+      {
+        "id": "V03-reassessment-49.9997",
+        "kind": "reassessment",
+        "occurred_at": "2026-11-05T00:29:59+02:00",
+        "available_at": "2026-11-05T00:29:59+02:00",
+        "value": "improving",
+        "rule_id": null
+      }
+    ],
+    "review_times": [
+      "2026-11-05T02:30:00+03:00"
+    ]
+  },
+  {
+    "id": "V04",
+    "title": "Назначение есть, начало лечения неизвестно",
+    "age": 59,
+    "ward": "therapy",
+    "severity": "nonsevere",
+    "synthetic": true,
+    "events": [
+      {
+        "id": "V04-diagnosis-0",
+        "kind": "diagnosis",
+        "occurred_at": "2026-11-02T20:30:00+00:00",
+        "available_at": "2026-11-02T20:30:00+00:00",
+        "value": "confirmed_cap",
+        "rule_id": null
+      },
+      {
+        "id": "V04-spo2-0.1",
+        "kind": "spo2",
+        "occurred_at": "2026-11-02T23:36:00+03:00",
+        "available_at": "2026-11-02T23:36:00+03:00",
+        "value": "95",
+        "rule_id": null
+      },
+      {
+        "id": "V04-antibiotic_order-1",
+        "kind": "antibiotic_order",
+        "occurred_at": "2026-11-02T17:30:00-04:00",
+        "available_at": "2026-11-02T17:30:00-04:00",
+        "value": "documented",
+        "rule_id": null
+      },
+      {
+        "id": "V04-reassessment-54",
+        "kind": "reassessment",
+        "occurred_at": "2026-11-05T04:30:00+02:00",
+        "available_at": "2026-11-05T04:30:00+02:00",
+        "value": "worsening",
+        "rule_id": null
+      }
+    ],
+    "review_times": [
+      "2026-11-05T11:30:00+03:00"
+    ]
+  },
+  {
+    "id": "V05",
+    "title": "Исключение относится только к назначению",
+    "age": 59,
+    "ward": "therapy",
+    "severity": "nonsevere",
+    "synthetic": true,
+    "events": [
+      {
+        "id": "V05-diagnosis-0",
+        "kind": "diagnosis",
+        "occurred_at": "2026-11-02T20:30:00+00:00",
+        "available_at": "2026-11-02T20:30:00+00:00",
+        "value": "confirmed_cap",
+        "rule_id": null
+      },
+      {
+        "id": "V05-spo2-0.1",
+        "kind": "spo2",
+        "occurred_at": "2026-11-02T23:36:00+03:00",
+        "available_at": "2026-11-02T23:36:00+03:00",
+        "value": "95",
+        "rule_id": null
+      },
+      {
+        "id": "V05-antibiotic_order-2",
+        "kind": "antibiotic_order",
+        "occurred_at": "2026-11-02T18:30:00-04:00",
+        "available_at": "2026-11-02T18:30:00-04:00",
+        "value": "documented",
+        "rule_id": null
+      },
+      {
+        "id": "V05-antibiotic_start-3",
+        "kind": "antibiotic_start",
+        "occurred_at": "2026-11-02T23:30:00+00:00",
+        "available_at": "2026-11-02T23:30:00+00:00",
+        "value": "documented",
+        "rule_id": null
+      },
+      {
+        "id": "V05-reassessment-55",
+        "kind": "reassessment",
+        "occurred_at": "2026-11-05T05:30:00+02:00",
+        "available_at": "2026-11-05T05:30:00+02:00",
+        "value": "improving",
+        "rule_id": null
+      },
+      {
+        "id": "V05-exception-2",
+        "kind": "exception",
+        "occurred_at": "2026-11-03T01:30:00+03:00",
+        "available_at": "2026-11-03T01:30:00+03:00",
+        "value": "requires review",
+        "rule_id": "CAP02"
+      }
+    ],
+    "review_times": [
+      "2026-11-05T08:30:00+03:00"
+    ]
+  },
+  {
+    "id": "V06",
+    "title": "Повторное ухудшение после пересмотра",
+    "age": 59,
+    "ward": "therapy",
+    "severity": "nonsevere",
+    "synthetic": true,
+    "events": [
+      {
+        "id": "V06-diagnosis-0",
+        "kind": "diagnosis",
+        "occurred_at": "2026-11-02T20:30:00+00:00",
+        "available_at": "2026-11-02T20:30:00+00:00",
+        "value": "confirmed_cap",
+        "rule_id": null
+      },
+      {
+        "id": "V06-spo2-0.1",
+        "kind": "spo2",
+        "occurred_at": "2026-11-02T23:36:00+03:00",
+        "available_at": "2026-11-02T23:36:00+03:00",
+        "value": "95",
+        "rule_id": null
+      },
+      {
+        "id": "V06-antibiotic_order-1",
+        "kind": "antibiotic_order",
+        "occurred_at": "2026-11-02T17:30:00-04:00",
+        "available_at": "2026-11-02T17:30:00-04:00",
+        "value": "documented",
+        "rule_id": null
+      },
+      {
+        "id": "V06-antibiotic_start-2",
+        "kind": "antibiotic_start",
+        "occurred_at": "2026-11-02T22:30:00+00:00",
+        "available_at": "2026-11-02T22:30:00+00:00",
+        "value": "documented",
+        "rule_id": null
+      },
+      {
+        "id": "V06-reassessment-54",
+        "kind": "reassessment",
+        "occurred_at": "2026-11-05T04:30:00+02:00",
+        "available_at": "2026-11-05T04:30:00+02:00",
+        "value": "worsening",
+        "rule_id": null
+      },
+      {
+        "id": "V06-reassessment-56",
+        "kind": "reassessment",
+        "occurred_at": "2026-11-05T06:30:00+02:00",
+        "available_at": "2026-11-05T06:30:00+02:00",
+        "value": "worsening",
+        "rule_id": null
+      },
+      {
+        "id": "V06-treatment_review-55",
+        "kind": "treatment_review",
+        "occurred_at": "2026-11-05T06:30:00+03:00",
+        "available_at": "2026-11-05T06:30:00+03:00",
+        "value": "documented",
+        "rule_id": null
+      }
+    ],
+    "review_times": [
+      "2026-11-05T09:30:00+03:00"
+    ]
+  },
+  {
+    "id": "V07",
+    "title": "Оценка ровно через 48 часов",
+    "age": 59,
+    "ward": "therapy",
+    "severity": "nonsevere",
+    "synthetic": true,
+    "events": [
+      {
+        "id": "V07-diagnosis-0",
+        "kind": "diagnosis",
+        "occurred_at": "2026-11-02T20:30:00+00:00",
+        "available_at": "2026-11-02T20:30:00+00:00",
+        "value": "confirmed_cap",
+        "rule_id": null
+      },
+      {
+        "id": "V07-spo2-0.1",
+        "kind": "spo2",
+        "occurred_at": "2026-11-02T23:36:00+03:00",
+        "available_at": "2026-11-02T23:36:00+03:00",
+        "value": "95",
+        "rule_id": null
+      },
+      {
+        "id": "V07-antibiotic_order-2",
+        "kind": "antibiotic_order",
+        "occurred_at": "2026-11-02T18:30:00-04:00",
+        "available_at": "2026-11-02T18:30:00-04:00",
+        "value": "documented",
+        "rule_id": null
+      },
+      {
+        "id": "V07-antibiotic_start-3",
+        "kind": "antibiotic_start",
+        "occurred_at": "2026-11-02T23:30:00+00:00",
+        "available_at": "2026-11-02T23:30:00+00:00",
+        "value": "documented",
+        "rule_id": null
+      },
+      {
+        "id": "V07-reassessment-51",
+        "kind": "reassessment",
+        "occurred_at": "2026-11-05T01:30:00+02:00",
+        "available_at": "2026-11-05T01:30:00+02:00",
+        "value": "improving",
+        "rule_id": null
+      }
+    ],
+    "review_times": [
+      "2026-11-05T03:30:00+03:00"
+    ]
+  },
+  {
+    "id": "V08",
+    "title": "Оценка ровно через 72 часа, нет SpO2",
+    "age": 59,
+    "ward": "therapy",
+    "severity": "nonsevere",
+    "synthetic": true,
+    "events": [
+      {
+        "id": "V08-diagnosis-0",
+        "kind": "diagnosis",
+        "occurred_at": "2026-11-02T20:30:00+00:00",
+        "available_at": "2026-11-02T20:30:00+00:00",
+        "value": "confirmed_cap",
+        "rule_id": null
+      },
+      {
+        "id": "V08-antibiotic_order-1",
+        "kind": "antibiotic_order",
+        "occurred_at": "2026-11-02T17:30:00-04:00",
+        "available_at": "2026-11-02T17:30:00-04:00",
+        "value": "documented",
+        "rule_id": null
+      },
+      {
+        "id": "V08-antibiotic_start-2",
+        "kind": "antibiotic_start",
+        "occurred_at": "2026-11-02T22:30:00+00:00",
+        "available_at": "2026-11-02T22:30:00+00:00",
+        "value": "documented",
+        "rule_id": null
+      },
+      {
+        "id": "V08-reassessment-74",
+        "kind": "reassessment",
+        "occurred_at": "2026-11-06T00:30:00+02:00",
+        "available_at": "2026-11-06T00:30:00+02:00",
+        "value": "improving",
+        "rule_id": null
+      }
+    ],
+    "review_times": [
+      "2026-11-06T02:30:00+03:00"
+    ]
+  }
+]

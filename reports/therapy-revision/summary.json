@@ -1,0 +1,674 @@
+{
+  "paired_complete_cases": [
+    {
+      "model": "gemini-3.5-flash-lite",
+      "role": "audit",
+      "case_ids": [
+        "V01",
+        "V02",
+        "V03",
+        "V04",
+        "V05",
+        "V06",
+        "V07",
+        "V08"
+      ],
+      "total": 32,
+      "scores": {
+        "v1": 26,
+        "v2": 28
+      }
+    },
+    {
+      "model": "gemini-3.5-flash-lite",
+      "role": "recommend",
+      "case_ids": [
+        "V01",
+        "V02",
+        "V03",
+        "V04",
+        "V05",
+        "V06",
+        "V07",
+        "V08"
+      ],
+      "total": 8,
+      "scores": {
+        "v1": 1,
+        "v2": 1
+      }
+    },
+    {
+      "model": "gemma-4-31b-it",
+      "role": "audit",
+      "case_ids": [
+        "V01",
+        "V02",
+        "V03",
+        "V05",
+        "V06",
+        "V07",
+        "V08"
+      ],
+      "total": 28,
+      "scores": {
+        "v1": 22,
+        "v2": 27
+      }
+    },
+    {
+      "model": "gemma-4-31b-it",
+      "role": "recommend",
+      "case_ids": [
+        "V01",
+        "V02",
+        "V03",
+        "V04",
+        "V06",
+        "V07"
+      ],
+      "total": 6,
+      "scores": {
+        "v1": 2,
+        "v2": 5
+      }
+    }
+  ],
+  "max_jobs": 64,
+  "attempted": 64,
+  "snapshots": 8,
+  "conditions": [
+    "v1",
+    "v2"
+  ],
+  "design": "Paired fixed new cases, alternating condition order. One run per cell, no inference of statistical significance.",
+  "intervention": "Computed temporal facts + scoped exception reminder + audit independent of draft plan; combined effect, no ablation.",
+  "clinical_validation": false,
+  "groups": [
+    {
+      "model": "gemini-3.5-flash-lite",
+      "condition": "v1",
+      "attempted": 16,
+      "valid": 16,
+      "audit_checks": 26,
+      "audit_total": 32,
+      "audit_exact": 3,
+      "audit_snapshots": 8,
+      "plan_exact": 1,
+      "plan_snapshots": 8,
+      "errors": [
+        {
+          "case_id": "V02",
+          "role": "audit",
+          "expected": {
+            "CAP01": "met",
+            "CAP02": "attention",
+            "CAP03": "unknown",
+            "CAP04": "not_applicable"
+          },
+          "actual": {
+            "CAP01": "met",
+            "CAP02": "met",
+            "CAP03": "pending",
+            "CAP04": "not_applicable"
+          }
+        },
+        {
+          "case_id": "V03",
+          "role": "audit",
+          "expected": {
+            "CAP01": "met",
+            "CAP02": "met",
+            "CAP03": "pending",
+            "CAP04": "not_applicable"
+          },
+          "actual": {
+            "CAP01": "met",
+            "CAP02": "met",
+            "CAP03": "met",
+            "CAP04": "not_applicable"
+          }
+        },
+        {
+          "case_id": "V06",
+          "role": "audit",
+          "expected": {
+            "CAP01": "met",
+            "CAP02": "met",
+            "CAP03": "met",
+            "CAP04": "attention"
+          },
+          "actual": {
+            "CAP01": "met",
+            "CAP02": "met",
+            "CAP03": "met",
+            "CAP04": "met"
+          }
+        },
+        {
+          "case_id": "V01",
+          "role": "audit",
+          "expected": {
+            "CAP01": "met",
+            "CAP02": "met",
+            "CAP03": "pending",
+            "CAP04": "not_applicable"
+          },
+          "actual": {
+            "CAP01": "met",
+            "CAP02": "attention",
+            "CAP03": "pending",
+            "CAP04": "not_applicable"
+          }
+        },
+        {
+          "case_id": "V08",
+          "role": "audit",
+          "expected": {
+            "CAP01": "unknown",
+            "CAP02": "met",
+            "CAP03": "met",
+            "CAP04": "not_applicable"
+          },
+          "actual": {
+            "CAP01": "unknown",
+            "CAP02": "attention",
+            "CAP03": "met",
+            "CAP04": "not_applicable"
+          }
+        },
+        {
+          "case_id": "V04",
+          "role": "recommend",
+          "expected": {
+            "CAP03": "clarify_treatment_start"
+          },
+          "actual": {
+            "CAP03": "clarify_treatment_start",
+            "CAP04": "review_treatment"
+          }
+        },
+        {
+          "case_id": "V05",
+          "role": "recommend",
+          "expected": {
+            "CAP02": "specialist_review"
+          },
+          "actual": {
+            "CAP01": "measure_spo2",
+            "CAP02": "specialist_review",
+            "CAP03": "assess_response",
+            "CAP04": "review_treatment"
+          }
+        },
+        {
+          "case_id": "V06",
+          "role": "recommend",
+          "expected": {
+            "CAP04": "review_treatment"
+          },
+          "actual": {}
+        },
+        {
+          "case_id": "V01",
+          "role": "recommend",
+          "expected": {
+            "CAP03": "assess_response"
+          },
+          "actual": {
+            "CAP01": "measure_spo2",
+            "CAP02": "review_antibiotic_order",
+            "CAP03": "schedule_reassessment",
+            "CAP04": "review_treatment"
+          }
+        },
+        {
+          "case_id": "V03",
+          "role": "recommend",
+          "expected": {
+            "CAP03": "assess_response"
+          },
+          "actual": {
+            "CAP01": "measure_spo2",
+            "CAP02": "review_antibiotic_order",
+            "CAP03": "assess_response",
+            "CAP04": "review_treatment"
+          }
+        },
+        {
+          "case_id": "V02",
+          "role": "recommend",
+          "expected": {
+            "CAP02": "review_antibiotic_order",
+            "CAP03": "assess_response"
+          },
+          "actual": {
+            "CAP03": "schedule_reassessment",
+            "CAP04": "review_treatment"
+          }
+        },
+        {
+          "case_id": "V08",
+          "role": "recommend",
+          "expected": {
+            "CAP01": "measure_spo2"
+          },
+          "actual": {
+            "CAP01": "measure_spo2",
+            "CAP02": "review_antibiotic_order",
+            "CAP03": "assess_response"
+          }
+        }
+      ],
+      "latency_median_ms": 10421.0,
+      "validated_tokens": 38669,
+      "known_total_tokens": 38669,
+      "planned_audit_checks": 32,
+      "planned_plan_snapshots": 8,
+      "missing_audit_snapshots": 0,
+      "missing_plan_snapshots": 0,
+      "technical_errors": []
+    },
+    {
+      "model": "gemini-3.5-flash-lite",
+      "condition": "v2",
+      "attempted": 16,
+      "valid": 16,
+      "audit_checks": 28,
+      "audit_total": 32,
+      "audit_exact": 4,
+      "audit_snapshots": 8,
+      "plan_exact": 1,
+      "plan_snapshots": 8,
+      "errors": [
+        {
+          "case_id": "V03",
+          "role": "audit",
+          "expected": {
+            "CAP01": "met",
+            "CAP02": "met",
+            "CAP03": "pending",
+            "CAP04": "not_applicable"
+          },
+          "actual": {
+            "CAP01": "met",
+            "CAP02": "met",
+            "CAP03": "met",
+            "CAP04": "not_applicable"
+          }
+        },
+        {
+          "case_id": "V05",
+          "role": "audit",
+          "expected": {
+            "CAP01": "met",
+            "CAP02": "unknown",
+            "CAP03": "met",
+            "CAP04": "not_applicable"
+          },
+          "actual": {
+            "CAP01": "met",
+            "CAP02": "unknown",
+            "CAP03": "attention",
+            "CAP04": "not_applicable"
+          }
+        },
+        {
+          "case_id": "V08",
+          "role": "audit",
+          "expected": {
+            "CAP01": "unknown",
+            "CAP02": "met",
+            "CAP03": "met",
+            "CAP04": "not_applicable"
+          },
+          "actual": {
+            "CAP01": "unknown",
+            "CAP02": "met",
+            "CAP03": "attention",
+            "CAP04": "not_applicable"
+          }
+        },
+        {
+          "case_id": "V06",
+          "role": "audit",
+          "expected": {
+            "CAP01": "met",
+            "CAP02": "met",
+            "CAP03": "met",
+            "CAP04": "attention"
+          },
+          "actual": {
+            "CAP01": "met",
+            "CAP02": "met",
+            "CAP03": "attention",
+            "CAP04": "attention"
+          }
+        },
+        {
+          "case_id": "V01",
+          "role": "recommend",
+          "expected": {
+            "CAP03": "assess_response"
+          },
+          "actual": {
+            "CAP04": "review_treatment"
+          }
+        },
+        {
+          "case_id": "V02",
+          "role": "recommend",
+          "expected": {
+            "CAP02": "review_antibiotic_order",
+            "CAP03": "assess_response"
+          },
+          "actual": {
+            "CAP01": "measure_spo2",
+            "CAP02": "review_antibiotic_order",
+            "CAP03": "assess_response",
+            "CAP04": "review_treatment"
+          }
+        },
+        {
+          "case_id": "V03",
+          "role": "recommend",
+          "expected": {
+            "CAP03": "assess_response"
+          },
+          "actual": {}
+        },
+        {
+          "case_id": "V05",
+          "role": "recommend",
+          "expected": {
+            "CAP02": "specialist_review"
+          },
+          "actual": {
+            "CAP01": "measure_spo2",
+            "CAP02": "specialist_review",
+            "CAP03": "assess_response",
+            "CAP04": "review_treatment"
+          }
+        },
+        {
+          "case_id": "V04",
+          "role": "recommend",
+          "expected": {
+            "CAP03": "clarify_treatment_start"
+          },
+          "actual": {
+            "CAP03": "clarify_treatment_start",
+            "CAP04": "review_treatment"
+          }
+        },
+        {
+          "case_id": "V06",
+          "role": "recommend",
+          "expected": {
+            "CAP04": "review_treatment"
+          },
+          "actual": {
+            "CAP03": "assess_response"
+          }
+        },
+        {
+          "case_id": "V08",
+          "role": "recommend",
+          "expected": {
+            "CAP01": "measure_spo2"
+          },
+          "actual": {
+            "CAP01": "measure_spo2",
+            "CAP03": "assess_response"
+          }
+        }
+      ],
+      "latency_median_ms": 10458.5,
+      "validated_tokens": 41968,
+      "known_total_tokens": 41968,
+      "planned_audit_checks": 32,
+      "planned_plan_snapshots": 8,
+      "missing_audit_snapshots": 0,
+      "missing_plan_snapshots": 0,
+      "technical_errors": []
+    },
+    {
+      "model": "gemma-4-31b-it",
+      "condition": "v1",
+      "attempted": 16,
+      "valid": 15,
+      "audit_checks": 22,
+      "audit_total": 28,
+      "audit_exact": 1,
+      "audit_snapshots": 7,
+      "plan_exact": 3,
+      "plan_snapshots": 8,
+      "errors": [
+        {
+          "case_id": "V02",
+          "role": "audit",
+          "expected": {
+            "CAP01": "met",
+            "CAP02": "attention",
+            "CAP03": "unknown",
+            "CAP04": "not_applicable"
+          },
+          "actual": {
+            "CAP01": "met",
+            "CAP02": "met",
+            "CAP03": "unknown",
+            "CAP04": "not_applicable"
+          }
+        },
+        {
+          "case_id": "V03",
+          "role": "audit",
+          "expected": {
+            "CAP01": "met",
+            "CAP02": "met",
+            "CAP03": "pending",
+            "CAP04": "not_applicable"
+          },
+          "actual": {
+            "CAP01": "met",
+            "CAP02": "met",
+            "CAP03": "met",
+            "CAP04": "not_applicable"
+          }
+        },
+        {
+          "case_id": "V01",
+          "role": "audit",
+          "expected": {
+            "CAP01": "met",
+            "CAP02": "met",
+            "CAP03": "pending",
+            "CAP04": "not_applicable"
+          },
+          "actual": {
+            "CAP01": "met",
+            "CAP02": "met",
+            "CAP03": "unknown",
+            "CAP04": "not_applicable"
+          }
+        },
+        {
+          "case_id": "V06",
+          "role": "audit",
+          "expected": {
+            "CAP01": "met",
+            "CAP02": "met",
+            "CAP03": "met",
+            "CAP04": "attention"
+          },
+          "actual": {
+            "CAP01": "met",
+            "CAP02": "met",
+            "CAP03": "met",
+            "CAP04": "met"
+          }
+        },
+        {
+          "case_id": "V07",
+          "role": "audit",
+          "expected": {
+            "CAP01": "met",
+            "CAP02": "met",
+            "CAP03": "met",
+            "CAP04": "not_applicable"
+          },
+          "actual": {
+            "CAP01": "met",
+            "CAP02": "attention",
+            "CAP03": "met",
+            "CAP04": "not_applicable"
+          }
+        },
+        {
+          "case_id": "V08",
+          "role": "audit",
+          "expected": {
+            "CAP01": "unknown",
+            "CAP02": "met",
+            "CAP03": "met",
+            "CAP04": "not_applicable"
+          },
+          "actual": {
+            "CAP01": "unknown",
+            "CAP02": "met",
+            "CAP03": "attention",
+            "CAP04": "not_applicable"
+          }
+        },
+        {
+          "case_id": "V08",
+          "role": "recommend",
+          "expected": {
+            "CAP01": "measure_spo2"
+          },
+          "actual": {
+            "CAP01": "measure_spo2",
+            "CAP02": "review_antibiotic_order",
+            "CAP03": "assess_response"
+          }
+        },
+        {
+          "case_id": "V06",
+          "role": "recommend",
+          "expected": {
+            "CAP04": "review_treatment"
+          },
+          "actual": {
+            "CAP03": "assess_response"
+          }
+        },
+        {
+          "case_id": "V04",
+          "role": "recommend",
+          "expected": {
+            "CAP03": "clarify_treatment_start"
+          },
+          "actual": {
+            "CAP02": "review_antibiotic_order",
+            "CAP03": "clarify_treatment_start"
+          }
+        },
+        {
+          "case_id": "V03",
+          "role": "recommend",
+          "expected": {
+            "CAP03": "assess_response"
+          },
+          "actual": {}
+        },
+        {
+          "case_id": "V02",
+          "role": "recommend",
+          "expected": {
+            "CAP02": "review_antibiotic_order",
+            "CAP03": "assess_response"
+          },
+          "actual": {
+            "CAP03": "assess_response"
+          }
+        }
+      ],
+      "latency_median_ms": 92092.0,
+      "validated_tokens": 33879,
+      "known_total_tokens": 36456,
+      "planned_audit_checks": 32,
+      "planned_plan_snapshots": 8,
+      "missing_audit_snapshots": 1,
+      "missing_plan_snapshots": 0,
+      "technical_errors": [
+        {
+          "case_id": "V04",
+          "role": "audit",
+          "status": "error",
+          "error": "Ответ Router не прошёл проверку схемы или полноты. id=job_lnHvLY_KsGIdj4chYd_VwA"
+        }
+      ]
+    },
+    {
+      "model": "gemma-4-31b-it",
+      "condition": "v2",
+      "attempted": 16,
+      "valid": 14,
+      "audit_checks": 31,
+      "audit_total": 32,
+      "audit_exact": 7,
+      "audit_snapshots": 8,
+      "plan_exact": 5,
+      "plan_snapshots": 6,
+      "errors": [
+        {
+          "case_id": "V01",
+          "role": "audit",
+          "expected": {
+            "CAP01": "met",
+            "CAP02": "met",
+            "CAP03": "pending",
+            "CAP04": "not_applicable"
+          },
+          "actual": {
+            "CAP01": "met",
+            "CAP02": "met",
+            "CAP03": "unknown",
+            "CAP04": "not_applicable"
+          }
+        },
+        {
+          "case_id": "V06",
+          "role": "recommend",
+          "expected": {
+            "CAP04": "review_treatment"
+          },
+          "actual": {
+            "CAP03": "assess_response"
+          }
+        }
+      ],
+      "latency_median_ms": 87061.5,
+      "validated_tokens": 36650,
+      "known_total_tokens": 41902,
+      "planned_audit_checks": 32,
+      "planned_plan_snapshots": 8,
+      "missing_audit_snapshots": 0,
+      "missing_plan_snapshots": 2,
+      "technical_errors": [
+        {
+          "case_id": "V08",
+          "role": "recommend",
+          "status": "error",
+          "error": "Ответ Router не прошёл проверку схемы или полноты. id=job_9cR2MWvk17ubx_ilONXNTQ"
+        },
+        {
+          "case_id": "V05",
+          "role": "recommend",
+          "status": "error",
+          "error": "Ответ Router не прошёл проверку схемы или полноты. id=job_xOpx903buwd4aJS0ukyglQ"
+        }
+      ]
+    }
+  ]
+}

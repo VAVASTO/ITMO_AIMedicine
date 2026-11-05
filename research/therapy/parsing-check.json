@@ -1,0 +1,23 @@
+{
+  "source_id": "CAP-2024",
+  "source_sha256": "281a08c3b34c5f3b120bacd7e5fabc9ed42d8ac101efcfb26446cfafa45d5e78",
+  "pages": 73,
+  "chunks": 197,
+  "empty_pages": [
+    72,
+    73
+  ],
+  "parser": "pypdf 6.10.0",
+  "chunk_chars": 1800,
+  "stride_chars": 1500,
+  "visual_review_pages": [
+    13,
+    24,
+    28,
+    72,
+    73
+  ],
+  "visual_review_scope": "Проверены 4 используемых положения; страницы 72 и 73 визуально пустые. Весь PDF постранично не вычитан.",
+  "retrieval": "SQLite FTS5 unicode61; keyword prototype, Russian stemming and OCR absent",
+  "runtime_context": "4 manually reviewed paraphrase cards selected by exact rule ID; full-text search is a research tool"
+}
