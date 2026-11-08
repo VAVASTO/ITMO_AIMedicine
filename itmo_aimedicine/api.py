@@ -171,5 +171,8 @@ def evaluate(body: Evaluation, request: Request):
         live_lock.release()
 
 
+from .expansion_api import router as expansion_router
+app.include_router(expansion_router)
+
 if (ROOT/'frontend/dist').exists():
     app.mount('/',StaticFiles(directory=ROOT/'frontend/dist',html=True),name='ui')

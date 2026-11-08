@@ -1,0 +1,14 @@
+{
+  "gemini-3.5-flash-lite": {
+    "tier": "free",
+    "rpd_limit": 100,
+    "used_today": 0,
+    "in_flight": 0
+  },
+  "gemma-4-31b-it": {
+    "tier": "free",
+    "rpd_limit": 200,
+    "used_today": 0,
+    "in_flight": 0
+  }
+}

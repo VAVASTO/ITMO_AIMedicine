@@ -1,0 +1,39 @@
+{
+  "status": "running_private",
+  "url": "https://huggingface.co/spaces/vavasto/itmo-aimedicine-therapy",
+  "sdk": "static",
+  "paid_resources_enabled": false,
+  "commit": "e1dc0ef349f8dffb93d06e20feb0e96040fcfc7c",
+  "verified_at": "2026-11-09",
+  "unauthenticated_http_status": 401,
+  "ui_verified": [
+    "Private and Running badges",
+    "Application heading and 17 checks",
+    "Profile selection",
+    "Synthea out-of-scope default",
+    "Q14 changes after added treatment review",
+    "Model-plan disagreements visible",
+    "Gemma repeat shown separately from original failed series",
+    "CAP M01-gap repeat: one audit disagreement and extra Q04/Q13 actions",
+    "DM2 rejected audit excluded from scoring and warning visible"
+  ],
+  "mode": "500 precomputed states; no backend or live model calls",
+  "screenshot": "reports/therapy-expansion/screenshots/huggingface-gemma-repeat.jpg",
+  "report_mobile_view": {
+    "viewport": 390,
+    "content_width": 390,
+    "horizontal_page_overflow": false
+  },
+  "credential_pattern_scan": "No matches in new JSON, Markdown, text and HTML research/data/results files.",
+  "initial_commit": "ea04b7e214e24763ae5d0bdda21b3de568be26af",
+  "previous_commit": "5f6a6c6eb5b94916e7822a57866eb39ea0bdd10e",
+  "gemma_repeat": {
+    "attempted": 10,
+    "transport_done": 10,
+    "valid": 9,
+    "correct_checks": 65,
+    "scored_checks": 68,
+    "exact_plans": 0,
+    "valid_plans": 5
+  }
+}

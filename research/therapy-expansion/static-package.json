@@ -1,0 +1,31 @@
+{
+  "type": "static",
+  "visibility_required": "private",
+  "server_required": false,
+  "model_calls": 0,
+  "views": 500,
+  "cases": 25,
+  "limit": "One prepared additional record per snapshot; no arbitrary inputs or live inference.",
+  "files": {
+    "index-DLmHErXQ.js": {
+      "bytes": 108958,
+      "sha256": "e381545f8e13c507c25c92790e98d9015023a7446e03adc1b0b12d72fcc8c02f"
+    },
+    "index.html": {
+      "bytes": 342,
+      "sha256": "2bbaac5e25d821a6545e36b29bb142e041ae0f3d1ec66bfe52d67050de6ce181"
+    },
+    "README.md": {
+      "bytes": 573,
+      "sha256": "95fd3b362ae51ab9926746f8502055150f786acb8d983c044799ffc5c3c9b296"
+    },
+    "index-h75pMdsf.css": {
+      "bytes": 8257,
+      "sha256": "792cb8f663b57eb29e5bf23d8dd4832dc15559e34755d216a74c596934b103af"
+    },
+    "static-demo.json": {
+      "bytes": 4952404,
+      "sha256": "de42f770164b3c35cf3d03523bfd6634e4607c7664640e028def0a03546a9693"
+    }
+  }
+}

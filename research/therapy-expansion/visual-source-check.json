@@ -1,0 +1,20 @@
+{
+  "reviewed": [
+    {
+      "source": "DM22022",
+      "pdf_page": 1,
+      "finding": "Scanned title confirms approval year 2022."
+    },
+    {
+      "source": "COPD2024",
+      "pdf_page": 50,
+      "finding": "Admission diagnostic minimum; D-dimer conditional."
+    },
+    {
+      "source": "DM2025",
+      "pdf_page": 46,
+      "finding": "Monitoring table; foot inspection each visit differs from annual sensitivity check."
+    }
+  ],
+  "limits": "Selected pages visually checked, not every table in all PDFs."
+}

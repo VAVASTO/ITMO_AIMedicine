@@ -1,0 +1,51 @@
+{
+  "checked_at": "2026-11-08T22:22:43.642225+00:00",
+  "model": "gemma-4-31b-it",
+  "max_jobs": 1,
+  "max_output_tokens": 4096,
+  "system": "Return JSON with status=\"ok\" and a short message confirming receipt. This is a connectivity test.",
+  "payload": {
+    "task": "connectivity_test",
+    "text": "ITMO AIMedicine test; no patient data."
+  },
+  "purpose": "Repeat the existing connectivity test; no patient data, no fallback, no retries.",
+  "status": "ok",
+  "prior_network_attempt": {
+    "checked_at": "2026-11-08T22:22:05.157616+00:00",
+    "model": "gemma-4-31b-it",
+    "max_jobs": 1,
+    "max_output_tokens": 4096,
+    "purpose": "Repeat the existing connectivity test; no patient data, no fallback, no retries.",
+    "status": "error",
+    "error": "[Errno 8] nodename nor servname provided, or not known"
+  },
+  "catalog": {
+    "id": "gemma-4-31b-it",
+    "tier": "free",
+    "rpd_limit": 200,
+    "used_today": 0,
+    "in_flight": 0,
+    "status": null,
+    "available": null
+  },
+  "job_id": "job_PRs7oRr0J_hHqua4IxXo0g",
+  "completion": {
+    "result": {
+      "status": "ok",
+      "message": "Connectivity test successful. Receipt confirmed."
+    },
+    "provider": "router",
+    "model": "gemma-4-31b-it",
+    "mode": "live",
+    "attempts": 1,
+    "latency_ms": 82066,
+    "usage": {
+      "input": 45,
+      "output": 24,
+      "thoughts": 0,
+      "total": 69
+    },
+    "job_id": "job_PRs7oRr0J_hHqua4IxXo0g",
+    "format_cleanup": null
+  }
+}

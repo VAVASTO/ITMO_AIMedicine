@@ -1,0 +1,127 @@
+{
+  "status": "error",
+  "started_at": "2026-11-08T22:27:34.080211+00:00",
+  "purpose": "Isolate the 17-check response schema from the medical payload; diagnostic only.",
+  "request": {
+    "model": "gemma-4-31b-it",
+    "fallback": false,
+    "systemInstruction": {
+      "parts": [
+        {
+          "text": "This is a JSON format test, not a medical task. Return Q01 through Q17 once each, status unknown, explanation test, evidence_ids [], source_ids [WORKFLOW]."
+        }
+      ]
+    },
+    "contents": [
+      {
+        "role": "user",
+        "parts": [
+          {
+            "text": "{\"test\": true}"
+          }
+        ]
+      }
+    ],
+    "config": {
+      "responseMimeType": "application/json",
+      "responseSchema": {
+        "required": [
+          "checks"
+        ],
+        "type": "OBJECT",
+        "properties": {
+          "checks": {
+            "minItems": 17,
+            "maxItems": 17,
+            "type": "ARRAY",
+            "items": {
+              "required": [
+                "rule_id",
+                "status",
+                "explanation",
+                "evidence_ids",
+                "source_ids"
+              ],
+              "type": "OBJECT",
+              "properties": {
+                "rule_id": {
+                  "enum": [
+                    "Q01",
+                    "Q02",
+                    "Q03",
+                    "Q04",
+                    "Q05",
+                    "Q06",
+                    "Q07",
+                    "Q08",
+                    "Q09",
+                    "Q10",
+                    "Q11",
+                    "Q12",
+                    "Q13",
+                    "Q14",
+                    "Q15",
+                    "Q16",
+                    "Q17"
+                  ],
+                  "type": "STRING"
+                },
+                "status": {
+                  "enum": [
+                    "met",
+                    "attention",
+                    "unknown",
+                    "pending",
+                    "not_applicable"
+                  ],
+                  "type": "STRING"
+                },
+                "explanation": {
+                  "type": "STRING"
+                },
+                "evidence_ids": {
+                  "type": "ARRAY",
+                  "items": {
+                    "type": "STRING"
+                  }
+                },
+                "source_ids": {
+                  "type": "ARRAY",
+                  "items": {
+                    "type": "STRING"
+                  }
+                }
+              },
+              "propertyOrdering": [
+                "rule_id",
+                "status",
+                "explanation",
+                "evidence_ids",
+                "source_ids"
+              ]
+            }
+          }
+        },
+        "propertyOrdering": [
+          "checks"
+        ]
+      },
+      "maxOutputTokens": 4096,
+      "thinkingLevel": "minimal"
+    }
+  },
+  "job_id": "job_mk-MemOacXkbZtnGbJct4Q",
+  "router_result": {
+    "id": "job_mk-MemOacXkbZtnGbJct4Q",
+    "model": "gemma-4-31b-it",
+    "status": "failed",
+    "created_at": "2026-11-08T22:27:34Z",
+    "finished_at": "2026-11-08T22:27:34Z",
+    "error": {
+      "code": "BAD_REQUEST",
+      "message": "The request was rejected: Request contains an invalid argument."
+    }
+  },
+  "error": "Задание Router завершилось со статусом failed; повтор не выполнен. id=job_mk-MemOacXkbZtnGbJct4Q",
+  "finished_at": "2026-11-08T22:27:44.433547+00:00"
+}

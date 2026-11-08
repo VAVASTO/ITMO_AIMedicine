@@ -1,0 +1,217 @@
+{
+  "generator": "Synthea",
+  "repository": "https://github.com/synthetichealth/synthea",
+  "release": "master-branch-latest",
+  "jar_sha256": "20098ec70c24c715ea874b19140983634711cc4986196105b5b0a9ca72a4b644",
+  "seed": 20261108,
+  "clinician_seed": 20261108,
+  "reference_date": "2026-11-08",
+  "requested_alive_population": 100,
+  "requested_age_range": [
+    35,
+    85
+  ],
+  "java": "Temurin 17.0.21+9",
+  "thread_pool_size": 1,
+  "region": "Massachusetts (default)",
+  "patients_exported": 130,
+  "alive_exported": 100,
+  "deceased_exported": 30,
+  "encounter_classes": {
+    "wellness": 1935,
+    "ambulatory": 5851,
+    "urgentcare": 581,
+    "home": 173,
+    "outpatient": 1130,
+    "emergency": 354,
+    "inpatient": 230,
+    "snf": 34,
+    "virtual": 16,
+    "hospice": 44
+  },
+  "patients_ever_with_profile": {
+    "CAP": 4,
+    "COPD": 10,
+    "HTN": 52,
+    "HF": 4,
+    "DM2": 23
+  },
+  "mapped_adult_encounters": [
+    {
+      "profile": "CAP",
+      "encounter_class": "emergency",
+      "count": 1
+    },
+    {
+      "profile": "CAP",
+      "encounter_class": "hospice",
+      "count": 1
+    },
+    {
+      "profile": "CAP",
+      "encounter_class": "inpatient",
+      "count": 3
+    },
+    {
+      "profile": "CAP",
+      "encounter_class": "wellness",
+      "count": 1
+    },
+    {
+      "profile": "COPD",
+      "encounter_class": "emergency",
+      "count": 1
+    },
+    {
+      "profile": "COPD",
+      "encounter_class": "hospice",
+      "count": 7
+    },
+    {
+      "profile": "COPD",
+      "encounter_class": "inpatient",
+      "count": 2
+    },
+    {
+      "profile": "COPD",
+      "encounter_class": "outpatient",
+      "count": 2
+    },
+    {
+      "profile": "COPD",
+      "encounter_class": "urgentcare",
+      "count": 2
+    },
+    {
+      "profile": "COPD",
+      "encounter_class": "wellness",
+      "count": 7
+    },
+    {
+      "profile": "DM2",
+      "encounter_class": "ambulatory",
+      "count": 5
+    },
+    {
+      "profile": "DM2",
+      "encounter_class": "outpatient",
+      "count": 1
+    },
+    {
+      "profile": "DM2",
+      "encounter_class": "wellness",
+      "count": 20
+    },
+    {
+      "profile": "HF",
+      "encounter_class": "ambulatory",
+      "count": 211
+    },
+    {
+      "profile": "HF",
+      "encounter_class": "emergency",
+      "count": 8
+    },
+    {
+      "profile": "HF",
+      "encounter_class": "hospice",
+      "count": 1
+    },
+    {
+      "profile": "HF",
+      "encounter_class": "inpatient",
+      "count": 9
+    },
+    {
+      "profile": "HF",
+      "encounter_class": "virtual",
+      "count": 1
+    },
+    {
+      "profile": "HF",
+      "encounter_class": "wellness",
+      "count": 3
+    },
+    {
+      "profile": "HTN",
+      "encounter_class": "ambulatory",
+      "count": 22
+    },
+    {
+      "profile": "HTN",
+      "encounter_class": "outpatient",
+      "count": 2
+    },
+    {
+      "profile": "HTN",
+      "encounter_class": "virtual",
+      "count": 2
+    },
+    {
+      "profile": "HTN",
+      "encounter_class": "wellness",
+      "count": 50
+    }
+  ],
+  "imported_cases": 10,
+  "imported_profiles": {
+    "COPD": 2,
+    "CAP": 2,
+    "HF": 2,
+    "HTN": 2,
+    "DM2": 2
+  },
+  "rows": {
+    "medications": 10534,
+    "providers": 342,
+    "payer_transitions": 8121,
+    "imaging_studies": 19881,
+    "supplies": 4890,
+    "payers": 10,
+    "claims": 20882,
+    "allergies": 110,
+    "procedures": 29766,
+    "organizations": 342,
+    "conditions": 6309,
+    "careplans": 535,
+    "encounters": 10348,
+    "devices": 1049,
+    "immunizations": 1622,
+    "claims_transactions": 194464,
+    "patients": 130,
+    "observations": 144982
+  },
+  "csv_sha256": {
+    "medications.csv": "b19cdc95a215a8640eb9fbb1dc98fab9b1753831db5a4196cbc573b417976475",
+    "providers.csv": "a90451ba3dc13eb90b877669abf85718d142e5d7b99d391726793fd909a3ca32",
+    "payer_transitions.csv": "bb1929431e7fab0ee7a34fe60d3d09ec64f73e8be5dccc4cb1a34f1b29e2430e",
+    "imaging_studies.csv": "145ea79b0332afc00517991a56874baa6a2e0ae3a28ae06be2850b808743168c",
+    "supplies.csv": "3f4ab9c0de71f662ecaee489a2b53bd5bcfc2857f29696d63d1c6852c2511772",
+    "payers.csv": "47ef91b5a95fc41a7b564756ba870c0242eb33c8380651e29bc77b96399884bd",
+    "claims.csv": "01a5dcaaa03794c2a482cc8addc138e735b5c6721760660f49fb71cebf470616",
+    "allergies.csv": "0f2889b1095fc537b88037411106f3f7eeda08884e3adf97fdcf1e8bf27b7bfa",
+    "procedures.csv": "4e6263400a5ab84c84d96741f1e06080bc3b3169e4356b584685b1c6f5148763",
+    "organizations.csv": "03bf7aab450bc85d07f518bab2d5f8defaa81af5c722dd96ec23d6bdae584a61",
+    "conditions.csv": "bb0e834fc96a3c3b21883a88c6a82b38169226838e5b1b99b71a2e2b3cdfb72e",
+    "careplans.csv": "48512ba2d6d0ca12cce0937553a0797185e9f6722010d8c4e043a9db12d72ca0",
+    "encounters.csv": "52f528dda9679c2b30443465076c6c1366f3f9f006d20989c903f74603a59bba",
+    "devices.csv": "95f9749d99a9fdc187f4129062d400b7fdbfa79927ecc4a80c5b42f8e2657b90",
+    "immunizations.csv": "64f1b717adb1c9f1002bce21dee93bcdffb8f4b4be6f689c41bee370da26f83b",
+    "claims_transactions.csv": "392c5208452a932385a799f7904eec6512d2d90170c3497bf21966c3ade2c48c",
+    "patients.csv": "8c30a88af539b6aa926a38d7a47f5358146d20bec11dd291ef025fbc9618203c",
+    "observations.csv": "b694c2b2e8b796fa71502521254eb036d7dbdbd328849057162b65bd6103452d"
+  },
+  "public_cases_sha256": "7b7d6973d8afd814c6779434d1dcaca2286513062e823b5cdb972472098e6f3f",
+  "clinical_validation": false,
+  "limitations": [
+    "US synthetic population; not Russian prevalence or clinical validation.",
+    "Historical ever-diagnosed counts are not current prevalence or admission proportions.",
+    "CSV export has day-precision conditions and no availability timestamps.",
+    "Russian therapy ward and clinical severity are unknown; imported records remain outside scope by default.",
+    "No Russian diagnosis prevalence calibration performed. Profiles overlap."
+  ],
+  "split": "Author benchmark and Synthea import kept separate; no patient shared with authored model comparison.",
+  "release_published_at": "2026-10-21T23:19:27Z",
+  "asset_id": 664072215,
+  "asset_url": "https://github.com/synthetichealth/synthea/releases/download/master-branch-latest/synthea-with-dependencies.jar"
+}

@@ -1,0 +1,979 @@
+<role>
+You are a senior AI research engineer and an expert in scientific data visualization and front-end design.
+You write rigorous, honest and visually polished weekly research reports for master's students.
+</role>
+
+<goal>
+Create ONE self-contained, interactive HTML file: the weekly research report described below.
+The report will be (1) shown to the project supervisor, (2) used to demonstrate weekly progress,
+(3) reused at the end of the year as raw material for a scientific paper and a master's thesis.
+Therefore it must record EVERYTHING that was tried, including approaches that failed, with the reasons and the conclusions.
+</goal>
+
+<language>
+All visible text in the report MUST be in Russian: headings, table content, captions, legends, tooltips, button labels.
+Code, identifiers, model names, metric names and file names stay in English. Use correct Russian typography (« », —).
+</language>
+
+<project_context>
+После обратной связи расширил пилот до пяти направлений, запустил Synthea, добавил 17 проверок и исследовал шесть документов. Результаты и ограничения приведены в local_materials.
+</project_context>
+
+<report_title>
+Расширение терапевтического пилота
+</report_title>
+
+<week_summary_data>
+Raw material for the summary table. Keep every row and every number exactly as given: do not merge, drop or "improve" them.
+[
+  {
+    "approach": "Пять заболеваний",
+    "action": "Добавил ВП, ХОБЛ, АГ, ХСН и СД2; описал основания выбора",
+    "result": "5 рабочих профилей, 15 авторских историй",
+    "conclusion": "Кандидатный набор; доля покрытия терапии пока неизвестна",
+    "status": "partial"
+  },
+  {
+    "approach": "До десяти классов проверки",
+    "action": "Разделил проверки по категориям и написал контракты",
+    "result": "10 категорий, 17 проверок",
+    "conclusion": "Проверки работают; клинические критерии ещё не согласованы",
+    "status": "worked"
+  },
+  {
+    "approach": "Другие и более новые документы",
+    "action": "Добавил КР четырёх направлений и алгоритмы по диабету 2025 года",
+    "result": "6 документов, 3029 поисковых фрагментов",
+    "conclusion": "Редакции закреплены; полнота проверки актуальности в рубрикаторе не подтверждена",
+    "status": "partial"
+  },
+  {
+    "approach": "Synthea",
+    "action": "Запустил генератор и написал импорт CSV",
+    "result": "130 пациентов, 10 примеров в приложении",
+    "conclusion": "Формат протестирован; российские частоты и отделения не восстановлены",
+    "status": "worked"
+  },
+  {
+    "approach": "Проверка моделей",
+    "action": "Провёл исходную серию и отдельный повтор Gemma после исправления схемы",
+    "result": "Gemini: 85/85 статусов, 1/5 полных наборов действий; Gemma: 65/68 статусов, 0/5 полных наборов действий",
+    "conclusion": "В повторе 9/10 ответов прошли проверку. Исходные ошибки сохранены; настройки серий различаются.",
+    "status": "partial"
+  },
+  {
+    "approach": "Демо",
+    "action": "Запустил локальную версию и закрытый бесплатный Static Space",
+    "result": "500 подготовленных состояний; без ключей и новых запросов",
+    "conclusion": "Демо работает. Доступ преподавателю ещё не предоставлен; видеозапись пока не подготовлена",
+    "status": "partial"
+  },
+  {
+    "approach": "Проверки реализации",
+    "action": "Проверил границы сроков, доступность записей, импорт и API",
+    "result": "169 тестов, 0 ошибок",
+    "conclusion": "Инженерная проверка не заменяет врачебную разметку",
+    "status": "worked"
+  }
+]
+</week_summary_data>
+
+<required_structure>
+1. Header: title, week, project, and a 3-5 sentence TL;DR (goal of the week, what worked, what did not, what is next).
+2. Summary table "Что пробовали и что получилось" as the FIRST block after the header.
+   Columns: approach / what was done / result (with numbers) / conclusion / status.
+   Status is a coloured badge: worked (teal), partial (amber), failed (red).
+   The table must be sortable and filterable by status (buttons: all / worked / partial / failed).
+   Add a one-line verdict under the table.
+3. One detail section per item in <requested_sections>, in the given order.
+   Each section starts with a one-sentence takeaway ("Вывод:"), then evidence (figures, tables, diagrams, code), then limitations.
+4. "Что не получилось и почему": a consolidated list of failed attempts with evidence-based reasons.
+5. "Следующие шаги": concrete, checkable items for next week (max 7).
+6. Footer: how to reproduce (only if the information was provided), generation date.
+</required_structure>
+
+<requested_sections>
+Почему выбрал эти направления
+Документы и сравнение редакций
+Десять категорий и 17 проверок
+Что получилось с Synthea
+Модели: результат и ошибки
+Приложение и бесплатное размещение
+Проверка реализации
+Следующие шаги
+</requested_sections>
+
+<assets>
+The student uploaded these files next to the report. Reference them with RELATIVE paths exactly as written below,
+for example <img src="assets/plot.png"> or fetch("assets/results.json"). Never invent files that are not listed.
+Do not embed large assets as base64 (small icons under 30 KB are fine).
+- JSON / CSV: load with fetch(), render charts and tables from the data, show a friendly message if loading fails.
+- Images: <img> with alt text, a visible caption and click-to-zoom (lightbox).
+- PDF: link with target="_blank".
+- Markdown / text: link, or load with fetch() into a collapsible block.
+- Video: <video controls preload="metadata">.
+Материалы включены ниже.
+</assets>
+
+<design_system>
+Calm "scientific journal meets product dashboard" look, consistent with the reference style of the platform.
+- CSS variables: black #050504, ink #16140F, text #2B2924, muted #6E6A60, line #E4E0D6, soft #F6F4EF, paper #FFFFFF,
+  page background #EDEAE3; amber #E2A12B (deep #B67A0E, wash #FCF3E1) as the main accent; teal #1F8A7A (wash #E6F4F1);
+  slate #3D4B63 (wash #EBEEF4); danger #B3261E (wash #FBEAE8).
+- Fonts via Google Fonts <link> with system fallbacks: "Bricolage Grotesque" for headings, "Instrument Sans" for text,
+  "JetBrains Mono" for code and numbers.
+- Layout: max-width 1180px, generous whitespace, a dark hero block at the top, white cards with 1px borders and
+  12-14px radius, small amber "section tags" above headings, chips with wash backgrounds, stat tiles with a 3px amber top border,
+  chevron-style flow diagrams, sticky section navigation with scroll-spy.
+- Dark code blocks (#050504) with horizontal scroll and a copy button.
+- Amber is the only accent colour; teal / red are used ONLY for result status. No gradients, neon, emojis or stock photos.
+- Mobile-first: fully usable at 360 px; tables scroll horizontally inside their card; SVG uses viewBox and scales.
+- Print: @media print hides navigation, expands collapsed blocks, avoids page breaks inside figures and tables.
+</design_system>
+
+<interactivity>
+Genuinely useful, never gimmicky:
+- collapsible sections (<details>) with "expand all / collapse all";
+- table filter and sort;
+- charts with hover tooltips, exact values, and a clickable legend that toggles series;
+- architecture diagrams as inline SVG with hover highlight and a short explanation panel;
+- code snippets with lightweight syntax highlighting (hand-written tokenizer, no libraries) and a copy button;
+- when it helps the story, an "iceberg" block: visible results on top, hidden work below the waterline
+  (failed attempts, dead ends, debugging, data cleaning, compute spent).
+</interactivity>
+
+<technical_constraints>
+- ONE .html file: inline <style> and <script>, vanilla JavaScript (ES2020), no build step, no frameworks.
+- Charts: draw by hand with inline SVG or <canvas>. If a library is unavoidable, load ONE pinned version from https://cdnjs.cloudflare.com only.
+- The page runs inside a sandboxed iframe: do NOT use localStorage, sessionStorage, cookies, indexedDB, window.top, form submissions.
+  Wrap anything risky in try/catch.
+- No external images, no trackers, no network requests except the listed assets, Google Fonts and the single optional cdnjs library.
+- Accessibility: semantic HTML (header / main / section / figure / table with <caption>), alt texts, contrast >= 4.5:1,
+  keyboard-focusable controls, respect prefers-reduced-motion.
+- Keep JavaScript under ~1500 lines; render heavy charts lazily when their section is opened.
+</technical_constraints>
+
+<scientific_quality_rules>
+- NEVER invent data. Use only the numbers and facts given in this prompt and in the assets.
+  If something is missing, show a visible badge "нужно уточнить" instead of making it up.
+- Every chart: title, axis labels with units, legend, source (asset name) and the number of runs / samples if known.
+- Label statements explicitly as "Факт", "Интерпретация" or "Гипотеза".
+- Report negative and null results with the same care as positive ones: what was tried, why it failed (evidence), what it implies.
+- State limitations and threats to validity (small data, single run, no seeds, differing conditions).
+- Compare approaches with the same metric and conditions; if conditions differ, say so.
+- Mention related work only if it was provided; never fabricate references.
+</scientific_quality_rules>
+
+<extra_requirements>
+Первое лицо мужского рода. Сохранить исходный дизайн, последовательные номера и метки Факт/Интерпретация/Гипотеза. Не выдавать авторскую разметку за клинический эталон.
+</extra_requirements>
+
+<reference_reports>
+Example report(s) are attached to this chat as HTML files.
+Use them ONLY as a reference for structure, visual style, level of rigor and interactivity. Do NOT copy their content, numbers or claims: build the new report strictly from the data in this prompt.
+</reference_reports>
+
+<output_format>
+Return ONLY the complete HTML document, from <!DOCTYPE html> to </html>.
+No markdown fences, no explanations before or after.
+Before answering, silently verify: every listed asset is used; the summary table matches the provided rows;
+there is no localStorage usage; the page works at 360 px width; all visible text is Russian.
+</output_format>
+
+
+<local_materials>
+{
+  "inputs": {
+    "title": "Расширение терапевтического пилота",
+    "context": "После обратной связи расширил пилот до пяти направлений, запустил Synthea, добавил 17 проверок и исследовал шесть документов. Результаты и ограничения приведены в local_materials.",
+    "rows": [
+      {
+        "approach": "Пять заболеваний",
+        "action": "Добавил ВП, ХОБЛ, АГ, ХСН и СД2; описал основания выбора",
+        "result": "5 рабочих профилей, 15 авторских историй",
+        "conclusion": "Кандидатный набор; доля покрытия терапии пока неизвестна",
+        "status": "partial"
+      },
+      {
+        "approach": "До десяти классов проверки",
+        "action": "Разделил проверки по категориям и написал контракты",
+        "result": "10 категорий, 17 проверок",
+        "conclusion": "Проверки работают; клинические критерии ещё не согласованы",
+        "status": "worked"
+      },
+      {
+        "approach": "Другие и более новые документы",
+        "action": "Добавил КР четырёх направлений и алгоритмы по диабету 2025 года",
+        "result": "6 документов, 3029 поисковых фрагментов",
+        "conclusion": "Редакции закреплены; полнота проверки актуальности в рубрикаторе не подтверждена",
+        "status": "partial"
+      },
+      {
+        "approach": "Synthea",
+        "action": "Запустил генератор и написал импорт CSV",
+        "result": "130 пациентов, 10 примеров в приложении",
+        "conclusion": "Формат протестирован; российские частоты и отделения не восстановлены",
+        "status": "worked"
+      },
+      {
+        "approach": "Проверка моделей",
+        "action": "Провёл исходную серию и отдельный повтор Gemma после исправления схемы",
+        "result": "Gemini: 85/85 статусов, 1/5 полных наборов действий; Gemma: 65/68 статусов, 0/5 полных наборов действий",
+        "conclusion": "В повторе 9/10 ответов прошли проверку. Исходные ошибки сохранены; настройки серий различаются.",
+        "status": "partial"
+      },
+      {
+        "approach": "Демо",
+        "action": "Запустил локальную версию и закрытый бесплатный Static Space",
+        "result": "500 подготовленных состояний; без ключей и новых запросов",
+        "conclusion": "Демо работает. Доступ преподавателю ещё не предоставлен; видеозапись пока не подготовлена",
+        "status": "partial"
+      },
+      {
+        "approach": "Проверки реализации",
+        "action": "Проверил границы сроков, доступность записей, импорт и API",
+        "result": "169 тестов, 0 ошибок",
+        "conclusion": "Инженерная проверка не заменяет врачебную разметку",
+        "status": "worked"
+      }
+    ],
+    "sections": [
+      "Почему выбрал эти направления",
+      "Документы и сравнение редакций",
+      "Десять категорий и 17 проверок",
+      "Что получилось с Synthea",
+      "Модели: результат и ошибки",
+      "Приложение и бесплатное размещение",
+      "Проверка реализации",
+      "Следующие шаги"
+    ],
+    "preferences": "Первое лицо мужского рода. Сохранить исходный дизайн, последовательные номера и метки Факт/Интерпретация/Гипотеза. Не выдавать авторскую разметку за клинический эталон."
+  },
+  "rationale": {
+    "decision_status": "candidate_portfolio_requires_clinical_review",
+    "profiles": [
+      {
+        "profile": "CAP",
+        "decision": "Сохранил сквозной сценарий предыдущего этапа; он позволяет проверять сроки и динамику острого заболевания.",
+        "source": "https://cmac-journal.ru/publication/2024/2/cmac-2024-t26-n2-p141/",
+        "study": "Многоцентровое российское исследование, 2023 год, публикация 2024",
+        "number": "152 взрослых пациента из 6 стационаров",
+        "denominator": "Отобранные госпитализированные взрослые с ВП",
+        "limit": "Исследование этиологии ВП, не доля пневмонии среди всех госпитализаций терапии.",
+        "hypothesis": "Отдельно проверять дату диагноза, назначение, фактическое начало и повторную оценку."
+      },
+      {
+        "profile": "COPD",
+        "decision": "Добавил хроническое респираторное заболевание с обострениями и отдельным обследованием при госпитализации.",
+        "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4166963/",
+        "study": "GARD, 12 регионов России, 2010–2011; публикация 2014",
+        "number": "7164 взрослых; оценка ХОБЛ 15,3% после экстраполяции",
+        "denominator": "Обследованная популяционная выборка; спирометрия проводилась отобранным участникам с симптомами/риском",
+        "limit": "Старые данные и отбор для спирометрии. 15,3% не используется как вероятность госпитализации или вес генератора.",
+        "hypothesis": "Проверять доступность SpO2, ОАК, СРБ, ЭКГ и рентгенографии в сценарии госпитализации с обострением."
+      },
+      {
+        "profile": "HTN",
+        "decision": "Добавил распространённое хроническое заболевание и сопутствующий профиль для сердечной недостаточности и диабета.",
+        "source": "https://russjcardiol.elpub.ru/jour/article/download/6117/4464#page=8",
+        "study": "Эпидемиологический раздел российских КР 2024, PDF стр. 8",
+        "number": "В цитируемых исследованиях РФ: около 40% женщин, в отдельных регионах до 47% мужчин 25–65 лет",
+        "denominator": "Популяционные оценки, приведённые в КР; не единый стационарный регистр",
+        "limit": "Вторичное изложение статистики в первичном документе разработчика. Требуется восстановить исходную выборку перед калибровкой.",
+        "hypothesis": "Проверять записи АД, пульса, почечных показателей и постоянной терапии; не назначать препараты автоматически."
+      },
+      {
+        "profile": "HF",
+        "decision": "Добавил отдельный профиль повторных оценок и почечного риска при сердечной недостаточности.",
+        "source": "https://cardio.elpub.ru/jour/article/download/1628/967",
+        "study": "ЭПОХА-ХСН; наблюдение 1998–2017, публикация 2021; PDF стр. 2–4",
+        "number": "Скорректированная оценка ХСН I–IV ФК: 6,1% в 1998 и 8,2% в 2017",
+        "denominator": "Популяция Европейской части РФ; использованы клинические критерии и коэффициенты пересчёта",
+        "limit": "Не текущая структура стационарной терапии. Нескорректированные и скорректированные оценки в таблице различаются.",
+        "hypothesis": "Сохранять коморбидность, различать результаты обследования и записи динамического наблюдения."
+      },
+      {
+        "profile": "DM2",
+        "decision": "Добавил метаболическое заболевание с длительным наблюдением и почечными осложнениями.",
+        "source": "https://www.dia-endojournals.ru/jour/article/download/13419/pdf_403#page=14",
+        "study": "Алгоритмы специализированной помощи, 12-й выпуск, 2025; данные регистра на 01.01.2025",
+        "number": "5 046 037 зарегистрированных пациентов с СД2; 92,4% всех зарегистрированных пациентов с диабетом",
+        "denominator": "Регистр выявленных случаев диабета, а не все жители или госпитализированные",
+        "limit": "Недиагностированные случаи не учтены; 92,4% нельзя использовать как долю СД2 в терапии.",
+        "hypothesis": "Учитывать давность HbA1c, СКФ, альбуминурии и обследований; не требовать их повторения при каждой записи."
+      }
+    ],
+    "selection_method": "Сочетал опубликованные данные о бремени заболеваний, различие процессов наблюдения и возможность проследить правило до документа. Не ранжировал болезни по несопоставимым процентам.",
+    "not_top_five_claim": true,
+    "hospital_coverage_estimate": null,
+    "generator_calibrated_to_russia": false,
+    "rosstat_note": "Таблица 3.17 Росстата охватывает все возрасты и профили стационаров. Она не определяет частоты отдельных болезней во взрослой терапии.",
+    "alternatives": {
+      "influenza_covid": "Не вошли в текущие пять: учёт сезона, тяжести, изоляции и реанимационных случаев требует отдельной спецификации. Не утверждаю, что они встречаются реже.",
+      "digestive_diseases": "Болезни пищеварения значимы по широким данным Росстата; без структуры именно терапевтических отделений не объявляю выбранную пятёрку оптимальной."
+    },
+    "sampling": {
+      "author_cases_per_profile": 3,
+      "allocation": "equal for coverage tests, not population weights",
+      "synthea": "US default disease modules; observed generated frequencies reported separately",
+      "calibration_required": [
+        "adult therapy discharges by diagnosis, region and year",
+        "joint age, sex and comorbidity distributions",
+        "admission reason separated from secondary diagnoses",
+        "clinical-review-approved bounds and source definitions"
+      ]
+    },
+    "documents_2025": {
+      "DM2025": "Downloaded, 177 PDF pages, DOI 10.14341/DM20255S. Table of monitoring on PDF page 46; HbA1c every 3 months, renal indicators annually. Foot visual examination at each visit is distinct from annual sensitivity assessment.",
+      "203n2025": "Candidate legal quality criteria; official metadata found, full text not formalized or used to infer sanctions. https://publication.pravo.gov.ru/document/0001202505290045"
+    },
+    "retrieved_date": "2026-11-08/09",
+    "clinical_validation": false
+  },
+  "synthea": {
+    "generator": "Synthea",
+    "repository": "https://github.com/synthetichealth/synthea",
+    "release": "master-branch-latest",
+    "jar_sha256": "20098ec70c24c715ea874b19140983634711cc4986196105b5b0a9ca72a4b644",
+    "seed": 20261108,
+    "clinician_seed": 20261108,
+    "reference_date": "2026-11-08",
+    "requested_alive_population": 100,
+    "requested_age_range": [
+      35,
+      85
+    ],
+    "java": "Temurin 17.0.21+9",
+    "thread_pool_size": 1,
+    "region": "Massachusetts (default)",
+    "patients_exported": 130,
+    "alive_exported": 100,
+    "deceased_exported": 30,
+    "encounter_classes": {
+      "wellness": 1935,
+      "ambulatory": 5851,
+      "urgentcare": 581,
+      "home": 173,
+      "outpatient": 1130,
+      "emergency": 354,
+      "inpatient": 230,
+      "snf": 34,
+      "virtual": 16,
+      "hospice": 44
+    },
+    "patients_ever_with_profile": {
+      "CAP": 4,
+      "COPD": 10,
+      "HTN": 52,
+      "HF": 4,
+      "DM2": 23
+    },
+    "mapped_adult_encounters": [
+      {
+        "profile": "CAP",
+        "encounter_class": "emergency",
+        "count": 1
+      },
+      {
+        "profile": "CAP",
+        "encounter_class": "hospice",
+        "count": 1
+      },
+      {
+        "profile": "CAP",
+        "encounter_class": "inpatient",
+        "count": 3
+      },
+      {
+        "profile": "CAP",
+        "encounter_class": "wellness",
+        "count": 1
+      },
+      {
+        "profile": "COPD",
+        "encounter_class": "emergency",
+        "count": 1
+      },
+      {
+        "profile": "COPD",
+        "encounter_class": "hospice",
+        "count": 7
+      },
+      {
+        "profile": "COPD",
+        "encounter_class": "inpatient",
+        "count": 2
+      },
+      {
+        "profile": "COPD",
+        "encounter_class": "outpatient",
+        "count": 2
+      },
+      {
+        "profile": "COPD",
+        "encounter_class": "urgentcare",
+        "count": 2
+      },
+      {
+        "profile": "COPD",
+        "encounter_class": "wellness",
+        "count": 7
+      },
+      {
+        "profile": "DM2",
+        "encounter_class": "ambulatory",
+        "count": 5
+      },
+      {
+        "profile": "DM2",
+        "encounter_class": "outpatient",
+        "count": 1
+      },
+      {
+        "profile": "DM2",
+        "encounter_class": "wellness",
+        "count": 20
+      },
+      {
+        "profile": "HF",
+        "encounter_class": "ambulatory",
+        "count": 211
+      },
+      {
+        "profile": "HF",
+        "encounter_class": "emergency",
+        "count": 8
+      },
+      {
+        "profile": "HF",
+        "encounter_class": "hospice",
+        "count": 1
+      },
+      {
+        "profile": "HF",
+        "encounter_class": "inpatient",
+        "count": 9
+      },
+      {
+        "profile": "HF",
+        "encounter_class": "virtual",
+        "count": 1
+      },
+      {
+        "profile": "HF",
+        "encounter_class": "wellness",
+        "count": 3
+      },
+      {
+        "profile": "HTN",
+        "encounter_class": "ambulatory",
+        "count": 22
+      },
+      {
+        "profile": "HTN",
+        "encounter_class": "outpatient",
+        "count": 2
+      },
+      {
+        "profile": "HTN",
+        "encounter_class": "virtual",
+        "count": 2
+      },
+      {
+        "profile": "HTN",
+        "encounter_class": "wellness",
+        "count": 50
+      }
+    ],
+    "imported_cases": 10,
+    "imported_profiles": {
+      "COPD": 2,
+      "CAP": 2,
+      "HF": 2,
+      "HTN": 2,
+      "DM2": 2
+    },
+    "rows": {
+      "medications": 10534,
+      "providers": 342,
+      "payer_transitions": 8121,
+      "imaging_studies": 19881,
+      "supplies": 4890,
+      "payers": 10,
+      "claims": 20882,
+      "allergies": 110,
+      "procedures": 29766,
+      "organizations": 342,
+      "conditions": 6309,
+      "careplans": 535,
+      "encounters": 10348,
+      "devices": 1049,
+      "immunizations": 1622,
+      "claims_transactions": 194464,
+      "patients": 130,
+      "observations": 144982
+    },
+    "csv_sha256": {
+      "medications.csv": "b19cdc95a215a8640eb9fbb1dc98fab9b1753831db5a4196cbc573b417976475",
+      "providers.csv": "a90451ba3dc13eb90b877669abf85718d142e5d7b99d391726793fd909a3ca32",
+      "payer_transitions.csv": "bb1929431e7fab0ee7a34fe60d3d09ec64f73e8be5dccc4cb1a34f1b29e2430e",
+      "imaging_studies.csv": "145ea79b0332afc00517991a56874baa6a2e0ae3a28ae06be2850b808743168c",
+      "supplies.csv": "3f4ab9c0de71f662ecaee489a2b53bd5bcfc2857f29696d63d1c6852c2511772",
+      "payers.csv": "47ef91b5a95fc41a7b564756ba870c0242eb33c8380651e29bc77b96399884bd",
+      "claims.csv": "01a5dcaaa03794c2a482cc8addc138e735b5c6721760660f49fb71cebf470616",
+      "allergies.csv": "0f2889b1095fc537b88037411106f3f7eeda08884e3adf97fdcf1e8bf27b7bfa",
+      "procedures.csv": "4e6263400a5ab84c84d96741f1e06080bc3b3169e4356b584685b1c6f5148763",
+      "organizations.csv": "03bf7aab450bc85d07f518bab2d5f8defaa81af5c722dd96ec23d6bdae584a61",
+      "conditions.csv": "bb0e834fc96a3c3b21883a88c6a82b38169226838e5b1b99b71a2e2b3cdfb72e",
+      "careplans.csv": "48512ba2d6d0ca12cce0937553a0797185e9f6722010d8c4e043a9db12d72ca0",
+      "encounters.csv": "52f528dda9679c2b30443465076c6c1366f3f9f006d20989c903f74603a59bba",
+      "devices.csv": "95f9749d99a9fdc187f4129062d400b7fdbfa79927ecc4a80c5b42f8e2657b90",
+      "immunizations.csv": "64f1b717adb1c9f1002bce21dee93bcdffb8f4b4be6f689c41bee370da26f83b",
+      "claims_transactions.csv": "392c5208452a932385a799f7904eec6512d2d90170c3497bf21966c3ade2c48c",
+      "patients.csv": "8c30a88af539b6aa926a38d7a47f5358146d20bec11dd291ef025fbc9618203c",
+      "observations.csv": "b694c2b2e8b796fa71502521254eb036d7dbdbd328849057162b65bd6103452d"
+    },
+    "public_cases_sha256": "7b7d6973d8afd814c6779434d1dcaca2286513062e823b5cdb972472098e6f3f",
+    "clinical_validation": false,
+    "limitations": [
+      "US synthetic population; not Russian prevalence or clinical validation.",
+      "Historical ever-diagnosed counts are not current prevalence or admission proportions.",
+      "CSV export has day-precision conditions and no availability timestamps.",
+      "Russian therapy ward and clinical severity are unknown; imported records remain outside scope by default.",
+      "No Russian diagnosis prevalence calibration performed. Profiles overlap."
+    ],
+    "split": "Author benchmark and Synthea import kept separate; no patient shared with authored model comparison.",
+    "release_published_at": "2026-10-21T23:19:27Z",
+    "asset_id": 664072215,
+    "asset_url": "https://github.com/synthetichealth/synthea/releases/download/master-branch-latest/synthea-with-dependencies.jar"
+  },
+  "models": {
+    "max_jobs": 20,
+    "attempted": 20,
+    "clinical_validation": false,
+    "design": "Small engineering pilot: 5 author-labelled snapshots, one per profile, no significance or clinical-accuracy claim.",
+    "groups": [
+      {
+        "model": "gemini-3.5-flash-lite",
+        "attempted": 10,
+        "valid": 10,
+        "planned_jobs": 10,
+        "valid_audits": 5,
+        "correct_checks": 85,
+        "scored_checks": 85,
+        "planned_checks": 85,
+        "exact_audits": 5,
+        "exact_plans": 1,
+        "valid_plans": 5,
+        "errors": [
+          {
+            "case_id": "M03-delayed",
+            "role": "recommend",
+            "expected": {
+              "Q05": "review_record",
+              "Q15": "review_record"
+            },
+            "actual": {
+              "Q05": "review_record"
+            }
+          },
+          {
+            "case_id": "M02-complete",
+            "role": "recommend",
+            "expected": {},
+            "actual": {
+              "Q11": "review_record",
+              "Q13": "review_record"
+            }
+          },
+          {
+            "case_id": "M04-gap",
+            "role": "recommend",
+            "expected": {
+              "Q03": "review_record",
+              "Q05": "review_record",
+              "Q08": "review_record",
+              "Q14": "request_clinician_review",
+              "Q15": "review_record"
+            },
+            "actual": {
+              "Q03": "review_record",
+              "Q05": "review_record",
+              "Q08": "review_record",
+              "Q09": "review_record",
+              "Q14": "request_clinician_review"
+            }
+          },
+          {
+            "case_id": "M01-gap",
+            "role": "recommend",
+            "expected": {
+              "Q03": "review_record",
+              "Q05": "review_record",
+              "Q08": "review_record",
+              "Q14": "request_clinician_review",
+              "Q15": "review_record"
+            },
+            "actual": {
+              "Q03": "review_record",
+              "Q05": "review_record",
+              "Q08": "review_record",
+              "Q09": "review_record",
+              "Q14": "request_clinician_review"
+            }
+          }
+        ],
+        "technical_errors": [],
+        "latency_median_ms": 10342.5,
+        "validated_tokens": 43648
+      },
+      {
+        "model": "gemma-4-31b-it",
+        "attempted": 10,
+        "valid": 0,
+        "planned_jobs": 10,
+        "valid_audits": 0,
+        "correct_checks": 0,
+        "scored_checks": 0,
+        "planned_checks": 85,
+        "exact_audits": 0,
+        "exact_plans": 0,
+        "valid_plans": 0,
+        "errors": [],
+        "technical_errors": [
+          {
+            "case_id": "M04-gap",
+            "role": "recommend",
+            "error": "Задание Router завершилось со статусом failed; повтор не выполнен. id=job_0NUnqDc7bsAQWfwzQUKr_w",
+            "status": "error"
+          },
+          {
+            "case_id": "M02-complete",
+            "role": "audit",
+            "error": "Задание Router завершилось со статусом failed; повтор не выполнен. id=job_TWlQv8PBanoS0EPoXw-gDg",
+            "status": "error"
+          },
+          {
+            "case_id": "M01-gap",
+            "role": "recommend",
+            "error": "Задание Router завершилось со статусом failed; повтор не выполнен. id=job_QLGxD73WVn7Awi8C6dZaTQ",
+            "status": "error"
+          },
+          {
+            "case_id": "M05-complete",
+            "role": "recommend",
+            "error": "Задание Router завершилось со статусом failed; повтор не выполнен. id=job_lFijomYXku__YkOG9eLN9A",
+            "status": "error"
+          },
+          {
+            "case_id": "M01-gap",
+            "role": "audit",
+            "error": "Задание Router завершилось со статусом failed; повтор не выполнен. id=job_C0_au3ILQMHNl5zU8YB3QA",
+            "status": "error"
+          },
+          {
+            "case_id": "M04-gap",
+            "role": "audit",
+            "error": "Задание Router завершилось со статусом failed; повтор не выполнен. id=job_dI0JzH-lvxDzkrmyQ7V9qA",
+            "status": "error"
+          },
+          {
+            "case_id": "M02-complete",
+            "role": "recommend",
+            "error": "Задание Router завершилось со статусом failed; повтор не выполнен. id=job_0lJVDO-5C1_Ok28I7tfGgg",
+            "status": "error"
+          },
+          {
+            "case_id": "M03-delayed",
+            "role": "recommend",
+            "error": "Задание Router завершилось со статусом failed; повтор не выполнен. id=job_gBKIADxdvLDzo-efJfbmjQ",
+            "status": "error"
+          },
+          {
+            "case_id": "M05-complete",
+            "role": "audit",
+            "error": "Задание Router завершилось со статусом failed; повтор не выполнен. id=job_4uTXGt_6cp7WCG8kcYQCng",
+            "status": "error"
+          },
+          {
+            "case_id": "M03-delayed",
+            "role": "audit",
+            "error": "Задание Router завершилось со статусом failed; повтор не выполнен. id=job_3m6gOlZB1bzna_TsgFS6iQ",
+            "status": "error"
+          }
+        ],
+        "latency_median_ms": null,
+        "validated_tokens": 0
+      }
+    ]
+  },
+  "gemma_repeat": {
+    "max_jobs": 10,
+    "attempted": 10,
+    "clinical_validation": false,
+    "groups": [
+      {
+        "model": "gemma-4-31b-it",
+        "attempted": 10,
+        "valid": 9,
+        "planned_jobs": 10,
+        "transport_done": 10,
+        "valid_audits": 4,
+        "correct_checks": 65,
+        "scored_checks": 68,
+        "planned_checks": 85,
+        "exact_audits": 1,
+        "exact_plans": 0,
+        "valid_plans": 5,
+        "errors": [
+          {
+            "case_id": "M01-gap",
+            "role": "audit",
+            "rule_id": "Q04",
+            "expected": "met",
+            "actual": "unknown"
+          },
+          {
+            "case_id": "M04-gap",
+            "role": "audit",
+            "rule_id": "Q04",
+            "expected": "met",
+            "actual": "unknown"
+          },
+          {
+            "case_id": "M03-delayed",
+            "role": "audit",
+            "rule_id": "Q04",
+            "expected": "met",
+            "actual": "unknown"
+          },
+          {
+            "case_id": "M04-gap",
+            "role": "recommend",
+            "expected": {
+              "Q03": "review_record",
+              "Q05": "review_record",
+              "Q08": "review_record",
+              "Q14": "request_clinician_review",
+              "Q15": "review_record"
+            },
+            "actual": {
+              "Q03": "review_record",
+              "Q04": "review_record",
+              "Q05": "review_record",
+              "Q08": "review_record",
+              "Q14": "request_clinician_review",
+              "Q15": "review_record"
+            }
+          },
+          {
+            "case_id": "M01-gap",
+            "role": "recommend",
+            "expected": {
+              "Q03": "review_record",
+              "Q05": "review_record",
+              "Q08": "review_record",
+              "Q14": "request_clinician_review",
+              "Q15": "review_record"
+            },
+            "actual": {
+              "Q03": "review_record",
+              "Q04": "review_record",
+              "Q05": "review_record",
+              "Q08": "review_record",
+              "Q13": "request_clinician_review",
+              "Q14": "request_clinician_review",
+              "Q15": "review_record"
+            }
+          },
+          {
+            "case_id": "M05-complete",
+            "role": "recommend",
+            "expected": {},
+            "actual": {
+              "Q15": "review_record"
+            }
+          },
+          {
+            "case_id": "M02-complete",
+            "role": "recommend",
+            "expected": {},
+            "actual": {
+              "Q15": "review_record"
+            }
+          },
+          {
+            "case_id": "M03-delayed",
+            "role": "recommend",
+            "expected": {
+              "Q05": "review_record",
+              "Q15": "review_record"
+            },
+            "actual": {
+              "Q04": "review_record",
+              "Q05": "review_record",
+              "Q15": "review_record"
+            }
+          }
+        ],
+        "technical_errors": [],
+        "validation_errors": [
+          {
+            "case_id": "M05-complete",
+            "role": "audit",
+            "status": "error",
+            "error": "Неподтверждённые ссылки в ответе модели."
+          }
+        ],
+        "latency_median_ms": 62195,
+        "validated_tokens": 38429
+      }
+    ],
+    "original_experiment": "reports/therapy-expansion",
+    "max_output_tokens": 4096,
+    "provider_array_bounds": false,
+    "comparability": "Same frozen inputs and strict local scoring; Gemini original used 8192 tokens, bounded provider arrays and ran earlier."
+  },
+  "parsing": {
+    "sources": [
+      {
+        "source_id": "CAP2024",
+        "pdf_pages": 73,
+        "text_pages": 71,
+        "pdf_sha256": "281a08c3b34c5f3b120bacd7e5fabc9ed42d8ac101efcfb26446cfafa45d5e78"
+      },
+      {
+        "source_id": "COPD2024",
+        "pdf_pages": 120,
+        "text_pages": 120,
+        "pdf_sha256": "2c735af749d31a6ea8dd5ba15340fe5f5c72e0a430a7c2d0288ec4706d654270"
+      },
+      {
+        "source_id": "HTN2024",
+        "pdf_pages": 100,
+        "text_pages": 100,
+        "pdf_sha256": "fcae2b0112768e61f8f929a6539b8f18796615a2d4e414685f2c6326f08382ce"
+      },
+      {
+        "source_id": "HF2024",
+        "pdf_pages": 99,
+        "text_pages": 99,
+        "pdf_sha256": "879507e67d133d2fcb470e72f1ddd6122855c18dd692067fcd93671426ae716d"
+      },
+      {
+        "source_id": "DM22022",
+        "pdf_pages": 251,
+        "text_pages": 250,
+        "pdf_sha256": "7cfa62aeb00014bb44a61f00b110f54d7313137d80278f593445de73b1132435"
+      },
+      {
+        "source_id": "DM2025",
+        "pdf_pages": 177,
+        "text_pages": 176,
+        "pdf_sha256": "b5de5b5814180be6d108fa1474d12b2113ecdb2210205f833dd49a96e00f4cee"
+      }
+    ],
+    "passages": 3029,
+    "chunk_chars": 1200,
+    "overlap_chars": 200,
+    "algorithm": "FTS5 prefix; document filter; one passage per page; not a clinical relevance model"
+  },
+  "search": {
+    "design": "Six author-selected development queries, not independent retrieval evaluation.",
+    "queries": [
+      {
+        "source_id": "CAP2024",
+        "query": "С-реактивный белок",
+        "expected_pages": [
+          14
+        ],
+        "top5_pages": [
+          3,
+          14
+        ],
+        "hit5": true
+      },
+      {
+        "source_id": "COPD2024",
+        "query": "диагностический минимум стационар",
+        "expected_pages": [
+          50
+        ],
+        "top5_pages": [
+          50,
+          65,
+          51,
+          14,
+          48
+        ],
+        "hit5": true
+      },
+      {
+        "source_id": "HTN2024",
+        "query": "калия креатинина",
+        "expected_pages": [
+          15
+        ],
+        "top5_pages": [
+          26,
+          88,
+          19,
+          46,
+          43
+        ],
+        "hit5": false
+      },
+      {
+        "source_id": "HF2024",
+        "query": "эхокардиография",
+        "expected_pages": [
+          12,
+          13
+        ],
+        "top5_pages": [
+          90,
+          3,
+          12,
+          5,
+          92
+        ],
+        "hit5": true
+      },
+      {
+        "source_id": "DM22022",
+        "query": "не реже 1 раза в 3 месяца",
+        "expected_pages": [
+          151
+        ],
+        "top5_pages": [
+          151,
+          78,
+          80,
+          79,
+          234
+        ],
+        "hit5": true
+      },
+      {
+        "source_id": "DM2025",
+        "query": "мониторинг гликированный гемоглобин",
+        "expected_pages": [
+          46
+        ],
+        "top5_pages": [
+          30,
+          129,
+          21,
+          46,
+          105
+        ],
+        "hit5": true
+      }
+    ]
+  },
+  "tests": {
+    "total": 169,
+    "failed": 0
+  }
+}
+</local_materials>

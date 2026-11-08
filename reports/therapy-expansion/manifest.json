@@ -1,0 +1,28 @@
+{
+  "version": "therapy-multi-v3",
+  "max_jobs": 20,
+  "per_model": 10,
+  "fallback": false,
+  "retries": 0,
+  "concurrency": 2,
+  "cases_sha256": "f647635642464caba292928edec6cab9b024358494a3ea09a21b65b1e0e42121",
+  "catalog_sha256": "6e57440a7df0c73045d9886d0b3c2db11b2369c4f3cdd8e2e4981d02a48b7ee4",
+  "expectations_sha256": "059843c367b953964acb990fdd31dab0bbadd999578e995d681b1598bebddaa2",
+  "prompts": {
+    "audit": "You examine a synthetic adult inpatient therapy record for research.\nUse only visible events and the supplied profile and rule contracts. Never prescribe drugs,\ndoses, diagnose a patient, or infer unrecorded care. Missing documentation is unknown, not\nproof of a violation. Separate clinical-source checks from author-defined workflow checks.\nHonor rule-specific exceptions and exact inclusive time bounds. The two roles work independently.\nReturn schema-valid JSON only, with Russian explanations. Cite only supplied rule source IDs\nand actual visible event IDs. Do not include prose outside JSON.\nAudit every rule Q01..Q17 exactly once in order.",
+    "recommend": "You examine a synthetic adult inpatient therapy record for research.\nUse only visible events and the supplied profile and rule contracts. Never prescribe drugs,\ndoses, diagnose a patient, or infer unrecorded care. Missing documentation is unknown, not\nproof of a violation. Separate clinical-source checks from author-defined workflow checks.\nHonor rule-specific exceptions and exact inclusive time bounds. The two roles work independently.\nReturn schema-valid JSON only, with Russian explanations. Cite only supplied rule source IDs\nand actual visible event IDs. Do not include prose outside JSON.\nRecommend exactly one safe action for every applicable unknown/attention/pending rule, none for met/not_applicable. Use review_record for unknown, request_clinician_review for attention, schedule_review for pending. These are documentation-review tasks, not treatment orders."
+  },
+  "case_ids": [
+    "M01-gap",
+    "M02-complete",
+    "M03-delayed",
+    "M04-gap",
+    "M05-complete"
+  ],
+  "models": [
+    "gemini-3.5-flash-lite",
+    "gemma-4-31b-it"
+  ],
+  "max_output_tokens": 8192,
+  "role_independence": "Identical visible snapshot and contracts; no draft plan, oracle labels or future records shared."
+}

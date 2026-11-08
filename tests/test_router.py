@@ -92,6 +92,31 @@ def test_key_file_never_in_error(tmp_path, monkeypatch):
     assert "rtr_test_secret" not in repr(settings)
 
 
+@pytest.mark.parametrize('count,accepted', [(16, False), (17, True), (18, False)])
+def test_unbounded_provider_schema_still_validates_exact_audit_length(count, accepted):
+    from itmo_aimedicine.therapy_expansion import ModelAudit
+    checks = [dict(rule_id='Q01', status='unknown', explanation='test',
+                   evidence_ids=[], source_ids=['WORKFLOW']) for _ in range(count)]
+
+    def handler(request):
+        if request.method == 'POST':
+            array = json.loads(request.content)['config']['responseSchema']['properties']['checks']
+            assert 'minItems' not in array and 'maxItems' not in array
+            assert array['items']['properties']['status']['enum']
+            return httpx.Response(202, json={'id': 'job_test'})
+        return httpx.Response(200, json=done(result={'text': json.dumps({'checks': checks}), 'finishReason': 'STOP'}))
+
+    router = client(handler)
+    router.schema_array_bounds = False
+    if accepted:
+        assert len(router.complete('test', {}, ModelAudit).result.checks) == 17
+    else:
+        with pytest.raises(LLMError):
+            router.complete('test', {}, ModelAudit)
+    # The normal mode and the original local schema keep their exact length.
+    assert response_schema(ModelAudit.model_json_schema())['properties']['checks']['maxItems'] == 17
+
+
 @pytest.mark.parametrize('text',[
     '{"status":"ok","message":"x"}\n```',
     '```json\n{"status":"ok","message":"x"}\n```',

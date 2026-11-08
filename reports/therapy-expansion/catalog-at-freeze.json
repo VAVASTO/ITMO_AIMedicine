@@ -1,0 +1,430 @@
+{
+  "version": "therapy-multi-v3",
+  "clinical_validation": false,
+  "profiles": {
+    "CAP": {
+      "name": "Внебольничная пневмония",
+      "scope": "Нетяжёлая ВП у взрослых, терапевтический стационар",
+      "observations": {
+        "spo2": 0
+      },
+      "labs": {
+        "cbc": 0,
+        "crp": 0
+      },
+      "procedures": {
+        "chest_xray": 0
+      },
+      "sources": [
+        "CAP2024"
+      ]
+    },
+    "COPD": {
+      "name": "ХОБЛ",
+      "scope": "Госпитализация взрослого с обострением ХОБЛ",
+      "observations": {
+        "spo2": 0
+      },
+      "labs": {
+        "cbc": 0,
+        "crp": 0
+      },
+      "procedures": {
+        "chest_xray": 0,
+        "ecg": 0
+      },
+      "sources": [
+        "COPD2024"
+      ]
+    },
+    "HTN": {
+      "name": "Артериальная гипертензия",
+      "scope": "Документированная АГ у взрослого, без гипертонического криза",
+      "observations": {
+        "blood_pressure": 0,
+        "heart_rate": 0
+      },
+      "labs": {
+        "creatinine": 365,
+        "potassium": 365,
+        "glucose": 365
+      },
+      "procedures": {
+        "ecg": 365
+      },
+      "sources": [
+        "HTN2024"
+      ]
+    },
+    "HF": {
+      "name": "Хроническая сердечная недостаточность",
+      "scope": "ХСН у взрослого, вне реанимации",
+      "observations": {
+        "blood_pressure": 0,
+        "heart_rate": 0
+      },
+      "labs": {
+        "creatinine": 0,
+        "potassium": 0,
+        "sodium": 0
+      },
+      "procedures": {
+        "ecg": 0,
+        "echo": 365
+      },
+      "sources": [
+        "HF2024"
+      ]
+    },
+    "DM2": {
+      "name": "Сахарный диабет 2 типа",
+      "scope": "СД2 у взрослого, без кетоацидоза и гиперосмолярного состояния",
+      "observations": {
+        "glucose": 0
+      },
+      "labs": {
+        "hba1c": 90,
+        "egfr": 365,
+        "urine_acr": 365
+      },
+      "procedures": {
+        "ecg": 365,
+        "foot_exam": 365
+      },
+      "sources": [
+        "DM22022"
+      ]
+    }
+  },
+  "categories": [
+    {
+      "id": "C01",
+      "name": "Диагноз и анамнез"
+    },
+    {
+      "id": "C02",
+      "name": "Аллергоанамнез"
+    },
+    {
+      "id": "C03",
+      "name": "Наблюдения и жизненные показатели"
+    },
+    {
+      "id": "C04",
+      "name": "Лабораторные исследования"
+    },
+    {
+      "id": "C05",
+      "name": "Инструментальные исследования и осмотры"
+    },
+    {
+      "id": "C06",
+      "name": "Полнота и безопасность назначений"
+    },
+    {
+      "id": "C07",
+      "name": "Показания и начало лечения"
+    },
+    {
+      "id": "C08",
+      "name": "Ответ на лечение и ухудшение"
+    },
+    {
+      "id": "C09",
+      "name": "План наблюдения"
+    },
+    {
+      "id": "C10",
+      "name": "Выписка и длительность лечения"
+    }
+  ],
+  "sources": [
+    {
+      "id": "CAP2024",
+      "title": "Внебольничная пневмония у взрослых",
+      "year": 2024,
+      "profile": "CAP",
+      "pdf_pages": [
+        13,
+        24,
+        28
+      ],
+      "url": "https://spulmo.ru/upload/KR-vnebolnichnaya-pnevmoniya-u-vzroslyh-2024.pdf",
+      "summary": "В пилоте проверяю наличие SpO2, выбранных анализов и рентгенографии, срок назначения антибиотика и оценку ответа. Порог назначения 4 часа и окно оценки 48–72 часа перенесены в отдельные правила.",
+      "sha256": "281a08c3b34c5f3b120bacd7e5fabc9ed42d8ac101efcfb26446cfafa45d5e78",
+      "current_revision_verified": false,
+      "revision_note": "Скачанная редакция проверена. Полнота поиска более новых редакций не подтверждена: рубрикатор не загрузил список."
+    },
+    {
+      "id": "COPD2024",
+      "title": "Хроническая обструктивная болезнь лёгких",
+      "year": 2024,
+      "profile": "COPD",
+      "pdf_pages": [
+        23,
+        50
+      ],
+      "url": "https://spulmo.ru/upload/KR-HOBL.pdf",
+      "summary": "Для госпитализации с обострением выделил пульсоксиметрию, общий анализ крови, СРБ, рентгенографию и ЭКГ. Д-димер по показаниям не сделал безусловным требованием.",
+      "sha256": "2c735af749d31a6ea8dd5ba15340fe5f5c72e0a430a7c2d0288ec4706d654270",
+      "current_revision_verified": false,
+      "revision_note": "Скачанная редакция проверена. Полнота поиска более новых редакций не подтверждена: рубрикатор не загрузил список."
+    },
+    {
+      "id": "HTN2024",
+      "title": "Артериальная гипертензия у взрослых",
+      "year": 2024,
+      "profile": "HTN",
+      "pdf_pages": [
+        14,
+        15,
+        16
+      ],
+      "url": "https://russjcardiol.elpub.ru/jour/article/download/6117/4464",
+      "summary": "Выделил записи АД и пульса, креатинина, калия, глюкозы и ЭКГ. Это часть обследования. Годовое окно давности в прототипе требует отдельного согласования.",
+      "sha256": "fcae2b0112768e61f8f929a6539b8f18796615a2d4e414685f2c6326f08382ce",
+      "current_revision_verified": false,
+      "revision_note": "Скачанная редакция проверена. Полнота поиска более новых редакций не подтверждена: рубрикатор не загрузил список."
+    },
+    {
+      "id": "HF2024",
+      "title": "Хроническая сердечная недостаточность",
+      "year": 2024,
+      "profile": "HF",
+      "pdf_pages": [
+        11,
+        12,
+        13
+      ],
+      "url": "https://russjcardiol.elpub.ru/jour/article/download/6162/4522",
+      "summary": "Выделил показатели наблюдения, креатинин, калий, натрий, ЭКГ и ЭхоКГ. Система ищет запись результата. Частоту повторных исследований и достаточность обследования оценивает врач.",
+      "sha256": "879507e67d133d2fcb470e72f1ddd6122855c18dd692067fcd93671426ae716d",
+      "current_revision_verified": false,
+      "revision_note": "Скачанная редакция проверена. Полнота поиска более новых редакций не подтверждена: рубрикатор не загрузил список."
+    },
+    {
+      "id": "DM22022",
+      "title": "Сахарный диабет 2 типа у взрослых",
+      "year": 2022,
+      "profile": "DM2",
+      "pdf_pages": [
+        151
+      ],
+      "url": "https://rae-org.ru/system/files/documents/pdf/cr_dm_ii_ad_2022.pdf",
+      "summary": "Критерии включают HbA1c раз в три месяца, СКФ, альбуминурию, ЭКГ и осмотр стоп раз в год. В прототипе три месяца приближены 90 днями, год 365 днями. Это допущение для тестов.",
+      "sha256": "7cfa62aeb00014bb44a61f00b110f54d7313137d80278f593445de73b1132435",
+      "current_revision_verified": false,
+      "revision_note": "Скачанная редакция проверена. Полнота поиска более новых редакций не подтверждена: рубрикатор не загрузил список."
+    },
+    {
+      "id": "DM2025",
+      "title": "Алгоритмы специализированной медицинской помощи больным сахарным диабетом, 12-й выпуск",
+      "year": 2025,
+      "profile": "DM2",
+      "text_prefix": "DM2025",
+      "pdf_pages": [
+        14,
+        59
+      ],
+      "url": "https://www.dia-endojournals.ru/jour/article/download/13419/pdf_403",
+      "summary": "Дополнительный документ 2025 года. Содержит обновлённые алгоритмы и данные регистра на 01.01.2025. Не подменяет статус клинической рекомендации в рубрикаторе; перенос лечебных алгоритмов в автоматические назначения не выполнен.",
+      "sha256": "b5de5b5814180be6d108fa1474d12b2113ecdb2210205f833dd49a96e00f4cee",
+      "current_revision_verified": false,
+      "revision_note": "Скачанная редакция проверена. Полнота поиска более новых редакций не подтверждена: рубрикатор не загрузил список."
+    },
+    {
+      "id": "WORKFLOW",
+      "title": "Исследовательский контракт полноты и последовательности записей v3",
+      "year": 2026,
+      "profile": null,
+      "pdf_pages": [],
+      "url": null,
+      "summary": "Авторские проверки связей и наличия записей. Не являются правовым заключением, перечнем штрафов или утверждёнными медицинскими критериями."
+    }
+  ],
+  "rules": [
+    {
+      "id": "Q01",
+      "category": "C01",
+      "title": "Запись основного диагноза",
+      "basis": "workflow_hypothesis",
+      "sources": [
+        "WORKFLOW"
+      ],
+      "contract": "Current-admission diagnosis with code equal to primary: met, otherwise unknown."
+    },
+    {
+      "id": "Q02",
+      "category": "C01",
+      "title": "Сверка постоянной терапии",
+      "basis": "workflow_hypothesis",
+      "sources": [
+        "WORKFLOW"
+      ],
+      "contract": "Current history event code medication_reconciliation: met, otherwise unknown."
+    },
+    {
+      "id": "Q03",
+      "category": "C02",
+      "title": "Аллергоанамнез до назначения",
+      "basis": "workflow_hypothesis",
+      "sources": [
+        "WORKFLOW"
+      ],
+      "contract": "Known or none_known allergy_review must occur AND be available by first current order: met. If valid review exists only after first order: attention; no valid review: unknown. Without orders a valid current review is met."
+    },
+    {
+      "id": "Q04",
+      "category": "C03",
+      "title": "Наличие выбранных наблюдений",
+      "basis": "clinical_projection",
+      "sources": [
+        "CAP2024",
+        "COPD2024",
+        "HTN2024",
+        "HF2024",
+        "DM22022"
+      ],
+      "contract": "Union profile observations. Every required code must have a nonempty value other than unknown/ordered within its lookback: met, otherwise unknown. Do not interpret numeric values."
+    },
+    {
+      "id": "Q05",
+      "category": "C04",
+      "title": "Наличие выбранных анализов",
+      "basis": "clinical_projection",
+      "sources": [
+        "CAP2024",
+        "COPD2024",
+        "HTN2024",
+        "HF2024",
+        "DM22022"
+      ],
+      "contract": "Union profile labs. Every required code needs a completed result within its lookback: met, otherwise unknown. Orders alone do not count. This subset is not the complete clinical workup."
+    },
+    {
+      "id": "Q06",
+      "category": "C05",
+      "title": "Наличие выбранных исследований",
+      "basis": "clinical_projection",
+      "sources": [
+        "CAP2024",
+        "COPD2024",
+        "HTN2024",
+        "HF2024",
+        "DM22022"
+      ],
+      "contract": "Union profile procedures. Every required code needs a documented result within lookback: met, otherwise unknown. Do not demand a repeat solely because a new admission occurred."
+    },
+    {
+      "id": "Q07",
+      "category": "C06",
+      "title": "Заполненность назначения",
+      "basis": "workflow_hypothesis",
+      "sources": [
+        "WORKFLOW"
+      ],
+      "contract": "All current orders must have nonempty dose, route, frequency: met. Missing orders or any missing field: unknown. Do not assess dose correctness."
+    },
+    {
+      "id": "Q08",
+      "category": "C06",
+      "title": "Совпадение с записанным аллергеном",
+      "basis": "workflow_hypothesis",
+      "sources": [
+        "WORKFLOW"
+      ],
+      "contract": "For each order use latest current allergy_review occurred AND available by order time. known requires comma-separated substances codes. Exact intersection with order code or class: attention. No valid prior review or empty known substances: unknown; otherwise met. No orders: not_applicable. No cross-reactivity inference."
+    },
+    {
+      "id": "Q09",
+      "category": "C06",
+      "title": "Разбор терапии при почечном риске",
+      "basis": "workflow_hypothesis",
+      "sources": [
+        "WORKFLOW"
+      ],
+      "contract": "If renal_risk false or no current orders: not_applicable. Otherwise current renal_review: met, missing: unknown. No dose calculation or claim review preceded treatment."
+    },
+    {
+      "id": "Q10",
+      "category": "C07",
+      "title": "Связь назначения с диагнозом",
+      "basis": "workflow_hypothesis",
+      "sources": [
+        "WORKFLOW"
+      ],
+      "contract": "Each current order indication_event_id must reference a current diagnosis available by order time: met, otherwise unknown. No orders: not_applicable. This only checks a link, not clinical appropriateness."
+    },
+    {
+      "id": "Q11",
+      "category": "C07",
+      "title": "Срок назначения антибиотика при ВП",
+      "basis": "clinical_projection",
+      "sources": [
+        "CAP2024"
+      ],
+      "contract": "Primary CAP only, otherwise not_applicable. First antibiotic order on or after primary diagnosis: <=14400 seconds met, later attention. No order: pending if elapsed <=14400, unknown if later. No diagnosis: unknown. Use temporal_facts."
+    },
+    {
+      "id": "Q12",
+      "category": "C07",
+      "title": "Назначение и фактическое введение",
+      "basis": "workflow_hypothesis",
+      "sources": [
+        "WORKFLOW"
+      ],
+      "contract": "Every current administration must reference order_id with same code, available by administration time: met, otherwise attention. No administrations: not_applicable."
+    },
+    {
+      "id": "Q13",
+      "category": "C08",
+      "title": "Оценка ответа при ВП",
+      "basis": "clinical_projection",
+      "sources": [
+        "CAP2024"
+      ],
+      "contract": "Primary CAP only, otherwise not_applicable. A reassessment 172800..259200 seconds inclusive after first antibiotic administration: met. No start: unknown. Without timely reassessment: pending while elapsed <=259200; after deadline attention if a late assessment exists, otherwise unknown. Early assessment does not satisfy this window."
+    },
+    {
+      "id": "Q14",
+      "category": "C08",
+      "title": "Разбор после ухудшения",
+      "basis": "workflow_hypothesis",
+      "sources": [
+        "WORKFLOW"
+      ],
+      "contract": "No current reassessment value worsening: not_applicable. A current treatment_review at or after latest worsening: met, otherwise attention. No causal claims."
+    },
+    {
+      "id": "Q15",
+      "category": "C09",
+      "title": "Соблюдение записанного плана",
+      "basis": "workflow_hypothesis",
+      "sources": [
+        "WORKFLOW"
+      ],
+      "contract": "Latest current followup_plan with valid aware due_at. A reassessment referencing its plan_id, at/after plan and <=due: met. Otherwise pending if now<=due, unknown if overdue. No plan or invalid due: unknown. Do not invent interval."
+    },
+    {
+      "id": "Q16",
+      "category": "C10",
+      "title": "Поля выписки",
+      "basis": "workflow_hypothesis",
+      "sources": [
+        "WORKFLOW"
+      ],
+      "contract": "No current discharge: not_applicable. Latest discharge requires nonempty details diagnosis, medication_plan, followup: met, otherwise unknown."
+    },
+    {
+      "id": "Q17",
+      "category": "C10",
+      "title": "Длительность курса отдельно от госпитализации",
+      "basis": "workflow_hypothesis",
+      "sources": [
+        "WORKFLOW"
+      ],
+      "contract": "No medication_stop: not_applicable. Each stop must reference existing current administration start_id at/before stop: met, otherwise attention. Stay duration need not equal medication course. No clinical duration recommendation."
+    }
+  ],
+  "global_contract": "Adult therapy only; otherwise all not_applicable. Current means occurred_at >= admission_at. Only events occurred AND available by review are visible. A current exception whose code is a rule ID overrides that rule to unknown. Profile lookback=0 means since admission; positive days means review_at minus days. Shared codes use the shortest lookback. These are research windows, not automatic orders for repeat tests. Source documents and workflow checks are not a clinical gold standard."
+}

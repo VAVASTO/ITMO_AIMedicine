@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-09",
+  "finding": "The full request succeeded after removing minItems/maxItems from the provider schema; all other request fields were identical.",
+  "full_original_schema_4096": "reports/therapy-expansion-gemma-4096/gemma-4-31b-it--M01-gap--audit.json",
+  "short_original_schema_4096": "reports/therapy-expansion-gemma-diagnostics/short-input-original-schema.json",
+  "full_unbounded_schema_4096": "reports/therapy-expansion-gemma-diagnostics/full-input-unbounded-arrays.json",
+  "request_diff_verified": true,
+  "local_validation_unchanged": true,
+  "scope": "Specific schema and serving route. This does not prove that Gemma rejects all array bounds, or identify the internal Router component.",
+  "supporting_documentation": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output#considerations",
+  "documentation_note": "Google documents schema-complexity errors involving array bounds and enums. This is a possible mechanism, not proof of the Router implementation.",
+  "diagnostic_jobs_outside_scored_series": 3,
+  "diagnostic_detail": [
+    "Earlier successful connectivity test",
+    "Failed full input with original schema at 4096",
+    "Failed short input with original schema at 4096"
+  ],
+  "counting": "Successful full unbounded probe is adopted into the 10-job repeated series and counted once."
+}

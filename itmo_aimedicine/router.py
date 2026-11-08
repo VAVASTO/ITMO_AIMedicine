@@ -9,7 +9,7 @@ from .config import ROUTER_MODELS, ROUTER_URL, Settings
 from .llm import Completion, LLMError
 
 
-def response_schema(schema: dict) -> dict:
+def response_schema(schema: dict, *, array_bounds: bool = True) -> dict:
     """Convert Pydantic JSON Schema to the documented Gemini schema subset."""
     definitions = schema.get("$defs", {})
 
@@ -26,6 +26,8 @@ def response_schema(schema: dict) -> dict:
             return {**visit(options[0]), "nullable": True}
         result = {}
         for k in ("description", "enum", "required", "minimum", "maximum", "minItems", "maxItems", "format"):
+            if not array_bounds and k in ("minItems", "maxItems"):
+                continue
             if k in node:
                 result[k] = node[k]
         if "type" in node:
@@ -56,7 +58,7 @@ def normalize_json_wrapper(text):
 
 class RouterClient:
     def __init__(self, settings: Settings, *, transport=None, sleep=time.sleep, clock=time.monotonic, on_submit=None,
-                 normalize_wrapper=False):
+                 normalize_wrapper=False, schema_array_bounds=True):
         if settings.base_url != ROUTER_URL or settings.model not in ROUTER_MODELS:
             raise LLMError("Неизвестный адрес или модель ANTEI Router.")
         self.settings, self.transport, self.sleep, self.clock = settings, transport, sleep, clock
@@ -64,6 +66,9 @@ class RouterClient:
         # Experiments keep strict decoding by default. The UI may tolerate only
         # a Markdown fence, and records that cleanup without changing JSON data.
         self.normalize_wrapper = normalize_wrapper
+        # Some serving backends reject bounded arrays in complex output schemas.
+        # Opting out affects the provider schema only; Pydantic still checks bounds.
+        self.schema_array_bounds = schema_array_bounds
 
     def _request(self, client, method, path, **kwargs):
         try:
@@ -88,7 +93,7 @@ class RouterClient:
             "model": self.settings.model, "fallback": False,
             "systemInstruction": {"parts": [{"text": system}]},
             "contents": [{"role": "user", "parts": [{"text": json.dumps(payload, ensure_ascii=False)}]}],
-            "config": {"responseMimeType": "application/json", "responseSchema": response_schema(schema.model_json_schema()),
+            "config": {"responseMimeType": "application/json", "responseSchema": response_schema(schema.model_json_schema(), array_bounds=self.schema_array_bounds),
                        "maxOutputTokens": self.settings.max_tokens, "thinkingLevel": "minimal"},
         }
         started = self.clock()

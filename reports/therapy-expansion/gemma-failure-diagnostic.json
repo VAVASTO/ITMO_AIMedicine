@@ -1,0 +1,9 @@
+{
+  "id": "job_C0_au3ILQMHNl5zU8YB3QA",
+  "model": "gemma-4-31b-it",
+  "status": "failed",
+  "error": {
+    "code": "BAD_REQUEST",
+    "message": "The request was rejected: Request contains an invalid argument."
+  }
+}

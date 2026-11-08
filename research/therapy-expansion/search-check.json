@@ -1,0 +1,93 @@
+{
+  "design": "Six author-selected development queries, not independent retrieval evaluation.",
+  "queries": [
+    {
+      "source_id": "CAP2024",
+      "query": "С-реактивный белок",
+      "expected_pages": [
+        14
+      ],
+      "top5_pages": [
+        3,
+        14
+      ],
+      "hit5": true
+    },
+    {
+      "source_id": "COPD2024",
+      "query": "диагностический минимум стационар",
+      "expected_pages": [
+        50
+      ],
+      "top5_pages": [
+        50,
+        65,
+        51,
+        14,
+        48
+      ],
+      "hit5": true
+    },
+    {
+      "source_id": "HTN2024",
+      "query": "калия креатинина",
+      "expected_pages": [
+        15
+      ],
+      "top5_pages": [
+        26,
+        88,
+        19,
+        46,
+        43
+      ],
+      "hit5": false
+    },
+    {
+      "source_id": "HF2024",
+      "query": "эхокардиография",
+      "expected_pages": [
+        12,
+        13
+      ],
+      "top5_pages": [
+        90,
+        3,
+        12,
+        5,
+        92
+      ],
+      "hit5": true
+    },
+    {
+      "source_id": "DM22022",
+      "query": "не реже 1 раза в 3 месяца",
+      "expected_pages": [
+        151
+      ],
+      "top5_pages": [
+        151,
+        78,
+        80,
+        79,
+        234
+      ],
+      "hit5": true
+    },
+    {
+      "source_id": "DM2025",
+      "query": "мониторинг гликированный гемоглобин",
+      "expected_pages": [
+        46
+      ],
+      "top5_pages": [
+        30,
+        129,
+        21,
+        46,
+        105
+      ],
+      "hit5": true
+    }
+  ]
+}

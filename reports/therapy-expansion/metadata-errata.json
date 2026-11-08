@@ -1,0 +1,6 @@
+{
+  "change": "DM2025 bibliography PDF page 59 corrected to 46 after text verification. Original catalog preserved in catalog-at-freeze.json.",
+  "affects_model_input": false,
+  "affects_labels_or_scores": false,
+  "additional_change": "CAP2024 source page index extended with pages 14 (CBC/CRP) and 18 (radiography). Rules, payloads and expected statuses unchanged."
+}

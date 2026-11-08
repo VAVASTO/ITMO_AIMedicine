@@ -1,0 +1,160 @@
+{
+  "max_jobs": 20,
+  "attempted": 20,
+  "clinical_validation": false,
+  "design": "Small engineering pilot: 5 author-labelled snapshots, one per profile, no significance or clinical-accuracy claim.",
+  "groups": [
+    {
+      "model": "gemini-3.5-flash-lite",
+      "attempted": 10,
+      "valid": 10,
+      "planned_jobs": 10,
+      "valid_audits": 5,
+      "correct_checks": 85,
+      "scored_checks": 85,
+      "planned_checks": 85,
+      "exact_audits": 5,
+      "exact_plans": 1,
+      "valid_plans": 5,
+      "errors": [
+        {
+          "case_id": "M03-delayed",
+          "role": "recommend",
+          "expected": {
+            "Q05": "review_record",
+            "Q15": "review_record"
+          },
+          "actual": {
+            "Q05": "review_record"
+          }
+        },
+        {
+          "case_id": "M02-complete",
+          "role": "recommend",
+          "expected": {},
+          "actual": {
+            "Q11": "review_record",
+            "Q13": "review_record"
+          }
+        },
+        {
+          "case_id": "M04-gap",
+          "role": "recommend",
+          "expected": {
+            "Q03": "review_record",
+            "Q05": "review_record",
+            "Q08": "review_record",
+            "Q14": "request_clinician_review",
+            "Q15": "review_record"
+          },
+          "actual": {
+            "Q03": "review_record",
+            "Q05": "review_record",
+            "Q08": "review_record",
+            "Q09": "review_record",
+            "Q14": "request_clinician_review"
+          }
+        },
+        {
+          "case_id": "M01-gap",
+          "role": "recommend",
+          "expected": {
+            "Q03": "review_record",
+            "Q05": "review_record",
+            "Q08": "review_record",
+            "Q14": "request_clinician_review",
+            "Q15": "review_record"
+          },
+          "actual": {
+            "Q03": "review_record",
+            "Q05": "review_record",
+            "Q08": "review_record",
+            "Q09": "review_record",
+            "Q14": "request_clinician_review"
+          }
+        }
+      ],
+      "technical_errors": [],
+      "latency_median_ms": 10342.5,
+      "validated_tokens": 43648
+    },
+    {
+      "model": "gemma-4-31b-it",
+      "attempted": 10,
+      "valid": 0,
+      "planned_jobs": 10,
+      "valid_audits": 0,
+      "correct_checks": 0,
+      "scored_checks": 0,
+      "planned_checks": 85,
+      "exact_audits": 0,
+      "exact_plans": 0,
+      "valid_plans": 0,
+      "errors": [],
+      "technical_errors": [
+        {
+          "case_id": "M04-gap",
+          "role": "recommend",
+          "error": "Задание Router завершилось со статусом failed; повтор не выполнен. id=job_0NUnqDc7bsAQWfwzQUKr_w",
+          "status": "error"
+        },
+        {
+          "case_id": "M02-complete",
+          "role": "audit",
+          "error": "Задание Router завершилось со статусом failed; повтор не выполнен. id=job_TWlQv8PBanoS0EPoXw-gDg",
+          "status": "error"
+        },
+        {
+          "case_id": "M01-gap",
+          "role": "recommend",
+          "error": "Задание Router завершилось со статусом failed; повтор не выполнен. id=job_QLGxD73WVn7Awi8C6dZaTQ",
+          "status": "error"
+        },
+        {
+          "case_id": "M05-complete",
+          "role": "recommend",
+          "error": "Задание Router завершилось со статусом failed; повтор не выполнен. id=job_lFijomYXku__YkOG9eLN9A",
+          "status": "error"
+        },
+        {
+          "case_id": "M01-gap",
+          "role": "audit",
+          "error": "Задание Router завершилось со статусом failed; повтор не выполнен. id=job_C0_au3ILQMHNl5zU8YB3QA",
+          "status": "error"
+        },
+        {
+          "case_id": "M04-gap",
+          "role": "audit",
+          "error": "Задание Router завершилось со статусом failed; повтор не выполнен. id=job_dI0JzH-lvxDzkrmyQ7V9qA",
+          "status": "error"
+        },
+        {
+          "case_id": "M02-complete",
+          "role": "recommend",
+          "error": "Задание Router завершилось со статусом failed; повтор не выполнен. id=job_0lJVDO-5C1_Ok28I7tfGgg",
+          "status": "error"
+        },
+        {
+          "case_id": "M03-delayed",
+          "role": "recommend",
+          "error": "Задание Router завершилось со статусом failed; повтор не выполнен. id=job_gBKIADxdvLDzo-efJfbmjQ",
+          "status": "error"
+        },
+        {
+          "case_id": "M05-complete",
+          "role": "audit",
+          "error": "Задание Router завершилось со статусом failed; повтор не выполнен. id=job_4uTXGt_6cp7WCG8kcYQCng",
+          "status": "error"
+        },
+        {
+          "case_id": "M03-delayed",
+          "role": "audit",
+          "error": "Задание Router завершилось со статусом failed; повтор не выполнен. id=job_3m6gOlZB1bzna_TsgFS6iQ",
+          "status": "error"
+        }
+      ],
+      "latency_median_ms": null,
+      "validated_tokens": 0
+    }
+  ]
+}

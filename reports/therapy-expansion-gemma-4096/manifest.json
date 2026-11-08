@@ -1,0 +1,202 @@
+{
+  "model": "gemma-4-31b-it",
+  "max_jobs": 10,
+  "max_output_tokens": 4096,
+  "concurrency": 2,
+  "fallback": false,
+  "automatic_retries": 0,
+  "original_manifest_sha256": "96b1122bdbd641c84a237146ee32c9bee849630de5d98e8e8c607a33449b9bf7",
+  "prompts": {
+    "audit": "You examine a synthetic adult inpatient therapy record for research.\nUse only visible events and the supplied profile and rule contracts. Never prescribe drugs,\ndoses, diagnose a patient, or infer unrecorded care. Missing documentation is unknown, not\nproof of a violation. Separate clinical-source checks from author-defined workflow checks.\nHonor rule-specific exceptions and exact inclusive time bounds. The two roles work independently.\nReturn schema-valid JSON only, with Russian explanations. Cite only supplied rule source IDs\nand actual visible event IDs. Do not include prose outside JSON.\nAudit every rule Q01..Q17 exactly once in order.",
+    "recommend": "You examine a synthetic adult inpatient therapy record for research.\nUse only visible events and the supplied profile and rule contracts. Never prescribe drugs,\ndoses, diagnose a patient, or infer unrecorded care. Missing documentation is unknown, not\nproof of a violation. Separate clinical-source checks from author-defined workflow checks.\nHonor rule-specific exceptions and exact inclusive time bounds. The two roles work independently.\nReturn schema-valid JSON only, with Russian explanations. Cite only supplied rule source IDs\nand actual visible event IDs. Do not include prose outside JSON.\nRecommend exactly one safe action for every applicable unknown/attention/pending rule, none for met/not_applicable. Use review_record for unknown, request_clinician_review for attention, schedule_review for pending. These are documentation-review tasks, not treatment orders."
+  },
+  "inputs": {
+    "M01-gap--audit": "26b133191cbe3b342a50bf51d2f739afaad290bbaeb59b83241ee6ae7f561f8a",
+    "M01-gap--recommend": "26b133191cbe3b342a50bf51d2f739afaad290bbaeb59b83241ee6ae7f561f8a",
+    "M02-complete--audit": "63af5c0b6d103ed038ee0e82fc68559cb9caa64d414a70cc82d79389946f27af",
+    "M02-complete--recommend": "63af5c0b6d103ed038ee0e82fc68559cb9caa64d414a70cc82d79389946f27af",
+    "M03-delayed--audit": "72015a1bf76367dcc5174db916e12db14143163c3706f250660dc61dea473b19",
+    "M03-delayed--recommend": "72015a1bf76367dcc5174db916e12db14143163c3706f250660dc61dea473b19",
+    "M04-gap--audit": "a030a19d0831b6901c1abf14374a9285d1634fc8754d7d043bdaa83976285b8f",
+    "M04-gap--recommend": "a030a19d0831b6901c1abf14374a9285d1634fc8754d7d043bdaa83976285b8f",
+    "M05-complete--audit": "3f163c42abb800148d8760936cc81c058550ec65a6eb2eb78b7fd0cced23421a",
+    "M05-complete--recommend": "3f163c42abb800148d8760936cc81c058550ec65a6eb2eb78b7fd0cced23421a"
+  },
+  "schemas": {
+    "audit": {
+      "$defs": {
+        "Finding": {
+          "additionalProperties": false,
+          "properties": {
+            "rule_id": {
+              "enum": [
+                "Q01",
+                "Q02",
+                "Q03",
+                "Q04",
+                "Q05",
+                "Q06",
+                "Q07",
+                "Q08",
+                "Q09",
+                "Q10",
+                "Q11",
+                "Q12",
+                "Q13",
+                "Q14",
+                "Q15",
+                "Q16",
+                "Q17"
+              ],
+              "title": "Rule Id",
+              "type": "string"
+            },
+            "status": {
+              "enum": [
+                "met",
+                "attention",
+                "unknown",
+                "pending",
+                "not_applicable"
+              ],
+              "title": "Status",
+              "type": "string"
+            },
+            "explanation": {
+              "maxLength": 1500,
+              "title": "Explanation",
+              "type": "string"
+            },
+            "evidence_ids": {
+              "items": {
+                "type": "string"
+              },
+              "title": "Evidence Ids",
+              "type": "array"
+            },
+            "source_ids": {
+              "items": {
+                "type": "string"
+              },
+              "title": "Source Ids",
+              "type": "array"
+            }
+          },
+          "required": [
+            "rule_id",
+            "status",
+            "explanation",
+            "evidence_ids",
+            "source_ids"
+          ],
+          "title": "Finding",
+          "type": "object"
+        }
+      },
+      "additionalProperties": false,
+      "properties": {
+        "checks": {
+          "items": {
+            "$ref": "#/$defs/Finding"
+          },
+          "maxItems": 17,
+          "minItems": 17,
+          "title": "Checks",
+          "type": "array"
+        }
+      },
+      "required": [
+        "checks"
+      ],
+      "title": "ModelAudit",
+      "type": "object"
+    },
+    "recommend": {
+      "$defs": {
+        "Suggestion": {
+          "additionalProperties": false,
+          "properties": {
+            "rule_id": {
+              "enum": [
+                "Q01",
+                "Q02",
+                "Q03",
+                "Q04",
+                "Q05",
+                "Q06",
+                "Q07",
+                "Q08",
+                "Q09",
+                "Q10",
+                "Q11",
+                "Q12",
+                "Q13",
+                "Q14",
+                "Q15",
+                "Q16",
+                "Q17"
+              ],
+              "title": "Rule Id",
+              "type": "string"
+            },
+            "action": {
+              "enum": [
+                "review_record",
+                "request_clinician_review",
+                "schedule_review"
+              ],
+              "title": "Action",
+              "type": "string"
+            },
+            "explanation": {
+              "maxLength": 1500,
+              "title": "Explanation",
+              "type": "string"
+            },
+            "evidence_ids": {
+              "items": {
+                "type": "string"
+              },
+              "title": "Evidence Ids",
+              "type": "array"
+            },
+            "source_ids": {
+              "items": {
+                "type": "string"
+              },
+              "title": "Source Ids",
+              "type": "array"
+            }
+          },
+          "required": [
+            "rule_id",
+            "action",
+            "explanation",
+            "evidence_ids",
+            "source_ids"
+          ],
+          "title": "Suggestion",
+          "type": "object"
+        }
+      },
+      "additionalProperties": false,
+      "properties": {
+        "recommendations": {
+          "items": {
+            "$ref": "#/$defs/Suggestion"
+          },
+          "maxItems": 17,
+          "title": "Recommendations",
+          "type": "array"
+        }
+      },
+      "required": [
+        "recommendations"
+      ],
+      "title": "ModelPlan",
+      "type": "object"
+    }
+  },
+  "expectations_sha256": "059843c367b953964acb990fdd31dab0bbadd999578e995d681b1598bebddaa2",
+  "stop_condition": "Stop on the first technical failure; at most one concurrent job may already be running."
+}

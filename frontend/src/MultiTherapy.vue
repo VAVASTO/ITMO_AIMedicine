@@ -1,0 +1,82 @@
+<script setup>
+import { ref, computed, onMounted } from 'vue'
+import { request, staticMode } from './demoTransport'
+const catalog=ref(null),profile=ref('CAP'),dataset=ref('author'),caseId=ref('M01-gap'),checkpoint=ref(2)
+const result=ref(null),busy=ref(false),error=ref(''),assume=ref(false),additions=ref([]),action=ref('treatment_review')
+const query=ref(''),sourceFilter=ref('all'),hits=ref([]),searchError=ref('')
+const choices=computed(()=>catalog.value?.cases.filter(c=>c.primary===profile.value && (dataset.value==='synthea')===(c.provenance.type==='synthea'))||[])
+const selected=computed(()=>choices.value.find(c=>c.id===caseId.value))
+const at=computed(()=>selected.value?.review_times[checkpoint.value])
+const statuses={met:'Есть подтверждение',attention:'Нужен разбор',unknown:'Недостаточно данных',pending:'Срок ещё идёт',not_applicable:'Не применяется'}
+const kinds={diagnosis:'Диагноз',history:'Анамнез',allergy_review:'Аллергоанамнез',observation:'Наблюдение',lab:'Анализ',procedure:'Исследование',order:'Назначение',administration:'Введение',medication_stop:'Окончание курса',reassessment:'Оценка ответа',treatment_review:'Разбор тактики',followup_plan:'План',discharge:'Выписка',renal_review:'Разбор почечного риска',exception:'Исключение'}
+const codeNames={CAP:'ВП',COPD:'ХОБЛ',HTN:'АГ',HF:'ХСН',DM2:'СД2',spo2:'SpO2',cbc:'Общий анализ крови',crp:'СРБ',chest_xray:'Рентгенография грудной клетки',ecg:'ЭКГ',echo:'ЭхоКГ',blood_pressure:'Артериальное давление',heart_rate:'Пульс',glucose:'Глюкоза',hba1c:'HbA1c',egfr:'СКФ',creatinine:'Креатинин',potassium:'Калий',sodium:'Натрий',urine_acr:'Альбумин/креатинин мочи',foot_exam:'Осмотр стоп',medication_reconciliation:'Постоянная терапия','synthetic-antibiotic':'Условный антибиотик','synthetic-medication':'Условный препарат'}
+const valueNames={documented:'Есть запись',none_known:'Записано: известных аллергий нет',known:'Записаны аллергии',worsening:'Ухудшение',improving:'Улучшение',unchanged:'Без изменений'}
+const actionNames={review_record:'Уточнить запись',request_clinician_review:'Разобрать с врачом',schedule_review:'Запланировать оценку'}
+const source=id=>catalog.value.sources.find(s=>s.id===id)
+const rule=id=>catalog.value.rules.find(r=>r.id===id)
+const time=t=>new Date(t).toLocaleString('ru-RU',{timeZone:'Europe/Moscow',day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'})
+async function evaluate(){busy.value=true;error.value='';try{result.value=await request('/api/multi/evaluate',{case_id:caseId.value,review_at:at.value,assume_therapy:assume.value,additions:additions.value})}catch(e){error.value=e.message;result.value=null}finally{busy.value=false}}
+function reset(){additions.value=[];result.value=null;assume.value=false}
+async function changeGroup(){reset();caseId.value=choices.value[0]?.id;checkpoint.value=dataset.value==='author'?2:1;if(caseId.value)await evaluate()}
+async function changeCase(){reset();checkpoint.value=dataset.value==='author'?2:1;await evaluate()}
+async function changeTime(){reset();await evaluate()}
+async function addRecord(){if(additions.value.length>=(staticMode?1:10))return;const kind=action.value;additions.value.push({id:`ui-${additions.value.length+1}`,kind,code:kind==='history'?'medication_reconciliation':'',value:kind==='allergy_review'?'none_known':'documented',occurred_at:at.value,available_at:at.value,details:{}});await evaluate()}
+async function search(){searchError.value='';hits.value=[];try{hits.value=(await request('/api/multi/search',{query:query.value,source_id:sourceFilter.value})).results}catch(e){searchError.value=e.message}}
+function auditRows(record){return record.roles.audit?.status==='ok'?(record.roles.audit.completion?.result?.checks||[]):[]}
+function mismatch(record){return auditRows(record).filter(r=>r.status!==result.value.result.checks.find(c=>c.rule_id===r.rule_id)?.status)}
+onMounted(async()=>{try{catalog.value=await request('/api/multi/catalog');await evaluate()}catch(e){error.value=e.message}})
+</script>
+<template>
+<main class="multi">
+  <header><span class="brand">AIMedicine</span><span>Исследовательское демо · Терапия</span></header>
+  <h1>Проверка истории болезни</h1>
+  <p class="lead">Пять направлений, десять категорий проверок. Выберите историю и посмотрите, какие сведения были доступны в конкретный момент.</p>
+  <p class="notice" v-if="staticMode">Показ подготовленных результатов. Можно менять историю, момент проверки и добавлять одну учебную запись. В полной локальной версии можно добавить несколько записей и искать по текстам документов.</p>
+  <p class="notice">Все пациенты вымышлены. Правила ещё не проверены врачом. Отсутствие записи означает недостаток данных, а не доказанное нарушение. Приложение не назначает лечение.</p>
+  <p role="alert" class="error" v-if="error">{{error}}</p>
+  <template v-if="catalog">
+  <section class="controls">
+    <label>Направление<select v-model="profile" @change="changeGroup" :disabled="busy"><option v-for="(p,id) in catalog.profiles" :value="id" :key="id">{{p.name}}</option></select></label>
+    <label>Набор историй<select v-model="dataset" @change="changeGroup" :disabled="busy"><option value="author">Сценарии для проверки правил</option><option value="synthea">Импорт Synthea</option></select></label>
+    <label>История<select v-model="caseId" @change="changeCase" :disabled="busy"><option v-for="c in choices" :key="c.id" :value="c.id">{{c.title}}</option></select></label>
+    <label>Момент, МСК<select v-model="checkpoint" @change="changeTime" :disabled="busy"><option v-for="(t,i) in selected?.review_times" :key="t" :value="i">{{time(t)}}</option></select></label>
+  </section>
+  <p>{{catalog.profiles[profile].scope}}. Выбранные анализы и исследования составляют часть полного обследования.</p>
+  <aside class="notice" v-if="dataset==='synthea'">
+    <strong>Данные американского симулятора</strong><p>Из 130 сгенерированных пациентов отобраны 10 примеров для импорта. Отделение терапии и тяжесть состояния в выгрузке не определены. По умолчанию клинические проверки к этим случаям не применяются.</p>
+    <label class="check"><input type="checkbox" v-model="assume" @change="evaluate" :disabled="busy">Для учебного просмотра предположить терапевтическое отделение</label>
+    <p v-if="assume">Это допущение пользователя. Оно не подтверждает соответствие случая клинической рекомендации.</p>
+  </aside>
+  <p v-if="busy" role="status">Проверяю записи…</p>
+  <template v-if="result">
+  <div class="metrics"><span><b>{{result.snapshot.events.length}}</b> доступных записей</span><span><b>17</b> проверок</span><span><b>{{result.result.checks.filter(c=>c.status==='unknown').length}}</b> с нехваткой данных</span><span><b>{{(result.result.temporal_facts.stay_seconds/3600).toFixed(1)}}</b> часов госпитализации</span></div>
+  <div class="workspace">
+    <section><h2>Результаты по категориям</h2>
+      <details v-for="category in catalog.categories" :key="category.id" open class="category">
+        <summary>{{category.name}}</summary>
+        <article v-for="c in result.result.checks.filter(c=>c.category===category.id)" :key="c.rule_id" class="finding">
+          <div><b>{{c.rule_id}} · {{rule(c.rule_id).title}}</b><span class="badge" :class="c.status">{{statuses[c.status]}}</span></div>
+          <p>{{c.explanation}}</p><small>{{c.basis==='clinical_projection'?'Проверка по выбранным положениям КР':'Авторская проверка записей'}} · {{c.evidence_ids.join(', ')||'Подтверждающей записи нет'}}</small>
+          <p class="source-links"><template v-for="id in c.source_ids.filter(id=>id==='WORKFLOW'||source(id)?.profile===profile||result.snapshot.comorbidities.includes(source(id)?.profile))" :key="id"><a v-if="source(id)?.url" :href="source(id).url" target="_blank" rel="noopener">{{id}}</a><span v-else>Исследовательский контракт v3</span></template></p>
+        </article>
+      </details>
+    </section>
+    <aside><h2>Записи во времени</h2><p>Возраст: {{result.snapshot.age}}. Сопутствующие профили: {{result.snapshot.comorbidities.join(', ')||'не заданы'}}.</p>
+      <div class="timeline-scroll"><ol class="timeline"><li v-for="e in result.snapshot.events" :key="e.id"><small>{{time(e.occurred_at)}} · {{e.id}}</small><b>{{kinds[e.kind]}} {{codeNames[e.code]||e.code}}</b><p>{{valueNames[e.value]||e.value}}</p><small v-if="e.available_at!==e.occurred_at">Запись доступна с {{time(e.available_at)}}</small><details v-if="Object.keys(e.details).length"><summary>Поля записи</summary><pre>{{JSON.stringify(e.details,null,2)}}</pre></details></li></ol></div>
+      <section class="simulation"><h2>Добавить запись в сценарий</h2><p>Изменение действует до смены истории. Оно показывает влияние новой информации на проверку.</p><label>Тип записи<select v-model="action"><option value="treatment_review">Разбор тактики врачом</option><option value="history">Сверка постоянной терапии</option><option value="allergy_review">Записано: известных аллергий нет</option><option value="renal_review">Разбор терапии при почечном риске</option></select></label><button @click="addRecord" :disabled="busy||additions.length>=(staticMode?1:10)">Добавить на выбранный момент</button><button v-if="additions.length" @click="additions=[];evaluate()" :disabled="busy">Сбросить изменения</button><p v-if="additions.length&&!result.changes.length">Статусы не изменились. Поздняя запись не исправляет сведения, недоступные при назначении.</p><ul v-if="result.changes.length"><li v-for="c in result.changes" :key="c.rule_id">{{c.rule_id}}: {{statuses[c.before]}} → {{statuses[c.after]}}</li></ul></section>
+    </aside>
+  </div>
+  <section class="models"><h2>Сохранённые ответы Gemini и Gemma</h2><p>Новые запросы не отправляются. Модели независимо проверяли одну и ту же запись и предлагали действия для уточнения сведений. Разметку сценариев им не передавали. Исходная серия и повтор Gemma показаны отдельно.</p>
+    <p v-if="!result.recorded.length">Для этой истории и момента нет сохранённого сравнения. Примеры: ВП с пробелами, ХОБЛ с полной записью, АГ с запоздалыми записями, ХСН с пробелами, СД2 с полной записью; момент 06.11.2026 09:00.</p>
+    <article v-for="record in result.recorded" :key="record.model+record.series_id"><h3>{{record.model}}</h3><p v-if="record.series_label">{{record.series_label}}</p><p class="notice" v-if="record.roles.audit?.status==='error' && record.roles.audit?.completion">Ответ проверки получен, но исключён из оценки из-за ошибки проверки ссылок или полноты. Причина сохранена ниже.</p><p v-if="auditRows(record).length">Расхождений с формальным расчётом: {{mismatch(record).length}} из 17.</p><p class="notice" v-if="record.plan_comparison && (record.plan_comparison.missing.length||record.plan_comparison.extra.length||record.plan_comparison.wrong_action.length)">В предложенных действиях есть расхождения. Пропущены: {{record.plan_comparison.missing.join(', ')||'нет'}}. Лишние: {{record.plan_comparison.extra.join(', ')||'нет'}}. Другой тип действия: {{record.plan_comparison.wrong_action.join(', ')||'нет'}}.</p><ul v-if="mismatch(record).length"><li v-for="r in mismatch(record)" :key="r.rule_id">{{r.rule_id}}: модель {{statuses[r.status]}}; формальный расчёт {{statuses[result.result.checks.find(c=>c.rule_id===r.rule_id).status]}}</li></ul><details v-for="(r,role) in record.roles" :key="role"><summary>{{role==='audit'?'Проверка':'Предложенные действия'}} · {{r.status==='ok'?'ответ прошёл проверку':'ошибка запроса или проверки ответа'}}</summary><p v-if="r.error">{{r.error}}</p><ul v-if="r.completion"><li v-for="item in (r.completion.result.checks||r.completion.result.recommendations)" :key="item.rule_id"><b>{{item.rule_id}} · {{statuses[item.status]||actionNames[item.action]}}</b><p>{{item.explanation}}</p></li></ul></details></article>
+  </section>
+  </template>
+  <section><h2>Документы и редакции</h2><p>Использую пять клинических рекомендаций и дополнительный сборник алгоритмов 2025 года. Полноту проверки новых редакций в рубрикаторе пока не подтвердил.</p><div class="source-grid"><article v-for="s in catalog.sources.filter(s=>s.url)" :key="s.id"><h3><a :href="s.url" target="_blank" rel="noopener">{{s.title}}</a></h3><p>{{s.year}} · страницы PDF {{s.pdf_pages.join(', ')}}</p><p>{{s.summary}}</p></article></div>
+    <details><summary>Поиск по полным текстам на локальной машине</summary><form @submit.prevent="search" class="search"><label>Запрос<input v-model="query" minlength="2" maxlength="200" placeholder="Например, гликированный гемоглобин" required></label><label>Документ<select v-model="sourceFilter"><option value="all">Все документы</option><option v-for="s in catalog.sources.filter(s=>s.url)" :key="s.id" :value="s.id">{{s.id}}</option></select></label><button>Найти</button></form><p role="alert" v-if="searchError">{{searchError}}</p><article v-for="h in hits" :key="h.source_id+h.page"><a :href="h.url" target="_blank" rel="noopener">{{h.source_id}}, страница {{h.page}}</a><blockquote>{{h.snippet}}</blockquote></article></details>
+  </section>
+  </template>
+</main>
+</template>
+<style scoped>
+.multi{max-width:1280px;margin:auto;padding:24px;color:#233248;font-family:system-ui,sans-serif}.multi header{display:flex;justify-content:space-between;gap:16px;border-bottom:1px solid #dbe2e9;padding-bottom:18px}.brand{font-weight:750}.multi h1{font-size:clamp(28px,4vw,44px);line-height:1.15;margin:28px 0 14px}.lead{font-size:18px;max-width:820px}.multi p{line-height:1.6}.notice{padding:16px 20px;border-left:3px solid #9aaec3;background:#f2f5f8;border-radius:5px;margin:18px 0}.controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;padding:20px;background:#fff;border:1px solid #dbe2e9;border-radius:10px}.multi label{display:flex;flex-direction:column;gap:7px;font-size:14px}.multi select,.multi input{width:100%;box-sizing:border-box;padding:11px;border:1px solid #b5c3d0;border-radius:6px;background:white;color:#182b40;font:inherit}.multi .check{flex-direction:row;align-items:center}.multi input[type=checkbox]{width:auto}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:24px 0}.metrics span{background:white;border:1px solid #dbe2e9;padding:16px;border-radius:8px;font-size:13px}.metrics b{display:block;font-size:25px}.workspace{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:28px}.category{border:1px solid #dbe2e9;border-radius:8px;margin:10px 0;background:white}.category>summary{font-weight:650;padding:16px;cursor:pointer}.finding{padding:12px 16px;border-top:1px solid #e8edf2}.finding>div{display:flex;gap:12px;justify-content:space-between;align-items:flex-start;flex-wrap:wrap}.finding p{margin:8px 0}.badge{font-size:12px;border-radius:5px;padding:4px 8px;background:#eef1f5;white-space:nowrap}.badge.met{background:#e8f2ed;color:#315742}.badge.attention{background:#fff0dd;color:#795020}.badge.unknown{background:#f1eaf5;color:#654773}.source-links{display:flex;gap:10px;flex-wrap:wrap;font-size:12px}.multi a{color:#295b82}.multi small{color:#57697a}.timeline-scroll{max-height:1000px;overflow:auto;border:1px solid #dbe2e9;border-radius:8px;background:white}.timeline{padding:18px 24px 18px 40px}.timeline li{padding:0 0 20px 8px}.timeline b,.timeline small{display:block}.timeline p{word-break:break-word;margin:5px 0}.multi pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;background:#f2f5f8;padding:12px;border-radius:6px}.multi button{padding:10px 16px;border:1px solid #b5c3d0;border-radius:6px;background:#243f5b;color:white;margin:10px 6px 0 0;cursor:pointer}.multi button:disabled{opacity:.5;cursor:default}.simulation{border:1px solid #dbe2e9;padding:18px;border-radius:8px;margin-top:20px}.multi h2{font-size:22px;margin-top:26px}.multi h3{font-size:17px}.source-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.source-grid article,.models article{border:1px solid #dbe2e9;border-radius:8px;background:white;padding:18px;margin:10px 0}.search{display:flex;align-items:end;gap:12px;flex-wrap:wrap;margin:16px 0}.search label:first-child{flex:1}.error{background:#fff0e9;padding:14px;border-radius:6px}.multi summary{cursor:pointer}.multi blockquote{margin:10px 0;padding-left:12px;border-left:2px solid #cbd5e1}.models{margin:32px 0}@media(max-width:760px){.workspace,.source-grid,.controls{grid-template-columns:1fr}.metrics{grid-template-columns:repeat(2,1fr)}.multi{padding:16px}.multi header{flex-direction:column}.timeline-scroll{max-height:480px}}
+</style>

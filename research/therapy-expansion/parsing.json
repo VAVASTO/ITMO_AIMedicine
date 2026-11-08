@@ -1,0 +1,44 @@
+{
+  "sources": [
+    {
+      "source_id": "CAP2024",
+      "pdf_pages": 73,
+      "text_pages": 71,
+      "pdf_sha256": "281a08c3b34c5f3b120bacd7e5fabc9ed42d8ac101efcfb26446cfafa45d5e78"
+    },
+    {
+      "source_id": "COPD2024",
+      "pdf_pages": 120,
+      "text_pages": 120,
+      "pdf_sha256": "2c735af749d31a6ea8dd5ba15340fe5f5c72e0a430a7c2d0288ec4706d654270"
+    },
+    {
+      "source_id": "HTN2024",
+      "pdf_pages": 100,
+      "text_pages": 100,
+      "pdf_sha256": "fcae2b0112768e61f8f929a6539b8f18796615a2d4e414685f2c6326f08382ce"
+    },
+    {
+      "source_id": "HF2024",
+      "pdf_pages": 99,
+      "text_pages": 99,
+      "pdf_sha256": "879507e67d133d2fcb470e72f1ddd6122855c18dd692067fcd93671426ae716d"
+    },
+    {
+      "source_id": "DM22022",
+      "pdf_pages": 251,
+      "text_pages": 250,
+      "pdf_sha256": "7cfa62aeb00014bb44a61f00b110f54d7313137d80278f593445de73b1132435"
+    },
+    {
+      "source_id": "DM2025",
+      "pdf_pages": 177,
+      "text_pages": 176,
+      "pdf_sha256": "b5de5b5814180be6d108fa1474d12b2113ecdb2210205f833dd49a96e00f4cee"
+    }
+  ],
+  "passages": 3029,
+  "chunk_chars": 1200,
+  "overlap_chars": 200,
+  "algorithm": "FTS5 prefix; document filter; one passage per page; not a clinical relevance model"
+}

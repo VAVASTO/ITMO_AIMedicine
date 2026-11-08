@@ -1,0 +1,572 @@
+{
+  "model": "gemini-3.5-flash-lite",
+  "case_id": "M04-gap",
+  "role": "audit",
+  "review_at": "2026-11-06T09:00:00+03:00",
+  "payload": {
+    "state": {
+      "case_id": "M04-gap",
+      "age": 66,
+      "primary": "HF",
+      "comorbidities": [],
+      "renal_risk": false,
+      "ward": "therapy",
+      "admission_at": "2026-11-01T08:00:00+03:00",
+      "review_at": "2026-11-06T09:00:00+03:00",
+      "events": [
+        {
+          "id": "e01",
+          "kind": "diagnosis",
+          "code": "HF",
+          "value": "documented",
+          "occurred_at": "2026-11-01T08:00:00+03:00",
+          "available_at": "2026-11-01T08:00:00+03:00",
+          "details": {}
+        },
+        {
+          "id": "e02",
+          "kind": "history",
+          "code": "medication_reconciliation",
+          "value": "documented",
+          "occurred_at": "2026-11-01T08:06:00+03:00",
+          "available_at": "2026-11-01T08:06:00+03:00",
+          "details": {}
+        },
+        {
+          "id": "e04",
+          "kind": "observation",
+          "code": "blood_pressure",
+          "value": "documented",
+          "occurred_at": "2026-11-01T09:00:00+03:00",
+          "available_at": "2026-11-01T09:00:00+03:00",
+          "details": {}
+        },
+        {
+          "id": "e05",
+          "kind": "observation",
+          "code": "heart_rate",
+          "value": "documented",
+          "occurred_at": "2026-11-01T09:00:00+03:00",
+          "available_at": "2026-11-01T09:00:00+03:00",
+          "details": {}
+        },
+        {
+          "id": "e09",
+          "kind": "procedure",
+          "code": "ecg",
+          "value": "documented",
+          "occurred_at": "2026-11-01T09:00:00+03:00",
+          "available_at": "2026-11-01T09:00:00+03:00",
+          "details": {}
+        },
+        {
+          "id": "e10",
+          "kind": "procedure",
+          "code": "echo",
+          "value": "documented",
+          "occurred_at": "2026-11-01T09:00:00+03:00",
+          "available_at": "2026-11-01T09:00:00+03:00",
+          "details": {}
+        },
+        {
+          "id": "e11",
+          "kind": "order",
+          "code": "synthetic-medication",
+          "value": "documented",
+          "occurred_at": "2026-11-01T10:00:00+03:00",
+          "available_at": "2026-11-01T10:00:00+03:00",
+          "details": {
+            "class": "other",
+            "dose": "recorded_by_clinician",
+            "route": "recorded_by_clinician",
+            "frequency": "recorded_by_clinician",
+            "indication_event_id": "e01"
+          }
+        },
+        {
+          "id": "e12",
+          "kind": "administration",
+          "code": "synthetic-medication",
+          "value": "documented",
+          "occurred_at": "2026-11-01T11:00:00+03:00",
+          "available_at": "2026-11-01T11:00:00+03:00",
+          "details": {
+            "class": "other",
+            "order_id": "e11"
+          }
+        },
+        {
+          "id": "e13",
+          "kind": "followup_plan",
+          "code": "",
+          "value": "documented",
+          "occurred_at": "2026-11-01T12:00:00+03:00",
+          "available_at": "2026-11-01T12:00:00+03:00",
+          "details": {
+            "due_at": "2026-11-03T23:00:00+03:00"
+          }
+        },
+        {
+          "id": "e18",
+          "kind": "reassessment",
+          "code": "",
+          "value": "worsening",
+          "occurred_at": "2026-11-03T15:00:00+03:00",
+          "available_at": "2026-11-03T15:00:00+03:00",
+          "details": {}
+        },
+        {
+          "id": "e16",
+          "kind": "medication_stop",
+          "code": "synthetic-medication",
+          "value": "documented",
+          "occurred_at": "2026-11-05T08:00:00+03:00",
+          "available_at": "2026-11-05T08:00:00+03:00",
+          "details": {
+            "start_id": "e12"
+          }
+        },
+        {
+          "id": "e17",
+          "kind": "discharge",
+          "code": "",
+          "value": "documented",
+          "occurred_at": "2026-11-06T08:00:00+03:00",
+          "available_at": "2026-11-06T08:00:00+03:00",
+          "details": {
+            "diagnosis": "HF",
+            "medication_plan": "Записан врачом",
+            "followup": "Записан врачом"
+          }
+        }
+      ]
+    },
+    "temporal_facts": {
+      "stay_seconds": 432000.0,
+      "antibiotic_order_after_diagnosis_seconds": null,
+      "diagnosis_elapsed_seconds": 435600.0,
+      "antibiotic_start_elapsed_seconds": null,
+      "antibiotic_start_event_id": null,
+      "reassessment_seconds_from_start": [],
+      "duration_note": "Stay duration and medication course duration are independent quantities."
+    },
+    "rules": [
+      {
+        "id": "Q01",
+        "category": "C01",
+        "title": "Запись основного диагноза",
+        "basis": "workflow_hypothesis",
+        "sources": [
+          "WORKFLOW"
+        ],
+        "contract": "Current-admission diagnosis with code equal to primary: met, otherwise unknown."
+      },
+      {
+        "id": "Q02",
+        "category": "C01",
+        "title": "Сверка постоянной терапии",
+        "basis": "workflow_hypothesis",
+        "sources": [
+          "WORKFLOW"
+        ],
+        "contract": "Current history event code medication_reconciliation: met, otherwise unknown."
+      },
+      {
+        "id": "Q03",
+        "category": "C02",
+        "title": "Аллергоанамнез до назначения",
+        "basis": "workflow_hypothesis",
+        "sources": [
+          "WORKFLOW"
+        ],
+        "contract": "Known or none_known allergy_review must occur AND be available by first current order: met. If valid review exists only after first order: attention; no valid review: unknown. Without orders a valid current review is met."
+      },
+      {
+        "id": "Q04",
+        "category": "C03",
+        "title": "Наличие выбранных наблюдений",
+        "basis": "clinical_projection",
+        "sources": [
+          "CAP2024",
+          "COPD2024",
+          "HTN2024",
+          "HF2024",
+          "DM22022"
+        ],
+        "contract": "Union profile observations. Every required code must have a nonempty value other than unknown/ordered within its lookback: met, otherwise unknown. Do not interpret numeric values."
+      },
+      {
+        "id": "Q05",
+        "category": "C04",
+        "title": "Наличие выбранных анализов",
+        "basis": "clinical_projection",
+        "sources": [
+          "CAP2024",
+          "COPD2024",
+          "HTN2024",
+          "HF2024",
+          "DM22022"
+        ],
+        "contract": "Union profile labs. Every required code needs a completed result within its lookback: met, otherwise unknown. Orders alone do not count. This subset is not the complete clinical workup."
+      },
+      {
+        "id": "Q06",
+        "category": "C05",
+        "title": "Наличие выбранных исследований",
+        "basis": "clinical_projection",
+        "sources": [
+          "CAP2024",
+          "COPD2024",
+          "HTN2024",
+          "HF2024",
+          "DM22022"
+        ],
+        "contract": "Union profile procedures. Every required code needs a documented result within lookback: met, otherwise unknown. Do not demand a repeat solely because a new admission occurred."
+      },
+      {
+        "id": "Q07",
+        "category": "C06",
+        "title": "Заполненность назначения",
+        "basis": "workflow_hypothesis",
+        "sources": [
+          "WORKFLOW"
+        ],
+        "contract": "All current orders must have nonempty dose, route, frequency: met. Missing orders or any missing field: unknown. Do not assess dose correctness."
+      },
+      {
+        "id": "Q08",
+        "category": "C06",
+        "title": "Совпадение с записанным аллергеном",
+        "basis": "workflow_hypothesis",
+        "sources": [
+          "WORKFLOW"
+        ],
+        "contract": "For each order use latest current allergy_review occurred AND available by order time. known requires comma-separated substances codes. Exact intersection with order code or class: attention. No valid prior review or empty known substances: unknown; otherwise met. No orders: not_applicable. No cross-reactivity inference."
+      },
+      {
+        "id": "Q09",
+        "category": "C06",
+        "title": "Разбор терапии при почечном риске",
+        "basis": "workflow_hypothesis",
+        "sources": [
+          "WORKFLOW"
+        ],
+        "contract": "If renal_risk false or no current orders: not_applicable. Otherwise current renal_review: met, missing: unknown. No dose calculation or claim review preceded treatment."
+      },
+      {
+        "id": "Q10",
+        "category": "C07",
+        "title": "Связь назначения с диагнозом",
+        "basis": "workflow_hypothesis",
+        "sources": [
+          "WORKFLOW"
+        ],
+        "contract": "Each current order indication_event_id must reference a current diagnosis available by order time: met, otherwise unknown. No orders: not_applicable. This only checks a link, not clinical appropriateness."
+      },
+      {
+        "id": "Q11",
+        "category": "C07",
+        "title": "Срок назначения антибиотика при ВП",
+        "basis": "clinical_projection",
+        "sources": [
+          "CAP2024"
+        ],
+        "contract": "Primary CAP only, otherwise not_applicable. First antibiotic order on or after primary diagnosis: <=14400 seconds met, later attention. No order: pending if elapsed <=14400, unknown if later. No diagnosis: unknown. Use temporal_facts."
+      },
+      {
+        "id": "Q12",
+        "category": "C07",
+        "title": "Назначение и фактическое введение",
+        "basis": "workflow_hypothesis",
+        "sources": [
+          "WORKFLOW"
+        ],
+        "contract": "Every current administration must reference order_id with same code, available by administration time: met, otherwise attention. No administrations: not_applicable."
+      },
+      {
+        "id": "Q13",
+        "category": "C08",
+        "title": "Оценка ответа при ВП",
+        "basis": "clinical_projection",
+        "sources": [
+          "CAP2024"
+        ],
+        "contract": "Primary CAP only, otherwise not_applicable. A reassessment 172800..259200 seconds inclusive after first antibiotic administration: met. No start: unknown. Without timely reassessment: pending while elapsed <=259200; after deadline attention if a late assessment exists, otherwise unknown. Early assessment does not satisfy this window."
+      },
+      {
+        "id": "Q14",
+        "category": "C08",
+        "title": "Разбор после ухудшения",
+        "basis": "workflow_hypothesis",
+        "sources": [
+          "WORKFLOW"
+        ],
+        "contract": "No current reassessment value worsening: not_applicable. A current treatment_review at or after latest worsening: met, otherwise attention. No causal claims."
+      },
+      {
+        "id": "Q15",
+        "category": "C09",
+        "title": "Соблюдение записанного плана",
+        "basis": "workflow_hypothesis",
+        "sources": [
+          "WORKFLOW"
+        ],
+        "contract": "Latest current followup_plan with valid aware due_at. A reassessment referencing its plan_id, at/after plan and <=due: met. Otherwise pending if now<=due, unknown if overdue. No plan or invalid due: unknown. Do not invent interval."
+      },
+      {
+        "id": "Q16",
+        "category": "C10",
+        "title": "Поля выписки",
+        "basis": "workflow_hypothesis",
+        "sources": [
+          "WORKFLOW"
+        ],
+        "contract": "No current discharge: not_applicable. Latest discharge requires nonempty details diagnosis, medication_plan, followup: met, otherwise unknown."
+      },
+      {
+        "id": "Q17",
+        "category": "C10",
+        "title": "Длительность курса отдельно от госпитализации",
+        "basis": "workflow_hypothesis",
+        "sources": [
+          "WORKFLOW"
+        ],
+        "contract": "No medication_stop: not_applicable. Each stop must reference existing current administration start_id at/before stop: met, otherwise attention. Stay duration need not equal medication course. No clinical duration recommendation."
+      }
+    ],
+    "global_contract": "Adult therapy only; otherwise all not_applicable. Current means occurred_at >= admission_at. Only events occurred AND available by review are visible. A current exception whose code is a rule ID overrides that rule to unknown. Profile lookback=0 means since admission; positive days means review_at minus days. Shared codes use the shortest lookback. These are research windows, not automatic orders for repeat tests. Source documents and workflow checks are not a clinical gold standard.",
+    "profiles": {
+      "HF": {
+        "name": "Хроническая сердечная недостаточность",
+        "scope": "ХСН у взрослого, вне реанимации",
+        "observations": {
+          "blood_pressure": 0,
+          "heart_rate": 0
+        },
+        "labs": {
+          "creatinine": 0,
+          "potassium": 0,
+          "sodium": 0
+        },
+        "procedures": {
+          "ecg": 0,
+          "echo": 365
+        },
+        "sources": [
+          "HF2024"
+        ]
+      }
+    }
+  },
+  "payload_sha256": "a030a19d0831b6901c1abf14374a9285d1634fc8754d7d043bdaa83976285b8f",
+  "prompt_sha256": "3659dd81b71d0364d2ee32a1071e8657ca0820dae54d62b2b13a4315e6d23bff",
+  "status": "ok",
+  "started_at": "2026-11-08T21:01:00.450247+00:00",
+  "job_id": "job_iwbJu1rgwitPevXhje0POA",
+  "completion": {
+    "result": {
+      "checks": [
+        {
+          "rule_id": "Q01",
+          "status": "met",
+          "explanation": "Основной диагноз HF задокументирован при поступлении.",
+          "evidence_ids": [
+            "e01"
+          ],
+          "source_ids": [
+            "WORKFLOW"
+          ]
+        },
+        {
+          "rule_id": "Q02",
+          "status": "met",
+          "explanation": "Сверка постоянной терапии проведена.",
+          "evidence_ids": [
+            "e02"
+          ],
+          "source_ids": [
+            "WORKFLOW"
+          ]
+        },
+        {
+          "rule_id": "Q03",
+          "status": "unknown",
+          "explanation": "Аллергоанамнез не задокументирован до или во время первого назначения.",
+          "evidence_ids": [],
+          "source_ids": [
+            "WORKFLOW"
+          ]
+        },
+        {
+          "rule_id": "Q04",
+          "status": "met",
+          "explanation": "Необходимые наблюдения артериального давления и частоты сердечных сокращений задокументированы.",
+          "evidence_ids": [
+            "e04",
+            "e05"
+          ],
+          "source_ids": [
+            "HF2024"
+          ]
+        },
+        {
+          "rule_id": "Q05",
+          "status": "unknown",
+          "explanation": "Лабораторные исследования по профилю HF не задокументированы.",
+          "evidence_ids": [],
+          "source_ids": [
+            "HF2024"
+          ]
+        },
+        {
+          "rule_id": "Q06",
+          "status": "met",
+          "explanation": "ЭКГ и ЭхоКГ задокументированы в пределах допустимого периода.",
+          "evidence_ids": [
+            "e09",
+            "e10"
+          ],
+          "source_ids": [
+            "HF2024"
+          ]
+        },
+        {
+          "rule_id": "Q07",
+          "status": "met",
+          "explanation": "Назначение содержит дозу, путь и частоту введения.",
+          "evidence_ids": [
+            "e11"
+          ],
+          "source_ids": [
+            "WORKFLOW"
+          ]
+        },
+        {
+          "rule_id": "Q08",
+          "status": "unknown",
+          "explanation": "Отсутствует актуальный обзор аллергоанамнеза для сопоставления с назначением.",
+          "evidence_ids": [
+            "e11"
+          ],
+          "source_ids": [
+            "WORKFLOW"
+          ]
+        },
+        {
+          "rule_id": "Q09",
+          "status": "not_applicable",
+          "explanation": "Фактор почечного риска отсутствует.",
+          "evidence_ids": [],
+          "source_ids": [
+            "WORKFLOW"
+          ]
+        },
+        {
+          "rule_id": "Q10",
+          "status": "met",
+          "explanation": "Назначение связано с действующим диагнозом.",
+          "evidence_ids": [
+            "e01",
+            "e11"
+          ],
+          "source_ids": [
+            "WORKFLOW"
+          ]
+        },
+        {
+          "rule_id": "Q11",
+          "status": "not_applicable",
+          "explanation": "Пациент не имеет первичного диагноза ВП (CAP).",
+          "evidence_ids": [
+            "e01"
+          ],
+          "source_ids": [
+            "CAP2024"
+          ]
+        },
+        {
+          "rule_id": "Q12",
+          "status": "met",
+          "explanation": "Введение препарата ссылается на существующее назначение с тем же кодом.",
+          "evidence_ids": [
+            "e11",
+            "e12"
+          ],
+          "source_ids": [
+            "WORKFLOW"
+          ]
+        },
+        {
+          "rule_id": "Q13",
+          "status": "not_applicable",
+          "explanation": "Пациент не имеет первичного диагноза ВП (CAP).",
+          "evidence_ids": [
+            "e01"
+          ],
+          "source_ids": [
+            "CAP2024"
+          ]
+        },
+        {
+          "rule_id": "Q14",
+          "status": "attention",
+          "explanation": "Имеет место ухудшение состояния, но отсутствует требуемый пересмотр лечения (treatment_review).",
+          "evidence_ids": [
+            "e18"
+          ],
+          "source_ids": [
+            "WORKFLOW"
+          ]
+        },
+        {
+          "rule_id": "Q15",
+          "status": "unknown",
+          "explanation": "План наблюдения содержит due_at, но отсутствует повторная оценка, ссылающаяся на этот план.",
+          "evidence_ids": [
+            "e13"
+          ],
+          "source_ids": [
+            "WORKFLOW"
+          ]
+        },
+        {
+          "rule_id": "Q16",
+          "status": "met",
+          "explanation": "Выписка оформлена со всеми обязательными полями.",
+          "evidence_ids": [
+            "e17"
+          ],
+          "source_ids": [
+            "WORKFLOW"
+          ]
+        },
+        {
+          "rule_id": "Q17",
+          "status": "met",
+          "explanation": "Прекращение приема препарата ссылается на существующее введение.",
+          "evidence_ids": [
+            "e12",
+            "e16"
+          ],
+          "source_ids": [
+            "WORKFLOW"
+          ]
+        }
+      ]
+    },
+    "provider": "router",
+    "model": "gemini-3.5-flash-lite",
+    "mode": "live",
+    "attempts": 1,
+    "latency_ms": 10405,
+    "usage": {
+      "input": 3434,
+      "output": 973,
+      "thoughts": 0,
+      "total": 4407
+    },
+    "job_id": "job_iwbJu1rgwitPevXhje0POA",
+    "format_cleanup": null
+  },
+  "finished_at": "2026-11-08T21:01:10.861336+00:00"
+}

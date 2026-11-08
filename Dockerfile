@@ -11,6 +11,10 @@ COPY requirements.lock.txt pyproject.toml ./
 COPY itmo_aimedicine/ ./itmo_aimedicine/
 RUN pip install --no-cache-dir -r requirements.lock.txt && pip install --no-cache-dir --no-deps .
 COPY data/therapy/ ./data/therapy/
+COPY data/therapy-expansion/ ./data/therapy-expansion/
+COPY research/therapy-expansion/ ./research/therapy-expansion/
+COPY reports/therapy-expansion/ ./reports/therapy-expansion/
+COPY reports/therapy-expansion-gemma-compatible/ ./reports/therapy-expansion-gemma-compatible/
 COPY research/therapy/ ./research/therapy/
 COPY reports/therapy/ ./reports/therapy/
 COPY reports/therapy-revision/ ./reports/therapy-revision/

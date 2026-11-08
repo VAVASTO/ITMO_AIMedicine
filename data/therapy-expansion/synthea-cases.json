@@ -1,0 +1,4811 @@
+[
+  {
+    "id": "SYN-COPD-1",
+    "patient_id": "syn-b40614d432c8",
+    "title": "Synthea · COPD · inpatient",
+    "age": 41,
+    "primary": "COPD",
+    "comorbidities": [],
+    "renal_risk": false,
+    "ward": "other",
+    "admission_at": "2021-06-09T13:42:15Z",
+    "review_times": [
+      "2021-06-09T13:42:15Z",
+      "2021-06-16T04:28:16Z"
+    ],
+    "events": [
+      {
+        "id": "s0001",
+        "kind": "diagnosis",
+        "code": "COPD",
+        "value": "Pulmonary emphysema (disorder)",
+        "occurred_at": "2021-06-09T13:42:15Z",
+        "available_at": "2021-06-09T13:42:15Z",
+        "details": {
+          "source_code": "87433001",
+          "origin": "encounter_reason"
+        }
+      },
+      {
+        "id": "s0002",
+        "kind": "discharge",
+        "code": "",
+        "value": "Encounter ended; discharge document not exported",
+        "occurred_at": "2021-06-16T04:28:15Z",
+        "available_at": "2021-06-16T04:28:15Z",
+        "details": {}
+      }
+    ],
+    "provenance": {
+      "type": "synthea",
+      "country": "US",
+      "encounter_class": "inpatient",
+      "primary_selection": "encounter_reason",
+      "ward_mapping": "unknown; therapy requires explicit educational assumption",
+      "availability": "equal to event time; CSV lacks recording timestamp",
+      "no_imputed_data": "No doses, administrations, negative allergies or Russian documentation invented"
+    }
+  },
+  {
+    "id": "SYN-CAP-1",
+    "patient_id": "syn-5f09a685fe62",
+    "title": "Synthea · CAP · inpatient",
+    "age": 56,
+    "primary": "CAP",
+    "comorbidities": [],
+    "renal_risk": false,
+    "ward": "other",
+    "admission_at": "2021-05-24T23:38:17Z",
+    "review_times": [
+      "2021-05-24T23:38:17Z",
+      "2021-06-06T00:14:14Z"
+    ],
+    "events": [
+      {
+        "id": "s0001",
+        "kind": "diagnosis",
+        "code": "CAP",
+        "value": "Pneumonia (disorder)",
+        "occurred_at": "2021-05-25T00:00:00Z",
+        "available_at": "2021-05-25T00:00:00Z",
+        "details": {
+          "source_code": "233604007",
+          "precision": "day"
+        }
+      },
+      {
+        "id": "s0002",
+        "kind": "observation",
+        "code": "heart_rate",
+        "value": "121.5",
+        "occurred_at": "2021-05-24T23:59:13Z",
+        "available_at": "2021-05-24T23:59:13Z",
+        "details": {
+          "unit": "/min",
+          "source_code": "8867-4"
+        }
+      },
+      {
+        "id": "s0003",
+        "kind": "observation",
+        "code": "spo2",
+        "value": "88.1",
+        "occurred_at": "2021-05-24T23:59:13Z",
+        "available_at": "2021-05-24T23:59:13Z",
+        "details": {
+          "unit": "%",
+          "source_code": "2708-6"
+        }
+      },
+      {
+        "id": "s0004",
+        "kind": "observation",
+        "code": "diastolic_bp",
+        "value": "72.0",
+        "occurred_at": "2021-05-24T23:59:13Z",
+        "available_at": "2021-05-24T23:59:13Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8462-4"
+        }
+      },
+      {
+        "id": "s0005",
+        "kind": "observation",
+        "code": "systolic_bp",
+        "value": "92.0",
+        "occurred_at": "2021-05-24T23:59:13Z",
+        "available_at": "2021-05-24T23:59:13Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8480-6"
+        }
+      },
+      {
+        "id": "s0006",
+        "kind": "lab",
+        "code": "glucose",
+        "value": "65.2",
+        "occurred_at": "2021-05-24T23:59:13Z",
+        "available_at": "2021-05-24T23:59:13Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2345-7"
+        }
+      },
+      {
+        "id": "s0007",
+        "kind": "lab",
+        "code": "creatinine",
+        "value": "2.6",
+        "occurred_at": "2021-05-24T23:59:13Z",
+        "available_at": "2021-05-24T23:59:13Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2160-0"
+        }
+      },
+      {
+        "id": "s0008",
+        "kind": "lab",
+        "code": "sodium",
+        "value": "143.5",
+        "occurred_at": "2021-05-24T23:59:13Z",
+        "available_at": "2021-05-24T23:59:13Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2951-2"
+        }
+      },
+      {
+        "id": "s0009",
+        "kind": "lab",
+        "code": "potassium",
+        "value": "4.8",
+        "occurred_at": "2021-05-24T23:59:13Z",
+        "available_at": "2021-05-24T23:59:13Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2823-3"
+        }
+      },
+      {
+        "id": "s0010",
+        "kind": "lab",
+        "code": "egfr",
+        "value": "7.2",
+        "occurred_at": "2021-05-24T23:59:13Z",
+        "available_at": "2021-05-24T23:59:13Z",
+        "details": {
+          "unit": "mL/min",
+          "source_code": "33914-3"
+        }
+      },
+      {
+        "id": "s0011",
+        "kind": "observation",
+        "code": "heart_rate",
+        "value": "75.7",
+        "occurred_at": "2021-05-25T23:59:13Z",
+        "available_at": "2021-05-25T23:59:13Z",
+        "details": {
+          "unit": "/min",
+          "source_code": "8867-4"
+        }
+      },
+      {
+        "id": "s0012",
+        "kind": "observation",
+        "code": "spo2",
+        "value": "86.5",
+        "occurred_at": "2021-05-25T23:59:13Z",
+        "available_at": "2021-05-25T23:59:13Z",
+        "details": {
+          "unit": "%",
+          "source_code": "2708-6"
+        }
+      },
+      {
+        "id": "s0013",
+        "kind": "observation",
+        "code": "diastolic_bp",
+        "value": "67.0",
+        "occurred_at": "2021-05-25T23:59:13Z",
+        "available_at": "2021-05-25T23:59:13Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8462-4"
+        }
+      },
+      {
+        "id": "s0014",
+        "kind": "observation",
+        "code": "systolic_bp",
+        "value": "90.0",
+        "occurred_at": "2021-05-25T23:59:13Z",
+        "available_at": "2021-05-25T23:59:13Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8480-6"
+        }
+      },
+      {
+        "id": "s0015",
+        "kind": "lab",
+        "code": "glucose",
+        "value": "65.2",
+        "occurred_at": "2021-05-25T23:59:13Z",
+        "available_at": "2021-05-25T23:59:13Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2345-7"
+        }
+      },
+      {
+        "id": "s0016",
+        "kind": "lab",
+        "code": "creatinine",
+        "value": "2.9",
+        "occurred_at": "2021-05-25T23:59:13Z",
+        "available_at": "2021-05-25T23:59:13Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2160-0"
+        }
+      },
+      {
+        "id": "s0017",
+        "kind": "lab",
+        "code": "sodium",
+        "value": "143.5",
+        "occurred_at": "2021-05-25T23:59:13Z",
+        "available_at": "2021-05-25T23:59:13Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2951-2"
+        }
+      },
+      {
+        "id": "s0018",
+        "kind": "lab",
+        "code": "potassium",
+        "value": "4.8",
+        "occurred_at": "2021-05-25T23:59:13Z",
+        "available_at": "2021-05-25T23:59:13Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2823-3"
+        }
+      },
+      {
+        "id": "s0019",
+        "kind": "lab",
+        "code": "egfr",
+        "value": "5.6",
+        "occurred_at": "2021-05-25T23:59:13Z",
+        "available_at": "2021-05-25T23:59:13Z",
+        "details": {
+          "unit": "mL/min",
+          "source_code": "33914-3"
+        }
+      },
+      {
+        "id": "s0020",
+        "kind": "observation",
+        "code": "heart_rate",
+        "value": "174.9",
+        "occurred_at": "2021-05-26T23:59:13Z",
+        "available_at": "2021-05-26T23:59:13Z",
+        "details": {
+          "unit": "/min",
+          "source_code": "8867-4"
+        }
+      },
+      {
+        "id": "s0021",
+        "kind": "observation",
+        "code": "spo2",
+        "value": "81.7",
+        "occurred_at": "2021-05-26T23:59:13Z",
+        "available_at": "2021-05-26T23:59:13Z",
+        "details": {
+          "unit": "%",
+          "source_code": "2708-6"
+        }
+      },
+      {
+        "id": "s0022",
+        "kind": "observation",
+        "code": "diastolic_bp",
+        "value": "72.0",
+        "occurred_at": "2021-05-26T23:59:13Z",
+        "available_at": "2021-05-26T23:59:13Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8462-4"
+        }
+      },
+      {
+        "id": "s0023",
+        "kind": "observation",
+        "code": "systolic_bp",
+        "value": "86.0",
+        "occurred_at": "2021-05-26T23:59:13Z",
+        "available_at": "2021-05-26T23:59:13Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8480-6"
+        }
+      },
+      {
+        "id": "s0024",
+        "kind": "lab",
+        "code": "glucose",
+        "value": "65.2",
+        "occurred_at": "2021-05-26T23:59:13Z",
+        "available_at": "2021-05-26T23:59:13Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2345-7"
+        }
+      },
+      {
+        "id": "s0025",
+        "kind": "lab",
+        "code": "creatinine",
+        "value": "2.8",
+        "occurred_at": "2021-05-26T23:59:13Z",
+        "available_at": "2021-05-26T23:59:13Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2160-0"
+        }
+      },
+      {
+        "id": "s0026",
+        "kind": "lab",
+        "code": "sodium",
+        "value": "143.5",
+        "occurred_at": "2021-05-26T23:59:13Z",
+        "available_at": "2021-05-26T23:59:13Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2951-2"
+        }
+      },
+      {
+        "id": "s0027",
+        "kind": "lab",
+        "code": "potassium",
+        "value": "4.8",
+        "occurred_at": "2021-05-26T23:59:13Z",
+        "available_at": "2021-05-26T23:59:13Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2823-3"
+        }
+      },
+      {
+        "id": "s0028",
+        "kind": "lab",
+        "code": "egfr",
+        "value": "5.1",
+        "occurred_at": "2021-05-26T23:59:13Z",
+        "available_at": "2021-05-26T23:59:13Z",
+        "details": {
+          "unit": "mL/min",
+          "source_code": "33914-3"
+        }
+      },
+      {
+        "id": "s0029",
+        "kind": "observation",
+        "code": "heart_rate",
+        "value": "141.1",
+        "occurred_at": "2021-05-27T23:59:13Z",
+        "available_at": "2021-05-27T23:59:13Z",
+        "details": {
+          "unit": "/min",
+          "source_code": "8867-4"
+        }
+      },
+      {
+        "id": "s0030",
+        "kind": "observation",
+        "code": "spo2",
+        "value": "78.1",
+        "occurred_at": "2021-05-27T23:59:13Z",
+        "available_at": "2021-05-27T23:59:13Z",
+        "details": {
+          "unit": "%",
+          "source_code": "2708-6"
+        }
+      },
+      {
+        "id": "s0031",
+        "kind": "observation",
+        "code": "diastolic_bp",
+        "value": "68.0",
+        "occurred_at": "2021-05-27T23:59:13Z",
+        "available_at": "2021-05-27T23:59:13Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8462-4"
+        }
+      },
+      {
+        "id": "s0032",
+        "kind": "observation",
+        "code": "systolic_bp",
+        "value": "92.0",
+        "occurred_at": "2021-05-27T23:59:13Z",
+        "available_at": "2021-05-27T23:59:13Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8480-6"
+        }
+      },
+      {
+        "id": "s0033",
+        "kind": "lab",
+        "code": "glucose",
+        "value": "65.2",
+        "occurred_at": "2021-05-27T23:59:13Z",
+        "available_at": "2021-05-27T23:59:13Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2345-7"
+        }
+      },
+      {
+        "id": "s0034",
+        "kind": "lab",
+        "code": "creatinine",
+        "value": "2.7",
+        "occurred_at": "2021-05-27T23:59:13Z",
+        "available_at": "2021-05-27T23:59:13Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2160-0"
+        }
+      },
+      {
+        "id": "s0035",
+        "kind": "lab",
+        "code": "sodium",
+        "value": "143.5",
+        "occurred_at": "2021-05-27T23:59:13Z",
+        "available_at": "2021-05-27T23:59:13Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2951-2"
+        }
+      },
+      {
+        "id": "s0036",
+        "kind": "lab",
+        "code": "potassium",
+        "value": "4.8",
+        "occurred_at": "2021-05-27T23:59:13Z",
+        "available_at": "2021-05-27T23:59:13Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2823-3"
+        }
+      },
+      {
+        "id": "s0037",
+        "kind": "lab",
+        "code": "egfr",
+        "value": "13.1",
+        "occurred_at": "2021-05-27T23:59:13Z",
+        "available_at": "2021-05-27T23:59:13Z",
+        "details": {
+          "unit": "mL/min",
+          "source_code": "33914-3"
+        }
+      },
+      {
+        "id": "s0038",
+        "kind": "observation",
+        "code": "heart_rate",
+        "value": "101.6",
+        "occurred_at": "2021-05-28T23:59:13Z",
+        "available_at": "2021-05-28T23:59:13Z",
+        "details": {
+          "unit": "/min",
+          "source_code": "8867-4"
+        }
+      },
+      {
+        "id": "s0039",
+        "kind": "observation",
+        "code": "spo2",
+        "value": "81.6",
+        "occurred_at": "2021-05-28T23:59:13Z",
+        "available_at": "2021-05-28T23:59:13Z",
+        "details": {
+          "unit": "%",
+          "source_code": "2708-6"
+        }
+      },
+      {
+        "id": "s0040",
+        "kind": "observation",
+        "code": "diastolic_bp",
+        "value": "72.0",
+        "occurred_at": "2021-05-28T23:59:13Z",
+        "available_at": "2021-05-28T23:59:13Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8462-4"
+        }
+      },
+      {
+        "id": "s0041",
+        "kind": "observation",
+        "code": "systolic_bp",
+        "value": "95.0",
+        "occurred_at": "2021-05-28T23:59:13Z",
+        "available_at": "2021-05-28T23:59:13Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8480-6"
+        }
+      },
+      {
+        "id": "s0042",
+        "kind": "lab",
+        "code": "glucose",
+        "value": "65.2",
+        "occurred_at": "2021-05-28T23:59:13Z",
+        "available_at": "2021-05-28T23:59:13Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2345-7"
+        }
+      },
+      {
+        "id": "s0043",
+        "kind": "lab",
+        "code": "creatinine",
+        "value": "2.7",
+        "occurred_at": "2021-05-28T23:59:13Z",
+        "available_at": "2021-05-28T23:59:13Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2160-0"
+        }
+      },
+      {
+        "id": "s0044",
+        "kind": "lab",
+        "code": "sodium",
+        "value": "143.5",
+        "occurred_at": "2021-05-28T23:59:13Z",
+        "available_at": "2021-05-28T23:59:13Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2951-2"
+        }
+      },
+      {
+        "id": "s0045",
+        "kind": "lab",
+        "code": "potassium",
+        "value": "4.8",
+        "occurred_at": "2021-05-28T23:59:13Z",
+        "available_at": "2021-05-28T23:59:13Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2823-3"
+        }
+      },
+      {
+        "id": "s0046",
+        "kind": "lab",
+        "code": "egfr",
+        "value": "8.8",
+        "occurred_at": "2021-05-28T23:59:13Z",
+        "available_at": "2021-05-28T23:59:13Z",
+        "details": {
+          "unit": "mL/min",
+          "source_code": "33914-3"
+        }
+      },
+      {
+        "id": "s0047",
+        "kind": "observation",
+        "code": "heart_rate",
+        "value": "178.8",
+        "occurred_at": "2021-05-29T23:59:13Z",
+        "available_at": "2021-05-29T23:59:13Z",
+        "details": {
+          "unit": "/min",
+          "source_code": "8867-4"
+        }
+      },
+      {
+        "id": "s0048",
+        "kind": "observation",
+        "code": "spo2",
+        "value": "76.2",
+        "occurred_at": "2021-05-29T23:59:13Z",
+        "available_at": "2021-05-29T23:59:13Z",
+        "details": {
+          "unit": "%",
+          "source_code": "2708-6"
+        }
+      },
+      {
+        "id": "s0049",
+        "kind": "observation",
+        "code": "diastolic_bp",
+        "value": "71.0",
+        "occurred_at": "2021-05-29T23:59:13Z",
+        "available_at": "2021-05-29T23:59:13Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8462-4"
+        }
+      },
+      {
+        "id": "s0050",
+        "kind": "observation",
+        "code": "systolic_bp",
+        "value": "90.0",
+        "occurred_at": "2021-05-29T23:59:13Z",
+        "available_at": "2021-05-29T23:59:13Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8480-6"
+        }
+      },
+      {
+        "id": "s0051",
+        "kind": "lab",
+        "code": "glucose",
+        "value": "65.2",
+        "occurred_at": "2021-05-29T23:59:13Z",
+        "available_at": "2021-05-29T23:59:13Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2345-7"
+        }
+      },
+      {
+        "id": "s0052",
+        "kind": "lab",
+        "code": "creatinine",
+        "value": "2.8",
+        "occurred_at": "2021-05-29T23:59:13Z",
+        "available_at": "2021-05-29T23:59:13Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2160-0"
+        }
+      },
+      {
+        "id": "s0053",
+        "kind": "lab",
+        "code": "sodium",
+        "value": "143.5",
+        "occurred_at": "2021-05-29T23:59:13Z",
+        "available_at": "2021-05-29T23:59:13Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2951-2"
+        }
+      },
+      {
+        "id": "s0054",
+        "kind": "lab",
+        "code": "potassium",
+        "value": "4.8",
+        "occurred_at": "2021-05-29T23:59:13Z",
+        "available_at": "2021-05-29T23:59:13Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2823-3"
+        }
+      },
+      {
+        "id": "s0055",
+        "kind": "lab",
+        "code": "egfr",
+        "value": "11.1",
+        "occurred_at": "2021-05-29T23:59:13Z",
+        "available_at": "2021-05-29T23:59:13Z",
+        "details": {
+          "unit": "mL/min",
+          "source_code": "33914-3"
+        }
+      },
+      {
+        "id": "s0056",
+        "kind": "observation",
+        "code": "heart_rate",
+        "value": "88.5",
+        "occurred_at": "2021-05-30T23:59:13Z",
+        "available_at": "2021-05-30T23:59:13Z",
+        "details": {
+          "unit": "/min",
+          "source_code": "8867-4"
+        }
+      },
+      {
+        "id": "s0057",
+        "kind": "observation",
+        "code": "spo2",
+        "value": "75.6",
+        "occurred_at": "2021-05-30T23:59:13Z",
+        "available_at": "2021-05-30T23:59:13Z",
+        "details": {
+          "unit": "%",
+          "source_code": "2708-6"
+        }
+      },
+      {
+        "id": "s0058",
+        "kind": "observation",
+        "code": "diastolic_bp",
+        "value": "69.0",
+        "occurred_at": "2021-05-30T23:59:13Z",
+        "available_at": "2021-05-30T23:59:13Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8462-4"
+        }
+      },
+      {
+        "id": "s0059",
+        "kind": "observation",
+        "code": "systolic_bp",
+        "value": "96.0",
+        "occurred_at": "2021-05-30T23:59:13Z",
+        "available_at": "2021-05-30T23:59:13Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8480-6"
+        }
+      },
+      {
+        "id": "s0060",
+        "kind": "lab",
+        "code": "glucose",
+        "value": "95.7",
+        "occurred_at": "2021-05-30T23:59:13Z",
+        "available_at": "2021-05-30T23:59:13Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2345-7"
+        }
+      },
+      {
+        "id": "s0061",
+        "kind": "lab",
+        "code": "creatinine",
+        "value": "2.7",
+        "occurred_at": "2021-05-30T23:59:13Z",
+        "available_at": "2021-05-30T23:59:13Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2160-0"
+        }
+      },
+      {
+        "id": "s0062",
+        "kind": "lab",
+        "code": "sodium",
+        "value": "143.4",
+        "occurred_at": "2021-05-30T23:59:13Z",
+        "available_at": "2021-05-30T23:59:13Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2951-2"
+        }
+      },
+      {
+        "id": "s0063",
+        "kind": "lab",
+        "code": "potassium",
+        "value": "4.5",
+        "occurred_at": "2021-05-30T23:59:13Z",
+        "available_at": "2021-05-30T23:59:13Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2823-3"
+        }
+      },
+      {
+        "id": "s0064",
+        "kind": "lab",
+        "code": "egfr",
+        "value": "8.4",
+        "occurred_at": "2021-05-30T23:59:13Z",
+        "available_at": "2021-05-30T23:59:13Z",
+        "details": {
+          "unit": "mL/min",
+          "source_code": "33914-3"
+        }
+      },
+      {
+        "id": "s0065",
+        "kind": "observation",
+        "code": "heart_rate",
+        "value": "157.3",
+        "occurred_at": "2021-05-31T23:59:13Z",
+        "available_at": "2021-05-31T23:59:13Z",
+        "details": {
+          "unit": "/min",
+          "source_code": "8867-4"
+        }
+      },
+      {
+        "id": "s0066",
+        "kind": "observation",
+        "code": "spo2",
+        "value": "77.0",
+        "occurred_at": "2021-05-31T23:59:13Z",
+        "available_at": "2021-05-31T23:59:13Z",
+        "details": {
+          "unit": "%",
+          "source_code": "2708-6"
+        }
+      },
+      {
+        "id": "s0067",
+        "kind": "observation",
+        "code": "diastolic_bp",
+        "value": "71.0",
+        "occurred_at": "2021-05-31T23:59:13Z",
+        "available_at": "2021-05-31T23:59:13Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8462-4"
+        }
+      },
+      {
+        "id": "s0068",
+        "kind": "observation",
+        "code": "systolic_bp",
+        "value": "94.0",
+        "occurred_at": "2021-05-31T23:59:13Z",
+        "available_at": "2021-05-31T23:59:13Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8480-6"
+        }
+      },
+      {
+        "id": "s0069",
+        "kind": "lab",
+        "code": "glucose",
+        "value": "95.7",
+        "occurred_at": "2021-05-31T23:59:13Z",
+        "available_at": "2021-05-31T23:59:13Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2345-7"
+        }
+      },
+      {
+        "id": "s0070",
+        "kind": "lab",
+        "code": "creatinine",
+        "value": "2.9",
+        "occurred_at": "2021-05-31T23:59:13Z",
+        "available_at": "2021-05-31T23:59:13Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2160-0"
+        }
+      },
+      {
+        "id": "s0071",
+        "kind": "lab",
+        "code": "sodium",
+        "value": "143.4",
+        "occurred_at": "2021-05-31T23:59:13Z",
+        "available_at": "2021-05-31T23:59:13Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2951-2"
+        }
+      },
+      {
+        "id": "s0072",
+        "kind": "lab",
+        "code": "potassium",
+        "value": "4.5",
+        "occurred_at": "2021-05-31T23:59:13Z",
+        "available_at": "2021-05-31T23:59:13Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2823-3"
+        }
+      },
+      {
+        "id": "s0073",
+        "kind": "lab",
+        "code": "egfr",
+        "value": "13.2",
+        "occurred_at": "2021-05-31T23:59:13Z",
+        "available_at": "2021-05-31T23:59:13Z",
+        "details": {
+          "unit": "mL/min",
+          "source_code": "33914-3"
+        }
+      },
+      {
+        "id": "s0074",
+        "kind": "observation",
+        "code": "heart_rate",
+        "value": "50.6",
+        "occurred_at": "2021-06-01T23:59:13Z",
+        "available_at": "2021-06-01T23:59:13Z",
+        "details": {
+          "unit": "/min",
+          "source_code": "8867-4"
+        }
+      },
+      {
+        "id": "s0075",
+        "kind": "observation",
+        "code": "spo2",
+        "value": "87.1",
+        "occurred_at": "2021-06-01T23:59:13Z",
+        "available_at": "2021-06-01T23:59:13Z",
+        "details": {
+          "unit": "%",
+          "source_code": "2708-6"
+        }
+      },
+      {
+        "id": "s0076",
+        "kind": "observation",
+        "code": "diastolic_bp",
+        "value": "67.0",
+        "occurred_at": "2021-06-01T23:59:13Z",
+        "available_at": "2021-06-01T23:59:13Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8462-4"
+        }
+      },
+      {
+        "id": "s0077",
+        "kind": "observation",
+        "code": "systolic_bp",
+        "value": "87.0",
+        "occurred_at": "2021-06-01T23:59:13Z",
+        "available_at": "2021-06-01T23:59:13Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8480-6"
+        }
+      },
+      {
+        "id": "s0078",
+        "kind": "lab",
+        "code": "glucose",
+        "value": "95.7",
+        "occurred_at": "2021-06-01T23:59:13Z",
+        "available_at": "2021-06-01T23:59:13Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2345-7"
+        }
+      },
+      {
+        "id": "s0079",
+        "kind": "lab",
+        "code": "creatinine",
+        "value": "3.0",
+        "occurred_at": "2021-06-01T23:59:13Z",
+        "available_at": "2021-06-01T23:59:13Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2160-0"
+        }
+      },
+      {
+        "id": "s0080",
+        "kind": "lab",
+        "code": "sodium",
+        "value": "143.4",
+        "occurred_at": "2021-06-01T23:59:13Z",
+        "available_at": "2021-06-01T23:59:13Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2951-2"
+        }
+      },
+      {
+        "id": "s0081",
+        "kind": "lab",
+        "code": "potassium",
+        "value": "4.5",
+        "occurred_at": "2021-06-01T23:59:13Z",
+        "available_at": "2021-06-01T23:59:13Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2823-3"
+        }
+      },
+      {
+        "id": "s0082",
+        "kind": "lab",
+        "code": "egfr",
+        "value": "9.3",
+        "occurred_at": "2021-06-01T23:59:13Z",
+        "available_at": "2021-06-01T23:59:13Z",
+        "details": {
+          "unit": "mL/min",
+          "source_code": "33914-3"
+        }
+      },
+      {
+        "id": "s0083",
+        "kind": "observation",
+        "code": "heart_rate",
+        "value": "68.7",
+        "occurred_at": "2021-06-02T23:59:13Z",
+        "available_at": "2021-06-02T23:59:13Z",
+        "details": {
+          "unit": "/min",
+          "source_code": "8867-4"
+        }
+      },
+      {
+        "id": "s0084",
+        "kind": "observation",
+        "code": "spo2",
+        "value": "87.3",
+        "occurred_at": "2021-06-02T23:59:13Z",
+        "available_at": "2021-06-02T23:59:13Z",
+        "details": {
+          "unit": "%",
+          "source_code": "2708-6"
+        }
+      },
+      {
+        "id": "s0085",
+        "kind": "observation",
+        "code": "diastolic_bp",
+        "value": "71.0",
+        "occurred_at": "2021-06-02T23:59:13Z",
+        "available_at": "2021-06-02T23:59:13Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8462-4"
+        }
+      },
+      {
+        "id": "s0086",
+        "kind": "observation",
+        "code": "systolic_bp",
+        "value": "92.0",
+        "occurred_at": "2021-06-02T23:59:13Z",
+        "available_at": "2021-06-02T23:59:13Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8480-6"
+        }
+      },
+      {
+        "id": "s0087",
+        "kind": "lab",
+        "code": "glucose",
+        "value": "95.7",
+        "occurred_at": "2021-06-02T23:59:13Z",
+        "available_at": "2021-06-02T23:59:13Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2345-7"
+        }
+      },
+      {
+        "id": "s0088",
+        "kind": "lab",
+        "code": "creatinine",
+        "value": "2.9",
+        "occurred_at": "2021-06-02T23:59:13Z",
+        "available_at": "2021-06-02T23:59:13Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2160-0"
+        }
+      },
+      {
+        "id": "s0089",
+        "kind": "lab",
+        "code": "sodium",
+        "value": "143.4",
+        "occurred_at": "2021-06-02T23:59:13Z",
+        "available_at": "2021-06-02T23:59:13Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2951-2"
+        }
+      },
+      {
+        "id": "s0090",
+        "kind": "lab",
+        "code": "potassium",
+        "value": "4.5",
+        "occurred_at": "2021-06-02T23:59:13Z",
+        "available_at": "2021-06-02T23:59:13Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2823-3"
+        }
+      },
+      {
+        "id": "s0091",
+        "kind": "lab",
+        "code": "egfr",
+        "value": "10.4",
+        "occurred_at": "2021-06-02T23:59:13Z",
+        "available_at": "2021-06-02T23:59:13Z",
+        "details": {
+          "unit": "mL/min",
+          "source_code": "33914-3"
+        }
+      },
+      {
+        "id": "s0092",
+        "kind": "observation",
+        "code": "heart_rate",
+        "value": "157.2",
+        "occurred_at": "2021-06-03T23:59:13Z",
+        "available_at": "2021-06-03T23:59:13Z",
+        "details": {
+          "unit": "/min",
+          "source_code": "8867-4"
+        }
+      },
+      {
+        "id": "s0093",
+        "kind": "observation",
+        "code": "spo2",
+        "value": "75.5",
+        "occurred_at": "2021-06-03T23:59:13Z",
+        "available_at": "2021-06-03T23:59:13Z",
+        "details": {
+          "unit": "%",
+          "source_code": "2708-6"
+        }
+      },
+      {
+        "id": "s0094",
+        "kind": "observation",
+        "code": "diastolic_bp",
+        "value": "72.0",
+        "occurred_at": "2021-06-03T23:59:13Z",
+        "available_at": "2021-06-03T23:59:13Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8462-4"
+        }
+      },
+      {
+        "id": "s0095",
+        "kind": "observation",
+        "code": "systolic_bp",
+        "value": "91.0",
+        "occurred_at": "2021-06-03T23:59:13Z",
+        "available_at": "2021-06-03T23:59:13Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8480-6"
+        }
+      },
+      {
+        "id": "s0096",
+        "kind": "lab",
+        "code": "glucose",
+        "value": "95.7",
+        "occurred_at": "2021-06-03T23:59:13Z",
+        "available_at": "2021-06-03T23:59:13Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2345-7"
+        }
+      },
+      {
+        "id": "s0097",
+        "kind": "lab",
+        "code": "creatinine",
+        "value": "2.9",
+        "occurred_at": "2021-06-03T23:59:13Z",
+        "available_at": "2021-06-03T23:59:13Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2160-0"
+        }
+      },
+      {
+        "id": "s0098",
+        "kind": "lab",
+        "code": "sodium",
+        "value": "143.4",
+        "occurred_at": "2021-06-03T23:59:13Z",
+        "available_at": "2021-06-03T23:59:13Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2951-2"
+        }
+      },
+      {
+        "id": "s0099",
+        "kind": "lab",
+        "code": "potassium",
+        "value": "4.5",
+        "occurred_at": "2021-06-03T23:59:13Z",
+        "available_at": "2021-06-03T23:59:13Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2823-3"
+        }
+      },
+      {
+        "id": "s0100",
+        "kind": "lab",
+        "code": "egfr",
+        "value": "5.1",
+        "occurred_at": "2021-06-03T23:59:13Z",
+        "available_at": "2021-06-03T23:59:13Z",
+        "details": {
+          "unit": "mL/min",
+          "source_code": "33914-3"
+        }
+      },
+      {
+        "id": "s0101",
+        "kind": "observation",
+        "code": "heart_rate",
+        "value": "148.1",
+        "occurred_at": "2021-06-04T23:59:13Z",
+        "available_at": "2021-06-04T23:59:13Z",
+        "details": {
+          "unit": "/min",
+          "source_code": "8867-4"
+        }
+      },
+      {
+        "id": "s0102",
+        "kind": "observation",
+        "code": "spo2",
+        "value": "76.7",
+        "occurred_at": "2021-06-04T23:59:13Z",
+        "available_at": "2021-06-04T23:59:13Z",
+        "details": {
+          "unit": "%",
+          "source_code": "2708-6"
+        }
+      },
+      {
+        "id": "s0103",
+        "kind": "observation",
+        "code": "diastolic_bp",
+        "value": "72.0",
+        "occurred_at": "2021-06-04T23:59:13Z",
+        "available_at": "2021-06-04T23:59:13Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8462-4"
+        }
+      },
+      {
+        "id": "s0104",
+        "kind": "observation",
+        "code": "systolic_bp",
+        "value": "93.0",
+        "occurred_at": "2021-06-04T23:59:13Z",
+        "available_at": "2021-06-04T23:59:13Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8480-6"
+        }
+      },
+      {
+        "id": "s0105",
+        "kind": "lab",
+        "code": "glucose",
+        "value": "95.7",
+        "occurred_at": "2021-06-04T23:59:13Z",
+        "available_at": "2021-06-04T23:59:13Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2345-7"
+        }
+      },
+      {
+        "id": "s0106",
+        "kind": "lab",
+        "code": "creatinine",
+        "value": "2.9",
+        "occurred_at": "2021-06-04T23:59:13Z",
+        "available_at": "2021-06-04T23:59:13Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2160-0"
+        }
+      },
+      {
+        "id": "s0107",
+        "kind": "lab",
+        "code": "sodium",
+        "value": "143.4",
+        "occurred_at": "2021-06-04T23:59:13Z",
+        "available_at": "2021-06-04T23:59:13Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2951-2"
+        }
+      },
+      {
+        "id": "s0108",
+        "kind": "lab",
+        "code": "potassium",
+        "value": "4.5",
+        "occurred_at": "2021-06-04T23:59:13Z",
+        "available_at": "2021-06-04T23:59:13Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2823-3"
+        }
+      },
+      {
+        "id": "s0109",
+        "kind": "lab",
+        "code": "egfr",
+        "value": "10.2",
+        "occurred_at": "2021-06-04T23:59:13Z",
+        "available_at": "2021-06-04T23:59:13Z",
+        "details": {
+          "unit": "mL/min",
+          "source_code": "33914-3"
+        }
+      },
+      {
+        "id": "s0110",
+        "kind": "observation",
+        "code": "heart_rate",
+        "value": "90.9",
+        "occurred_at": "2021-06-05T23:59:13Z",
+        "available_at": "2021-06-05T23:59:13Z",
+        "details": {
+          "unit": "/min",
+          "source_code": "8867-4"
+        }
+      },
+      {
+        "id": "s0111",
+        "kind": "observation",
+        "code": "spo2",
+        "value": "85.0",
+        "occurred_at": "2021-06-05T23:59:13Z",
+        "available_at": "2021-06-05T23:59:13Z",
+        "details": {
+          "unit": "%",
+          "source_code": "2708-6"
+        }
+      },
+      {
+        "id": "s0112",
+        "kind": "observation",
+        "code": "diastolic_bp",
+        "value": "71.0",
+        "occurred_at": "2021-06-05T23:59:13Z",
+        "available_at": "2021-06-05T23:59:13Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8462-4"
+        }
+      },
+      {
+        "id": "s0113",
+        "kind": "observation",
+        "code": "systolic_bp",
+        "value": "93.0",
+        "occurred_at": "2021-06-05T23:59:13Z",
+        "available_at": "2021-06-05T23:59:13Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8480-6"
+        }
+      },
+      {
+        "id": "s0114",
+        "kind": "lab",
+        "code": "glucose",
+        "value": "95.7",
+        "occurred_at": "2021-06-05T23:59:13Z",
+        "available_at": "2021-06-05T23:59:13Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2345-7"
+        }
+      },
+      {
+        "id": "s0115",
+        "kind": "lab",
+        "code": "creatinine",
+        "value": "2.7",
+        "occurred_at": "2021-06-05T23:59:13Z",
+        "available_at": "2021-06-05T23:59:13Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2160-0"
+        }
+      },
+      {
+        "id": "s0116",
+        "kind": "lab",
+        "code": "sodium",
+        "value": "143.4",
+        "occurred_at": "2021-06-05T23:59:13Z",
+        "available_at": "2021-06-05T23:59:13Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2951-2"
+        }
+      },
+      {
+        "id": "s0117",
+        "kind": "lab",
+        "code": "potassium",
+        "value": "4.5",
+        "occurred_at": "2021-06-05T23:59:13Z",
+        "available_at": "2021-06-05T23:59:13Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2823-3"
+        }
+      },
+      {
+        "id": "s0118",
+        "kind": "lab",
+        "code": "egfr",
+        "value": "8.1",
+        "occurred_at": "2021-06-05T23:59:13Z",
+        "available_at": "2021-06-05T23:59:13Z",
+        "details": {
+          "unit": "mL/min",
+          "source_code": "33914-3"
+        }
+      },
+      {
+        "id": "s0119",
+        "kind": "order",
+        "code": "rxnorm:854235",
+        "value": "0.4 ML Enoxaparin sodium 100 MG/ML Prefilled Syringe",
+        "occurred_at": "2021-05-24T23:59:13Z",
+        "available_at": "2021-05-24T23:59:13Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0120",
+        "kind": "order",
+        "code": "rxnorm:198440",
+        "value": "Acetaminophen 500 MG Oral Tablet",
+        "occurred_at": "2021-05-24T23:59:13Z",
+        "available_at": "2021-05-24T23:59:13Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0121",
+        "kind": "order",
+        "code": "rxnorm:854235",
+        "value": "0.4 ML Enoxaparin sodium 100 MG/ML Prefilled Syringe",
+        "occurred_at": "2021-05-25T23:59:13Z",
+        "available_at": "2021-05-25T23:59:13Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0122",
+        "kind": "order",
+        "code": "rxnorm:198440",
+        "value": "Acetaminophen 500 MG Oral Tablet",
+        "occurred_at": "2021-05-25T23:59:13Z",
+        "available_at": "2021-05-25T23:59:13Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0123",
+        "kind": "order",
+        "code": "rxnorm:854235",
+        "value": "0.4 ML Enoxaparin sodium 100 MG/ML Prefilled Syringe",
+        "occurred_at": "2021-05-26T23:59:13Z",
+        "available_at": "2021-05-26T23:59:13Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0124",
+        "kind": "order",
+        "code": "rxnorm:198440",
+        "value": "Acetaminophen 500 MG Oral Tablet",
+        "occurred_at": "2021-05-26T23:59:13Z",
+        "available_at": "2021-05-26T23:59:13Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0125",
+        "kind": "order",
+        "code": "rxnorm:854235",
+        "value": "0.4 ML Enoxaparin sodium 100 MG/ML Prefilled Syringe",
+        "occurred_at": "2021-05-27T23:59:13Z",
+        "available_at": "2021-05-27T23:59:13Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0126",
+        "kind": "order",
+        "code": "rxnorm:198440",
+        "value": "Acetaminophen 500 MG Oral Tablet",
+        "occurred_at": "2021-05-27T23:59:13Z",
+        "available_at": "2021-05-27T23:59:13Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0127",
+        "kind": "order",
+        "code": "rxnorm:854235",
+        "value": "0.4 ML Enoxaparin sodium 100 MG/ML Prefilled Syringe",
+        "occurred_at": "2021-05-28T23:59:13Z",
+        "available_at": "2021-05-28T23:59:13Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0128",
+        "kind": "order",
+        "code": "rxnorm:198440",
+        "value": "Acetaminophen 500 MG Oral Tablet",
+        "occurred_at": "2021-05-28T23:59:13Z",
+        "available_at": "2021-05-28T23:59:13Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0129",
+        "kind": "order",
+        "code": "rxnorm:854235",
+        "value": "0.4 ML Enoxaparin sodium 100 MG/ML Prefilled Syringe",
+        "occurred_at": "2021-05-29T23:59:13Z",
+        "available_at": "2021-05-29T23:59:13Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0130",
+        "kind": "order",
+        "code": "rxnorm:198440",
+        "value": "Acetaminophen 500 MG Oral Tablet",
+        "occurred_at": "2021-05-29T23:59:13Z",
+        "available_at": "2021-05-29T23:59:13Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0131",
+        "kind": "order",
+        "code": "rxnorm:854235",
+        "value": "0.4 ML Enoxaparin sodium 100 MG/ML Prefilled Syringe",
+        "occurred_at": "2021-05-30T23:59:13Z",
+        "available_at": "2021-05-30T23:59:13Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0132",
+        "kind": "order",
+        "code": "rxnorm:198440",
+        "value": "Acetaminophen 500 MG Oral Tablet",
+        "occurred_at": "2021-05-30T23:59:13Z",
+        "available_at": "2021-05-30T23:59:13Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0133",
+        "kind": "order",
+        "code": "rxnorm:854252",
+        "value": "1 ML Enoxaparin sodium 150 MG/ML Prefilled Syringe",
+        "occurred_at": "2021-05-31T23:59:13Z",
+        "available_at": "2021-05-31T23:59:13Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0134",
+        "kind": "order",
+        "code": "rxnorm:198440",
+        "value": "Acetaminophen 500 MG Oral Tablet",
+        "occurred_at": "2021-05-31T23:59:13Z",
+        "available_at": "2021-05-31T23:59:13Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0135",
+        "kind": "order",
+        "code": "rxnorm:854252",
+        "value": "1 ML Enoxaparin sodium 150 MG/ML Prefilled Syringe",
+        "occurred_at": "2021-06-01T23:59:13Z",
+        "available_at": "2021-06-01T23:59:13Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0136",
+        "kind": "order",
+        "code": "rxnorm:198440",
+        "value": "Acetaminophen 500 MG Oral Tablet",
+        "occurred_at": "2021-06-01T23:59:13Z",
+        "available_at": "2021-06-01T23:59:13Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0137",
+        "kind": "order",
+        "code": "rxnorm:854252",
+        "value": "1 ML Enoxaparin sodium 150 MG/ML Prefilled Syringe",
+        "occurred_at": "2021-06-02T23:59:13Z",
+        "available_at": "2021-06-02T23:59:13Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0138",
+        "kind": "order",
+        "code": "rxnorm:198440",
+        "value": "Acetaminophen 500 MG Oral Tablet",
+        "occurred_at": "2021-06-02T23:59:13Z",
+        "available_at": "2021-06-02T23:59:13Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0139",
+        "kind": "order",
+        "code": "rxnorm:854252",
+        "value": "1 ML Enoxaparin sodium 150 MG/ML Prefilled Syringe",
+        "occurred_at": "2021-06-03T23:59:13Z",
+        "available_at": "2021-06-03T23:59:13Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0140",
+        "kind": "order",
+        "code": "rxnorm:198440",
+        "value": "Acetaminophen 500 MG Oral Tablet",
+        "occurred_at": "2021-06-03T23:59:13Z",
+        "available_at": "2021-06-03T23:59:13Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0141",
+        "kind": "order",
+        "code": "rxnorm:854252",
+        "value": "1 ML Enoxaparin sodium 150 MG/ML Prefilled Syringe",
+        "occurred_at": "2021-06-04T23:59:13Z",
+        "available_at": "2021-06-04T23:59:13Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0142",
+        "kind": "order",
+        "code": "rxnorm:198440",
+        "value": "Acetaminophen 500 MG Oral Tablet",
+        "occurred_at": "2021-06-04T23:59:13Z",
+        "available_at": "2021-06-04T23:59:13Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0143",
+        "kind": "order",
+        "code": "rxnorm:854252",
+        "value": "1 ML Enoxaparin sodium 150 MG/ML Prefilled Syringe",
+        "occurred_at": "2021-06-05T23:59:13Z",
+        "available_at": "2021-06-05T23:59:13Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0144",
+        "kind": "order",
+        "code": "rxnorm:198440",
+        "value": "Acetaminophen 500 MG Oral Tablet",
+        "occurred_at": "2021-06-05T23:59:13Z",
+        "available_at": "2021-06-05T23:59:13Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0145",
+        "kind": "discharge",
+        "code": "",
+        "value": "Encounter ended; discharge document not exported",
+        "occurred_at": "2021-06-06T00:14:13Z",
+        "available_at": "2021-06-06T00:14:13Z",
+        "details": {}
+      }
+    ],
+    "provenance": {
+      "type": "synthea",
+      "country": "US",
+      "encounter_class": "inpatient",
+      "primary_selection": "first_mapped_condition_at_encounter_not_confirmed_primary",
+      "ward_mapping": "unknown; therapy requires explicit educational assumption",
+      "availability": "equal to event time; CSV lacks recording timestamp",
+      "no_imputed_data": "No doses, administrations, negative allergies or Russian documentation invented"
+    }
+  },
+  {
+    "id": "SYN-CAP-2",
+    "patient_id": "syn-4362f807ba82",
+    "title": "Synthea · CAP · inpatient",
+    "age": 61,
+    "primary": "CAP",
+    "comorbidities": [
+      "HTN"
+    ],
+    "renal_risk": false,
+    "ward": "other",
+    "admission_at": "2020-12-30T11:30:06Z",
+    "review_times": [
+      "2020-12-30T11:30:06Z",
+      "2021-01-10T12:01:24Z"
+    ],
+    "events": [
+      {
+        "id": "s0001",
+        "kind": "diagnosis",
+        "code": "CAP",
+        "value": "Pneumonia (disorder)",
+        "occurred_at": "2020-12-30T00:00:00Z",
+        "available_at": "2020-12-30T00:00:00Z",
+        "details": {
+          "source_code": "233604007",
+          "precision": "day"
+        }
+      },
+      {
+        "id": "s0002",
+        "kind": "observation",
+        "code": "heart_rate",
+        "value": "112.0",
+        "occurred_at": "2020-12-30T11:46:23Z",
+        "available_at": "2020-12-30T11:46:23Z",
+        "details": {
+          "unit": "/min",
+          "source_code": "8867-4"
+        }
+      },
+      {
+        "id": "s0003",
+        "kind": "observation",
+        "code": "spo2",
+        "value": "78.3",
+        "occurred_at": "2020-12-30T11:46:23Z",
+        "available_at": "2020-12-30T11:46:23Z",
+        "details": {
+          "unit": "%",
+          "source_code": "2708-6"
+        }
+      },
+      {
+        "id": "s0004",
+        "kind": "observation",
+        "code": "diastolic_bp",
+        "value": "100.0",
+        "occurred_at": "2020-12-30T11:46:23Z",
+        "available_at": "2020-12-30T11:46:23Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8462-4"
+        }
+      },
+      {
+        "id": "s0005",
+        "kind": "observation",
+        "code": "systolic_bp",
+        "value": "111.0",
+        "occurred_at": "2020-12-30T11:46:23Z",
+        "available_at": "2020-12-30T11:46:23Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8480-6"
+        }
+      },
+      {
+        "id": "s0006",
+        "kind": "lab",
+        "code": "glucose",
+        "value": "91.6",
+        "occurred_at": "2020-12-30T11:46:23Z",
+        "available_at": "2020-12-30T11:46:23Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2345-7"
+        }
+      },
+      {
+        "id": "s0007",
+        "kind": "lab",
+        "code": "creatinine",
+        "value": "2.6",
+        "occurred_at": "2020-12-30T11:46:23Z",
+        "available_at": "2020-12-30T11:46:23Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2160-0"
+        }
+      },
+      {
+        "id": "s0008",
+        "kind": "lab",
+        "code": "sodium",
+        "value": "140.2",
+        "occurred_at": "2020-12-30T11:46:23Z",
+        "available_at": "2020-12-30T11:46:23Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2951-2"
+        }
+      },
+      {
+        "id": "s0009",
+        "kind": "lab",
+        "code": "potassium",
+        "value": "4.8",
+        "occurred_at": "2020-12-30T11:46:23Z",
+        "available_at": "2020-12-30T11:46:23Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2823-3"
+        }
+      },
+      {
+        "id": "s0010",
+        "kind": "lab",
+        "code": "egfr",
+        "value": "8.0",
+        "occurred_at": "2020-12-30T11:46:23Z",
+        "available_at": "2020-12-30T11:46:23Z",
+        "details": {
+          "unit": "mL/min",
+          "source_code": "33914-3"
+        }
+      },
+      {
+        "id": "s0011",
+        "kind": "observation",
+        "code": "heart_rate",
+        "value": "174.2",
+        "occurred_at": "2020-12-31T11:46:23Z",
+        "available_at": "2020-12-31T11:46:23Z",
+        "details": {
+          "unit": "/min",
+          "source_code": "8867-4"
+        }
+      },
+      {
+        "id": "s0012",
+        "kind": "observation",
+        "code": "spo2",
+        "value": "82.4",
+        "occurred_at": "2020-12-31T11:46:23Z",
+        "available_at": "2020-12-31T11:46:23Z",
+        "details": {
+          "unit": "%",
+          "source_code": "2708-6"
+        }
+      },
+      {
+        "id": "s0013",
+        "kind": "observation",
+        "code": "diastolic_bp",
+        "value": "91.0",
+        "occurred_at": "2020-12-31T11:46:23Z",
+        "available_at": "2020-12-31T11:46:23Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8462-4"
+        }
+      },
+      {
+        "id": "s0014",
+        "kind": "observation",
+        "code": "systolic_bp",
+        "value": "115.0",
+        "occurred_at": "2020-12-31T11:46:23Z",
+        "available_at": "2020-12-31T11:46:23Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8480-6"
+        }
+      },
+      {
+        "id": "s0015",
+        "kind": "lab",
+        "code": "glucose",
+        "value": "76.4",
+        "occurred_at": "2020-12-31T11:46:23Z",
+        "available_at": "2020-12-31T11:46:23Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2345-7"
+        }
+      },
+      {
+        "id": "s0016",
+        "kind": "lab",
+        "code": "creatinine",
+        "value": "2.9",
+        "occurred_at": "2020-12-31T11:46:23Z",
+        "available_at": "2020-12-31T11:46:23Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2160-0"
+        }
+      },
+      {
+        "id": "s0017",
+        "kind": "lab",
+        "code": "sodium",
+        "value": "136.3",
+        "occurred_at": "2020-12-31T11:46:23Z",
+        "available_at": "2020-12-31T11:46:23Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2951-2"
+        }
+      },
+      {
+        "id": "s0018",
+        "kind": "lab",
+        "code": "potassium",
+        "value": "3.8",
+        "occurred_at": "2020-12-31T11:46:23Z",
+        "available_at": "2020-12-31T11:46:23Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2823-3"
+        }
+      },
+      {
+        "id": "s0019",
+        "kind": "lab",
+        "code": "egfr",
+        "value": "8.0",
+        "occurred_at": "2020-12-31T11:46:23Z",
+        "available_at": "2020-12-31T11:46:23Z",
+        "details": {
+          "unit": "mL/min",
+          "source_code": "33914-3"
+        }
+      },
+      {
+        "id": "s0020",
+        "kind": "observation",
+        "code": "heart_rate",
+        "value": "96.6",
+        "occurred_at": "2021-01-01T11:46:23Z",
+        "available_at": "2021-01-01T11:46:23Z",
+        "details": {
+          "unit": "/min",
+          "source_code": "8867-4"
+        }
+      },
+      {
+        "id": "s0021",
+        "kind": "observation",
+        "code": "spo2",
+        "value": "84.1",
+        "occurred_at": "2021-01-01T11:46:23Z",
+        "available_at": "2021-01-01T11:46:23Z",
+        "details": {
+          "unit": "%",
+          "source_code": "2708-6"
+        }
+      },
+      {
+        "id": "s0022",
+        "kind": "observation",
+        "code": "diastolic_bp",
+        "value": "92.0",
+        "occurred_at": "2021-01-01T11:46:23Z",
+        "available_at": "2021-01-01T11:46:23Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8462-4"
+        }
+      },
+      {
+        "id": "s0023",
+        "kind": "observation",
+        "code": "systolic_bp",
+        "value": "122.0",
+        "occurred_at": "2021-01-01T11:46:23Z",
+        "available_at": "2021-01-01T11:46:23Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8480-6"
+        }
+      },
+      {
+        "id": "s0024",
+        "kind": "lab",
+        "code": "glucose",
+        "value": "76.4",
+        "occurred_at": "2021-01-01T11:46:23Z",
+        "available_at": "2021-01-01T11:46:23Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2345-7"
+        }
+      },
+      {
+        "id": "s0025",
+        "kind": "lab",
+        "code": "creatinine",
+        "value": "2.5",
+        "occurred_at": "2021-01-01T11:46:23Z",
+        "available_at": "2021-01-01T11:46:23Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2160-0"
+        }
+      },
+      {
+        "id": "s0026",
+        "kind": "lab",
+        "code": "sodium",
+        "value": "136.3",
+        "occurred_at": "2021-01-01T11:46:23Z",
+        "available_at": "2021-01-01T11:46:23Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2951-2"
+        }
+      },
+      {
+        "id": "s0027",
+        "kind": "lab",
+        "code": "potassium",
+        "value": "3.8",
+        "occurred_at": "2021-01-01T11:46:23Z",
+        "available_at": "2021-01-01T11:46:23Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2823-3"
+        }
+      },
+      {
+        "id": "s0028",
+        "kind": "lab",
+        "code": "egfr",
+        "value": "9.1",
+        "occurred_at": "2021-01-01T11:46:23Z",
+        "available_at": "2021-01-01T11:46:23Z",
+        "details": {
+          "unit": "mL/min",
+          "source_code": "33914-3"
+        }
+      },
+      {
+        "id": "s0029",
+        "kind": "observation",
+        "code": "heart_rate",
+        "value": "91.9",
+        "occurred_at": "2021-01-02T11:46:23Z",
+        "available_at": "2021-01-02T11:46:23Z",
+        "details": {
+          "unit": "/min",
+          "source_code": "8867-4"
+        }
+      },
+      {
+        "id": "s0030",
+        "kind": "observation",
+        "code": "spo2",
+        "value": "88.5",
+        "occurred_at": "2021-01-02T11:46:23Z",
+        "available_at": "2021-01-02T11:46:23Z",
+        "details": {
+          "unit": "%",
+          "source_code": "2708-6"
+        }
+      },
+      {
+        "id": "s0031",
+        "kind": "observation",
+        "code": "diastolic_bp",
+        "value": "94.0",
+        "occurred_at": "2021-01-02T11:46:23Z",
+        "available_at": "2021-01-02T11:46:23Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8462-4"
+        }
+      },
+      {
+        "id": "s0032",
+        "kind": "observation",
+        "code": "systolic_bp",
+        "value": "110.0",
+        "occurred_at": "2021-01-02T11:46:23Z",
+        "available_at": "2021-01-02T11:46:23Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8480-6"
+        }
+      },
+      {
+        "id": "s0033",
+        "kind": "lab",
+        "code": "glucose",
+        "value": "76.4",
+        "occurred_at": "2021-01-02T11:46:23Z",
+        "available_at": "2021-01-02T11:46:23Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2345-7"
+        }
+      },
+      {
+        "id": "s0034",
+        "kind": "lab",
+        "code": "creatinine",
+        "value": "2.6",
+        "occurred_at": "2021-01-02T11:46:23Z",
+        "available_at": "2021-01-02T11:46:23Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2160-0"
+        }
+      },
+      {
+        "id": "s0035",
+        "kind": "lab",
+        "code": "sodium",
+        "value": "136.3",
+        "occurred_at": "2021-01-02T11:46:23Z",
+        "available_at": "2021-01-02T11:46:23Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2951-2"
+        }
+      },
+      {
+        "id": "s0036",
+        "kind": "lab",
+        "code": "potassium",
+        "value": "3.8",
+        "occurred_at": "2021-01-02T11:46:23Z",
+        "available_at": "2021-01-02T11:46:23Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2823-3"
+        }
+      },
+      {
+        "id": "s0037",
+        "kind": "lab",
+        "code": "egfr",
+        "value": "9.3",
+        "occurred_at": "2021-01-02T11:46:23Z",
+        "available_at": "2021-01-02T11:46:23Z",
+        "details": {
+          "unit": "mL/min",
+          "source_code": "33914-3"
+        }
+      },
+      {
+        "id": "s0038",
+        "kind": "observation",
+        "code": "heart_rate",
+        "value": "192.8",
+        "occurred_at": "2021-01-03T11:46:23Z",
+        "available_at": "2021-01-03T11:46:23Z",
+        "details": {
+          "unit": "/min",
+          "source_code": "8867-4"
+        }
+      },
+      {
+        "id": "s0039",
+        "kind": "observation",
+        "code": "spo2",
+        "value": "78.5",
+        "occurred_at": "2021-01-03T11:46:23Z",
+        "available_at": "2021-01-03T11:46:23Z",
+        "details": {
+          "unit": "%",
+          "source_code": "2708-6"
+        }
+      },
+      {
+        "id": "s0040",
+        "kind": "observation",
+        "code": "diastolic_bp",
+        "value": "88.0",
+        "occurred_at": "2021-01-03T11:46:23Z",
+        "available_at": "2021-01-03T11:46:23Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8462-4"
+        }
+      },
+      {
+        "id": "s0041",
+        "kind": "observation",
+        "code": "systolic_bp",
+        "value": "117.0",
+        "occurred_at": "2021-01-03T11:46:23Z",
+        "available_at": "2021-01-03T11:46:23Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8480-6"
+        }
+      },
+      {
+        "id": "s0042",
+        "kind": "lab",
+        "code": "glucose",
+        "value": "76.4",
+        "occurred_at": "2021-01-03T11:46:23Z",
+        "available_at": "2021-01-03T11:46:23Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2345-7"
+        }
+      },
+      {
+        "id": "s0043",
+        "kind": "lab",
+        "code": "creatinine",
+        "value": "2.7",
+        "occurred_at": "2021-01-03T11:46:23Z",
+        "available_at": "2021-01-03T11:46:23Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2160-0"
+        }
+      },
+      {
+        "id": "s0044",
+        "kind": "lab",
+        "code": "sodium",
+        "value": "136.3",
+        "occurred_at": "2021-01-03T11:46:23Z",
+        "available_at": "2021-01-03T11:46:23Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2951-2"
+        }
+      },
+      {
+        "id": "s0045",
+        "kind": "lab",
+        "code": "potassium",
+        "value": "3.8",
+        "occurred_at": "2021-01-03T11:46:23Z",
+        "available_at": "2021-01-03T11:46:23Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2823-3"
+        }
+      },
+      {
+        "id": "s0046",
+        "kind": "lab",
+        "code": "egfr",
+        "value": "6.0",
+        "occurred_at": "2021-01-03T11:46:23Z",
+        "available_at": "2021-01-03T11:46:23Z",
+        "details": {
+          "unit": "mL/min",
+          "source_code": "33914-3"
+        }
+      },
+      {
+        "id": "s0047",
+        "kind": "observation",
+        "code": "heart_rate",
+        "value": "174.2",
+        "occurred_at": "2021-01-04T11:46:23Z",
+        "available_at": "2021-01-04T11:46:23Z",
+        "details": {
+          "unit": "/min",
+          "source_code": "8867-4"
+        }
+      },
+      {
+        "id": "s0048",
+        "kind": "observation",
+        "code": "spo2",
+        "value": "83.2",
+        "occurred_at": "2021-01-04T11:46:23Z",
+        "available_at": "2021-01-04T11:46:23Z",
+        "details": {
+          "unit": "%",
+          "source_code": "2708-6"
+        }
+      },
+      {
+        "id": "s0049",
+        "kind": "observation",
+        "code": "diastolic_bp",
+        "value": "95.0",
+        "occurred_at": "2021-01-04T11:46:23Z",
+        "available_at": "2021-01-04T11:46:23Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8462-4"
+        }
+      },
+      {
+        "id": "s0050",
+        "kind": "observation",
+        "code": "systolic_bp",
+        "value": "109.0",
+        "occurred_at": "2021-01-04T11:46:23Z",
+        "available_at": "2021-01-04T11:46:23Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8480-6"
+        }
+      },
+      {
+        "id": "s0051",
+        "kind": "lab",
+        "code": "glucose",
+        "value": "76.4",
+        "occurred_at": "2021-01-04T11:46:23Z",
+        "available_at": "2021-01-04T11:46:23Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2345-7"
+        }
+      },
+      {
+        "id": "s0052",
+        "kind": "lab",
+        "code": "creatinine",
+        "value": "3.0",
+        "occurred_at": "2021-01-04T11:46:23Z",
+        "available_at": "2021-01-04T11:46:23Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2160-0"
+        }
+      },
+      {
+        "id": "s0053",
+        "kind": "lab",
+        "code": "sodium",
+        "value": "136.3",
+        "occurred_at": "2021-01-04T11:46:23Z",
+        "available_at": "2021-01-04T11:46:23Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2951-2"
+        }
+      },
+      {
+        "id": "s0054",
+        "kind": "lab",
+        "code": "potassium",
+        "value": "3.8",
+        "occurred_at": "2021-01-04T11:46:23Z",
+        "available_at": "2021-01-04T11:46:23Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2823-3"
+        }
+      },
+      {
+        "id": "s0055",
+        "kind": "lab",
+        "code": "egfr",
+        "value": "7.5",
+        "occurred_at": "2021-01-04T11:46:23Z",
+        "available_at": "2021-01-04T11:46:23Z",
+        "details": {
+          "unit": "mL/min",
+          "source_code": "33914-3"
+        }
+      },
+      {
+        "id": "s0056",
+        "kind": "observation",
+        "code": "heart_rate",
+        "value": "155.5",
+        "occurred_at": "2021-01-05T11:46:23Z",
+        "available_at": "2021-01-05T11:46:23Z",
+        "details": {
+          "unit": "/min",
+          "source_code": "8867-4"
+        }
+      },
+      {
+        "id": "s0057",
+        "kind": "observation",
+        "code": "spo2",
+        "value": "83.7",
+        "occurred_at": "2021-01-05T11:46:23Z",
+        "available_at": "2021-01-05T11:46:23Z",
+        "details": {
+          "unit": "%",
+          "source_code": "2708-6"
+        }
+      },
+      {
+        "id": "s0058",
+        "kind": "observation",
+        "code": "diastolic_bp",
+        "value": "89.0",
+        "occurred_at": "2021-01-05T11:46:23Z",
+        "available_at": "2021-01-05T11:46:23Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8462-4"
+        }
+      },
+      {
+        "id": "s0059",
+        "kind": "observation",
+        "code": "systolic_bp",
+        "value": "114.0",
+        "occurred_at": "2021-01-05T11:46:23Z",
+        "available_at": "2021-01-05T11:46:23Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8480-6"
+        }
+      },
+      {
+        "id": "s0060",
+        "kind": "lab",
+        "code": "glucose",
+        "value": "76.4",
+        "occurred_at": "2021-01-05T11:46:23Z",
+        "available_at": "2021-01-05T11:46:23Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2345-7"
+        }
+      },
+      {
+        "id": "s0061",
+        "kind": "lab",
+        "code": "creatinine",
+        "value": "2.6",
+        "occurred_at": "2021-01-05T11:46:23Z",
+        "available_at": "2021-01-05T11:46:23Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2160-0"
+        }
+      },
+      {
+        "id": "s0062",
+        "kind": "lab",
+        "code": "sodium",
+        "value": "136.3",
+        "occurred_at": "2021-01-05T11:46:23Z",
+        "available_at": "2021-01-05T11:46:23Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2951-2"
+        }
+      },
+      {
+        "id": "s0063",
+        "kind": "lab",
+        "code": "potassium",
+        "value": "3.8",
+        "occurred_at": "2021-01-05T11:46:23Z",
+        "available_at": "2021-01-05T11:46:23Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2823-3"
+        }
+      },
+      {
+        "id": "s0064",
+        "kind": "lab",
+        "code": "egfr",
+        "value": "7.0",
+        "occurred_at": "2021-01-05T11:46:23Z",
+        "available_at": "2021-01-05T11:46:23Z",
+        "details": {
+          "unit": "mL/min",
+          "source_code": "33914-3"
+        }
+      },
+      {
+        "id": "s0065",
+        "kind": "observation",
+        "code": "heart_rate",
+        "value": "193.3",
+        "occurred_at": "2021-01-06T11:46:23Z",
+        "available_at": "2021-01-06T11:46:23Z",
+        "details": {
+          "unit": "/min",
+          "source_code": "8867-4"
+        }
+      },
+      {
+        "id": "s0066",
+        "kind": "observation",
+        "code": "spo2",
+        "value": "88.5",
+        "occurred_at": "2021-01-06T11:46:23Z",
+        "available_at": "2021-01-06T11:46:23Z",
+        "details": {
+          "unit": "%",
+          "source_code": "2708-6"
+        }
+      },
+      {
+        "id": "s0067",
+        "kind": "observation",
+        "code": "diastolic_bp",
+        "value": "94.0",
+        "occurred_at": "2021-01-06T11:46:23Z",
+        "available_at": "2021-01-06T11:46:23Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8462-4"
+        }
+      },
+      {
+        "id": "s0068",
+        "kind": "observation",
+        "code": "systolic_bp",
+        "value": "112.0",
+        "occurred_at": "2021-01-06T11:46:23Z",
+        "available_at": "2021-01-06T11:46:23Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8480-6"
+        }
+      },
+      {
+        "id": "s0069",
+        "kind": "lab",
+        "code": "glucose",
+        "value": "76.4",
+        "occurred_at": "2021-01-06T11:46:23Z",
+        "available_at": "2021-01-06T11:46:23Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2345-7"
+        }
+      },
+      {
+        "id": "s0070",
+        "kind": "lab",
+        "code": "creatinine",
+        "value": "2.9",
+        "occurred_at": "2021-01-06T11:46:23Z",
+        "available_at": "2021-01-06T11:46:23Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2160-0"
+        }
+      },
+      {
+        "id": "s0071",
+        "kind": "lab",
+        "code": "sodium",
+        "value": "136.3",
+        "occurred_at": "2021-01-06T11:46:23Z",
+        "available_at": "2021-01-06T11:46:23Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2951-2"
+        }
+      },
+      {
+        "id": "s0072",
+        "kind": "lab",
+        "code": "potassium",
+        "value": "3.8",
+        "occurred_at": "2021-01-06T11:46:23Z",
+        "available_at": "2021-01-06T11:46:23Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2823-3"
+        }
+      },
+      {
+        "id": "s0073",
+        "kind": "lab",
+        "code": "egfr",
+        "value": "12.2",
+        "occurred_at": "2021-01-06T11:46:23Z",
+        "available_at": "2021-01-06T11:46:23Z",
+        "details": {
+          "unit": "mL/min",
+          "source_code": "33914-3"
+        }
+      },
+      {
+        "id": "s0074",
+        "kind": "observation",
+        "code": "heart_rate",
+        "value": "81.4",
+        "occurred_at": "2021-01-07T11:46:23Z",
+        "available_at": "2021-01-07T11:46:23Z",
+        "details": {
+          "unit": "/min",
+          "source_code": "8867-4"
+        }
+      },
+      {
+        "id": "s0075",
+        "kind": "observation",
+        "code": "spo2",
+        "value": "82.5",
+        "occurred_at": "2021-01-07T11:46:23Z",
+        "available_at": "2021-01-07T11:46:23Z",
+        "details": {
+          "unit": "%",
+          "source_code": "2708-6"
+        }
+      },
+      {
+        "id": "s0076",
+        "kind": "observation",
+        "code": "diastolic_bp",
+        "value": "101.0",
+        "occurred_at": "2021-01-07T11:46:23Z",
+        "available_at": "2021-01-07T11:46:23Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8462-4"
+        }
+      },
+      {
+        "id": "s0077",
+        "kind": "observation",
+        "code": "systolic_bp",
+        "value": "111.0",
+        "occurred_at": "2021-01-07T11:46:23Z",
+        "available_at": "2021-01-07T11:46:23Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8480-6"
+        }
+      },
+      {
+        "id": "s0078",
+        "kind": "lab",
+        "code": "glucose",
+        "value": "86.3",
+        "occurred_at": "2021-01-07T11:46:23Z",
+        "available_at": "2021-01-07T11:46:23Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2345-7"
+        }
+      },
+      {
+        "id": "s0079",
+        "kind": "lab",
+        "code": "creatinine",
+        "value": "2.6",
+        "occurred_at": "2021-01-07T11:46:23Z",
+        "available_at": "2021-01-07T11:46:23Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2160-0"
+        }
+      },
+      {
+        "id": "s0080",
+        "kind": "lab",
+        "code": "sodium",
+        "value": "140.8",
+        "occurred_at": "2021-01-07T11:46:23Z",
+        "available_at": "2021-01-07T11:46:23Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2951-2"
+        }
+      },
+      {
+        "id": "s0081",
+        "kind": "lab",
+        "code": "potassium",
+        "value": "5.0",
+        "occurred_at": "2021-01-07T11:46:23Z",
+        "available_at": "2021-01-07T11:46:23Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2823-3"
+        }
+      },
+      {
+        "id": "s0082",
+        "kind": "lab",
+        "code": "egfr",
+        "value": "8.8",
+        "occurred_at": "2021-01-07T11:46:23Z",
+        "available_at": "2021-01-07T11:46:23Z",
+        "details": {
+          "unit": "mL/min",
+          "source_code": "33914-3"
+        }
+      },
+      {
+        "id": "s0083",
+        "kind": "observation",
+        "code": "heart_rate",
+        "value": "59.9",
+        "occurred_at": "2021-01-08T11:46:23Z",
+        "available_at": "2021-01-08T11:46:23Z",
+        "details": {
+          "unit": "/min",
+          "source_code": "8867-4"
+        }
+      },
+      {
+        "id": "s0084",
+        "kind": "observation",
+        "code": "spo2",
+        "value": "84.5",
+        "occurred_at": "2021-01-08T11:46:23Z",
+        "available_at": "2021-01-08T11:46:23Z",
+        "details": {
+          "unit": "%",
+          "source_code": "2708-6"
+        }
+      },
+      {
+        "id": "s0085",
+        "kind": "observation",
+        "code": "diastolic_bp",
+        "value": "91.0",
+        "occurred_at": "2021-01-08T11:46:23Z",
+        "available_at": "2021-01-08T11:46:23Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8462-4"
+        }
+      },
+      {
+        "id": "s0086",
+        "kind": "observation",
+        "code": "systolic_bp",
+        "value": "111.0",
+        "occurred_at": "2021-01-08T11:46:23Z",
+        "available_at": "2021-01-08T11:46:23Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8480-6"
+        }
+      },
+      {
+        "id": "s0087",
+        "kind": "lab",
+        "code": "glucose",
+        "value": "86.3",
+        "occurred_at": "2021-01-08T11:46:23Z",
+        "available_at": "2021-01-08T11:46:23Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2345-7"
+        }
+      },
+      {
+        "id": "s0088",
+        "kind": "lab",
+        "code": "creatinine",
+        "value": "2.5",
+        "occurred_at": "2021-01-08T11:46:23Z",
+        "available_at": "2021-01-08T11:46:23Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2160-0"
+        }
+      },
+      {
+        "id": "s0089",
+        "kind": "lab",
+        "code": "sodium",
+        "value": "140.8",
+        "occurred_at": "2021-01-08T11:46:23Z",
+        "available_at": "2021-01-08T11:46:23Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2951-2"
+        }
+      },
+      {
+        "id": "s0090",
+        "kind": "lab",
+        "code": "potassium",
+        "value": "5.0",
+        "occurred_at": "2021-01-08T11:46:23Z",
+        "available_at": "2021-01-08T11:46:23Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2823-3"
+        }
+      },
+      {
+        "id": "s0091",
+        "kind": "lab",
+        "code": "egfr",
+        "value": "12.1",
+        "occurred_at": "2021-01-08T11:46:23Z",
+        "available_at": "2021-01-08T11:46:23Z",
+        "details": {
+          "unit": "mL/min",
+          "source_code": "33914-3"
+        }
+      },
+      {
+        "id": "s0092",
+        "kind": "observation",
+        "code": "heart_rate",
+        "value": "109.7",
+        "occurred_at": "2021-01-09T11:46:23Z",
+        "available_at": "2021-01-09T11:46:23Z",
+        "details": {
+          "unit": "/min",
+          "source_code": "8867-4"
+        }
+      },
+      {
+        "id": "s0093",
+        "kind": "observation",
+        "code": "spo2",
+        "value": "88.0",
+        "occurred_at": "2021-01-09T11:46:23Z",
+        "available_at": "2021-01-09T11:46:23Z",
+        "details": {
+          "unit": "%",
+          "source_code": "2708-6"
+        }
+      },
+      {
+        "id": "s0094",
+        "kind": "observation",
+        "code": "diastolic_bp",
+        "value": "88.0",
+        "occurred_at": "2021-01-09T11:46:23Z",
+        "available_at": "2021-01-09T11:46:23Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8462-4"
+        }
+      },
+      {
+        "id": "s0095",
+        "kind": "observation",
+        "code": "systolic_bp",
+        "value": "112.0",
+        "occurred_at": "2021-01-09T11:46:23Z",
+        "available_at": "2021-01-09T11:46:23Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8480-6"
+        }
+      },
+      {
+        "id": "s0096",
+        "kind": "lab",
+        "code": "glucose",
+        "value": "86.3",
+        "occurred_at": "2021-01-09T11:46:23Z",
+        "available_at": "2021-01-09T11:46:23Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2345-7"
+        }
+      },
+      {
+        "id": "s0097",
+        "kind": "lab",
+        "code": "creatinine",
+        "value": "2.9",
+        "occurred_at": "2021-01-09T11:46:23Z",
+        "available_at": "2021-01-09T11:46:23Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2160-0"
+        }
+      },
+      {
+        "id": "s0098",
+        "kind": "lab",
+        "code": "sodium",
+        "value": "140.8",
+        "occurred_at": "2021-01-09T11:46:23Z",
+        "available_at": "2021-01-09T11:46:23Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2951-2"
+        }
+      },
+      {
+        "id": "s0099",
+        "kind": "lab",
+        "code": "potassium",
+        "value": "5.0",
+        "occurred_at": "2021-01-09T11:46:23Z",
+        "available_at": "2021-01-09T11:46:23Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2823-3"
+        }
+      },
+      {
+        "id": "s0100",
+        "kind": "lab",
+        "code": "egfr",
+        "value": "10.8",
+        "occurred_at": "2021-01-09T11:46:23Z",
+        "available_at": "2021-01-09T11:46:23Z",
+        "details": {
+          "unit": "mL/min",
+          "source_code": "33914-3"
+        }
+      },
+      {
+        "id": "s0101",
+        "kind": "observation",
+        "code": "heart_rate",
+        "value": "80.3",
+        "occurred_at": "2021-01-10T11:46:23Z",
+        "available_at": "2021-01-10T11:46:23Z",
+        "details": {
+          "unit": "/min",
+          "source_code": "8867-4"
+        }
+      },
+      {
+        "id": "s0102",
+        "kind": "observation",
+        "code": "spo2",
+        "value": "78.5",
+        "occurred_at": "2021-01-10T11:46:23Z",
+        "available_at": "2021-01-10T11:46:23Z",
+        "details": {
+          "unit": "%",
+          "source_code": "2708-6"
+        }
+      },
+      {
+        "id": "s0103",
+        "kind": "observation",
+        "code": "diastolic_bp",
+        "value": "88.0",
+        "occurred_at": "2021-01-10T11:46:23Z",
+        "available_at": "2021-01-10T11:46:23Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8462-4"
+        }
+      },
+      {
+        "id": "s0104",
+        "kind": "observation",
+        "code": "systolic_bp",
+        "value": "112.0",
+        "occurred_at": "2021-01-10T11:46:23Z",
+        "available_at": "2021-01-10T11:46:23Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8480-6"
+        }
+      },
+      {
+        "id": "s0105",
+        "kind": "lab",
+        "code": "glucose",
+        "value": "86.3",
+        "occurred_at": "2021-01-10T11:46:23Z",
+        "available_at": "2021-01-10T11:46:23Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2345-7"
+        }
+      },
+      {
+        "id": "s0106",
+        "kind": "lab",
+        "code": "creatinine",
+        "value": "3.0",
+        "occurred_at": "2021-01-10T11:46:23Z",
+        "available_at": "2021-01-10T11:46:23Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2160-0"
+        }
+      },
+      {
+        "id": "s0107",
+        "kind": "lab",
+        "code": "sodium",
+        "value": "140.8",
+        "occurred_at": "2021-01-10T11:46:23Z",
+        "available_at": "2021-01-10T11:46:23Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2951-2"
+        }
+      },
+      {
+        "id": "s0108",
+        "kind": "lab",
+        "code": "potassium",
+        "value": "5.0",
+        "occurred_at": "2021-01-10T11:46:23Z",
+        "available_at": "2021-01-10T11:46:23Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2823-3"
+        }
+      },
+      {
+        "id": "s0109",
+        "kind": "lab",
+        "code": "egfr",
+        "value": "7.9",
+        "occurred_at": "2021-01-10T11:46:23Z",
+        "available_at": "2021-01-10T11:46:23Z",
+        "details": {
+          "unit": "mL/min",
+          "source_code": "33914-3"
+        }
+      },
+      {
+        "id": "s0110",
+        "kind": "order",
+        "code": "rxnorm:854235",
+        "value": "0.4 ML Enoxaparin sodium 100 MG/ML Prefilled Syringe",
+        "occurred_at": "2020-12-30T11:46:23Z",
+        "available_at": "2020-12-30T11:46:23Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0111",
+        "kind": "order",
+        "code": "rxnorm:198440",
+        "value": "Acetaminophen 500 MG Oral Tablet",
+        "occurred_at": "2020-12-30T11:46:23Z",
+        "available_at": "2020-12-30T11:46:23Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0112",
+        "kind": "order",
+        "code": "rxnorm:854235",
+        "value": "0.4 ML Enoxaparin sodium 100 MG/ML Prefilled Syringe",
+        "occurred_at": "2020-12-31T11:46:23Z",
+        "available_at": "2020-12-31T11:46:23Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0113",
+        "kind": "order",
+        "code": "rxnorm:198440",
+        "value": "Acetaminophen 500 MG Oral Tablet",
+        "occurred_at": "2020-12-31T11:46:23Z",
+        "available_at": "2020-12-31T11:46:23Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0114",
+        "kind": "order",
+        "code": "rxnorm:854235",
+        "value": "0.4 ML Enoxaparin sodium 100 MG/ML Prefilled Syringe",
+        "occurred_at": "2021-01-01T11:46:23Z",
+        "available_at": "2021-01-01T11:46:23Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0115",
+        "kind": "order",
+        "code": "rxnorm:198440",
+        "value": "Acetaminophen 500 MG Oral Tablet",
+        "occurred_at": "2021-01-01T11:46:23Z",
+        "available_at": "2021-01-01T11:46:23Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0116",
+        "kind": "order",
+        "code": "rxnorm:854235",
+        "value": "0.4 ML Enoxaparin sodium 100 MG/ML Prefilled Syringe",
+        "occurred_at": "2021-01-02T11:46:23Z",
+        "available_at": "2021-01-02T11:46:23Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0117",
+        "kind": "order",
+        "code": "rxnorm:198440",
+        "value": "Acetaminophen 500 MG Oral Tablet",
+        "occurred_at": "2021-01-02T11:46:23Z",
+        "available_at": "2021-01-02T11:46:23Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0118",
+        "kind": "order",
+        "code": "rxnorm:854235",
+        "value": "0.4 ML Enoxaparin sodium 100 MG/ML Prefilled Syringe",
+        "occurred_at": "2021-01-03T11:46:23Z",
+        "available_at": "2021-01-03T11:46:23Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0119",
+        "kind": "order",
+        "code": "rxnorm:198440",
+        "value": "Acetaminophen 500 MG Oral Tablet",
+        "occurred_at": "2021-01-03T11:46:23Z",
+        "available_at": "2021-01-03T11:46:23Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0120",
+        "kind": "order",
+        "code": "rxnorm:854235",
+        "value": "0.4 ML Enoxaparin sodium 100 MG/ML Prefilled Syringe",
+        "occurred_at": "2021-01-04T11:46:23Z",
+        "available_at": "2021-01-04T11:46:23Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0121",
+        "kind": "order",
+        "code": "rxnorm:198440",
+        "value": "Acetaminophen 500 MG Oral Tablet",
+        "occurred_at": "2021-01-04T11:46:23Z",
+        "available_at": "2021-01-04T11:46:23Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0122",
+        "kind": "order",
+        "code": "rxnorm:854235",
+        "value": "0.4 ML Enoxaparin sodium 100 MG/ML Prefilled Syringe",
+        "occurred_at": "2021-01-05T11:46:23Z",
+        "available_at": "2021-01-05T11:46:23Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0123",
+        "kind": "order",
+        "code": "rxnorm:198440",
+        "value": "Acetaminophen 500 MG Oral Tablet",
+        "occurred_at": "2021-01-05T11:46:23Z",
+        "available_at": "2021-01-05T11:46:23Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0124",
+        "kind": "order",
+        "code": "rxnorm:854235",
+        "value": "0.4 ML Enoxaparin sodium 100 MG/ML Prefilled Syringe",
+        "occurred_at": "2021-01-06T11:46:23Z",
+        "available_at": "2021-01-06T11:46:23Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0125",
+        "kind": "order",
+        "code": "rxnorm:198440",
+        "value": "Acetaminophen 500 MG Oral Tablet",
+        "occurred_at": "2021-01-06T11:46:23Z",
+        "available_at": "2021-01-06T11:46:23Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0126",
+        "kind": "order",
+        "code": "rxnorm:854235",
+        "value": "0.4 ML Enoxaparin sodium 100 MG/ML Prefilled Syringe",
+        "occurred_at": "2021-01-07T11:46:23Z",
+        "available_at": "2021-01-07T11:46:23Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0127",
+        "kind": "order",
+        "code": "rxnorm:198440",
+        "value": "Acetaminophen 500 MG Oral Tablet",
+        "occurred_at": "2021-01-07T11:46:23Z",
+        "available_at": "2021-01-07T11:46:23Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0128",
+        "kind": "order",
+        "code": "rxnorm:854235",
+        "value": "0.4 ML Enoxaparin sodium 100 MG/ML Prefilled Syringe",
+        "occurred_at": "2021-01-08T11:46:23Z",
+        "available_at": "2021-01-08T11:46:23Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0129",
+        "kind": "order",
+        "code": "rxnorm:198440",
+        "value": "Acetaminophen 500 MG Oral Tablet",
+        "occurred_at": "2021-01-08T11:46:23Z",
+        "available_at": "2021-01-08T11:46:23Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0130",
+        "kind": "order",
+        "code": "rxnorm:854235",
+        "value": "0.4 ML Enoxaparin sodium 100 MG/ML Prefilled Syringe",
+        "occurred_at": "2021-01-09T11:46:23Z",
+        "available_at": "2021-01-09T11:46:23Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0131",
+        "kind": "order",
+        "code": "rxnorm:198440",
+        "value": "Acetaminophen 500 MG Oral Tablet",
+        "occurred_at": "2021-01-09T11:46:23Z",
+        "available_at": "2021-01-09T11:46:23Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0132",
+        "kind": "order",
+        "code": "rxnorm:854235",
+        "value": "0.4 ML Enoxaparin sodium 100 MG/ML Prefilled Syringe",
+        "occurred_at": "2021-01-10T11:46:23Z",
+        "available_at": "2021-01-10T11:46:23Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0133",
+        "kind": "order",
+        "code": "rxnorm:198440",
+        "value": "Acetaminophen 500 MG Oral Tablet",
+        "occurred_at": "2021-01-10T11:46:23Z",
+        "available_at": "2021-01-10T11:46:23Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0134",
+        "kind": "discharge",
+        "code": "",
+        "value": "Encounter ended; discharge document not exported",
+        "occurred_at": "2021-01-10T12:01:23Z",
+        "available_at": "2021-01-10T12:01:23Z",
+        "details": {}
+      }
+    ],
+    "provenance": {
+      "type": "synthea",
+      "country": "US",
+      "encounter_class": "inpatient",
+      "primary_selection": "first_mapped_condition_at_encounter_not_confirmed_primary",
+      "ward_mapping": "unknown; therapy requires explicit educational assumption",
+      "availability": "equal to event time; CSV lacks recording timestamp",
+      "no_imputed_data": "No doses, administrations, negative allergies or Russian documentation invented"
+    }
+  },
+  {
+    "id": "SYN-HF-1",
+    "patient_id": "syn-dd3e5f1ab844",
+    "title": "Synthea · HF · inpatient",
+    "age": 54,
+    "primary": "HF",
+    "comorbidities": [
+      "CAP",
+      "HTN"
+    ],
+    "renal_risk": false,
+    "ward": "other",
+    "admission_at": "2020-12-27T18:28:52Z",
+    "review_times": [
+      "2020-12-27T18:28:52Z",
+      "2020-12-31T18:43:53Z"
+    ],
+    "events": [
+      {
+        "id": "s0001",
+        "kind": "diagnosis",
+        "code": "HF",
+        "value": "Heart failure (disorder)",
+        "occurred_at": "2020-12-27T00:00:00Z",
+        "available_at": "2020-12-27T00:00:00Z",
+        "details": {
+          "source_code": "84114007",
+          "precision": "day"
+        }
+      },
+      {
+        "id": "s0002",
+        "kind": "observation",
+        "code": "heart_rate",
+        "value": "112.5",
+        "occurred_at": "2020-12-27T18:28:52Z",
+        "available_at": "2020-12-27T18:28:52Z",
+        "details": {
+          "unit": "/min",
+          "source_code": "8867-4"
+        }
+      },
+      {
+        "id": "s0003",
+        "kind": "observation",
+        "code": "spo2",
+        "value": "80.5",
+        "occurred_at": "2020-12-27T18:28:52Z",
+        "available_at": "2020-12-27T18:28:52Z",
+        "details": {
+          "unit": "%",
+          "source_code": "2708-6"
+        }
+      },
+      {
+        "id": "s0004",
+        "kind": "observation",
+        "code": "diastolic_bp",
+        "value": "64.0",
+        "occurred_at": "2020-12-27T18:28:52Z",
+        "available_at": "2020-12-27T18:28:52Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8462-4"
+        }
+      },
+      {
+        "id": "s0005",
+        "kind": "observation",
+        "code": "systolic_bp",
+        "value": "93.0",
+        "occurred_at": "2020-12-27T18:28:52Z",
+        "available_at": "2020-12-27T18:28:52Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8480-6"
+        }
+      },
+      {
+        "id": "s0006",
+        "kind": "lab",
+        "code": "glucose",
+        "value": "65.7",
+        "occurred_at": "2020-12-27T18:28:52Z",
+        "available_at": "2020-12-27T18:28:52Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2345-7"
+        }
+      },
+      {
+        "id": "s0007",
+        "kind": "lab",
+        "code": "creatinine",
+        "value": "2.7",
+        "occurred_at": "2020-12-27T18:28:52Z",
+        "available_at": "2020-12-27T18:28:52Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2160-0"
+        }
+      },
+      {
+        "id": "s0008",
+        "kind": "lab",
+        "code": "sodium",
+        "value": "140.0",
+        "occurred_at": "2020-12-27T18:28:52Z",
+        "available_at": "2020-12-27T18:28:52Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2951-2"
+        }
+      },
+      {
+        "id": "s0009",
+        "kind": "lab",
+        "code": "potassium",
+        "value": "4.3",
+        "occurred_at": "2020-12-27T18:28:52Z",
+        "available_at": "2020-12-27T18:28:52Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2823-3"
+        }
+      },
+      {
+        "id": "s0010",
+        "kind": "lab",
+        "code": "egfr",
+        "value": "6.7",
+        "occurred_at": "2020-12-27T18:28:52Z",
+        "available_at": "2020-12-27T18:28:52Z",
+        "details": {
+          "unit": "mL/min",
+          "source_code": "33914-3"
+        }
+      },
+      {
+        "id": "s0011",
+        "kind": "observation",
+        "code": "heart_rate",
+        "value": "126.4",
+        "occurred_at": "2020-12-28T18:28:52Z",
+        "available_at": "2020-12-28T18:28:52Z",
+        "details": {
+          "unit": "/min",
+          "source_code": "8867-4"
+        }
+      },
+      {
+        "id": "s0012",
+        "kind": "observation",
+        "code": "spo2",
+        "value": "79.5",
+        "occurred_at": "2020-12-28T18:28:52Z",
+        "available_at": "2020-12-28T18:28:52Z",
+        "details": {
+          "unit": "%",
+          "source_code": "2708-6"
+        }
+      },
+      {
+        "id": "s0013",
+        "kind": "observation",
+        "code": "diastolic_bp",
+        "value": "68.0",
+        "occurred_at": "2020-12-28T18:28:52Z",
+        "available_at": "2020-12-28T18:28:52Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8462-4"
+        }
+      },
+      {
+        "id": "s0014",
+        "kind": "observation",
+        "code": "systolic_bp",
+        "value": "101.0",
+        "occurred_at": "2020-12-28T18:28:52Z",
+        "available_at": "2020-12-28T18:28:52Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8480-6"
+        }
+      },
+      {
+        "id": "s0015",
+        "kind": "lab",
+        "code": "glucose",
+        "value": "65.7",
+        "occurred_at": "2020-12-28T18:28:52Z",
+        "available_at": "2020-12-28T18:28:52Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2345-7"
+        }
+      },
+      {
+        "id": "s0016",
+        "kind": "lab",
+        "code": "creatinine",
+        "value": "2.6",
+        "occurred_at": "2020-12-28T18:28:52Z",
+        "available_at": "2020-12-28T18:28:52Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2160-0"
+        }
+      },
+      {
+        "id": "s0017",
+        "kind": "lab",
+        "code": "sodium",
+        "value": "140.0",
+        "occurred_at": "2020-12-28T18:28:52Z",
+        "available_at": "2020-12-28T18:28:52Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2951-2"
+        }
+      },
+      {
+        "id": "s0018",
+        "kind": "lab",
+        "code": "potassium",
+        "value": "4.3",
+        "occurred_at": "2020-12-28T18:28:52Z",
+        "available_at": "2020-12-28T18:28:52Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2823-3"
+        }
+      },
+      {
+        "id": "s0019",
+        "kind": "lab",
+        "code": "egfr",
+        "value": "7.4",
+        "occurred_at": "2020-12-28T18:28:52Z",
+        "available_at": "2020-12-28T18:28:52Z",
+        "details": {
+          "unit": "mL/min",
+          "source_code": "33914-3"
+        }
+      },
+      {
+        "id": "s0020",
+        "kind": "observation",
+        "code": "heart_rate",
+        "value": "88.4",
+        "occurred_at": "2020-12-29T18:28:52Z",
+        "available_at": "2020-12-29T18:28:52Z",
+        "details": {
+          "unit": "/min",
+          "source_code": "8867-4"
+        }
+      },
+      {
+        "id": "s0021",
+        "kind": "observation",
+        "code": "spo2",
+        "value": "76.6",
+        "occurred_at": "2020-12-29T18:28:52Z",
+        "available_at": "2020-12-29T18:28:52Z",
+        "details": {
+          "unit": "%",
+          "source_code": "2708-6"
+        }
+      },
+      {
+        "id": "s0022",
+        "kind": "observation",
+        "code": "diastolic_bp",
+        "value": "68.0",
+        "occurred_at": "2020-12-29T18:28:52Z",
+        "available_at": "2020-12-29T18:28:52Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8462-4"
+        }
+      },
+      {
+        "id": "s0023",
+        "kind": "observation",
+        "code": "systolic_bp",
+        "value": "98.0",
+        "occurred_at": "2020-12-29T18:28:52Z",
+        "available_at": "2020-12-29T18:28:52Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8480-6"
+        }
+      },
+      {
+        "id": "s0024",
+        "kind": "lab",
+        "code": "glucose",
+        "value": "65.7",
+        "occurred_at": "2020-12-29T18:28:52Z",
+        "available_at": "2020-12-29T18:28:52Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2345-7"
+        }
+      },
+      {
+        "id": "s0025",
+        "kind": "lab",
+        "code": "creatinine",
+        "value": "2.9",
+        "occurred_at": "2020-12-29T18:28:52Z",
+        "available_at": "2020-12-29T18:28:52Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2160-0"
+        }
+      },
+      {
+        "id": "s0026",
+        "kind": "lab",
+        "code": "sodium",
+        "value": "140.0",
+        "occurred_at": "2020-12-29T18:28:52Z",
+        "available_at": "2020-12-29T18:28:52Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2951-2"
+        }
+      },
+      {
+        "id": "s0027",
+        "kind": "lab",
+        "code": "potassium",
+        "value": "4.3",
+        "occurred_at": "2020-12-29T18:28:52Z",
+        "available_at": "2020-12-29T18:28:52Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2823-3"
+        }
+      },
+      {
+        "id": "s0028",
+        "kind": "lab",
+        "code": "egfr",
+        "value": "8.5",
+        "occurred_at": "2020-12-29T18:28:52Z",
+        "available_at": "2020-12-29T18:28:52Z",
+        "details": {
+          "unit": "mL/min",
+          "source_code": "33914-3"
+        }
+      },
+      {
+        "id": "s0029",
+        "kind": "observation",
+        "code": "heart_rate",
+        "value": "153.6",
+        "occurred_at": "2020-12-30T18:28:52Z",
+        "available_at": "2020-12-30T18:28:52Z",
+        "details": {
+          "unit": "/min",
+          "source_code": "8867-4"
+        }
+      },
+      {
+        "id": "s0030",
+        "kind": "observation",
+        "code": "spo2",
+        "value": "94.6",
+        "occurred_at": "2020-12-30T18:28:52Z",
+        "available_at": "2020-12-30T18:28:52Z",
+        "details": {
+          "unit": "%",
+          "source_code": "2708-6"
+        }
+      },
+      {
+        "id": "s0031",
+        "kind": "observation",
+        "code": "diastolic_bp",
+        "value": "67.0",
+        "occurred_at": "2020-12-30T18:28:52Z",
+        "available_at": "2020-12-30T18:28:52Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8462-4"
+        }
+      },
+      {
+        "id": "s0032",
+        "kind": "observation",
+        "code": "systolic_bp",
+        "value": "96.0",
+        "occurred_at": "2020-12-30T18:28:52Z",
+        "available_at": "2020-12-30T18:28:52Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8480-6"
+        }
+      },
+      {
+        "id": "s0033",
+        "kind": "lab",
+        "code": "glucose",
+        "value": "65.7",
+        "occurred_at": "2020-12-30T18:28:52Z",
+        "available_at": "2020-12-30T18:28:52Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2345-7"
+        }
+      },
+      {
+        "id": "s0034",
+        "kind": "lab",
+        "code": "creatinine",
+        "value": "2.8",
+        "occurred_at": "2020-12-30T18:28:52Z",
+        "available_at": "2020-12-30T18:28:52Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2160-0"
+        }
+      },
+      {
+        "id": "s0035",
+        "kind": "lab",
+        "code": "sodium",
+        "value": "140.0",
+        "occurred_at": "2020-12-30T18:28:52Z",
+        "available_at": "2020-12-30T18:28:52Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2951-2"
+        }
+      },
+      {
+        "id": "s0036",
+        "kind": "lab",
+        "code": "potassium",
+        "value": "4.3",
+        "occurred_at": "2020-12-30T18:28:52Z",
+        "available_at": "2020-12-30T18:28:52Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2823-3"
+        }
+      },
+      {
+        "id": "s0037",
+        "kind": "lab",
+        "code": "egfr",
+        "value": "12.2",
+        "occurred_at": "2020-12-30T18:28:52Z",
+        "available_at": "2020-12-30T18:28:52Z",
+        "details": {
+          "unit": "mL/min",
+          "source_code": "33914-3"
+        }
+      },
+      {
+        "id": "s0038",
+        "kind": "observation",
+        "code": "heart_rate",
+        "value": "146.5",
+        "occurred_at": "2020-12-31T18:28:52Z",
+        "available_at": "2020-12-31T18:28:52Z",
+        "details": {
+          "unit": "/min",
+          "source_code": "8867-4"
+        }
+      },
+      {
+        "id": "s0039",
+        "kind": "observation",
+        "code": "spo2",
+        "value": "94.7",
+        "occurred_at": "2020-12-31T18:28:52Z",
+        "available_at": "2020-12-31T18:28:52Z",
+        "details": {
+          "unit": "%",
+          "source_code": "2708-6"
+        }
+      },
+      {
+        "id": "s0040",
+        "kind": "observation",
+        "code": "diastolic_bp",
+        "value": "69.0",
+        "occurred_at": "2020-12-31T18:28:52Z",
+        "available_at": "2020-12-31T18:28:52Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8462-4"
+        }
+      },
+      {
+        "id": "s0041",
+        "kind": "observation",
+        "code": "systolic_bp",
+        "value": "100.0",
+        "occurred_at": "2020-12-31T18:28:52Z",
+        "available_at": "2020-12-31T18:28:52Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8480-6"
+        }
+      },
+      {
+        "id": "s0042",
+        "kind": "lab",
+        "code": "glucose",
+        "value": "65.7",
+        "occurred_at": "2020-12-31T18:28:52Z",
+        "available_at": "2020-12-31T18:28:52Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2345-7"
+        }
+      },
+      {
+        "id": "s0043",
+        "kind": "lab",
+        "code": "creatinine",
+        "value": "2.9",
+        "occurred_at": "2020-12-31T18:28:52Z",
+        "available_at": "2020-12-31T18:28:52Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2160-0"
+        }
+      },
+      {
+        "id": "s0044",
+        "kind": "lab",
+        "code": "sodium",
+        "value": "140.0",
+        "occurred_at": "2020-12-31T18:28:52Z",
+        "available_at": "2020-12-31T18:28:52Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2951-2"
+        }
+      },
+      {
+        "id": "s0045",
+        "kind": "lab",
+        "code": "potassium",
+        "value": "4.3",
+        "occurred_at": "2020-12-31T18:28:52Z",
+        "available_at": "2020-12-31T18:28:52Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2823-3"
+        }
+      },
+      {
+        "id": "s0046",
+        "kind": "lab",
+        "code": "egfr",
+        "value": "7.9",
+        "occurred_at": "2020-12-31T18:28:52Z",
+        "available_at": "2020-12-31T18:28:52Z",
+        "details": {
+          "unit": "mL/min",
+          "source_code": "33914-3"
+        }
+      },
+      {
+        "id": "s0047",
+        "kind": "order",
+        "code": "rxnorm:854252",
+        "value": "1 ML Enoxaparin sodium 150 MG/ML Prefilled Syringe",
+        "occurred_at": "2020-12-27T18:28:52Z",
+        "available_at": "2020-12-27T18:28:52Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0048",
+        "kind": "order",
+        "code": "rxnorm:2123111",
+        "value": "NDA020503 200 ACTUAT Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler",
+        "occurred_at": "2020-12-27T18:28:52Z",
+        "available_at": "2020-12-27T18:28:52Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0049",
+        "kind": "order",
+        "code": "rxnorm:198440",
+        "value": "Acetaminophen 500 MG Oral Tablet",
+        "occurred_at": "2020-12-27T18:28:52Z",
+        "available_at": "2020-12-27T18:28:52Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0050",
+        "kind": "order",
+        "code": "rxnorm:854252",
+        "value": "1 ML Enoxaparin sodium 150 MG/ML Prefilled Syringe",
+        "occurred_at": "2020-12-28T18:28:52Z",
+        "available_at": "2020-12-28T18:28:52Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0051",
+        "kind": "order",
+        "code": "rxnorm:2123111",
+        "value": "NDA020503 200 ACTUAT Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler",
+        "occurred_at": "2020-12-28T18:28:52Z",
+        "available_at": "2020-12-28T18:28:52Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0052",
+        "kind": "order",
+        "code": "rxnorm:198440",
+        "value": "Acetaminophen 500 MG Oral Tablet",
+        "occurred_at": "2020-12-28T18:28:52Z",
+        "available_at": "2020-12-28T18:28:52Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0053",
+        "kind": "order",
+        "code": "rxnorm:854252",
+        "value": "1 ML Enoxaparin sodium 150 MG/ML Prefilled Syringe",
+        "occurred_at": "2020-12-29T18:28:52Z",
+        "available_at": "2020-12-29T18:28:52Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0054",
+        "kind": "order",
+        "code": "rxnorm:2123111",
+        "value": "NDA020503 200 ACTUAT Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler",
+        "occurred_at": "2020-12-29T18:28:52Z",
+        "available_at": "2020-12-29T18:28:52Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0055",
+        "kind": "order",
+        "code": "rxnorm:198440",
+        "value": "Acetaminophen 500 MG Oral Tablet",
+        "occurred_at": "2020-12-29T18:28:52Z",
+        "available_at": "2020-12-29T18:28:52Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0056",
+        "kind": "order",
+        "code": "rxnorm:854252",
+        "value": "1 ML Enoxaparin sodium 150 MG/ML Prefilled Syringe",
+        "occurred_at": "2020-12-30T18:28:52Z",
+        "available_at": "2020-12-30T18:28:52Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0057",
+        "kind": "order",
+        "code": "rxnorm:2123111",
+        "value": "NDA020503 200 ACTUAT Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler",
+        "occurred_at": "2020-12-30T18:28:52Z",
+        "available_at": "2020-12-30T18:28:52Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0058",
+        "kind": "order",
+        "code": "rxnorm:198440",
+        "value": "Acetaminophen 500 MG Oral Tablet",
+        "occurred_at": "2020-12-30T18:28:52Z",
+        "available_at": "2020-12-30T18:28:52Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0059",
+        "kind": "order",
+        "code": "rxnorm:854252",
+        "value": "1 ML Enoxaparin sodium 150 MG/ML Prefilled Syringe",
+        "occurred_at": "2020-12-31T18:28:52Z",
+        "available_at": "2020-12-31T18:28:52Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0060",
+        "kind": "order",
+        "code": "rxnorm:2123111",
+        "value": "NDA020503 200 ACTUAT Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler",
+        "occurred_at": "2020-12-31T18:28:52Z",
+        "available_at": "2020-12-31T18:28:52Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0061",
+        "kind": "order",
+        "code": "rxnorm:198440",
+        "value": "Acetaminophen 500 MG Oral Tablet",
+        "occurred_at": "2020-12-31T18:28:52Z",
+        "available_at": "2020-12-31T18:28:52Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0062",
+        "kind": "discharge",
+        "code": "",
+        "value": "Encounter ended; discharge document not exported",
+        "occurred_at": "2020-12-31T18:43:52Z",
+        "available_at": "2020-12-31T18:43:52Z",
+        "details": {}
+      }
+    ],
+    "provenance": {
+      "type": "synthea",
+      "country": "US",
+      "encounter_class": "inpatient",
+      "primary_selection": "first_mapped_condition_at_encounter_not_confirmed_primary",
+      "ward_mapping": "unknown; therapy requires explicit educational assumption",
+      "availability": "equal to event time; CSV lacks recording timestamp",
+      "no_imputed_data": "No doses, administrations, negative allergies or Russian documentation invented"
+    }
+  },
+  {
+    "id": "SYN-COPD-2",
+    "patient_id": "syn-a03a65ae7d70",
+    "title": "Synthea · COPD · inpatient",
+    "age": 61,
+    "primary": "COPD",
+    "comorbidities": [],
+    "renal_risk": false,
+    "ward": "other",
+    "admission_at": "2020-07-22T14:29:14Z",
+    "review_times": [
+      "2020-07-22T14:29:14Z",
+      "2020-08-07T16:40:15Z"
+    ],
+    "events": [
+      {
+        "id": "s0001",
+        "kind": "diagnosis",
+        "code": "COPD",
+        "value": "Chronic obstructive bronchitis (disorder)",
+        "occurred_at": "2020-07-22T14:29:14Z",
+        "available_at": "2020-07-22T14:29:14Z",
+        "details": {
+          "source_code": "185086009",
+          "origin": "encounter_reason"
+        }
+      },
+      {
+        "id": "s0002",
+        "kind": "discharge",
+        "code": "",
+        "value": "Encounter ended; discharge document not exported",
+        "occurred_at": "2020-08-07T16:40:14Z",
+        "available_at": "2020-08-07T16:40:14Z",
+        "details": {}
+      }
+    ],
+    "provenance": {
+      "type": "synthea",
+      "country": "US",
+      "encounter_class": "inpatient",
+      "primary_selection": "encounter_reason",
+      "ward_mapping": "unknown; therapy requires explicit educational assumption",
+      "availability": "equal to event time; CSV lacks recording timestamp",
+      "no_imputed_data": "No doses, administrations, negative allergies or Russian documentation invented"
+    }
+  },
+  {
+    "id": "SYN-HF-2",
+    "patient_id": "syn-7ab7d8e773c3",
+    "title": "Synthea · HF · inpatient",
+    "age": 70,
+    "primary": "HF",
+    "comorbidities": [
+      "HTN"
+    ],
+    "renal_risk": true,
+    "ward": "other",
+    "admission_at": "2019-04-10T15:01:59Z",
+    "review_times": [
+      "2019-04-10T15:01:59Z",
+      "2019-04-11T15:08:54Z"
+    ],
+    "events": [
+      {
+        "id": "s0001",
+        "kind": "diagnosis",
+        "code": "HF",
+        "value": "Chronic congestive heart failure (disorder)",
+        "occurred_at": "2019-04-10T15:01:59Z",
+        "available_at": "2019-04-10T15:01:59Z",
+        "details": {
+          "source_code": "88805009",
+          "origin": "encounter_reason"
+        }
+      },
+      {
+        "id": "s0002",
+        "kind": "observation",
+        "code": "spo2",
+        "value": "85.0",
+        "occurred_at": "2019-04-10T15:08:53Z",
+        "available_at": "2019-04-10T15:08:53Z",
+        "details": {
+          "unit": "%",
+          "source_code": "2708-6"
+        }
+      },
+      {
+        "id": "s0003",
+        "kind": "lab",
+        "code": "glucose",
+        "value": "76.5",
+        "occurred_at": "2019-04-11T03:08:53Z",
+        "available_at": "2019-04-11T03:08:53Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2345-7"
+        }
+      },
+      {
+        "id": "s0004",
+        "kind": "lab",
+        "code": "creatinine",
+        "value": "4.0",
+        "occurred_at": "2019-04-11T03:08:53Z",
+        "available_at": "2019-04-11T03:08:53Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2160-0"
+        }
+      },
+      {
+        "id": "s0005",
+        "kind": "lab",
+        "code": "sodium",
+        "value": "141.2",
+        "occurred_at": "2019-04-11T03:08:53Z",
+        "available_at": "2019-04-11T03:08:53Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2951-2"
+        }
+      },
+      {
+        "id": "s0006",
+        "kind": "lab",
+        "code": "potassium",
+        "value": "5.2",
+        "occurred_at": "2019-04-11T03:08:53Z",
+        "available_at": "2019-04-11T03:08:53Z",
+        "details": {
+          "unit": "mmol/L",
+          "source_code": "2823-3"
+        }
+      },
+      {
+        "id": "s0007",
+        "kind": "lab",
+        "code": "egfr",
+        "value": "15.0",
+        "occurred_at": "2019-04-11T03:08:53Z",
+        "available_at": "2019-04-11T03:08:53Z",
+        "details": {
+          "unit": "mL/min",
+          "source_code": "33914-3"
+        }
+      },
+      {
+        "id": "s0008",
+        "kind": "lab",
+        "code": "hba1c",
+        "value": "5.1",
+        "occurred_at": "2019-04-11T03:08:53Z",
+        "available_at": "2019-04-11T03:08:53Z",
+        "details": {
+          "unit": "%",
+          "source_code": "4548-4"
+        }
+      },
+      {
+        "id": "s0009",
+        "kind": "order",
+        "code": "rxnorm:1719286",
+        "value": "10 ML Furosemide 10 MG/ML Injection",
+        "occurred_at": "2019-04-10T15:08:53Z",
+        "available_at": "2019-04-10T15:08:53Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0010",
+        "kind": "order",
+        "code": "rxnorm:1719286",
+        "value": "10 ML Furosemide 10 MG/ML Injection",
+        "occurred_at": "2019-04-11T03:08:53Z",
+        "available_at": "2019-04-11T03:08:53Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0011",
+        "kind": "discharge",
+        "code": "",
+        "value": "Encounter ended; discharge document not exported",
+        "occurred_at": "2019-04-11T15:08:53Z",
+        "available_at": "2019-04-11T15:08:53Z",
+        "details": {}
+      }
+    ],
+    "provenance": {
+      "type": "synthea",
+      "country": "US",
+      "encounter_class": "inpatient",
+      "primary_selection": "encounter_reason",
+      "ward_mapping": "unknown; therapy requires explicit educational assumption",
+      "availability": "equal to event time; CSV lacks recording timestamp",
+      "no_imputed_data": "No doses, administrations, negative allergies or Russian documentation invented"
+    }
+  },
+  {
+    "id": "SYN-HTN-1",
+    "patient_id": "syn-9b5131f32e19",
+    "title": "Synthea · HTN · wellness",
+    "age": 44,
+    "primary": "HTN",
+    "comorbidities": [],
+    "renal_risk": false,
+    "ward": "other",
+    "admission_at": "2026-05-03T20:13:32Z",
+    "review_times": [
+      "2026-05-03T20:13:32Z",
+      "2026-05-03T20:48:20Z"
+    ],
+    "events": [
+      {
+        "id": "s0001",
+        "kind": "diagnosis",
+        "code": "HTN",
+        "value": "Essential hypertension (disorder)",
+        "occurred_at": "2026-05-03T00:00:00Z",
+        "available_at": "2026-05-03T00:00:00Z",
+        "details": {
+          "source_code": "59621000",
+          "precision": "day"
+        }
+      },
+      {
+        "id": "s0002",
+        "kind": "lab",
+        "code": "hba1c",
+        "value": "6.0",
+        "occurred_at": "2026-05-03T20:13:32Z",
+        "available_at": "2026-05-03T20:13:32Z",
+        "details": {
+          "unit": "%",
+          "source_code": "4548-4"
+        }
+      },
+      {
+        "id": "s0003",
+        "kind": "observation",
+        "code": "diastolic_bp",
+        "value": "107.0",
+        "occurred_at": "2026-05-03T20:13:32Z",
+        "available_at": "2026-05-03T20:13:32Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8462-4"
+        }
+      },
+      {
+        "id": "s0004",
+        "kind": "observation",
+        "code": "systolic_bp",
+        "value": "145.0",
+        "occurred_at": "2026-05-03T20:13:32Z",
+        "available_at": "2026-05-03T20:13:32Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8480-6"
+        }
+      },
+      {
+        "id": "s0005",
+        "kind": "observation",
+        "code": "heart_rate",
+        "value": "83.0",
+        "occurred_at": "2026-05-03T20:13:32Z",
+        "available_at": "2026-05-03T20:13:32Z",
+        "details": {
+          "unit": "/min",
+          "source_code": "8867-4"
+        }
+      },
+      {
+        "id": "s0006",
+        "kind": "lab",
+        "code": "glucose",
+        "value": "83.2",
+        "occurred_at": "2026-05-03T20:13:32Z",
+        "available_at": "2026-05-03T20:13:32Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2339-0"
+        }
+      },
+      {
+        "id": "s0007",
+        "kind": "order",
+        "code": "rxnorm:206905",
+        "value": "Ibuprofen 400 MG Oral Tablet [Ibu]",
+        "occurred_at": "2026-05-03T20:13:32Z",
+        "available_at": "2026-05-03T20:13:32Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0008",
+        "kind": "order",
+        "code": "rxnorm:308136",
+        "value": "amLODIPine 2.5 MG Oral Tablet",
+        "occurred_at": "2026-05-03T20:13:32Z",
+        "available_at": "2026-05-03T20:13:32Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0009",
+        "kind": "discharge",
+        "code": "",
+        "value": "Encounter ended; discharge document not exported",
+        "occurred_at": "2026-05-03T20:48:19Z",
+        "available_at": "2026-05-03T20:48:19Z",
+        "details": {}
+      }
+    ],
+    "provenance": {
+      "type": "synthea",
+      "country": "US",
+      "encounter_class": "wellness",
+      "primary_selection": "first_mapped_condition_at_encounter_not_confirmed_primary",
+      "ward_mapping": "unknown; therapy requires explicit educational assumption",
+      "availability": "equal to event time; CSV lacks recording timestamp",
+      "no_imputed_data": "No doses, administrations, negative allergies or Russian documentation invented"
+    }
+  },
+  {
+    "id": "SYN-DM2-1",
+    "patient_id": "syn-d3c9021d9790",
+    "title": "Synthea · DM2 · ambulatory",
+    "age": 76,
+    "primary": "DM2",
+    "comorbidities": [],
+    "renal_risk": false,
+    "ward": "other",
+    "admission_at": "2026-03-31T12:38:25Z",
+    "review_times": [
+      "2026-03-31T12:38:25Z",
+      "2026-03-31T13:27:26Z"
+    ],
+    "events": [
+      {
+        "id": "s0001",
+        "kind": "diagnosis",
+        "code": "DM2",
+        "value": "Diabetes mellitus type 2 (disorder)",
+        "occurred_at": "2026-03-31T12:38:25Z",
+        "available_at": "2026-03-31T12:38:25Z",
+        "details": {
+          "source_code": "44054006",
+          "origin": "encounter_reason"
+        }
+      },
+      {
+        "id": "s0002",
+        "kind": "order",
+        "code": "rxnorm:313521",
+        "value": "tropicamide 5 MG/ML Ophthalmic Solution",
+        "occurred_at": "2026-03-31T12:47:25Z",
+        "available_at": "2026-03-31T12:47:25Z",
+        "details": {
+          "origin": "medications.csv",
+          "class": "unmapped"
+        }
+      },
+      {
+        "id": "s0003",
+        "kind": "discharge",
+        "code": "",
+        "value": "Encounter ended; discharge document not exported",
+        "occurred_at": "2026-03-31T13:27:25Z",
+        "available_at": "2026-03-31T13:27:25Z",
+        "details": {}
+      }
+    ],
+    "provenance": {
+      "type": "synthea",
+      "country": "US",
+      "encounter_class": "ambulatory",
+      "primary_selection": "encounter_reason",
+      "ward_mapping": "unknown; therapy requires explicit educational assumption",
+      "availability": "equal to event time; CSV lacks recording timestamp",
+      "no_imputed_data": "No doses, administrations, negative allergies or Russian documentation invented"
+    }
+  },
+  {
+    "id": "SYN-DM2-2",
+    "patient_id": "syn-79a1d1de5f70",
+    "title": "Synthea · DM2 · wellness",
+    "age": 77,
+    "primary": "DM2",
+    "comorbidities": [],
+    "renal_risk": false,
+    "ward": "other",
+    "admission_at": "2026-03-12T19:21:32Z",
+    "review_times": [
+      "2026-03-12T19:21:32Z",
+      "2026-03-12T19:57:43Z"
+    ],
+    "events": [
+      {
+        "id": "s0001",
+        "kind": "diagnosis",
+        "code": "DM2",
+        "value": "Diabetes mellitus type 2 (disorder)",
+        "occurred_at": "2026-03-12T00:00:00Z",
+        "available_at": "2026-03-12T00:00:00Z",
+        "details": {
+          "source_code": "44054006",
+          "precision": "day"
+        }
+      },
+      {
+        "id": "s0002",
+        "kind": "lab",
+        "code": "hba1c",
+        "value": "7.0",
+        "occurred_at": "2026-03-12T19:21:32Z",
+        "available_at": "2026-03-12T19:21:32Z",
+        "details": {
+          "unit": "%",
+          "source_code": "4548-4"
+        }
+      },
+      {
+        "id": "s0003",
+        "kind": "observation",
+        "code": "diastolic_bp",
+        "value": "68.0",
+        "occurred_at": "2026-03-12T19:21:32Z",
+        "available_at": "2026-03-12T19:21:32Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8462-4"
+        }
+      },
+      {
+        "id": "s0004",
+        "kind": "observation",
+        "code": "systolic_bp",
+        "value": "91.0",
+        "occurred_at": "2026-03-12T19:21:32Z",
+        "available_at": "2026-03-12T19:21:32Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8480-6"
+        }
+      },
+      {
+        "id": "s0005",
+        "kind": "observation",
+        "code": "heart_rate",
+        "value": "84.0",
+        "occurred_at": "2026-03-12T19:21:32Z",
+        "available_at": "2026-03-12T19:21:32Z",
+        "details": {
+          "unit": "/min",
+          "source_code": "8867-4"
+        }
+      },
+      {
+        "id": "s0006",
+        "kind": "lab",
+        "code": "glucose",
+        "value": "73.1",
+        "occurred_at": "2026-03-12T19:21:32Z",
+        "available_at": "2026-03-12T19:21:32Z",
+        "details": {
+          "unit": "mg/dL",
+          "source_code": "2339-0"
+        }
+      },
+      {
+        "id": "s0007",
+        "kind": "lab",
+        "code": "urine_acr",
+        "value": "6.3",
+        "occurred_at": "2026-03-12T19:21:32Z",
+        "available_at": "2026-03-12T19:21:32Z",
+        "details": {
+          "unit": "mg/g",
+          "source_code": "14959-1"
+        }
+      },
+      {
+        "id": "s0008",
+        "kind": "lab",
+        "code": "egfr",
+        "value": "98.3",
+        "occurred_at": "2026-03-12T19:21:32Z",
+        "available_at": "2026-03-12T19:21:32Z",
+        "details": {
+          "unit": "mL/min/{1.73_m2}",
+          "source_code": "33914-3"
+        }
+      },
+      {
+        "id": "s0009",
+        "kind": "discharge",
+        "code": "",
+        "value": "Encounter ended; discharge document not exported",
+        "occurred_at": "2026-03-12T19:57:42Z",
+        "available_at": "2026-03-12T19:57:42Z",
+        "details": {}
+      }
+    ],
+    "provenance": {
+      "type": "synthea",
+      "country": "US",
+      "encounter_class": "wellness",
+      "primary_selection": "first_mapped_condition_at_encounter_not_confirmed_primary",
+      "ward_mapping": "unknown; therapy requires explicit educational assumption",
+      "availability": "equal to event time; CSV lacks recording timestamp",
+      "no_imputed_data": "No doses, administrations, negative allergies or Russian documentation invented"
+    }
+  },
+  {
+    "id": "SYN-HTN-2",
+    "patient_id": "syn-40eb43e62fc3",
+    "title": "Synthea · HTN · virtual",
+    "age": 50,
+    "primary": "HTN",
+    "comorbidities": [],
+    "renal_risk": false,
+    "ward": "other",
+    "admission_at": "2024-09-07T04:17:32Z",
+    "review_times": [
+      "2024-09-07T04:17:32Z",
+      "2024-09-07T04:32:33Z"
+    ],
+    "events": [
+      {
+        "id": "s0001",
+        "kind": "diagnosis",
+        "code": "HTN",
+        "value": "Essential hypertension (disorder)",
+        "occurred_at": "2024-09-07T04:17:32Z",
+        "available_at": "2024-09-07T04:17:32Z",
+        "details": {
+          "source_code": "59621000",
+          "origin": "encounter_reason"
+        }
+      },
+      {
+        "id": "s0002",
+        "kind": "observation",
+        "code": "diastolic_bp",
+        "value": "99.0",
+        "occurred_at": "2024-09-07T04:17:32Z",
+        "available_at": "2024-09-07T04:17:32Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8462-4"
+        }
+      },
+      {
+        "id": "s0003",
+        "kind": "observation",
+        "code": "systolic_bp",
+        "value": "125.0",
+        "occurred_at": "2024-09-07T04:17:32Z",
+        "available_at": "2024-09-07T04:17:32Z",
+        "details": {
+          "unit": "mm[Hg]",
+          "source_code": "8480-6"
+        }
+      },
+      {
+        "id": "s0004",
+        "kind": "discharge",
+        "code": "",
+        "value": "Encounter ended; discharge document not exported",
+        "occurred_at": "2024-09-07T04:32:32Z",
+        "available_at": "2024-09-07T04:32:32Z",
+        "details": {}
+      }
+    ],
+    "provenance": {
+      "type": "synthea",
+      "country": "US",
+      "encounter_class": "virtual",
+      "primary_selection": "encounter_reason",
+      "ward_mapping": "unknown; therapy requires explicit educational assumption",
+      "availability": "equal to event time; CSV lacks recording timestamp",
+      "no_imputed_data": "No doses, administrations, negative allergies or Russian documentation invented"
+    }
+  }
+]

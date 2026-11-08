@@ -1,0 +1,15 @@
+{
+  "report": "reports/therapy-expansion-report.html",
+  "sha256": "d2618fe12e9528aff7f0e286110215c1624a0bbf13f75c09a15c30d4d2c203ea",
+  "bytes": 51912,
+  "standalone_styles_and_script": true,
+  "internal_navigation_valid": true,
+  "gemma_repeat_and_pending_items_present": true,
+  "pytest": {
+    "passed": 169,
+    "failed": 0
+  },
+  "frontend_build": "passed",
+  "mock_smoke": "passed",
+  "live_model_requests_this_release": 0
+}

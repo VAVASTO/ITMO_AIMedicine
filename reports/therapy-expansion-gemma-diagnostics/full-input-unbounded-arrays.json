@@ -1,0 +1,685 @@
+{
+  "model": "gemma-4-31b-it",
+  "case_id": "M01-gap",
+  "role": "audit",
+  "review_at": "2026-11-06T09:00:00+03:00",
+  "payload": {
+    "state": {
+      "case_id": "M01-gap",
+      "age": 54,
+      "primary": "CAP",
+      "comorbidities": [],
+      "renal_risk": false,
+      "ward": "therapy",
+      "admission_at": "2026-11-01T08:00:00+03:00",
+      "review_at": "2026-11-06T09:00:00+03:00",
+      "events": [
+        {
+          "id": "e01",
+          "kind": "diagnosis",
+          "code": "CAP",
+          "value": "documented",
+          "occurred_at": "2026-11-01T08:00:00+03:00",
+          "available_at": "2026-11-01T08:00:00+03:00",
+          "details": {}
+        },
+        {
+          "id": "e02",
+          "kind": "history",
+          "code": "medication_reconciliation",
+          "value": "documented",
+          "occurred_at": "2026-11-01T08:06:00+03:00",
+          "available_at": "2026-11-01T08:06:00+03:00",
+          "details": {}
+        },
+        {
+          "id": "e04",
+          "kind": "observation",
+          "code": "spo2",
+          "value": "documented",
+          "occurred_at": "2026-11-01T09:00:00+03:00",
+          "available_at": "2026-11-01T09:00:00+03:00",
+          "details": {}
+        },
+        {
+          "id": "e07",
+          "kind": "procedure",
+          "code": "chest_xray",
+          "value": "documented",
+          "occurred_at": "2026-11-01T09:00:00+03:00",
+          "available_at": "2026-11-01T09:00:00+03:00",
+          "details": {}
+        },
+        {
+          "id": "e08",
+          "kind": "order",
+          "code": "synthetic-antibiotic",
+          "value": "documented",
+          "occurred_at": "2026-11-01T10:00:00+03:00",
+          "available_at": "2026-11-01T10:00:00+03:00",
+          "details": {
+            "class": "antibiotic",
+            "dose": "recorded_by_clinician",
+            "route": "recorded_by_clinician",
+            "frequency": "recorded_by_clinician",
+            "indication_event_id": "e01"
+          }
+        },
+        {
+          "id": "e09",
+          "kind": "administration",
+          "code": "synthetic-antibiotic",
+          "value": "documented",
+          "occurred_at": "2026-11-01T11:00:00+03:00",
+          "available_at": "2026-11-01T11:00:00+03:00",
+          "details": {
+            "class": "antibiotic",
+            "order_id": "e08"
+          }
+        },
+        {
+          "id": "e10",
+          "kind": "followup_plan",
+          "code": "",
+          "value": "documented",
+          "occurred_at": "2026-11-01T12:00:00+03:00",
+          "available_at": "2026-11-01T12:00:00+03:00",
+          "details": {
+            "due_at": "2026-11-03T23:00:00+03:00"
+          }
+        },
+        {
+          "id": "e15",
+          "kind": "reassessment",
+          "code": "",
+          "value": "worsening",
+          "occurred_at": "2026-11-03T15:00:00+03:00",
+          "available_at": "2026-11-03T15:00:00+03:00",
+          "details": {}
+        },
+        {
+          "id": "e13",
+          "kind": "medication_stop",
+          "code": "synthetic-antibiotic",
+          "value": "documented",
+          "occurred_at": "2026-11-05T08:00:00+03:00",
+          "available_at": "2026-11-05T08:00:00+03:00",
+          "details": {
+            "start_id": "e09"
+          }
+        },
+        {
+          "id": "e14",
+          "kind": "discharge",
+          "code": "",
+          "value": "documented",
+          "occurred_at": "2026-11-06T08:00:00+03:00",
+          "available_at": "2026-11-06T08:00:00+03:00",
+          "details": {
+            "diagnosis": "CAP",
+            "medication_plan": "Записан врачом",
+            "followup": "Записан врачом"
+          }
+        }
+      ]
+    },
+    "temporal_facts": {
+      "stay_seconds": 432000.0,
+      "antibiotic_order_after_diagnosis_seconds": 7200.0,
+      "diagnosis_elapsed_seconds": 435600.0,
+      "antibiotic_start_elapsed_seconds": 424800.0,
+      "antibiotic_start_event_id": "e09",
+      "reassessment_seconds_from_start": [
+        {
+          "event_id": "e15",
+          "seconds": 187200.0
+        }
+      ],
+      "duration_note": "Stay duration and medication course duration are independent quantities."
+    },
+    "rules": [
+      {
+        "id": "Q01",
+        "category": "C01",
+        "title": "Запись основного диагноза",
+        "basis": "workflow_hypothesis",
+        "sources": [
+          "WORKFLOW"
+        ],
+        "contract": "Current-admission diagnosis with code equal to primary: met, otherwise unknown."
+      },
+      {
+        "id": "Q02",
+        "category": "C01",
+        "title": "Сверка постоянной терапии",
+        "basis": "workflow_hypothesis",
+        "sources": [
+          "WORKFLOW"
+        ],
+        "contract": "Current history event code medication_reconciliation: met, otherwise unknown."
+      },
+      {
+        "id": "Q03",
+        "category": "C02",
+        "title": "Аллергоанамнез до назначения",
+        "basis": "workflow_hypothesis",
+        "sources": [
+          "WORKFLOW"
+        ],
+        "contract": "Known or none_known allergy_review must occur AND be available by first current order: met. If valid review exists only after first order: attention; no valid review: unknown. Without orders a valid current review is met."
+      },
+      {
+        "id": "Q04",
+        "category": "C03",
+        "title": "Наличие выбранных наблюдений",
+        "basis": "clinical_projection",
+        "sources": [
+          "CAP2024",
+          "COPD2024",
+          "HTN2024",
+          "HF2024",
+          "DM22022"
+        ],
+        "contract": "Union profile observations. Every required code must have a nonempty value other than unknown/ordered within its lookback: met, otherwise unknown. Do not interpret numeric values."
+      },
+      {
+        "id": "Q05",
+        "category": "C04",
+        "title": "Наличие выбранных анализов",
+        "basis": "clinical_projection",
+        "sources": [
+          "CAP2024",
+          "COPD2024",
+          "HTN2024",
+          "HF2024",
+          "DM22022"
+        ],
+        "contract": "Union profile labs. Every required code needs a completed result within its lookback: met, otherwise unknown. Orders alone do not count. This subset is not the complete clinical workup."
+      },
+      {
+        "id": "Q06",
+        "category": "C05",
+        "title": "Наличие выбранных исследований",
+        "basis": "clinical_projection",
+        "sources": [
+          "CAP2024",
+          "COPD2024",
+          "HTN2024",
+          "HF2024",
+          "DM22022"
+        ],
+        "contract": "Union profile procedures. Every required code needs a documented result within lookback: met, otherwise unknown. Do not demand a repeat solely because a new admission occurred."
+      },
+      {
+        "id": "Q07",
+        "category": "C06",
+        "title": "Заполненность назначения",
+        "basis": "workflow_hypothesis",
+        "sources": [
+          "WORKFLOW"
+        ],
+        "contract": "All current orders must have nonempty dose, route, frequency: met. Missing orders or any missing field: unknown. Do not assess dose correctness."
+      },
+      {
+        "id": "Q08",
+        "category": "C06",
+        "title": "Совпадение с записанным аллергеном",
+        "basis": "workflow_hypothesis",
+        "sources": [
+          "WORKFLOW"
+        ],
+        "contract": "For each order use latest current allergy_review occurred AND available by order time. known requires comma-separated substances codes. Exact intersection with order code or class: attention. No valid prior review or empty known substances: unknown; otherwise met. No orders: not_applicable. No cross-reactivity inference."
+      },
+      {
+        "id": "Q09",
+        "category": "C06",
+        "title": "Разбор терапии при почечном риске",
+        "basis": "workflow_hypothesis",
+        "sources": [
+          "WORKFLOW"
+        ],
+        "contract": "If renal_risk false or no current orders: not_applicable. Otherwise current renal_review: met, missing: unknown. No dose calculation or claim review preceded treatment."
+      },
+      {
+        "id": "Q10",
+        "category": "C07",
+        "title": "Связь назначения с диагнозом",
+        "basis": "workflow_hypothesis",
+        "sources": [
+          "WORKFLOW"
+        ],
+        "contract": "Each current order indication_event_id must reference a current diagnosis available by order time: met, otherwise unknown. No orders: not_applicable. This only checks a link, not clinical appropriateness."
+      },
+      {
+        "id": "Q11",
+        "category": "C07",
+        "title": "Срок назначения антибиотика при ВП",
+        "basis": "clinical_projection",
+        "sources": [
+          "CAP2024"
+        ],
+        "contract": "Primary CAP only, otherwise not_applicable. First antibiotic order on or after primary diagnosis: <=14400 seconds met, later attention. No order: pending if elapsed <=14400, unknown if later. No diagnosis: unknown. Use temporal_facts."
+      },
+      {
+        "id": "Q12",
+        "category": "C07",
+        "title": "Назначение и фактическое введение",
+        "basis": "workflow_hypothesis",
+        "sources": [
+          "WORKFLOW"
+        ],
+        "contract": "Every current administration must reference order_id with same code, available by administration time: met, otherwise attention. No administrations: not_applicable."
+      },
+      {
+        "id": "Q13",
+        "category": "C08",
+        "title": "Оценка ответа при ВП",
+        "basis": "clinical_projection",
+        "sources": [
+          "CAP2024"
+        ],
+        "contract": "Primary CAP only, otherwise not_applicable. A reassessment 172800..259200 seconds inclusive after first antibiotic administration: met. No start: unknown. Without timely reassessment: pending while elapsed <=259200; after deadline attention if a late assessment exists, otherwise unknown. Early assessment does not satisfy this window."
+      },
+      {
+        "id": "Q14",
+        "category": "C08",
+        "title": "Разбор после ухудшения",
+        "basis": "workflow_hypothesis",
+        "sources": [
+          "WORKFLOW"
+        ],
+        "contract": "No current reassessment value worsening: not_applicable. A current treatment_review at or after latest worsening: met, otherwise attention. No causal claims."
+      },
+      {
+        "id": "Q15",
+        "category": "C09",
+        "title": "Соблюдение записанного плана",
+        "basis": "workflow_hypothesis",
+        "sources": [
+          "WORKFLOW"
+        ],
+        "contract": "Latest current followup_plan with valid aware due_at. A reassessment referencing its plan_id, at/after plan and <=due: met. Otherwise pending if now<=due, unknown if overdue. No plan or invalid due: unknown. Do not invent interval."
+      },
+      {
+        "id": "Q16",
+        "category": "C10",
+        "title": "Поля выписки",
+        "basis": "workflow_hypothesis",
+        "sources": [
+          "WORKFLOW"
+        ],
+        "contract": "No current discharge: not_applicable. Latest discharge requires nonempty details diagnosis, medication_plan, followup: met, otherwise unknown."
+      },
+      {
+        "id": "Q17",
+        "category": "C10",
+        "title": "Длительность курса отдельно от госпитализации",
+        "basis": "workflow_hypothesis",
+        "sources": [
+          "WORKFLOW"
+        ],
+        "contract": "No medication_stop: not_applicable. Each stop must reference existing current administration start_id at/before stop: met, otherwise attention. Stay duration need not equal medication course. No clinical duration recommendation."
+      }
+    ],
+    "global_contract": "Adult therapy only; otherwise all not_applicable. Current means occurred_at >= admission_at. Only events occurred AND available by review are visible. A current exception whose code is a rule ID overrides that rule to unknown. Profile lookback=0 means since admission; positive days means review_at minus days. Shared codes use the shortest lookback. These are research windows, not automatic orders for repeat tests. Source documents and workflow checks are not a clinical gold standard.",
+    "profiles": {
+      "CAP": {
+        "name": "Внебольничная пневмония",
+        "scope": "Нетяжёлая ВП у взрослых, терапевтический стационар",
+        "observations": {
+          "spo2": 0
+        },
+        "labs": {
+          "cbc": 0,
+          "crp": 0
+        },
+        "procedures": {
+          "chest_xray": 0
+        },
+        "sources": [
+          "CAP2024"
+        ]
+      }
+    }
+  },
+  "payload_sha256": "26b133191cbe3b342a50bf51d2f739afaad290bbaeb59b83241ee6ae7f561f8a",
+  "prompt_sha256": "3659dd81b71d0364d2ee32a1071e8657ca0820dae54d62b2b13a4315e6d23bff",
+  "status": "ok",
+  "started_at": "2026-11-08T22:28:12.529449+00:00",
+  "schema_change": "Remove minItems/maxItems only from provider schema; strict local validation is unchanged.",
+  "max_output_tokens": 4096,
+  "request": {
+    "model": "gemma-4-31b-it",
+    "fallback": false,
+    "systemInstruction": {
+      "parts": [
+        {
+          "text": "You examine a synthetic adult inpatient therapy record for research.\nUse only visible events and the supplied profile and rule contracts. Never prescribe drugs,\ndoses, diagnose a patient, or infer unrecorded care. Missing documentation is unknown, not\nproof of a violation. Separate clinical-source checks from author-defined workflow checks.\nHonor rule-specific exceptions and exact inclusive time bounds. The two roles work independently.\nReturn schema-valid JSON only, with Russian explanations. Cite only supplied rule source IDs\nand actual visible event IDs. Do not include prose outside JSON.\nAudit every rule Q01..Q17 exactly once in order."
+        }
+      ]
+    },
+    "contents": [
+      {
+        "role": "user",
+        "parts": [
+          {
+            "text": "{\"state\": {\"case_id\": \"M01-gap\", \"age\": 54, \"primary\": \"CAP\", \"comorbidities\": [], \"renal_risk\": false, \"ward\": \"therapy\", \"admission_at\": \"2026-11-01T08:00:00+03:00\", \"review_at\": \"2026-11-06T09:00:00+03:00\", \"events\": [{\"id\": \"e01\", \"kind\": \"diagnosis\", \"code\": \"CAP\", \"value\": \"documented\", \"occurred_at\": \"2026-11-01T08:00:00+03:00\", \"available_at\": \"2026-11-01T08:00:00+03:00\", \"details\": {}}, {\"id\": \"e02\", \"kind\": \"history\", \"code\": \"medication_reconciliation\", \"value\": \"documented\", \"occurred_at\": \"2026-11-01T08:06:00+03:00\", \"available_at\": \"2026-11-01T08:06:00+03:00\", \"details\": {}}, {\"id\": \"e04\", \"kind\": \"observation\", \"code\": \"spo2\", \"value\": \"documented\", \"occurred_at\": \"2026-11-01T09:00:00+03:00\", \"available_at\": \"2026-11-01T09:00:00+03:00\", \"details\": {}}, {\"id\": \"e07\", \"kind\": \"procedure\", \"code\": \"chest_xray\", \"value\": \"documented\", \"occurred_at\": \"2026-11-01T09:00:00+03:00\", \"available_at\": \"2026-11-01T09:00:00+03:00\", \"details\": {}}, {\"id\": \"e08\", \"kind\": \"order\", \"code\": \"synthetic-antibiotic\", \"value\": \"documented\", \"occurred_at\": \"2026-11-01T10:00:00+03:00\", \"available_at\": \"2026-11-01T10:00:00+03:00\", \"details\": {\"class\": \"antibiotic\", \"dose\": \"recorded_by_clinician\", \"route\": \"recorded_by_clinician\", \"frequency\": \"recorded_by_clinician\", \"indication_event_id\": \"e01\"}}, {\"id\": \"e09\", \"kind\": \"administration\", \"code\": \"synthetic-antibiotic\", \"value\": \"documented\", \"occurred_at\": \"2026-11-01T11:00:00+03:00\", \"available_at\": \"2026-11-01T11:00:00+03:00\", \"details\": {\"class\": \"antibiotic\", \"order_id\": \"e08\"}}, {\"id\": \"e10\", \"kind\": \"followup_plan\", \"code\": \"\", \"value\": \"documented\", \"occurred_at\": \"2026-11-01T12:00:00+03:00\", \"available_at\": \"2026-11-01T12:00:00+03:00\", \"details\": {\"due_at\": \"2026-11-03T23:00:00+03:00\"}}, {\"id\": \"e15\", \"kind\": \"reassessment\", \"code\": \"\", \"value\": \"worsening\", \"occurred_at\": \"2026-11-03T15:00:00+03:00\", \"available_at\": \"2026-11-03T15:00:00+03:00\", \"details\": {}}, {\"id\": \"e13\", \"kind\": \"medication_stop\", \"code\": \"synthetic-antibiotic\", \"value\": \"documented\", \"occurred_at\": \"2026-11-05T08:00:00+03:00\", \"available_at\": \"2026-11-05T08:00:00+03:00\", \"details\": {\"start_id\": \"e09\"}}, {\"id\": \"e14\", \"kind\": \"discharge\", \"code\": \"\", \"value\": \"documented\", \"occurred_at\": \"2026-11-06T08:00:00+03:00\", \"available_at\": \"2026-11-06T08:00:00+03:00\", \"details\": {\"diagnosis\": \"CAP\", \"medication_plan\": \"Записан врачом\", \"followup\": \"Записан врачом\"}}]}, \"temporal_facts\": {\"stay_seconds\": 432000.0, \"antibiotic_order_after_diagnosis_seconds\": 7200.0, \"diagnosis_elapsed_seconds\": 435600.0, \"antibiotic_start_elapsed_seconds\": 424800.0, \"antibiotic_start_event_id\": \"e09\", \"reassessment_seconds_from_start\": [{\"event_id\": \"e15\", \"seconds\": 187200.0}], \"duration_note\": \"Stay duration and medication course duration are independent quantities.\"}, \"rules\": [{\"id\": \"Q01\", \"category\": \"C01\", \"title\": \"Запись основного диагноза\", \"basis\": \"workflow_hypothesis\", \"sources\": [\"WORKFLOW\"], \"contract\": \"Current-admission diagnosis with code equal to primary: met, otherwise unknown.\"}, {\"id\": \"Q02\", \"category\": \"C01\", \"title\": \"Сверка постоянной терапии\", \"basis\": \"workflow_hypothesis\", \"sources\": [\"WORKFLOW\"], \"contract\": \"Current history event code medication_reconciliation: met, otherwise unknown.\"}, {\"id\": \"Q03\", \"category\": \"C02\", \"title\": \"Аллергоанамнез до назначения\", \"basis\": \"workflow_hypothesis\", \"sources\": [\"WORKFLOW\"], \"contract\": \"Known or none_known allergy_review must occur AND be available by first current order: met. If valid review exists only after first order: attention; no valid review: unknown. Without orders a valid current review is met.\"}, {\"id\": \"Q04\", \"category\": \"C03\", \"title\": \"Наличие выбранных наблюдений\", \"basis\": \"clinical_projection\", \"sources\": [\"CAP2024\", \"COPD2024\", \"HTN2024\", \"HF2024\", \"DM22022\"], \"contract\": \"Union profile observations. Every required code must have a nonempty value other than unknown/ordered within its lookback: met, otherwise unknown. Do not interpret numeric values.\"}, {\"id\": \"Q05\", \"category\": \"C04\", \"title\": \"Наличие выбранных анализов\", \"basis\": \"clinical_projection\", \"sources\": [\"CAP2024\", \"COPD2024\", \"HTN2024\", \"HF2024\", \"DM22022\"], \"contract\": \"Union profile labs. Every required code needs a completed result within its lookback: met, otherwise unknown. Orders alone do not count. This subset is not the complete clinical workup.\"}, {\"id\": \"Q06\", \"category\": \"C05\", \"title\": \"Наличие выбранных исследований\", \"basis\": \"clinical_projection\", \"sources\": [\"CAP2024\", \"COPD2024\", \"HTN2024\", \"HF2024\", \"DM22022\"], \"contract\": \"Union profile procedures. Every required code needs a documented result within lookback: met, otherwise unknown. Do not demand a repeat solely because a new admission occurred.\"}, {\"id\": \"Q07\", \"category\": \"C06\", \"title\": \"Заполненность назначения\", \"basis\": \"workflow_hypothesis\", \"sources\": [\"WORKFLOW\"], \"contract\": \"All current orders must have nonempty dose, route, frequency: met. Missing orders or any missing field: unknown. Do not assess dose correctness.\"}, {\"id\": \"Q08\", \"category\": \"C06\", \"title\": \"Совпадение с записанным аллергеном\", \"basis\": \"workflow_hypothesis\", \"sources\": [\"WORKFLOW\"], \"contract\": \"For each order use latest current allergy_review occurred AND available by order time. known requires comma-separated substances codes. Exact intersection with order code or class: attention. No valid prior review or empty known substances: unknown; otherwise met. No orders: not_applicable. No cross-reactivity inference.\"}, {\"id\": \"Q09\", \"category\": \"C06\", \"title\": \"Разбор терапии при почечном риске\", \"basis\": \"workflow_hypothesis\", \"sources\": [\"WORKFLOW\"], \"contract\": \"If renal_risk false or no current orders: not_applicable. Otherwise current renal_review: met, missing: unknown. No dose calculation or claim review preceded treatment.\"}, {\"id\": \"Q10\", \"category\": \"C07\", \"title\": \"Связь назначения с диагнозом\", \"basis\": \"workflow_hypothesis\", \"sources\": [\"WORKFLOW\"], \"contract\": \"Each current order indication_event_id must reference a current diagnosis available by order time: met, otherwise unknown. No orders: not_applicable. This only checks a link, not clinical appropriateness.\"}, {\"id\": \"Q11\", \"category\": \"C07\", \"title\": \"Срок назначения антибиотика при ВП\", \"basis\": \"clinical_projection\", \"sources\": [\"CAP2024\"], \"contract\": \"Primary CAP only, otherwise not_applicable. First antibiotic order on or after primary diagnosis: <=14400 seconds met, later attention. No order: pending if elapsed <=14400, unknown if later. No diagnosis: unknown. Use temporal_facts.\"}, {\"id\": \"Q12\", \"category\": \"C07\", \"title\": \"Назначение и фактическое введение\", \"basis\": \"workflow_hypothesis\", \"sources\": [\"WORKFLOW\"], \"contract\": \"Every current administration must reference order_id with same code, available by administration time: met, otherwise attention. No administrations: not_applicable.\"}, {\"id\": \"Q13\", \"category\": \"C08\", \"title\": \"Оценка ответа при ВП\", \"basis\": \"clinical_projection\", \"sources\": [\"CAP2024\"], \"contract\": \"Primary CAP only, otherwise not_applicable. A reassessment 172800..259200 seconds inclusive after first antibiotic administration: met. No start: unknown. Without timely reassessment: pending while elapsed <=259200; after deadline attention if a late assessment exists, otherwise unknown. Early assessment does not satisfy this window.\"}, {\"id\": \"Q14\", \"category\": \"C08\", \"title\": \"Разбор после ухудшения\", \"basis\": \"workflow_hypothesis\", \"sources\": [\"WORKFLOW\"], \"contract\": \"No current reassessment value worsening: not_applicable. A current treatment_review at or after latest worsening: met, otherwise attention. No causal claims.\"}, {\"id\": \"Q15\", \"category\": \"C09\", \"title\": \"Соблюдение записанного плана\", \"basis\": \"workflow_hypothesis\", \"sources\": [\"WORKFLOW\"], \"contract\": \"Latest current followup_plan with valid aware due_at. A reassessment referencing its plan_id, at/after plan and <=due: met. Otherwise pending if now<=due, unknown if overdue. No plan or invalid due: unknown. Do not invent interval.\"}, {\"id\": \"Q16\", \"category\": \"C10\", \"title\": \"Поля выписки\", \"basis\": \"workflow_hypothesis\", \"sources\": [\"WORKFLOW\"], \"contract\": \"No current discharge: not_applicable. Latest discharge requires nonempty details diagnosis, medication_plan, followup: met, otherwise unknown.\"}, {\"id\": \"Q17\", \"category\": \"C10\", \"title\": \"Длительность курса отдельно от госпитализации\", \"basis\": \"workflow_hypothesis\", \"sources\": [\"WORKFLOW\"], \"contract\": \"No medication_stop: not_applicable. Each stop must reference existing current administration start_id at/before stop: met, otherwise attention. Stay duration need not equal medication course. No clinical duration recommendation.\"}], \"global_contract\": \"Adult therapy only; otherwise all not_applicable. Current means occurred_at >= admission_at. Only events occurred AND available by review are visible. A current exception whose code is a rule ID overrides that rule to unknown. Profile lookback=0 means since admission; positive days means review_at minus days. Shared codes use the shortest lookback. These are research windows, not automatic orders for repeat tests. Source documents and workflow checks are not a clinical gold standard.\", \"profiles\": {\"CAP\": {\"name\": \"Внебольничная пневмония\", \"scope\": \"Нетяжёлая ВП у взрослых, терапевтический стационар\", \"observations\": {\"spo2\": 0}, \"labs\": {\"cbc\": 0, \"crp\": 0}, \"procedures\": {\"chest_xray\": 0}, \"sources\": [\"CAP2024\"]}}}"
+          }
+        ]
+      }
+    ],
+    "config": {
+      "responseMimeType": "application/json",
+      "responseSchema": {
+        "required": [
+          "checks"
+        ],
+        "type": "OBJECT",
+        "properties": {
+          "checks": {
+            "type": "ARRAY",
+            "items": {
+              "required": [
+                "rule_id",
+                "status",
+                "explanation",
+                "evidence_ids",
+                "source_ids"
+              ],
+              "type": "OBJECT",
+              "properties": {
+                "rule_id": {
+                  "enum": [
+                    "Q01",
+                    "Q02",
+                    "Q03",
+                    "Q04",
+                    "Q05",
+                    "Q06",
+                    "Q07",
+                    "Q08",
+                    "Q09",
+                    "Q10",
+                    "Q11",
+                    "Q12",
+                    "Q13",
+                    "Q14",
+                    "Q15",
+                    "Q16",
+                    "Q17"
+                  ],
+                  "type": "STRING"
+                },
+                "status": {
+                  "enum": [
+                    "met",
+                    "attention",
+                    "unknown",
+                    "pending",
+                    "not_applicable"
+                  ],
+                  "type": "STRING"
+                },
+                "explanation": {
+                  "type": "STRING"
+                },
+                "evidence_ids": {
+                  "type": "ARRAY",
+                  "items": {
+                    "type": "STRING"
+                  }
+                },
+                "source_ids": {
+                  "type": "ARRAY",
+                  "items": {
+                    "type": "STRING"
+                  }
+                }
+              },
+              "propertyOrdering": [
+                "rule_id",
+                "status",
+                "explanation",
+                "evidence_ids",
+                "source_ids"
+              ]
+            }
+          }
+        },
+        "propertyOrdering": [
+          "checks"
+        ]
+      },
+      "maxOutputTokens": 4096,
+      "thinkingLevel": "minimal"
+    }
+  },
+  "job_id": "job_naZUfM6jLp5h2nJG8fhKyw",
+  "router_result": {
+    "id": "job_naZUfM6jLp5h2nJG8fhKyw",
+    "model": "gemma-4-31b-it",
+    "status": "done",
+    "created_at": "2026-11-08T22:28:12Z",
+    "finished_at": "2026-11-08T22:29:00Z",
+    "result": {
+      "text": "{\"checks\": [{\"rule_id\": \"Q01\", \"status\": \"met\", \"explanation\": \"Основной диагноз CAP задокументирован в событии e01.\", \"evidence_ids\": [\"e01\"], \"source_ids\": [\"WORKFLOW\"]}, {\"rule_id\": \"Q02\", \"status\": \"met\", \"explanation\": \"Сверка постоянной терапии задокументирована в событии e02.\", \"evidence_ids\": [\"e02\"], \"source_ids\": [\"WORKFLOW\"]}, {\"rule_id\": \"Q03\", \"status\": \"unknown\", \"explanation\": \"Событие allergy_review отсутствует в записи.\", \"evidence_ids\": [], \"source_ids\": [\"WORKFLOW\"]}, {\"rule_id\": \"Q04\", \"status\": \"unknown\", \"explanation\": \"Отсутствуют обязательные наблюдения cbc и crp (только spo2 в e04).\", \"evidence_ids\": [\"e04\"], \"source_ids\": [\"CAP2024\"]}, {\"rule_id\": \"Q05\", \"status\": \"unknown\", \"explanation\": \"Отсутствуют результаты лабораторных анализов cbc и crp.\", \"evidence_ids\": [], \"source_ids\": [\"CAP2024\"]}, {\"rule_id\": \"Q06\", \"status\": \"met\", \"explanation\": \"Рентген грудной клетки (chest_xray) задокументирован в событии e07.\", \"evidence_ids\": [\"e07\"], \"source_ids\": [\"CAP2024\"]}, {\"rule_id\": \"Q07\", \"status\": \"met\", \"explanation\": \"Назначение e08 содержит дозу, путь введения и частоту (recorded_by_clinician).\", \"evidence_ids\": [\"e08\"], \"source_ids\": [\"WORKFLOW\"]}, {\"rule_id\": \"Q08\", \"status\": \"unknown\", \"explanation\": \"Отсутствует запись о проверке аллергоанамнеза перед назначением e08.\", \"evidence_ids\": [], \"source_ids\": [\"WORKFLOW\"]}, {\"rule_id\": \"Q09\", \"status\": \"not_applicable\", \"explanation\": \"Почечный риск (renal_risk) равен false.\", \"evidence_ids\": [], \"source_ids\": [\"WORKFLOW\"]}, {\"rule_id\": \"Q10\", \"status\": \"met\", \"explanation\": \"Назначение e08 ссылается на диагноз e01, который доступен к моменту назначения.\", \"evidence_ids\": [\"e08\", \"e01\"], \"source_ids\": [\"WORKFLOW\"]}, {\"rule_id\": \"Q11\", \"status\": \"met\", \"explanation\": \"Первый антибиотик e08 назначен через 7200 секунд после диагноза, что меньше 14400.\", \"evidence_ids\": [\"e08\", \"e01\"], \"source_ids\": [\"CAP2024\"]}, {\"rule_id\": \"Q12\", \"status\": \"met\", \"explanation\": \"Введение препарата e09 ссылается на назначение e08 с тем же кодом.\", \"evidence_ids\": [\"e09\", \"e08\"], \"source_ids\": [\"WORKFLOW\"]}, {\"rule_id\": \"Q13\", \"status\": \"met\", \"explanation\": \"Переоценка e15 произошла через 187200 секунд после начала введения e09, что входит в окно 172800..259200.\", \"evidence_ids\": [\"e15\", \"e09\"], \"source_ids\": [\"CAP2024\"]}, {\"rule_id\": \"Q14\", \"status\": \"attention\", \"explanation\": \"Зафиксировано ухудшение (e15), но отсутствует последующий разбор терапии (treatment_review).\", \"evidence_ids\": [\"e15\"], \"source_ids\": [\"WORKFLOW\"]}, {\"rule_id\": \"Q15\", \"status\": \"unknown\", \"explanation\": \"Переоценка e15 не ссылается на план e10 (отсутствует plan_id).\", \"evidence_ids\": [\"e10\", \"e15\"], \"source_ids\": [\"WORKFLOW\"]}, {\"rule_id\": \"Q16\", \"status\": \"met\", \"explanation\": \"Выписка e14 содержит заполненные поля диагноз, план медикаментов и последующее наблюдение.\", \"evidence_ids\": [\"e14\"], \"source_ids\": [\"WORKFLOW\"]}, {\"rule_id\": \"Q17\", \"status\": \"met\", \"explanation\": \"Остановка препарата e13 ссылается на начало введения e09, которое произошло ранее.\", \"evidence_ids\": [\"e13\", \"e09\"], \"source_ids\": [\"WORKFLOW\"]}]}",
+      "parts": [
+        {
+          "text": "{\"checks\": [{\"rule_id\": \"Q01\", \"status\": \"met\", \"explanation\": \"Основной диагноз CAP задокументирован в событии e01.\", \"evidence_ids\": [\"e01\"], \"source_ids\": [\"WORKFLOW\"]}, {\"rule_id\": \"Q02\", \"status\": \"met\", \"explanation\": \"Сверка постоянной терапии задокументирована в событии e02.\", \"evidence_ids\": [\"e02\"], \"source_ids\": [\"WORKFLOW\"]}, {\"rule_id\": \"Q03\", \"status\": \"unknown\", \"explanation\": \"Событие allergy_review отсутствует в записи.\", \"evidence_ids\": [], \"source_ids\": [\"WORKFLOW\"]}, {\"rule_id\": \"Q04\", \"status\": \"unknown\", \"explanation\": \"Отсутствуют обязательные наблюдения cbc и crp (только spo2 в e04).\", \"evidence_ids\": [\"e04\"], \"source_ids\": [\"CAP2024\"]}, {\"rule_id\": \"Q05\", \"status\": \"unknown\", \"explanation\": \"Отсутствуют результаты лабораторных анализов cbc и crp.\", \"evidence_ids\": [], \"source_ids\": [\"CAP2024\"]}, {\"rule_id\": \"Q06\", \"status\": \"met\", \"explanation\": \"Рентген грудной клетки (chest_xray) задокументирован в событии e07.\", \"evidence_ids\": [\"e07\"], \"source_ids\": [\"CAP2024\"]}, {\"rule_id\": \"Q07\", \"status\": \"met\", \"explanation\": \"Назначение e08 содержит дозу, путь введения и частоту (recorded_by_clinician).\", \"evidence_ids\": [\"e08\"], \"source_ids\": [\"WORKFLOW\"]}, {\"rule_id\": \"Q08\", \"status\": \"unknown\", \"explanation\": \"Отсутствует запись о проверке аллергоанамнеза перед назначением e08.\", \"evidence_ids\": [], \"source_ids\": [\"WORKFLOW\"]}, {\"rule_id\": \"Q09\", \"status\": \"not_applicable\", \"explanation\": \"Почечный риск (renal_risk) равен false.\", \"evidence_ids\": [], \"source_ids\": [\"WORKFLOW\"]}, {\"rule_id\": \"Q10\", \"status\": \"met\", \"explanation\": \"Назначение e08 ссылается на диагноз e01, который доступен к моменту назначения.\", \"evidence_ids\": [\"e08\", \"e01\"], \"source_ids\": [\"WORKFLOW\"]}, {\"rule_id\": \"Q11\", \"status\": \"met\", \"explanation\": \"Первый антибиотик e08 назначен через 7200 секунд после диагноза, что меньше 14400.\", \"evidence_ids\": [\"e08\", \"e01\"], \"source_ids\": [\"CAP2024\"]}, {\"rule_id\": \"Q12\", \"status\": \"met\", \"explanation\": \"Введение препарата e09 ссылается на назначение e08 с тем же кодом.\", \"evidence_ids\": [\"e09\", \"e08\"], \"source_ids\": [\"WORKFLOW\"]}, {\"rule_id\": \"Q13\", \"status\": \"met\", \"explanation\": \"Переоценка e15 произошла через 187200 секунд после начала введения e09, что входит в окно 172800..259200.\", \"evidence_ids\": [\"e15\", \"e09\"], \"source_ids\": [\"CAP2024\"]}, {\"rule_id\": \"Q14\", \"status\": \"attention\", \"explanation\": \"Зафиксировано ухудшение (e15), но отсутствует последующий разбор терапии (treatment_review).\", \"evidence_ids\": [\"e15\"], \"source_ids\": [\"WORKFLOW\"]}, {\"rule_id\": \"Q15\", \"status\": \"unknown\", \"explanation\": \"Переоценка e15 не ссылается на план e10 (отсутствует plan_id).\", \"evidence_ids\": [\"e10\", \"e15\"], \"source_ids\": [\"WORKFLOW\"]}, {\"rule_id\": \"Q16\", \"status\": \"met\", \"explanation\": \"Выписка e14 содержит заполненные поля диагноз, план медикаментов и последующее наблюдение.\", \"evidence_ids\": [\"e14\"], \"source_ids\": [\"WORKFLOW\"]}, {\"rule_id\": \"Q17\", \"status\": \"met\", \"explanation\": \"Остановка препарата e13 ссылается на начало введения e09, которое произошло ранее.\", \"evidence_ids\": [\"e13\", \"e09\"], \"source_ids\": [\"WORKFLOW\"]}]}"
+        }
+      ],
+      "finishReason": "STOP",
+      "usage": {
+        "input": 3263,
+        "output": 1070,
+        "thoughts": 0,
+        "total": 4333
+      }
+    }
+  },
+  "completion": {
+    "result": {
+      "checks": [
+        {
+          "rule_id": "Q01",
+          "status": "met",
+          "explanation": "Основной диагноз CAP задокументирован в событии e01.",
+          "evidence_ids": [
+            "e01"
+          ],
+          "source_ids": [
+            "WORKFLOW"
+          ]
+        },
+        {
+          "rule_id": "Q02",
+          "status": "met",
+          "explanation": "Сверка постоянной терапии задокументирована в событии e02.",
+          "evidence_ids": [
+            "e02"
+          ],
+          "source_ids": [
+            "WORKFLOW"
+          ]
+        },
+        {
+          "rule_id": "Q03",
+          "status": "unknown",
+          "explanation": "Событие allergy_review отсутствует в записи.",
+          "evidence_ids": [],
+          "source_ids": [
+            "WORKFLOW"
+          ]
+        },
+        {
+          "rule_id": "Q04",
+          "status": "unknown",
+          "explanation": "Отсутствуют обязательные наблюдения cbc и crp (только spo2 в e04).",
+          "evidence_ids": [
+            "e04"
+          ],
+          "source_ids": [
+            "CAP2024"
+          ]
+        },
+        {
+          "rule_id": "Q05",
+          "status": "unknown",
+          "explanation": "Отсутствуют результаты лабораторных анализов cbc и crp.",
+          "evidence_ids": [],
+          "source_ids": [
+            "CAP2024"
+          ]
+        },
+        {
+          "rule_id": "Q06",
+          "status": "met",
+          "explanation": "Рентген грудной клетки (chest_xray) задокументирован в событии e07.",
+          "evidence_ids": [
+            "e07"
+          ],
+          "source_ids": [
+            "CAP2024"
+          ]
+        },
+        {
+          "rule_id": "Q07",
+          "status": "met",
+          "explanation": "Назначение e08 содержит дозу, путь введения и частоту (recorded_by_clinician).",
+          "evidence_ids": [
+            "e08"
+          ],
+          "source_ids": [
+            "WORKFLOW"
+          ]
+        },
+        {
+          "rule_id": "Q08",
+          "status": "unknown",
+          "explanation": "Отсутствует запись о проверке аллергоанамнеза перед назначением e08.",
+          "evidence_ids": [],
+          "source_ids": [
+            "WORKFLOW"
+          ]
+        },
+        {
+          "rule_id": "Q09",
+          "status": "not_applicable",
+          "explanation": "Почечный риск (renal_risk) равен false.",
+          "evidence_ids": [],
+          "source_ids": [
+            "WORKFLOW"
+          ]
+        },
+        {
+          "rule_id": "Q10",
+          "status": "met",
+          "explanation": "Назначение e08 ссылается на диагноз e01, который доступен к моменту назначения.",
+          "evidence_ids": [
+            "e08",
+            "e01"
+          ],
+          "source_ids": [
+            "WORKFLOW"
+          ]
+        },
+        {
+          "rule_id": "Q11",
+          "status": "met",
+          "explanation": "Первый антибиотик e08 назначен через 7200 секунд после диагноза, что меньше 14400.",
+          "evidence_ids": [
+            "e08",
+            "e01"
+          ],
+          "source_ids": [
+            "CAP2024"
+          ]
+        },
+        {
+          "rule_id": "Q12",
+          "status": "met",
+          "explanation": "Введение препарата e09 ссылается на назначение e08 с тем же кодом.",
+          "evidence_ids": [
+            "e09",
+            "e08"
+          ],
+          "source_ids": [
+            "WORKFLOW"
+          ]
+        },
+        {
+          "rule_id": "Q13",
+          "status": "met",
+          "explanation": "Переоценка e15 произошла через 187200 секунд после начала введения e09, что входит в окно 172800..259200.",
+          "evidence_ids": [
+            "e15",
+            "e09"
+          ],
+          "source_ids": [
+            "CAP2024"
+          ]
+        },
+        {
+          "rule_id": "Q14",
+          "status": "attention",
+          "explanation": "Зафиксировано ухудшение (e15), но отсутствует последующий разбор терапии (treatment_review).",
+          "evidence_ids": [
+            "e15"
+          ],
+          "source_ids": [
+            "WORKFLOW"
+          ]
+        },
+        {
+          "rule_id": "Q15",
+          "status": "unknown",
+          "explanation": "Переоценка e15 не ссылается на план e10 (отсутствует plan_id).",
+          "evidence_ids": [
+            "e10",
+            "e15"
+          ],
+          "source_ids": [
+            "WORKFLOW"
+          ]
+        },
+        {
+          "rule_id": "Q16",
+          "status": "met",
+          "explanation": "Выписка e14 содержит заполненные поля диагноз, план медикаментов и последующее наблюдение.",
+          "evidence_ids": [
+            "e14"
+          ],
+          "source_ids": [
+            "WORKFLOW"
+          ]
+        },
+        {
+          "rule_id": "Q17",
+          "status": "met",
+          "explanation": "Остановка препарата e13 ссылается на начало введения e09, которое произошло ранее.",
+          "evidence_ids": [
+            "e13",
+            "e09"
+          ],
+          "source_ids": [
+            "WORKFLOW"
+          ]
+        }
+      ]
+    },
+    "provider": "router",
+    "model": "gemma-4-31b-it",
+    "mode": "live",
+    "attempts": 1,
+    "latency_ms": 51096,
+    "usage": {
+      "input": 3263,
+      "output": 1070,
+      "thoughts": 0,
+      "total": 4333
+    },
+    "job_id": "job_naZUfM6jLp5h2nJG8fhKyw",
+    "format_cleanup": null
+  },
+  "finished_at": "2026-11-08T22:29:03.630754+00:00"
+}
